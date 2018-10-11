@@ -1,0 +1,119 @@
+
+
+
+<h1 class="text-center mt-5">Monitor reconocelo</h1>
+<div class="container pt-3">
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-10 col-md-6">
+            <div class="card border-info">
+                <div class="card-header">Sign in to continue</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="https://placeimg.com/150/150/tech/sepia">
+                            <h4 class="text-center">Reconocelo</h4>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-signin">
+                                <input type="text" class="form-control mb-2" placeholder="Email" required autofocus ng-model="usuario">
+                                <input type="password" class="form-control mb-2" placeholder="Password" required ng-model="password">
+                               <input type="button" class="btn btn-lg btn-primary btn-block mb-1"  value="Ingresar" ng-click="validate()"></button>
+                                <label class="checkbox float-left">
+                                    <input type="checkbox" value="remember-me">
+                                    Remember me
+                                    {{usuario}}
+                                    {{password}}
+                                    
+                                </label>
+                                <a href="#" class="float-right">Necesitas ayuda?</a>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p class="display-2">Participantes</p>
+        </div>
+
+
+    </div>
+    <div class="row mb-5">
+        <div class="col-5">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Busqueda de Pfarticipante</span>
+
+                </div>
+
+                <input type="text" class="form-control" ng-model="filtro">
+                <button ng-json-export-excel data="Participantes" report-fields="{PrimerNombre: 'PrimerNombre', CalleNumero :'CalleNumero', Colonia: 'Colonia'}" filename="'filename'" separator="," class="btn btn-success">Exportar a excel <i class="far fa-file-excel ml-2"></i></button>
+            </div>    
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-hover table-sm table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">PrimerNombre</th>
+<!--
+<th scope="col">CalleNumero</th>
+
+<th scope="col">Colonia</th>
+
+<th scope="col">cp</th>
+<th scope="col">Ciudad</th>
+<th scope="col">Estado</th>
+**************
+<th scope="col">eMail</th>
+<th scope="col">SaldoActual</th>
+<th scope="col">Ver canjes</th>
+<th scope="col">Habilitar</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr ng-repeat="friend in Participantes| filter : filtro">
+
+
+
+<th ng-bind="friend.PrimerNombre">   </th>
+<th ng-bind="friend.eMail">   </th>
+<th ng-bind="friend.SaldoActual">   </th>
+<th ng-click="verCanjes(friend.PrimerNombre)"> <i class="far fa-eye"></i></th>
+<th ng-click="verCanjes(friend.PrimerNombre)"><i class="fas fa-unlock-alt"></i></th>
+
+
+
+</tr>   
+</tbody>
+</table>  
+</div>          
+</div>
+
+</div>
+
+</div>
+
+-->

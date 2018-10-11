@@ -1,0 +1,16 @@
+       
+
+body { padding-top: 80px; } 
+.navbar {
+   background:#034889 ;
+}
+a{
+    color: #fff;
+}
+a:hover{
+      color: #6C7DAC;
+}
+.navbar-toggler{
+   color: #fff;  
+   background-color: #6C7DAC;
+}

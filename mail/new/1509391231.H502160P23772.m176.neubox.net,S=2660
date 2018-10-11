@@ -1,0 +1,85 @@
+Return-path: <>
+Envelope-to: no_reply@reconocelo.com.mx
+Delivery-date: Mon, 30 Oct 2017 14:20:31 -0500
+Received: from mailnull by m176.neubox.net with local (Exim 4.87)
+	id 1e9Fbr-0006BL-6U
+	for no_reply@reconocelo.com.mx; Mon, 30 Oct 2017 14:20:31 -0500
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@m176.neubox.net>
+To: no_reply@reconocelo.com.mx
+Subject: Mail failure - malformed recipient address
+Message-Id: <E1e9Fbr-0006BL-6U@m176.neubox.net>
+Date: Mon, 30 Oct 2017 14:20:31 -0500
+
+A message that you sent contained one or more recipient addresses that were
+incorrectly constructed:
+
+  morris.71@hotmail.com\302\240: malformed address:   may not follow morris.71@hotmail.com
+
+This address has been ignored. The other addresses in the message were
+syntactically valid and have been passed on for an attempt at delivery.
+
+------ This is a copy of your message, including all the headers. ------
+
+To: operaciones@opisa.com
+Subject: =?utf-8?Q?Canje?=
+X-PHP-Script: www.reconocelo.com.mx/index.php for 201.146.111.65
+User-Agent: CodeIgniter
+Date: Mon, 30 Oct 2017 14:20:30 -0500
+From: "reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+Return-Path: <no_reply@reconocelo.com.mx>
+Cc: morris.71@hotmail.com 
+Bcc: aqm306@gmail.com
+Reply-To: "no_reply@reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+X-Sender: no_reply@reconocelo.com.mx
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: <59f77b7eec03a@reconocelo.com.mx>
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="B_ALT_59f77b7eec809"
+
+This is a multi-part message in MIME format.
+Your email application may not support this format.
+
+--B_ALT_59f77b7eec809
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+RECONOCELO
+ SE HA GENERADO EL CANJE CON FOLIO: 372
+ 
+ ID PARTICIPANTE: 98108
+ NOMBRE: Hugo Lujan
+ COD. PARTICIPANTE: 208
+ COD. EMPRESA: 41160
+ 
+ Productos
+ 
+ Artículo:8226
+ Desc:Autoestéreo Pioneer
+ Cantidad:1
+ Puntos:1,725,000
+
+
+--B_ALT_59f77b7eec809
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<h1>RECONOCELO</h1>
+ <h2>SE HA GENERADO EL CANJE CON FOLIO: 372</h2>
+ <table>
+ <tr><td>ID PARTICIPANTE: </td><td style=3D'font-weight'>98108</td></tr>
+ <tr><td>NOMBRE: </td><td style=3D'font-weight'>Hugo Lujan</td></tr>
+ <tr><td>COD. PARTICIPANTE: </td><td style=3D'font-weight'>208</td></tr>
+ <tr><td>COD. EMPRESA: </td><td style=3D'font-weight'>41160</td></tr>
+ </table>
+ <h3>Productos</h3>
+ <table><tr>
+ <td>Artículo:</td><td>8226</td>
+ <td>Desc:</td><td>Autoestéreo Pioneer</td>
+ <td>Cantidad:</td><td>1</td>
+ <td>Puntos:</td><td>1,725,000</td>
+ </tr>
+ </table>
+
+--B_ALT_59f77b7eec809--

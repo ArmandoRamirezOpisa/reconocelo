@@ -1,0 +1,174 @@
+# Webalizer V2.23-05 Incremental Data - 07/12/2018 14:26:02
+2018 7 12 14 26 2
+702 231 1 22 3 2 15252111 214 3 0
+1 21 260 11 12
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+21 18 1667073 1 4 1
+681 213 13585038 1 210 2
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+21 18 1667073 4
+223 62 4223100 90
+260 95 5852557 73
+177 45 3179744 45
+21 11 329637 2
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0
+0
+0
+231
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+315
+0
+0
+0
+0
+0
+0
+156
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+# -urls- 
+/components/js/bootstrap.min.js
+0 12 0 354732 0 0
+/view1/view1.js
+0 69 0 155545 0 0
+/view2/view2.html
+0 2 0 410 0 0
+/components/css/Style.css
+0 12 0 0 0 0
+/components/css/bootstrap.min.css
+0 12 0 1123368 0 0
+/components/css/normalize.css
+0 12 0 48416 0 0
+/components/js/notify.js
+0 24 674958199375265808 86036 0 0
+/components/version/interpolate-filter.js
+0 12 0 1768 0 0
+/components/version/angular.js
+0 12 0 9026507 0 0
+/components/js/pnotify.custom.min.js
+0 16 674929612072943632 67460 0 0
+/components/js/bootstrap.min.js.map
+0 5 674957340381806608 883010 0 0
+/view1/view1.html
+0 71 0 143756 0 0
+/components/js/json-export-excel.min.js
+0 12 0 7644 0 0
+/app.js
+0 56 0 6506 0 0
+/components/js/jquery-3.3.1.min.js
+0 12 0 608489 0 0
+/
+0 141 0 43951 3 2
+/components/version/version-directive.js
+0 12 0 1592 0 0
+/view2/view2.js
+0 12 0 2136 0 0
+/components/css/bootstrap.min.css.map
+0 6 674957752698667024 2231572 0 0
+/components/version/angular-route.js
+0 12 0 314524 0 0
+/components/version/version.js
+0 12 0 1224 0 0
+/components/js/popper.min.js
+0 12 0 143465 0 0
+# End Of Table - urls
+# -sites- (monthly)
+dsl-189-134-47-193-dyn.prod-infinitum.com.mx
+0 702 231 15252111 3 1531405562
+/view1/view1.html
+# End Of Table - sites (monthly)
+# -sites- (daily)
+dsl-189-134-47-193-dyn.prod-infinitum.com.mx
+0 681 213 13585038 2 1531405562
+/view1/view1.html
+# End Of Table - sites (daily)
+# -referrers- 
+- (Direct Request)
+0 243
+http://monitor.reconocelo.com.mx/
+0 19
+http://www.monitor.reconocelo.com.mx/
+0 440
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+0 563
+Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+0 139
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames

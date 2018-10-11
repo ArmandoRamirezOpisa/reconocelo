@@ -1,0 +1,25 @@
+[24-Jun-2014 09:11:05] PHP Parse error:  syntax error, unexpected T_EXIT, expecting T_STRING in /home/heinz/public_html/application/controllers/exit.php on line 3
+[24-Jun-2014 09:14:35] PHP Parse error:  syntax error, unexpected T_EXIT, expecting T_STRING in /home/heinz/public_html/application/controllers/exit.php on line 3
+[25-Jun-2014 13:17:34] PHP Fatal error:  Call to undefined method Canje_model::addCanje() in /home/heinz/public_html/application/controllers/canje_controller.php on line 13
+[25-Jun-2014 13:17:43] PHP Fatal error:  Call to undefined method Canje_model::addCanje() in /home/heinz/public_html/application/controllers/canje_controller.php on line 13
+[10-Sep-2014 12:46:46] PHP Parse error:  syntax error, unexpected '.' in /home/heinz/public_html/application/views/cart_view.php on line 28
+[10-Sep-2014 12:46:48] PHP Parse error:  syntax error, unexpected '.' in /home/heinz/public_html/application/views/cart_view.php on line 28
+[02-Jun-2016 23:47:50] PHP Fatal error:  Function name must be a string in /home/sandvik/public_html/application/controllers/canje_controller.php on line 15
+[02-Jun-2016 23:49:01] PHP Fatal error:  Function name must be a string in /home/sandvik/public_html/application/controllers/canje_controller.php on line 15
+[02-Jun-2016 23:49:39] PHP Fatal error:  Function name must be a string in /home/sandvik/public_html/application/controllers/canje_controller.php on line 15
+[10-Oct-2016 23:57:22] PHP Parse error:  syntax error, unexpected ';' in /home/reconocelocom/public_html/application/controllers/ini.php on line 7
+[23-Oct-2016 09:09:18] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:09:20] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:09:30] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:29:01] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:29:11] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:29:51] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:32:38] PHP Parse error:  syntax error, unexpected '(', expecting ',' or ';' in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:34:57] PHP Parse error:  syntax error, unexpected '(', expecting ',' or ';' in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:40:23] PHP Parse error:  syntax error, unexpected '(', expecting ',' or ';' in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[23-Oct-2016 09:45:15] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 48
+[23-Oct-2016 09:45:51] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 48
+[23-Oct-2016 09:46:05] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 48
+[23-Oct-2016 09:58:57] PHP Parse error:  syntax error, unexpected '(', expecting ',' or ';' in /home/reconocelocom/public_html/dev/application/controllers/login_controller.php on line 5
+[28-Nov-2016 04:04:29] PHP Fatal error:  Call to undefined function var_cump() in /home/reconocelocom/public_html/dev/application/views/det_item_view.php on line 6
+[28-Nov-2016 04:22:54] PHP Fatal error:  Call to a member function format() on a non-object in /home/reconocelocom/public_html/dev/application/views/det_item_view.php on line 6

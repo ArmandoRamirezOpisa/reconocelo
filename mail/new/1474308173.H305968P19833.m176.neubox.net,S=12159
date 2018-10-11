@@ -1,0 +1,245 @@
+Return-path: <>
+Envelope-to: no_reply@reconocelo.com.mx
+Delivery-date: Mon, 19 Sep 2016 13:02:53 -0500
+Received: from mail2.bemta5.messagelabs.com ([195.245.231.131]:15519)
+	by m176.neubox.net with esmtps (TLSv1:DHE-RSA-AES256-SHA:256)
+	(Exim 4.87)
+	id 1bm2u4-00059E-PR
+	for no_reply@reconocelo.com.mx; Mon, 19 Sep 2016 13:02:53 -0500
+Received: from [85.158.139.19] by server-9.bemta-5.messagelabs.com id 0E/43-13924-22820E75; Mon, 19 Sep 2016 18:02:10 +0000
+X-Brightmail-Tracker: H4sIAAAAAAAAA1WTe0wUVxTG987Ozo6G0cssyGFFDQvIagTR+P5
+  DiSYGNWm0jSExWjvYKbtmdyEziy6NTYlW0V01WKjCNWpxSYMmVip9AKlakab1CQpqU8NDiA8Q
+  i/jAVgo6s7PI+N835/vuOWfuL5c18nWslRV9XlHyCC4bM5auoLGYEm/vyEwb7I5c8OJZCUpHG
+  QPd2+nVaJ3J6cnK8X1icnQeLjTnDs/2dda8QgXoRqofjWF5PA2Km8qRqhH+GM72tlJ+NJYFfN
+  8MF9uLzKoB2A4HfmigNb0MjpQNGjWdABfe7ArrzVD1y0Mlzyo6Coq3L9LKybCnqj7cJgaKy08
+  Y1f40vsDAoydXGdWIwnPgzxfDtGpYcBBBx89NjHZiCfx2/JpJ1dHK6d27Sil1AI2TYPh1glpm
+  cBz0nS8JxxPh75ba8D7RMBjsQpqeAEXfvzaqRzkcCUM1Fq08D7ovfRfebQ0UNg0xI7/4R98lR
+  ruHfyh4GagOGzxcCV4L9efwRzBw43lIG7EIj2qD5iIUR0ZHEJ2jlo3KVZw+ymvleCgJ3DNrOg
+  lIXQGj6Tio/mYPIiEyVQgqGycSZQsen0XQ9qDLqBmfQ2FLH6PpDGgoO4600BkldOwUo32cRPD
+  1iQoT0UEmOshED5noIBMdZKKDTHSQyShkooNMdJCJHjIJQY6Fm5f3h/pYsBVa2wpNRMeY6BiT
+  UcYkxHge1O6oCF/XZLh+7xWtRnhlzb8GNhEd+m/RzJPILovSFlFKmb0wNUtyZju8bsHpSpmVN
+  jfVLcqykC26hCw5dVOO+wxS3s6XBgOqQc0/flCPYlnKFs1NHteRyY/Lyvk03yHIjo1SnkuU65
+  GdZbG/8cghykp7cjyiDbjeqUouUhKzRd9nTpfyGEeiwEbYorjHqs3JuYJbdmZr1mWUwv7/3+1
+  TFB/qYY3hrqohrIYceZ53LUae9E00yWrhkMFg4CNyRcnt9L7v96AYFtks3Eu1S4TT4303qUdZ
+  glKWQHvb1SW8wqhlLUCGVfYNg7aNSct2brM9LW3zrVsbONfy61cr4z5MONpL0V2l/W8y/TiwI
+  uNu+u/LL7ryD/Sfjp+S/O9Q876E/nLr/M6hnw7m7ZdXfNHZmn9r+s6GvOptx3rS168NzHg+f9
+  IAxdX5p42PvbO8Mn9uaVdm4vrmpYufpEU2SxCdvNW9NNjYXmSjZYcwa7pRkoW3CPgpWc0EAAA
+  =
+X-Msg-Ref: server-10.tower-178.messagelabs.com!1474308128!52745544!1
+X-Originating-IP: [164.4.16.101]
+X-StarScan-Received:
+X-StarScan-Version: 8.84; banners=-,-,-
+X-VirusChecked: Checked
+Received: (qmail 30031 invoked from network); 19 Sep 2016 18:02:09 -0000
+Received: from mail1.mailrelay.sandvik.com (HELO sedlns50.sandvik.com) (164.4.16.101)
+  by server-10.tower-178.messagelabs.com with DHE-RSA-AES256-GCM-SHA384 encrypted SMTP; 19 Sep 2016 18:02:09 -0000
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrFKsWRWlGSWpSXmKPExsVy/tLTc7pyGg/
+  CDV784bVYfOkVmwOjR+uZFqYAxijWzLyk/IoE1oyjt1YyF7RxVnxbs4m9gbGRo4uRi4NF4CCb
+  xIu3Z9hAHCGBVYwSk1YuYe1i5OQQEZCUuHSqjxnEFhaQkrh7rx0sLiFgL3Fg0VkwW1RAXKKjb
+  QZTFyMH0CRViX+/lEHCbAJmEjubl7CD2MwCchLnHn5nASkREnCWuPEtGWKKisStKzuZIWxRid
+  +LHzNC2GISE9b9AovzCuhKbLn+kxmklVdAUOLvDmGIic4SH8/3QpVHSfzdfZUFwtaXuNDxkQn
+  C1pJY3/QdKm4jcX7Xbah6M4mXJ5exQ9iBEu0X/rJB2M4Sx9+fZJvAKD4LYdssJNsgbHWJP/Mu
+  MUPY8hLNW2czg5QzC6hJLGtVgghrSyxb+Jp5ASPbKkaN4tSistQiXSNTvaSizPSMktzEzBxdQ
+  wNjvdzU4uLE9NScxKRiveT83E2MwDisZ2Bg3MHYesLvEKMkB5OSKK8c34NwIb6k/JTKjMTijP
+  ii0pzU4kOMMhwcShK8NWpAOcGi1PTUirTMHGBCgElLcPAoifAWgKR5iwsSc4sz0yFSpxgVpcR
+  5nUESAiCJjNI8uDZYErrEKCslzMvIwMAgxFOQWpSbWYIq/4pRnINRSZi3CmQKT2ZeCdz0V0CL
+  mYAWM/bcB1lckoiQkmpgZI3h5edI/2/L8eaNYVzuEpeFfPb6RTZJ89NP7z+ia/Xc4YFbuUn0t
+  F07lPmWr2hpuPrF93qD4eftz7u0YnY9erH1/tYM5zblmDSvna+uq3y5mXVF2sit0jD647Yupo
+  dRPIdfbPok9OhX647GDKdJscfDWRdy5sis105mUTluw6g303melUGFEktxRqKhFnNRcSIA1K0
+  c6D0DAAA=
+X-Env-Sender: no_reply@reconocelo.com.mx
+X-Msg-Ref: server-12.tower-38.messagelabs.com!1474308124!64117827!1
+X-Originating-IP: [207.210.229.206]
+X-SpamReason: No, hits=0.3 required=7.0 tests=HTML_50_60,HTML_MESSAGE,
+  SUBJECT_EXCESS_QP,UPPERCASE_50_75
+X-StarScan-Received:
+X-StarScan-Version: 8.84; banners=-,-,-
+X-VirusChecked: Checked
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=reconocelo.com.mx; s=default; h=Content-Type:Mime-Version:Message-ID:
+	Reply-To:Cc:From:Date:Subject:To:Sender:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=DYMlaWDpnYBvY3Cgrmr/5GMeySmtspXhuJJF4OvGFBI=; b=dmsyq9yRlj/QIsSeILHxVVWLaN
+	fzt/iNYMpbeEejRl5xHudAJdswt8rHN61BwvwH1jtktxq2PHYohTfzrr5lbYdDUQgijWW7XE3u/gh
+	R6CHdjtEruVtEiXSIUXI7OY9m94wlc1Gj095G7spuqCjYM3nRM4xrVylZVXiqPALxABa4vB4GM05E
+	A3TrYtPW1D7wdLLNUstkKxas/lMlE0wWSNO2NJTDnxzRxFcZPkUW21lfRZVjnfzEODDwRzpgrAks+
+	tjZeD8N5buRGDGXm+0oDs3ECe8bH0lqSWlaEX6Hc7WYPrC3XON3P2tCY0RwSe2H23oAkFgZQfvKRh
+	AbDf9BaA==;
+To: "reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+Subject: DELIVERY FAILURE: Error transferring to sedlns52.is.SANDVIK.COM; SMTP
+ Protocol Returned a Permanent Error 550 miguel.vazquez@sandvik.com... No
+ such user
+X-PHP-Script: www.reconocelo.com.mx/index.php for 138.103.17.19
+User-Agent: CodeIgniter
+Date: Mon, 19 Sep 2016 13:02:02 -0500
+From: Postmaster@sandvik.com
+X-Sender: no_reply@reconocelo.com.mx
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Mime-Version: 1.0
+X-AntiAbuse: Sender Address Domain - reconocelo.com.mx
+X-Get-Message-Sender-Via: m176.neubox.net: authenticated_id: reconocelocom/from_h
+X-Authenticated-Sender: m176.neubox.net: no_reply@reconocelo.com.mx
+X-MIMETrack: Itemize by SMTP Server on SEDLNS50/SANDVIK at 19-09-2016 20:02:07,
+	Serialize by Router on SEDLNS50/SANDVIK at 19-09-2016 20:02:07,
+	Serialize complete at 19-09-2016 20:02:07,
+	Itemize by SMTP Server on SEDLNS1/SANDVIK at 09/19/2016 08:02:07 PM,
+	Serialize by Router on SEDLNS50/SANDVIK at 19-09-2016 20:02:09,
+	Serialize complete at 19-09-2016 20:02:09
+X-TNEFEvaluated: 1
+Message-ID: <OF8AD3AF94.AC44338A-ONC1258033.00631248-C1258033.00631250@sandvik.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary="==IFJRGLKFGIR14905826UHRUHIHD"
+
+--==IFJRGLKFGIR14905826UHRUHIHD
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+WW91ciBtZXNzYWdlDQoNCiAgU3ViamVjdDogQ2FuamUNCg0Kd2FzIG5vdCBkZWxpdmVyZWQgdG86
+DQoNCiAgbWlndWVsLnZhenF1ZXpAc2FuZHZpay5jb20NCg0KYmVjYXVzZToNCg0KICBFcnJvciB0
+cmFuc2ZlcnJpbmcgdG8gc2VkbG5zNTIuaXMuU0FORFZJSy5DT007IFNNVFAgUHJvdG9jb2wgUmV0
+dXJuZWQgYSBQZXJtYW5lbnQgRXJyb3IgNTUwIG1pZ3VlbC52YXpxdWV6QHNhbmR2aWsuY29tLi4u
+IE5vIHN1Y2ggdXNlcg0KDQo=
+
+--==IFJRGLKFGIR14905826UHRUHIHD
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns;SEDLNS1.sandvik.com
+
+Final-Recipient: rfc822;miguel.vazquez@sandvik.com
+Action: failed
+Status: 5.0.0
+Remote-MTA: smtp;sedlns52.is.SANDVIK.COM
+Diagnostic-Code: X-Notes; Error transferring to sedlns52.is.SANDVIK.CO
+ M; SMTP Protocol Returned a Permanent Error 550 miguel.vazquez@sandvik
+ .com... No such user
+
+--==IFJRGLKFGIR14905826UHRUHIHD
+Content-Type: message/rfc822
+
+Received: from sedlns50.sandvik.com ([164.4.15.30])
+          by SEDLNS1.sandvik.com
+          with ESMTP id 2016091920020742-85064 ;
+          Mon, 19 Sep 2016 20:02:07 +0200 
+Received: from mail6.bemta3.messagelabs.com ([195.245.230.39])
+          by sedlns50.sandvik.com
+          with ESMTP id 2016091920020723-144348 ;
+          Mon, 19 Sep 2016 20:02:07 +0200 
+Received: from [85.158.137.3] by server-4.bemta-3.messagelabs.com id 34/F0-15788-E1820E75; Mon, 19 Sep 2016 18:02:06 +0000
+Received: (qmail 13534 invoked from network); 19 Sep 2016 18:02:05 -0000
+Received: from m176.neubox.net (HELO m176.neubox.net) (207.210.229.206)
+  by server-12.tower-38.messagelabs.com with DHE-RSA-AES256-SHA encrypted SMTP; 19 Sep 2016 18:02:05 -0000
+Received: from reconocelocom by m176.neubox.net with local (Exim 4.87)
+	(envelope-from <no_reply@reconocelo.com.mx>)
+	id 1bm2tG-00058n-GG; Mon, 19 Sep 2016 13:02:02 -0500
+Return-Path: <no_reply@reconocelo.com.mx>
+Authentication-Results: mx.messagelabs.com; dkim=policy 
+  (policy)header.i=@reconocelo.com.mx
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrFKsWRWlGSWpSXmKPExsVy/tLTc7pyGg/
+  CDV784bVYfOkVmwOjR+uZFqYAxijWzLyk/IoE1oyjt1YyF7RxVnxbs4m9gbGRo4uRi4NF4CCb
+  xIu3Z9hAHCGBVYwSk1YuYe1i5OQQEZCUuHSqjxnEFhaQkrh7rx0sLiFgL3Fg0VkwW1RAXKKjb
+  QZTFyMH0CRViX+/lEHCbAJmEjubl7CD2MwCchLnHn5nASkREnCWuPEtGWKKisStKzuZIWxRid
+  +LHzNC2GISE9b9AovzCuhKbLn+kxmklVdAUOLvDmGIic4SH8/3QpVHSfzdfZUFwtaXuNDxkQn
+  C1pJY3/QdKm4jcX7Xbah6M4mXJ5exQ9iBEu0X/rJB2M4Sx9+fZJvAKD4LYdssJNsgbHWJP/Mu
+  MUPY8hLNW2czg5QzC6hJLGtVgghrSyxb+Jp5ASPbKkaN4tSistQiXSNTvaSizPSMktzEzBxdQ
+  wNjvdzU4uLE9NScxKRiveT83E2MwDisZ2Bg3MHYesLvEKMkB5OSKK8c34NwIb6k/JTKjMTijP
+  ii0pzU4kOMMhwcShK8NWpAOcGi1PTUirTMHGBCgElLcPAoifAWgKR5iwsSc4sz0yFSpxgVpcR
+  5nUESAiCJjNI8uDZYErrEKCslzMvIwMAgxFOQWpSbWYIq/4pRnINRSZi3CmQKT2ZeCdz0V0CL
+  mYAWM/bcB1lckoiQkmpgZI3h5edI/2/L8eaNYVzuEpeFfPb6RTZJ89NP7z+ia/Xc4YFbuUn0t
+  F07lPmWr2hpuPrF93qD4eftz7u0YnY9erH1/tYM5zblmDSvna+uq3y5mXVF2sit0jD647Yupo
+  dRPIdfbPok9OhX647GDKdJscfDWRdy5sis105mUTluw6g303melUGFEktxRqKhFnNRcSIA1K0
+  c6D0DAAA=
+X-Env-Sender: no_reply@reconocelo.com.mx
+X-Msg-Ref: server-12.tower-38.messagelabs.com!1474308124!64117827!1
+X-Originating-IP: [207.210.229.206]
+X-SpamReason: No, hits=0.3 required=7.0 tests=HTML_50_60,HTML_MESSAGE,
+  SUBJECT_EXCESS_QP,UPPERCASE_50_75
+X-StarScan-Received:
+X-StarScan-Version: 8.84; banners=-,-,-
+X-VirusChecked: Checked
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=reconocelo.com.mx; s=default; h=Content-Type:Mime-Version:Message-ID:
+	Reply-To:Cc:From:Date:Subject:To:Sender:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=DYMlaWDpnYBvY3Cgrmr/5GMeySmtspXhuJJF4OvGFBI=; b=dmsyq9yRlj/QIsSeILHxVVWLaN
+	fzt/iNYMpbeEejRl5xHudAJdswt8rHN61BwvwH1jtktxq2PHYohTfzrr5lbYdDUQgijWW7XE3u/gh
+	R6CHdjtEruVtEiXSIUXI7OY9m94wlc1Gj095G7spuqCjYM3nRM4xrVylZVXiqPALxABa4vB4GM05E
+	A3TrYtPW1D7wdLLNUstkKxas/lMlE0wWSNO2NJTDnxzRxFcZPkUW21lfRZVjnfzEODDwRzpgrAks+
+	tjZeD8N5buRGDGXm+0oDs3ECe8bH0lqSWlaEX6Hc7WYPrC3XON3P2tCY0RwSe2H23oAkFgZQfvKRh
+	AbDf9BaA==;
+To: operaciones@opisa.com
+Subject: =?utf-8?Q?Canje?=
+X-PHP-Script: www.reconocelo.com.mx/index.php for 138.103.17.19
+User-Agent: CodeIgniter
+Date: Mon, 19 Sep 2016 13:02:02 -0500
+From: "reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+Cc: miguel.vazquez@sandvik.com
+Reply-To: "no_reply@reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+X-Sender: no_reply@reconocelo.com.mx
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Mime-Version: 1.0
+X-AntiAbuse: Sender Address Domain - reconocelo.com.mx
+X-Get-Message-Sender-Via: m176.neubox.net: authenticated_id: reconocelocom/from_h
+X-Authenticated-Sender: m176.neubox.net: no_reply@reconocelo.com.mx
+X-MIMETrack: Itemize by SMTP Server on SEDLNS50/SANDVIK at 19-09-2016 20:02:07,
+	Serialize by Router on SEDLNS50/SANDVIK at 19-09-2016 20:02:07,
+	Serialize complete at 19-09-2016 20:02:07,
+	Itemize by SMTP Server on SEDLNS1/SANDVIK at 09/19/2016 08:02:07 PM,
+	Serialize by Router on SEDLNS50/SANDVIK at 19-09-2016 20:02:09,
+	Serialize complete at 19-09-2016 20:02:09
+X-TNEFEvaluated: 1
+Message-ID: <OF8AD3AF94.AC44338A-ONC1258033.00631248-C1258033.00631250@sandvik.com>
+Content-Type: multipart/alternative; boundary="B_ALT_57e0281a77430"
+
+This is a multi-part message in MIME format.
+Your email application may not support this format.
+
+--B_ALT_57e0281a77430
+Content-Transfer-Encoding: quoted-printable
+Content-Length: 269
+Content-Type: text/plain; charset=utf-8
+
+RECONOCELO
+ SE HA GENERADO EL CANJE CON FOLIO: 190
+ 
+ ID PARTICIPANTE: 90736
+ NOMBRE: MIGUEL VAZQUEZ
+ COD. PARTICIPANTE: 86
+ COD. EMPRESA: 41160
+ 
+ Productos
+ 
+ Art=C3=ADculo:5373
+ Desc:Licuadora Electrolux 8 velocidades
+ Cantidad:1
+ Puntos:1,725,000
+
+
+--B_ALT_57e0281a77430
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+
+<h1>RECONOCELO</h1>
+ <h2>SE HA GENERADO EL CANJE CON FOLIO: 190</h2>
+ <table>
+ <tr><td>ID PARTICIPANTE: </td><td style=3D'font-weight'>90736</td></tr>
+ <tr><td>NOMBRE: </td><td style=3D'font-weight'>MIGUEL VAZQUEZ</td></tr>
+ <tr><td>COD. PARTICIPANTE: </td><td style=3D'font-weight'>86</td></tr>
+ <tr><td>COD. EMPRESA: </td><td style=3D'font-weight'>41160</td></tr>
+ </table>
+ <h3>Productos</h3>
+ <table><tr>
+ <td>Artículo:</td><td>5373</td>
+ <td>Desc:</td><td>Licuadora Electrolux 8 velocidades</td>
+ <td>Cantidad:</td><td>1</td>
+ <td>Puntos:</td><td>1,725,000</td>
+ </tr>
+ </table>
+
+--B_ALT_57e0281a77430--
+
+--==IFJRGLKFGIR14905826UHRUHIHD--

@@ -1,0 +1,109 @@
+Return-path: <>
+Envelope-to: no_reply@reconocelo.com.mx
+Delivery-date: Sat, 02 Dec 2017 09:52:39 -0600
+Received: from mailnull by m176.neubox.net with local (Exim 4.87)
+	id 1eLA5n-0007GU-77
+	for no_reply@reconocelo.com.mx; Sat, 02 Dec 2017 09:52:39 -0600
+X-Failed-Recipients: jesusramirezolo@live.com.mx
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@m176.neubox.net>
+To: no_reply@reconocelo.com.mx
+Content-Type: multipart/report; report-type=delivery-status; boundary=1512229959-eximdsn-1946863644
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1eLA5n-0007GU-77@m176.neubox.net>
+Date: Sat, 02 Dec 2017 09:52:39 -0600
+
+--1512229959-eximdsn-1946863644
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  jesusramirezolo@live.com.mx
+    host nam.olc.protection.outlook.com [104.47.34.33]
+    SMTP error from remote mail server after RCPT TO:<jesusramirezolo@live.com.mx>:
+    550 5.5.0 Requested action not taken: mailbox unavailable.
+
+--1512229959-eximdsn-1946863644
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; m176.neubox.net
+
+Action: failed
+Final-Recipient: rfc822;jesusramirezolo@live.com.mx
+Status: 5.0.0
+Remote-MTA: dns; nam.olc.protection.outlook.com
+Diagnostic-Code: smtp; 550 5.5.0 Requested action not taken: mailbox unavailable.
+
+--1512229959-eximdsn-1946863644
+Content-type: message/rfc822
+
+Return-path: <no_reply@reconocelo.com.mx>
+Received: from reconocelocom by m176.neubox.net with local (Exim 4.87)
+	(envelope-from <no_reply@reconocelo.com.mx>)
+	id 1eLA5W-0007Fu-4O; Sat, 02 Dec 2017 09:52:22 -0600
+To: operaciones@opisa.com
+Subject: =?utf-8?Q?Canje?=
+X-PHP-Script: www.reconocelo.com.mx/index.php for 187.152.31.42
+User-Agent: CodeIgniter
+Date: Sat, 2 Dec 2017 09:52:22 -0600
+From: "reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+Cc: jesusramirezolo@live.com.mx
+Reply-To: "no_reply@reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+X-Sender: no_reply@reconocelo.com.mx
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: <5a22cc361ccd6@reconocelo.com.mx>
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="B_ALT_5a22cc361d4a5"
+
+This is a multi-part message in MIME format.
+Your email application may not support this format.
+
+--B_ALT_5a22cc361d4a5
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+RECONOCELO
+ SE HA GENERADO EL CANJE CON FOLIO: 390
+ 
+ ID PARTICIPANTE: 98074
+ NOMBRE: Antonio Ramirez
+ COD. PARTICIPANTE: 174
+ COD. EMPRESA: 41160
+ 
+ Productos
+ 
+ Artículo:5601
+ Desc:Minicomponente
+ Cantidad:1
+ Puntos:3,450,000
+
+
+--B_ALT_5a22cc361d4a5
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<h1>RECONOCELO</h1>
+ <h2>SE HA GENERADO EL CANJE CON FOLIO: 390</h2>
+ <table>
+ <tr><td>ID PARTICIPANTE: </td><td style=3D'font-weight'>98074</td></tr>
+ <tr><td>NOMBRE: </td><td style=3D'font-weight'>Antonio Ramirez</td></tr>
+ <tr><td>COD. PARTICIPANTE: </td><td style=3D'font-weight'>174</td></tr>
+ <tr><td>COD. EMPRESA: </td><td style=3D'font-weight'>41160</td></tr>
+ </table>
+ <h3>Productos</h3>
+ <table><tr>
+ <td>Artículo:</td><td>5601</td>
+ <td>Desc:</td><td>Minicomponente</td>
+ <td>Cantidad:</td><td>1</td>
+ <td>Puntos:</td><td>3,450,000</td>
+ </tr>
+ </table>
+
+--B_ALT_5a22cc361d4a5--
+
+--1512229959-eximdsn-1946863644--
