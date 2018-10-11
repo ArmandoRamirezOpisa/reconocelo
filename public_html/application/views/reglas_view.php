@@ -1,19 +1,41 @@
 <div class="row justify-content-center">
 
-
-
-
-
-
 <div class="col-12">
-<h1 class="text-center">Reglas</h1>
 
+    <h1 class="text-center">Reglas</h1>
 
 </div>
 <div class="col-8">
 
 <div class="panel-group" id="accordion">
-  <div class="panel panel-warning">
+    <!--Inicio cajas de las reglas, como acordeon -->
+    <?php
+
+    if ($cat){
+    
+    foreach($cat as $row){
+
+	    echo '<div class="panel panel-warning">
+            <div class="panel-heading">
+      		    <h4 class="panel-title">
+	                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">'.
+          		        $row["regla"].'
+	                </a>
+                </h4>
+            </div>
+
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>'.$row["descripcionRegla"].'</p>
+                </div>
+            </div>
+
+        </div>';
+    }
+    }
+?>    
+    
+  <!--<div class="panel panel-warning">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
@@ -39,9 +61,6 @@
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
         <p>Las empresas participantes en conjunto con OPI determinar&aacute;n la mec&aacute;nica de operaci&oacute;n del programa. Consulta con tu departamento de RH o bien solicita informes a operaciones@opisa.com. </p>
-
-        
-
       </div>
     </div>
   </div>  
@@ -134,7 +153,8 @@
 
       </div>
     </div>
-  </div>
+  </div>-->
+  <!--Fin cajas de las reglas, como acordeon -->
 </div>
 <br>
 <br>
