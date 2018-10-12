@@ -4,6 +4,7 @@
     
     	public function index()
     	{	  
+            parent::__construct();
             $this->load->model("rules_model");
             
 			if ($this->session->userdata('logged_in'))
@@ -24,7 +25,8 @@
             }else{
                 $data["cat"] = false;
             }
-    		$this->load->view('reglas_view',$cat);
+            $this->load->view('reglas_view',$data);
+            
         }
     }
 
