@@ -9,6 +9,6 @@
         </div>
         <div onclick="loadSection('canje_controller/getCanjes','dvSecc')" class="btn_m btn4" style="cursor:pointer">
             <span class="imgBtn"><img class="imgInBtna" src="assets/images/icons/Pocket.png"></span>
-            <h3 class="btnTit">Mis Canjes</h3>
+            <h3 class="btnTit">Estado de cuenta</h3>
         </div>
     </div>
