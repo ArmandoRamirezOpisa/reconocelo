@@ -30,7 +30,7 @@
                         <h5 class="card-title"><b>'.$row["Nombre_Esp"].'</b></h5>
                         <p class="card-text"><b>C&oacute;digo '.$row["codPremio"].'</b>: '.substr($row["Caracts_Esp"],0,140).$pp.'</p>
                            </div>  
-  <div class="card-footer">
+  <div data-toggle="tooltip" title="Agregar al carrito" class="card-footer">
     <a href="javascript:void(0)" class="btn btn-outline-secondary btn-lg btn-block" role="button" onClick = "showDet('.$row['codPremio'].')">
                                 <i class="fas fa-cart-plus mr-3"></i></span><span class="badge">'.number_format($row["ValorPuntos"]).' puntos</span>
                             </a> 

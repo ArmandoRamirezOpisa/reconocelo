@@ -17,7 +17,7 @@
 
 
  <form class="form-inline my-2 my-lg-0">
-                            <div class="dropdown">
+                            <div class="dropdown" data-toggle="tooltip" title="Categorias">
                                 <button class=" btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <i class="fa fa-archive mr-1" aria-hidden="true"></i>Categorias
   </button>
@@ -43,19 +43,19 @@
 
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5">
                             <li class="nav-item">
-                                <button class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('reglas_controller','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
+                                <button data-toggle="tooltip" title="Reglas" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('reglas_controller','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('cart_controller/getCategory','dvSecc')"><i class="fa fa-gift mr-1" aria-hidden="true"  ></i>Premios</button>
+                                <button data-toggle="tooltip" title="Premios" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('cart_controller/getCategory','dvSecc')"><i class="fa fa-gift mr-1" aria-hidden="true"  ></i>Premios</button>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('canje_controller/getCanjes','dvSecc')"><i class=" fas fa-archive  mr-1" aria-hidden="true"></i>Canjes</button>
+                                <button data-toggle="tooltip" title="Canjes" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('canje_controller/getCanjes','dvSecc')"><i class=" fas fa-archive  mr-1" aria-hidden="true"></i>Canjes</button>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('cart_controller/showContentCart','dvSecc')"><i class="fa fa-shopping-cart  mr-1" aria-hidden="true"></i>Carrito</button>
+                                <button data-toggle="tooltip" title="Carritos" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('cart_controller/showContentCart','dvSecc')"><i class="fa fa-shopping-cart  mr-1" aria-hidden="true"></i>Carrito</button>
                             </li>
                               <li class="nav-item">
-                                <button class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('ayuda_Controller','dvSecc')"><i class="fas fa-question-circle  mr-1" aria-hidden="true"></i>Ayuda</button>
+                                <button data-toggle="tooltip" title="Ayuda" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('ayuda_Controller','dvSecc')"><i class="fas fa-question-circle  mr-1" aria-hidden="true"></i>Ayuda</button>
                             </li>
                            <!-- 
                             <li class="nav-item">

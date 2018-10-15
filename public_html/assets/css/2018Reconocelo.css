@@ -1,119 +1,113 @@
-body{
+body {
     background: #FFF;
     font-family: 'Roboto', sans-serif;
 }
-.cardAyuda{
- border-color: #FFFFFF;   
+
+.cardAyuda {
+    border-color: #FFFFFF;
 }
-.card-bodyAyuda{
-    border-color: #FFFFFF;   
+
+.card-bodyAyuda {
+    border-color: #FFFFFF;
 }
-.iconsAyuda{
-  color: #034889;
-  
+
+.iconsAyuda {
+    color: #034889;
 }
-.iconsAyuda2{
+
+.iconsAyuda2 {
     color: #E64C13;
 }
-.AyudaFormularioRow{
+
+.AyudaFormularioRow {
     background-color: #e6eaed;
     border-color: #e6eaed;
 }
 
-.iconsAyuda3{
-    color:#8EB4E0;
-}
- .lblText{color:#E74B0F;}
-
-.btn-primary{
-    background:#034889;
-    
-}
-.advice{
-   font-size: 12px;
-    
-    
+.iconsAyuda3 {
+    color: #8EB4E0;
 }
 
-.navcolor{
-    
+.lblText {
+    color: #E74B0F;
+}
+
+.btn-primary {
     background: #034889;
 }
 
-.btn-navbarcolor{
-    
+.advice {
+    font-size: 12px;
+}
+
+.navcolor {
+    background: #034889;
+}
+
+.btn-navbarcolor {
     background: #E74B0F;
 }
 
-
-
-.btn-outline-secondary{
-    
+.btn-outline-secondary {
     color: white;
     background: #034889;
     border-color: #034889;
 }
 
 .btn-outline-secondary:hover {
-   /* color: #fff;*/
+    /* color: #fff;*/
     background-color: #F25917;
     border-color: #E74B0F;
 }
 
-
-.cardsWelcomeBackgroud{
+.cardsWelcomeBackgroud {
     background: #8FB5E1;
-    
 }
-.btn-outline-dark{
-    
+
+.btn-outline-dark {
     background: #8FB5E1;
     border-color: #4D90DC;
-    color:#3C444D;
+    color: #3C444D;
 }
+
 .btn-outline-dark:hover {
-   /* color: #fff;*/
+    /* color: #fff;*/
     background-color: #EC4B17;
     border-color: #EC4B17;
 }
+
 .btn-warning {
-    
-   background: #EC4B17;  
+    background: #EC4B17;
     border-color: #E74B0F;
 }
+
 .btn-warning:hover {
-   /* color: #fff;*/
+    /* color: #fff;*/
     background-color: #F25917;
     border-color: #E74B0F;
 }
-.price{
-    
+
+.price {
     font-size: 1.2em;
-    
 }
 
-.giftsArea{
+.giftsArea {
     background: #f2f2f2;
-    
 }
 
-.headerColor{
-    
-       background: #0B0909; 
+.headerColor {
+    background: #034889;
     color: #F25917;
 }
-.linkPrivacy{
+
+.linkPrivacy {
     color: #F25917;
-    
-    
 }
-.dropdown-menu{
+
+.dropdown-menu {
     background: #4d90dc;
-
-    
 }
-.dropdown-item:hover{
-    background: #f25917;
 
-    
+.dropdown-item:hover {
+    background: #f25917;
 }
