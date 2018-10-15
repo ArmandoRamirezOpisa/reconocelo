@@ -1,5 +1,5 @@
 <?php
-    class Rules_model extends CI_Model {
+    class Reglas_model extends CI_Model {
     	
     	public function __construct()
     	{

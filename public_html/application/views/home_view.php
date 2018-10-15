@@ -59,9 +59,9 @@
         </div>
 
 
-        <div class="row mt-5 headerColor fixed-bottom justify-content-center">
+        <div class="row mt-5 fixed-bottom justify-content-center" style="background: #034889;color: #F25917;">
             <div class="col-auto " id="footer">
-                <a style="color:#034889;" href="javascript:void(0)" onclick="loadSection('aviso_controller', 'dvSecc')" class="linkPrivacy">Aviso de privacidad</a>
+                <a href="javascript:void(0)" onclick="loadSection('aviso_controller', 'dvSecc')" class="linkPrivacy">Aviso de privacidad</a>
             </div>
         </div>    
 
