@@ -98,11 +98,11 @@
         </script>
 
 
-        <script>
+        <!--<script>
 
                     swal("¡Bienvenido a Reconócelo!", "Esperamos que disfrutes tu estancia en nuestro programa de incentivos.");
 
-        </script>
+        </script> -->
 
 
     </body>
