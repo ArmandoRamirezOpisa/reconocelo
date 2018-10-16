@@ -1,7 +1,3 @@
-
-
-
-
 <p class="display-5"><?php  echo urldecode($nombre);?> </p>
 <?php 
 if(!$data){
@@ -48,30 +44,6 @@ else{
     </div>';  
     
 }
-    
-    
-    
-    
-    
-
 
 ?>
-
-
-
- 
-     
-     
- 
-
-    
-      
-      
-     
-    
- 
-  
    <script src="../../assets/js/functions.js" type="text/javascript"></script>
- 
-
-
