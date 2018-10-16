@@ -15,7 +15,7 @@
     <body ng-controller="validarLogin">
         <div class="container-fluid">
                 <div  class="row mb-4 sizetopbottom">
-                <div class="col colorhead ">   
+                <div class="col" style="background: #034889;color: white;">   
                   
                 </div> 
             </div>
@@ -45,17 +45,17 @@
                                         
                                         <div class="input-group  mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="" >ID Usuario</span>
+                                                <span class="input-group-text" id="" >Usuario</span>
                                             </div>
-                                            <input type="text" class="form-control" type="number" ng-model="usuario" id="user" oninput="this.value = this.value.toUpperCase()">
+                                            <input type="text" class="form-control" type="number" ng-model="usuario" id="user" oninput="this.value = this.value.toUpperCase()" placeholder="Ejem. user01">
                                         </div>
 
 
                                         <div class="input-group  mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" >Contrasena</span>
+                                                <span class="input-group-text" >Contraseña</span>
                                             </div>
-                                            <input type="password" class="form-control" ng-model="password" id="password">
+                                            <input type="password" class="form-control" ng-model="password" id="password" placeholder="123456">
                                         </div>
                                     </div>
                                 </div>
