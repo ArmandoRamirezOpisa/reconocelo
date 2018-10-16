@@ -1,49 +1,56 @@
-body{
+body {
     background: #FFFFFF;
     font-family: 'Roboto Condensed', sans-serif;
 }
-.bg-ligh{
+
+.bg-ligh {
     background: #FFFFFF;
- border-color: #FFFFFF; 
+    border-color: #FFFFFF;
 }
-.input-group-text{
-   background: #034889;
+
+.input-group-text {
+    background: #034889;
     color: white;
 }
-.btn-primary{
- background:    #034889;
-   border-color: #034889;
-   color: #f2f2f2;
+
+.btn-primary {
+    background: #034889;
+    border-color: #034889;
+    color: #f2f2f2;
 }
-.btn-primary:hover{
+
+.btn-primary:hover {
     background: #8EB4E0;
     border-color: #8EB4E0;
     color: #034889;
 }
+
 a:link {
-     color:    #034889;
+    color: #034889;
 }
-.errormessage{
+
+.errormessage {
     color: red;
     text-align: center;
 }
-.headerColor{
-     background:    black;
-    
+
+.headerColor {
+    background: black;
 }
-.sizetopbottom{
+
+.sizetopbottom {
     height: 40px;
     color: white;
-  
 }
-.colorhead{
-    background: #8EB4E0;
+
+.colorhead {
+    background: #034889;
     color: white;
 }
 
 input[type=password] {
-    border-radius:0;
-  text-transform: uppercase;
+    border-radius: 0;
+    text-transform: uppercase;
 }
 
 
@@ -52,8 +59,9 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
-    Created on : Mar 1, 2018, 10:28:00 AM
-    Author     : mauro.morales
-*/
 
+
+/* 
+    Created on : Octuvre 16, 2018, 04:09:00 PM
+    Author     : armando.ramirez
+*/
