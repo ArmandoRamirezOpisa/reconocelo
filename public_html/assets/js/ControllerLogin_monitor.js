@@ -5,7 +5,44 @@ angular.module('login', []).controller('validarLogin', function($scope, $http) {
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
     $scope.validarUsuario = function() {
 
-        alert("Entro correctamente");
+        if ($scope.usuario == null || $scope.usuario == "" || $scope.password == null || $scope.password == "") {
+            $scope.mensaje = "<b>El usuario o contrasena es incorrecto</b>";
+            $scope.loading = false;
+            $scope.error = true;
+            return false;
+        } else {
+            $scope.error = false;
+            $scope.loading = true;
+            $.ajax({
+                url: 'monitor/login',
+                type: 'POST',
+                dataType: 'json',
+                async: 'true',
+                data: { "usuario": $scope.usuario, "password": $scope.password },
+                success: function(result) {
+                    if (result) {
+
+                        window.location.reload();
+
+                    } else {
+
+                        $scope.$apply(function() {
+                            $scope.loading = false;
+                            $scope.error = true;
+                        });
+
+                    }
+
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    $scope.$apply(function() {
+                        $scope.loading = false;
+                        $scope.error = true;
+                    });
+                }
+            });
+        }
+
 
         /*if ($scope.usuario == null || $scope.usuario == "" || $scope.password == null || $scope.password == "") {
             $scope.message = "Verifica que los campos esten llenados correctamente";

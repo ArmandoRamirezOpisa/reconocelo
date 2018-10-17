@@ -7,6 +7,7 @@ class Monitor extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model("login_model");
     }
 
     public function index() {
@@ -18,7 +19,33 @@ class Monitor extends CI_Controller {
     }
 
     public function login() {
-        $postdata = file_get_contents("php://input");
+        $InformacionLogin = $this->login_monitor_model->loadData($_POST);
+        if($InformacionLogin){
+
+            if (strlen($InformacionLogin[0]["Usuario"])>0)
+                {
+                	$user_s = $InformacionLogin[0]["Usuario"];
+                }else{
+                	$user_s = "-";
+                }
+                
+            $InformacionLoginUsuario = array(
+                'administrador' => TRUE,
+                'CodEmpresa' => $InformacionLogin[0]["CodEmpresa"],
+                'CodPrograma' => $InformacionLogin[0]["CodPrograma"],
+                'empresa' => $InformacionLogin[0]["empresa"]
+            );
+
+            $this->session->set_userdata($InformacionLoginUsuario);
+
+            $this->output->set_output(json_encode(true));//si encuantra al usuario regresa true
+
+        }else{
+            $this->output->set_output(json_encode(false));//si no encuentra al usuario regresa false
+        }
+
+
+        /*$postdata = file_get_contents("php://input");
         $request = json_decode($postdata);
         $usuario = $request->usuario;
         $pasword = $request->password;
@@ -39,7 +66,7 @@ class Monitor extends CI_Controller {
         } else {
             $result = 0;
         }
-        echo $result;
+        echo $result;*/
     }
 
     public function ObtenerParticipantes() {
