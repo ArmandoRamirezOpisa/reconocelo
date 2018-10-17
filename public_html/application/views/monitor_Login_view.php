@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="row justify-content-end">
-                                    <div class="col-12 col-md-6">
+                                    <div class="col-12 col-md-12">
                                         <div class="form-group mb-0">
                                             <button type="submit" class="btn btn-primary    btn-block  font-weight-bold"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>
                                             
