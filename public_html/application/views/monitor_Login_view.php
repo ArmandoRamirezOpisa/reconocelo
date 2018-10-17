@@ -50,7 +50,7 @@
 
                                             </div>
 
-                                            <input type="text" class="form-control" type="number" ng-model="usuario" id="user" oninput="this.value = this.value.toUpperCase()" placeholder="Ejem. user01">
+                                            <input type="text" class="form-control" type="number" ng-model="usuario" id="user" oninput="this.value = this.value.toUpperCase()">
 
                                         </div>
 
@@ -62,7 +62,7 @@
 
                                             </div>
 
-                                            <input type="password" class="form-control" ng-model="password" id="password" placeholder="123456">
+                                            <input type="password" class="form-control" ng-model="password" id="password">
 
                                         </div>
 
@@ -75,8 +75,10 @@
                                     <div class="col-12 col-md-12">
 
                                         <div class="form-group mb-0">
-                                            <!--<a href="javascript:void(0)" ng-click="validateUserIndb()" class="btn btn-primary btn-block font-weight-bold"><span style="color:#FFFFFF"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</span></a>-->
-                                            <button type="button" ng-click="validarUsuario()" class="btn btn-primary btn-block font-weight-bold"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>
+                                        <button type="submit" class="btn btn-primary    btn-block  font-weight-bold"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>
+
+                                            <!--<a href="javascript:void(0)" ng-click="validarUsuario()" class="btn btn-primary btn-block font-weight-bold"><span style="color:#FFFFFF"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</span></a>-->
+                                            <!--<button type="submit" class="btn btn-primary btn-block font-weight-bold"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>-->
 
                                         </div>
 

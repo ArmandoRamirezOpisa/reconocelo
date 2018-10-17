@@ -33,8 +33,7 @@
 
 
 
-        <div id="navbar">
-        </div>
+        <div id="navbar"></div>
 
         <div class="row justify-content-center mt-4 mb-4">
 
