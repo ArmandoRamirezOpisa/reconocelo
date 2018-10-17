@@ -1,45 +1,48 @@
-angular.module('login', []).controller('validarLogin', function ($scope, $http) {
+angular.module('login', []).controller('validarLogin', function($scope, $http) {
     $scope.usuario;
     $scope.message;
     $scope.password;
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
-    $scope.validarUsuario = function () {
-        if ($scope.usuario == null || $scope.usuario == "" || $scope.password == null || $scope.password == "") {
+    $scope.validarUsuario = function() {
+
+        alert("Entro correctamente");
+
+        /*if ($scope.usuario == null || $scope.usuario == "" || $scope.password == null || $scope.password == "") {
             $scope.message = "Verifica que los campos esten llenados correctamente";
         } else {
 
-            $http.post("login", {'usuario': $scope.usuario, 'password': $scope.password})
-                    .then(function (response) {
-                  //  alert(response.data);
+            $http.post("login", { 'usuario': $scope.usuario, 'password': $scope.password })
+                .then(function(response) {
 
-                        if (response.data == 0) {
-                            $scope.message = "Usuario o password incorrectos";
-                          //  alert("no login");
-                              
-                        } if(response.data == 1){
-                            
-                           
-                       
-         //  alert("login");
-                        }
-                        
-                      
-                           
-                       
+                    if (response.data == 0) {
+                        $scope.message = "Ingresar un usuario o password validos";
 
                     }
-                    , function (response) {
-                     //   console.log(response);
-                        $scope.message = "Verifique su informacion";
+                    if (response.data == 1) {
 
+                        $.ajax({
+                            url: 'monitor/index',
+                            type: 'POST',
+                            dataType: 'json',
+                            async: 'true',
+                            data: {},
+                            success: function(result) {
+                                if (result) {
 
-                    });
+                                    window.location.reload();
+                                }
 
-        }
+                            },
+                            error: function(xhr, ajaxOptions, thrownError) {}
+                        });
+
+                    }
+                }, function(response) {
+                    //   console.log(response);
+                    $scope.message = "Verifique su informacion";
+                });
+        }*/
     }
-
-    
-
 });
 
 
@@ -71,5 +74,3 @@ angular.module('login', []).controller('validarLogin', function ($scope, $http) 
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
