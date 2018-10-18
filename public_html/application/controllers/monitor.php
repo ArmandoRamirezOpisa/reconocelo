@@ -117,7 +117,7 @@ class Monitor extends CI_Controller {
     } 
     //////////////////////////////////// END GETS //////////////////////////////////   
 
-    //Menu navegacion reconocelo monitor
+    /////////////////////////Menu navegacion reconocelo monitor/////////////////////
     public function participantes()
     	{
             $this->load->view('participante_monitor_view');
@@ -138,5 +138,5 @@ class Monitor extends CI_Controller {
     public function programa(){
         $this->load->view('programa_monitor_view');
     }
-    //Fin menu
+    /////////////////////////////////////Fin menu/////////////////////////////////////
 }

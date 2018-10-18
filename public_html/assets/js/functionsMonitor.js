@@ -1,32 +1,6 @@
 //Archivo de javaScript donde tiene las funciones de reconocelo/monitor
 
 //Funcion para controlar el div, cuando se esta navegando
-/*function loadSection(controller, divSel) {
-    $.ajax({
-        url: controller,
-        async: 'true',
-        cache: false,
-        contentType: "application/x-www-form-urlencoded",
-        dataType: "html",
-        error: function(object, error, anotherObject) {
-            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
-        global: true,
-        ifModified: false,
-        processData: true,
-        success: function(result) {
-            if (result == "0") {
-                console.log("Expiro");
-                window.location.reload();
-            } else {
-                $('#' + divSel).html(result);
-            }
-        },
-        timeout: 30000,
-        type: "POST"
-    });
-}*/
-
 function MonitorNav(id) {
 
     var idNavMonitor = id.id;
