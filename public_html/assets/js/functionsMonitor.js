@@ -29,29 +29,26 @@
 
 function MonitorNav(id) {
 
-    /*document.getElementById('participantes').setAttribute('href', '/monitorPariticipantes');*/
-
     var idNavMonitor = id.id;
 
-    alert("Entro correctamente " + idNavMonitor);
-
-    console.log(idNavMonitor);
-
     switch (idNavMonitor) {
+        case 'inicioMonitor':
+            location.href = "http://" + location.hostname + "/monitor";
+            break;
         case 'participantes':
-            $('#navegacionMonitor').html('<h1>Informacion de participantes</h1>');
+            location.href = "http://" + location.hostname + "/monitor/participantes";
             break;
         case 'depositosPuntos':
-            $('#navegacionMonitor').html('<h1>Informacion de depositos en puntos</h1>');
+            location.href = "http://" + location.hostname + "/monitor/depositos";
             break;
         case 'canjes':
-            $('#navegacionMonitor').html('<h1>Informacion de canjes</h1>');
+            location.href = "http://" + location.hostname + "/monitor/canjes";
             break;
         case 'catologoActual':
-            $('#navegacionMonitor').html('<h1>Informacion del catologo actual</h1>');
+            location.href = "http://" + location.hostname + "/monitor/catalogo";
             break;
         case 'monitorPrograma':
-            $('#navegacionMonitor').html('<h1>Informacion del monitor de programa</h1>');
+            location.href = "http://" + location.hostname + "/monitor/programa";
 
     }
 
