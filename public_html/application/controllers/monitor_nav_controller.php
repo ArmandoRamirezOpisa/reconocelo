@@ -7,11 +7,11 @@
                 parent::__construct();
                
         }
-    
-        public function ObtenerParticipantes(){
+
+        public function ObtenerParticipantes() {
             
-         	$this->load->view("participantes_view");
+                $this->load->view('participante_monitor_view');
          
         }
         
-        }
+}

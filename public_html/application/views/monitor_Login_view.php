@@ -31,7 +31,7 @@
 
                         <div class="card bg-ligh">
 
-                            <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image"> 
+                            <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
                             <div class="card-body">
 
                                 <form ng-submit="validarUsuario()"  autocomplete="off">

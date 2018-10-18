@@ -10,11 +10,16 @@
     	public function index()
     	{
             
-            $data = array('usuario' => $usuario, 'password' => $pasword);
-            $array_items = array('usuario' => $usuario, 'password' => $pasword);
+            $array_items = array('administrador' => '', 'empresa' => '');
             $this->session->unset_userdata($array_items);
             //Manda al inicio de la página, si no hay session se va al login.
-            header( 'Location: '.base_url());
+            header( 'Location: '.base_url().'/monitor');
+            //if ($this->session->userdata('administrador')) {
+               // $this->load->view("home_monitor_view");
+            //} else {
+                //$this->load->view("monitor_Login_view");
+            //}
+
         }
     }
 ?>

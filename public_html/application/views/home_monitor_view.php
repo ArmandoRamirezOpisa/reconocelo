@@ -26,19 +26,19 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">   
                         <li class="nav-item">
-                            <a class="nav-link " href="#" ng-click="loadSection('ObtenerParticipantes','navegacion')"> <i class="fas fa-users mr-2"></i>Participantes</a>
+                            <a id="participantes" class="nav-link " href="javascript:void(0)" onClick = "MonitorNav(this)"> <i class="fas fa-users mr-2"></i>Participantes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" ng-click="message()"><i class="fas fa-piggy-bank mr-2"></i>Depositos en puntos</a>
+                            <a id="depositosPuntos" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-piggy-bank mr-2"></i>Depositos en puntos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" ng-click="message()"><i class="fas fa-archive mr-2"></i>Canjes</a>
+                            <a id="canjes" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-archive mr-2"></i>Canjes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
+                            <a id="catologoActual" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-chart-pie mr-2"></i>Monitor de programa</a>
+                            <a id="monitorPrograma" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-chart-pie mr-2"></i>Monitor de programa</a>
                         </li>   
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +53,15 @@
             </div>
         </nav>          
         <!-- Navigation --> 
-        <div id="navegacion"></div>
+        <div class="container">
+            <div id="navegacion">
+                <div class="row justify-content-center mb-4 mt-3">
+                    <div id="navegacionMonitor" class="card-deck mt-3">
+                        <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
+                    </div>
+                </div>
+            </div>
+        </div>
             
         <script src="assets/js/notify.js"></script>
         <script src="../assets/js/angular.min.js" type="text/javascript"></script>
@@ -67,5 +75,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="assets/js/controller.js"></script> 
+        <!--<script>
+            loadSection("nav_monitor_controller/getNavegacionParticipante", "navegacion");
+        </script>-->
     </body>
 </html>
