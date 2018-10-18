@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
         <link href="../assets/css/2018ReconoceloMonitor.css" rel="stylesheet" type="text/css"/>
     </head>
     <body ng-controller="monitor_controller">
