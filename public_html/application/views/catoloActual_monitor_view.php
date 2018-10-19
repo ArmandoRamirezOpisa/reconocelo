@@ -6,18 +6,20 @@ include 'home_monitor_view_header.php';
 
         <div class="container">
 
-            <div class="row">
+            <div class="row justify-content-center mb-4 mt-3">
 
                 <div class="col">
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="inlineRadio1">Fecha de movimientos</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <select class="form-control" id="estadoSelectDeposito">
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
-                    </div>
+                    <span class="card-text">Fecha de movimientos</span>
+                </div>
+                <div class="col">
+                    <span class="card-text">Inicio</span>
+                    <select>
+                        <option name="fechaInicioMovimiento" value="2010-10">2010-10</option>
+                    </select>
+                    <span class="card-text">Fin</span>
+                    <select>
+                        <option name="fechaFinMovimiento" value="2018-10">2018-10</option>
+                    </select>
                 </div>
 
             </div>

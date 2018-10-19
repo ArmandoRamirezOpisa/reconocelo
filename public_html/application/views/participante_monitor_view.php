@@ -3,27 +3,35 @@
 <?php
 include 'home_monitor_view_header.php';
 ?>
-
+        
         <div class="container">
 
-            <div class="row justify-content-center mb-4 mt-3">
+            <div class="row">
 
-                    <div class="col">
-                        <span class="card-text">Con saldo</span><input type="radio" name="conSaldo" value="saldo">
-                        <span class="card-text">Sin saldo</span><input type="radio" name="sinSaldo" value="sinSaldo">
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="conSaldo" checked>
+                        <label class="form-check-label" for="inlineRadio1">Con saldo</label>
                     </div>
-                    <div class="col">
-                        <span class="card-text">Activo</span><input type="radio" name="activo" value="activo">
-                        <span class="card-text">Inactivo</span><input type="radio" name="inactivo" value="inactivo">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="sinSaldo">
+                        <label class="form-check-label" for="inlineRadio2">Sin saldo</label>
                     </div>
-                    <div class="col">
-                        <span class="card-text">Estado</span><input type="checkbox" name="estado" value="estado">
-                        <select>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
+                </div>
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="estadoPariticipante">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Estado
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <select class="form-control" id="selectEstadoParticipante">
+                            <option>1</option>
+                            <option>2</option>
                         </select>
                     </div>
-
+                </div>
             </div>
 
         </div>

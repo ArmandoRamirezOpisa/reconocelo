@@ -32,9 +32,6 @@
                             <a id="depositosPuntos" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-piggy-bank mr-2"></i>Depositos en puntos</a>
                         </li>
                         <li class="nav-item">
-                            <a id="canjes" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-archive mr-2"></i>Canjes</a>
-                        </li>
-                        <li class="nav-item">
                             <a id="catologoActual" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
                         </li>
                         <li class="nav-item">
