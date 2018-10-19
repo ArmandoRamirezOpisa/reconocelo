@@ -1,5 +1,5 @@
 <?php
-    class CatalogoActual_monitor_model extends CI_Model {
+    class Catalogo_monitor_model extends CI_Model {
     	
     	public function __construct()
     	{

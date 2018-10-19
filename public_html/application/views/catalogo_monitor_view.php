@@ -32,32 +32,34 @@ include 'home_monitor_view_header.php';
                 <tbody>
                 <?php
                     if ($catalogo){
-                        echo '<h1>bien!</h1>';
-                    }else{
-                        echo '<h1>mal!</h1>';
-                    }
-                ?>
 
-                            <tr>
+                        foreach($catalogo as $row){
+
+                            echo '<tr>
                                 <td>'.$row["categoria"].'</td>
                                 <td>'.$row["codPremio"].'</td>
-                                <td>'.$row[" nombrePremio"].'</td>
+                                <td>'.$row["nombrePremio"].'</td>
                                 <td>'.$row["Marca"].'</td>
                                 <td>'.$row["Modelo"].'</td>
                                 <td>'.$row["Puntos"].'</td>
-                            </tr>
+                            </tr>';
 
+                        }
 
-                        <tr>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                            </tr>
+                    }else{
 
+                        echo '<tr>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>';
+
+                    }
                 
+                ?>
                 </tbody>
                 <tfoot>
                     <tr>

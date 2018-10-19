@@ -135,8 +135,8 @@ class Monitor extends CI_Controller {
     }
 
     public function catalogo(){
-        $this->load->model("catalogoActual_monitor_model");
-        $catalogo = $this->catalogoActual_monitor_model->getCatalogo();
+        $this->load->model("catalogo_monitor_model");
+        $catalogo = $this->catalogo_monitor_model->getCatalogo();
         if ($catalogo)
             {
                 $data["catalogo"] = $catalogo;
