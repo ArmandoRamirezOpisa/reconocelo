@@ -6,81 +6,72 @@ include 'home_monitor_view_header.php';
 
         <div class="container">
 
-            <div class="row justify-content-center mb-4 mt-3">
+            <table id="infoCatologoActual" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Categoría
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
+                        <th class="th-sm">Código de premio
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
+                        <th class="th-sm">Nombre de premio
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
+                        <th class="th-sm">Marca
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
+                        <th class="th-sm">Modelo
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
+                        <th class="th-sm">Puntos
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    if ($catalogoActual){
 
-                <div class="col">
-                    <span class="card-text">Fecha de movimientos</span>
-                </div>
-                <div class="col">
-                    <span class="card-text">Inicio</span>
-                    <select>
-                        <option name="fechaInicioMovimiento" value="2010-10">2010-10</option>
-                    </select>
-                    <span class="card-text">Fin</span>
-                    <select>
-                        <option name="fechaFinMovimiento" value="2018-10">2018-10</option>
-                    </select>
-                </div>
+                        foreach($catalogoActual as $row){
 
-            </div>
+                            echo '<tr>
+                                <td>'.$row["categoria"].'</td>
+                                <td>'.$row["codPremio"].'</td>
+                                <td>'.$row[" nombrePremio"].'</td>
+                                <td>'.$row["Marca"].'</td>
+                                <td>'.$row["Modelo"].'</td>
+                                <td>'.$row["Puntos"].'</td>
+                            </tr>';
 
-        </div>
+                        }
 
-        <div class="container">
+                    }else{
 
-            <table id="infoDeposito" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th class="th-sm">Codigo deposito
-                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                                </th>
-                                <th class="th-sm">Nombre
-                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                                </th>
-                                <th class="th-sm">Fecha
-                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                                </th>
-                                <th class="th-sm"># Transacción
-                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                                </th>
-                                <th class="th-sm">Descripción
-                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>00</td>
-                                <td>qwer</td>
-                                <td>2010-10-9</td>
-                                <td>500</td>
-                                <td>probando</td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>ttyui</td>
-                                <td>2011-10-9</td>
-                                <td>600</td>
-                                <td>probando</td>
-                            </tr>
-                            <tr>
-                                <td>22</td>
-                                <td>opasd</td>
-                                <td>2012-10-9</td>
-                                <td>700</td>
-                                <td>probando</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Codigo deposito</th>
-                                <th>Nombre</th>
-                                <th>Fecha</th>
-                                <th>Transacción</th>
-                                <th>Descripción</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                        echo '<tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>';
+
+                    }
+    
+                ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Código de premio</th>
+                        <th>Nombre de premio</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Puntos</th>
+                    </tr>
+                </tfoot>
+            </table>
 
         </div>
 
@@ -89,7 +80,7 @@ include 'home_monitor_view_footer.php';
 ?>
 
         <script>
-            document.getElementById("navegacionMonitor").innerHTML = "<h1>Informacion de los depositos</h1>";
+            document.getElementById("navegacionMonitor").innerHTML = "<h1>Informacion del catologo actual</h1>";
 
             $(document).ready(function() {
                 $('#infoDeposito').DataTable();

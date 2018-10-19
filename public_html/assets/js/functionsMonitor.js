@@ -15,9 +15,6 @@ function MonitorNav(id) {
         case 'depositosPuntos':
             location.href = "http://" + location.hostname + "/monitor/depositos";
             break;
-        case 'canjes':
-            location.href = "http://" + location.hostname + "/monitor/canjes";
-            break;
         case 'catologoActual':
             location.href = "http://" + location.hostname + "/monitor/catalogo";
             break;

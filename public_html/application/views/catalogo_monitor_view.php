@@ -30,30 +30,34 @@ include 'home_monitor_view_header.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>electronica</td>
-                        <td>99999</td>
-                        <td>box</td>
-                        <td>lg</td>
-                        <td>asdf</td>
-                        <td>987654</td>
-                    </tr>
-                    <tr>
-                        <td>electronica</td>
-                        <td>99999</td>
-                        <td>box</td>
-                        <td>lg</td>
-                        <td>asdf</td>
-                        <td>987654</td>
-                    </tr>
-                    <tr>
-                        <td>electronica</td>
-                        <td>99999</td>
-                        <td>box</td>
-                        <td>lg</td>
-                        <td>asdf</td>
-                        <td>987654</td>
-                    </tr>
+                <?php
+                    if ($catalogo){
+                        echo '<h1>bien!</h1>';
+                    }else{
+                        echo '<h1>mal!</h1>';
+                    }
+                ?>
+
+                            <tr>
+                                <td>'.$row["categoria"].'</td>
+                                <td>'.$row["codPremio"].'</td>
+                                <td>'.$row[" nombrePremio"].'</td>
+                                <td>'.$row["Marca"].'</td>
+                                <td>'.$row["Modelo"].'</td>
+                                <td>'.$row["Puntos"].'</td>
+                            </tr>
+
+
+                        <tr>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+
+                
                 </tbody>
                 <tfoot>
                     <tr>

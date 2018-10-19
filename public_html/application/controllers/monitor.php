@@ -118,21 +118,32 @@ class Monitor extends CI_Controller {
     //////////////////////////////////// END GETS //////////////////////////////////   
 
     /////////////////////////Menu navegacion reconocelo monitor/////////////////////
-    public function participantes()
-    	{
-            $this->load->view('participante_monitor_view');
-        }
+    public function participantes(){
+            $this->load->model("participante_monitor_model");
+            $participante = $this->participante_monitor_model->geTParticipantes();
+            if ($participante)
+            {
+                $data["participante"] = $participante;
+            }else{
+                $data["participante"] = false;
+            }
+            $this->load->view('participante_monitor_view',$data);
+    }
     
     public function depositos(){
         $this->load->view('deposito_monitor_view');
     }
 
-    public function canjes(){
-        $this->load->view('canje_monitor_view');
-    }
-
     public function catalogo(){
-        $this->load->view('catalogo_monitor_view');
+        $this->load->model("catalogoActual_monitor_model");
+        $catalogo = $this->catalogoActual_monitor_model->getCatalogo();
+        if ($catalogo)
+            {
+                $data["catalogo"] = $catalogo;
+            }else{
+                $data["catalogo"] = false;
+            }
+        $this->load->view('catalogo_monitor_view',$data);
     }
 
     public function programa(){
