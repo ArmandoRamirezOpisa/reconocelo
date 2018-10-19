@@ -30,14 +30,6 @@ include 'home_monitor_view_header.php';
 
         <div class="container">
 
-            <!--<div class="card text-center">
-                <div class="card-header">
-                    Participantes
-                </div>
-                <div class="card-body">-->
-                    
-
-
                     <table id="infoParticipante" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -105,17 +97,6 @@ include 'home_monitor_view_header.php';
                             </tr>
                         </tfoot>
                     </table>
-
-
-
-
-
-
-                <!--</div>-->
-                <!--<div class="card-footer text-muted">
-                    Información
-                </div>-->
-            <!--</div>-->
 
         </div>
 

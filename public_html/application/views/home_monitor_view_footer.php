@@ -17,4 +17,3 @@
         <!--<script>
             loadSection("nav_monitor_controller/getNavegacionParticipante", "navegacion");
         </script>-->
-    
