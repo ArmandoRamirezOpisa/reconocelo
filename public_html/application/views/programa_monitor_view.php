@@ -6,6 +6,16 @@ include 'home_monitor_view_header.php';
 
         <div class="container">
 
+            <?php
+
+                if($programa){
+                    echo '<h1>Consulta bien echa</h1>';
+                }else{
+                    echo '<h1>Consulta mal echa</h1>';
+                }
+
+            ?>
+
             <table id="infoMonitorPrograma" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -24,24 +34,32 @@ include 'home_monitor_view_header.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>10-2010</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <td>11-2010</td>
-                        <td>200</td>
-                        <td>50</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>12-2010</td>
-                        <td>100</td>
-                        <td>100</td>
-                        <td>200</td>
-                    </tr>
+                <?php
+
+                    if ($programa){
+
+                        $puntosCirculantes = 0;
+                        foreach ($programa as $row){
+
+                            echo '<tr>';
+                                echo '<td>'.$row['Fecha'].'</td>';
+                                echo '<td>'.$row['Depositos'].'</td>';
+                                echo '<td>'.$row['Canjes'].'</td>';
+                                $puntosCirculantes = $puntosCirculantes + ($row['Depositos'] - $row['Canjes']);
+                                echo '<td>'.$puntosCirculantes.'</td>';
+                            echo '</tr>';
+
+                        }
+                        
+                    }else{
+                        echo '<tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>';
+                    }
+                ?>
                 </tbody>
                 <tfoot>
                     <tr>

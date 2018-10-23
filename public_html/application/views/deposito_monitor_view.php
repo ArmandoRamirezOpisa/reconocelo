@@ -38,44 +38,48 @@ include 'home_monitor_view_header.php';
                                 <th class="th-sm">Fecha
                                     <i class="fa fa-sort float-right" aria-hidden="true"></i>
                                 </th>
-                                <th class="th-sm"># Transacción
+                                <th class="th-sm">Descripción
                                     <i class="fa fa-sort float-right" aria-hidden="true"></i>
                                 </th>
-                                <th class="th-sm">Descripción
+                                <th class="th-sm">Puntos
                                     <i class="fa fa-sort float-right" aria-hidden="true"></i>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>00</td>
-                                <td>qwer</td>
-                                <td>2010-10-9</td>
-                                <td>500</td>
-                                <td>probando</td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>ttyui</td>
-                                <td>2011-10-9</td>
-                                <td>600</td>
-                                <td>probando</td>
-                            </tr>
-                            <tr>
-                                <td>22</td>
-                                <td>opasd</td>
-                                <td>2012-10-9</td>
-                                <td>700</td>
-                                <td>probando</td>
-                            </tr>
+                        <?php
+                            if ($deposito){
+                                foreach($deposito as $row){
+
+                                    echo '<tr>
+                                        <td>'.$row['noFolio'].'</td>
+                                        <td>'.$row['Nombre'].'</td>
+                                        <td>'.$row['Fecha'].'</td>
+                                        <td>'.$row['Descripcion'].'</td>
+                                        <td>'.$row['Puntos'].'</td>
+                                    </tr>';
+
+                                }
+
+                            }else{
+                                echo '<tr>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>';
+                            }
+                            
+                        ?>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Codigo deposito</th>
                                 <th>Nombre</th>
                                 <th>Fecha</th>
-                                <th>Transacción</th>
                                 <th>Descripción</th>
+                                <th>Puntos</th>
                             </tr>
                         </tfoot>
                     </table>

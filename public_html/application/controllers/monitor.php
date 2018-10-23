@@ -131,7 +131,15 @@ class Monitor extends CI_Controller {
     }
     
     public function depositos(){
-        $this->load->view('deposito_monitor_view');
+        $this->load->model("deposito_monitor_model");
+        $deposito = $this->deposito_monitor_model->getDeposito();
+        if ($deposito){
+            $data["deposito"] = $deposito;
+        }else{
+            $data["deposito"] = $deposito;
+        }
+
+        $this->load->view('deposito_monitor_view',$data);
     }
 
     public function catalogo(){
@@ -147,7 +155,15 @@ class Monitor extends CI_Controller {
     }
 
     public function programa(){
-        $this->load->view('programa_monitor_view');
+        $this->load->model("programa_monitor_model");
+        $programa= $this->programa_monitor_model->getPrograma();
+        if ($programa){
+            $data['programa'] = $programa;
+        }else{
+            $data['programa'] = false;
+        }
+      
+        $this->load->view('programa_monitor_view',$data);
     }
     /////////////////////////////////////Fin menu/////////////////////////////////////
 }
