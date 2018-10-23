@@ -28,7 +28,7 @@ function MonitorNav(id) {
 function filtroParticipantes(id) {
     var idSaldo = id.id;
     if (idSaldo == 'Saldo') {
-        location.href = "http://" + location.hostname + "/monitor/participantes";
+        //Necesario hacerlo con ajax
         console.log('Tiene saldo');
     } else if (idSaldo == 'sinSaldo') {
         console.log('No tiene saldo');
