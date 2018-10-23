@@ -9,18 +9,25 @@
         public function getPrograma()
         {
     		$query = $this->db->query("
-                                          SELECT DATE_FORMAT( m.feMov,  '%Y %m' ) AS Fecha, SUM( m.noPuntos ) AS Depositos, 
-                                          SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
-                                          FROM PartMovsRealizados m, Participante part, PreCanjeDet cd, PreCanje c
-                                          WHERE part.idParticipante = m.idParticipante
-                                          AND feMov >=  '20180501'
-                                          AND feMov <=  '20180830'
-                                          AND part.CodPrograma = 41
-                                          AND part.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                                          AND cd.noFolio = c.idCanje
-                                          AND cd.idParticipante = c.idParticipante
+                                          SELECT  'D' AS Tipo, DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha, 
+                                          SUM( m.noPuntos ) AS Depositos,  'Canjes' AS Canjes
+                                          FROM PartMovsRealizados m
+                                          JOIN Participante p ON p.idParticipante = m.idParticipante
+                                          WHERE feMov >=  '20180501'
+                                          AND feMov <=  '20181030'
+                                          AND p.CodPrograma =41
+                                          AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
                                           GROUP BY DATE_FORMAT( m.feMov,  '%Y %m' ) 
-                                          ORDER BY 2
+                                          UNION ALL 
+                                          SELECT  'C' AS Tipo, DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha,  
+                                          'depositos' AS Depositos, SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
+                                          FROM PreCanjeDet cd
+                                          JOIN PreCanje c ON cd.noFolio = c.idCanje
+                                          AND cd.idParticipante = c.idParticipante
+                                          WHERE feSolicitud >=  '20180501'
+                                          AND feSolicitud <=  '20181030'
+                                          GROUP BY DATE_FORMAT( feSolicitud,  '%Y %m' ) 
+                                          ORDER BY 2 
                                         
                                       ");
     		if ($query->num_rows() > 0)

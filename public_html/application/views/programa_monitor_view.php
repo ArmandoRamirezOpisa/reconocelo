@@ -6,16 +6,6 @@ include 'home_monitor_view_header.php';
 
         <div class="container">
 
-            <?php
-
-                if($programa){
-                    echo '<h1>Consulta bien echa</h1>';
-                }else{
-                    echo '<h1>Consulta mal echa</h1>';
-                }
-
-            ?>
-
             <table id="infoMonitorPrograma" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -38,13 +28,30 @@ include 'home_monitor_view_header.php';
 
                     if ($programa){
 
+                        /*foreach($programa as $row => $info){
+                            echo '<h1>'.$row.'</h1>'.'<br>';
+                            foreach($info as $datos){
+                                if ($datos != 'depositos' or $datos != 'Canjes'){
+                                    echo '<h1>'.$datos.'</h1>'.'<br>';
+                                }
+                            }
+                        }*/
+
                         $puntosCirculantes = 0;
                         foreach ($programa as $row){
 
                             echo '<tr>';
                                 echo '<td>'.$row['Fecha'].'</td>';
-                                echo '<td>'.$row['Depositos'].'</td>';
-                                echo '<td>'.$row['Canjes'].'</td>';
+                                if ($row['Depositos'] != 'depositos'){
+                                    echo '<td>'.$row['Depositos'].'</td>';
+                                }else{
+                                    echo '<td>--</td>';
+                                }
+                                if ($row['Canjes'] != 'Canjes'){
+                                    echo '<td>'.$row['Canjes'].'</td>';
+                                }else{
+                                    echo '<td>--</td>';
+                                }
                                 $puntosCirculantes = $puntosCirculantes + ($row['Depositos'] - $row['Canjes']);
                                 echo '<td>'.$puntosCirculantes.'</td>';
                             echo '</tr>';
