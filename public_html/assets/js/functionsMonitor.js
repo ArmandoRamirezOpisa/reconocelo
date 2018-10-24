@@ -95,6 +95,38 @@ function filtroParticipantes(id) {
     }
 }
 
+function estadoParticipante(id) {
+
+    var idEstado = id.id;
+    if (document.getElementById(idEstado).checked) {
+        document.getElementById("selectEstadoParticipante").style.display = "block";
+    } else {
+        document.getElementById("selectEstadoParticipante").style.display = "none";
+    }
+}
+
+function estadoParticipanteSelect() {
+
+    var estado = document.getElementById("selectEstadoParticipante").value;
+    var radioSaldo = document.getElementById("Saldo");
+    var radioSinSaldo = document.getElementById("sinSaldo");
+
+    if (estado == 'activo' && radioSaldo.checked == true) {
+        alert("Query estado activo con saldo");
+        $("#selectEstadoParticipante").val('selecciona');
+    } else if (estado == 'activo' && radioSinSaldo.checked == true) {
+        alert("Query estado activo sin saldo");
+        $("#selectEstadoParticipante").val('selecciona');
+    } else if (estado == 'inactivo' && radioSaldo.checked == true) {
+        alert("Query estado inactivo con saldo");
+        $("#selectEstadoParticipante").val('selecciona');
+    } else if (estado == 'inactivo' && radioSinSaldo.checked == true) {
+        alert("Query estado inactivo sin saldo");
+        $("#selectEstadoParticipante").val('selecciona');
+    }
+
+}
+
 //Funcion salir de reconocelo monitor
 function exit() {
 

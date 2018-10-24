@@ -20,15 +20,16 @@ include 'home_monitor_view_header.php';
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="estadoPariticipante">
+                        <input class="form-check-input" type="checkbox" value="estadoPariticipante" id="estadoPariticipante" onclick="estadoParticipante(this)">
                         <label class="form-check-label" for="defaultCheck1">
                             Estado
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <select class="form-control" id="selectEstadoParticipante">
-                            <option>1</option>
-                            <option>2</option>
+                        <select class="form-control" id="selectEstadoParticipante"  onchange="estadoParticipanteSelect()" style="display:none;">
+                            <option value='selecciona'>Selecciona:</option>
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
                         </select>
                     </div>
                 </div>
