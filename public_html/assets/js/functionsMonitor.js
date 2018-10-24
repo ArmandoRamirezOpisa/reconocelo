@@ -112,18 +112,56 @@ function estadoParticipanteSelect() {
     var radioSinSaldo = document.getElementById("sinSaldo");
 
     if (estado == 'activo' && radioSaldo.checked == true) {
-        alert("Query estado activo con saldo");
+
+        estadoParticipanteSelectFiltro('/monitor/saldoActivo');
         $("#selectEstadoParticipante").val('selecciona');
+
     } else if (estado == 'activo' && radioSinSaldo.checked == true) {
-        alert("Query estado activo sin saldo");
+
+        estadoParticipanteSelectFiltro('/monitor/sinSaldoActivo');
         $("#selectEstadoParticipante").val('selecciona');
+
     } else if (estado == 'inactivo' && radioSaldo.checked == true) {
-        alert("Query estado inactivo con saldo");
+
+        estadoParticipanteSelectFiltro('/monitor/saldoInactivo');
         $("#selectEstadoParticipante").val('selecciona');
+
     } else if (estado == 'inactivo' && radioSinSaldo.checked == true) {
-        alert("Query estado inactivo sin saldo");
+
+        estadoParticipanteSelectFiltro('/monitor/sinSaldoInactivo');
         $("#selectEstadoParticipante").val('selecciona');
     }
+
+}
+
+function estadoParticipanteSelectFiltro(estadoFiltro) {
+
+    $.ajax({
+        url: estadoFiltro,
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: "html",
+        error: function(object, error, anotherObject) {
+            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        global: true,
+        ifModified: false,
+        processData: true,
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                window.location.reload();
+            } else {
+                //console.log(result);
+                $('#ParticipanteSaldo').html(result);
+            }
+
+        },
+        timeout: 30000,
+        type: "GET"
+    });
 
 }
 

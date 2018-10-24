@@ -118,6 +118,7 @@ class Monitor extends CI_Controller {
     //////////////////////////////////// END GETS //////////////////////////////////   
 
     /////////////////////////Menu navegacion reconocelo monitor/////////////////////
+    ///////////////////////////////Participantes///////////////////////////////////
     public function participantes(){
             //$this->load->model("participante_monitor_model");
             
@@ -152,7 +153,55 @@ class Monitor extends CI_Controller {
         }
         $this->load->view('partSaldo_monitor_view',$data);
     }
-    
+
+    public function saldoActivo(){
+        $this->load->model("participante_monitor_model");
+        $participante = $this->participante_monitor_model->geTSaldoActivo();
+        if ($participante)
+        {
+            $data["participante"] = $participante;
+        }else{
+            $data["participante"] = false;
+        }
+        $this->load->view('partSaldo_monitor_view',$data);
+    }
+
+    public function sinSaldoActivo(){
+        $this->load->model("participante_monitor_model");
+        $participante = $this->participante_monitor_model->geTSinSaldoActivo();
+        if ($participante)
+        {
+            $data["participante"] = $participante;
+        }else{
+            $data["participante"] = false;
+        }
+        $this->load->view('partSaldo_monitor_view',$data);
+    }
+
+    public function saldoInactivo(){
+        $this->load->model("participante_monitor_model");
+        $participante = $this->participante_monitor_model->geTSaldoInactivo();
+        if ($participante)
+        {
+            $data["participante"] = $participante;
+        }else{
+            $data["participante"] = false;
+        }
+        $this->load->view('partSaldo_monitor_view',$data);
+    }
+
+    public function sinSaldoInactivo(){
+        $this->load->model("participante_monitor_model");
+        $participante = $this->participante_monitor_model->geTSinSaldoInactivo();
+        if ($participante)
+        {
+            $data["participante"] = $participante;
+        }else{
+            $data["participante"] = false;
+        }
+        $this->load->view('partSaldo_monitor_view',$data);
+    }
+    ////////////////////////////FinParticipantes///////////////////////////////////
     public function depositos(){
         $this->load->model("deposito_monitor_model");
         $deposito = $this->deposito_monitor_model->getDeposito();
