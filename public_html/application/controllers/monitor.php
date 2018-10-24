@@ -202,18 +202,47 @@ class Monitor extends CI_Controller {
         $this->load->view('partSaldo_monitor_view',$data);
     }
     ////////////////////////////FinParticipantes///////////////////////////////////
+    ////////////////////////////InicioDepositos///////////////////////////////////
     public function depositos(){
         $this->load->model("deposito_monitor_model");
-        $deposito = $this->deposito_monitor_model->getDeposito();
+        $deposito = $this->deposito_monitor_model->getFechaDeposito();
         if ($deposito){
             $data["deposito"] = $deposito;
         }else{
-            $data["deposito"] = $deposito;
+            $data["deposito"] = false;
         }
 
         $this->load->view('deposito_monitor_view',$data);
     }
 
+    public function depositosInfo(){
+        $this->load->model("deposito_monitor_model");
+        $deposito = $this->deposito_monitor_model->getDeposito();
+        if ($deposito){
+            $data["deposito"] = $deposito;
+        }else{
+            $data["deposito"] = false;
+        }
+        $this->load->view('depoTable_monitor_view',$data);
+    }
+
+    public function depositosInforma(){
+        /* Checar como imprime las fechas */
+        $this->load->model("deposito_monitor_model");
+
+        $infoFechas = array("fechaInicio"=>$_POST['fechaInicio'],
+             "fechaFin"=>$_POST['fechaFin']
+             );
+
+        $deposito = $this->deposito_monitor_model->getDepositoFechas($infoFechas);
+        if ($deposito){
+            $data["deposito"] = $deposito;
+        }else{
+            $data["deposito"] = false;
+        }
+        $this->load->view('depoTable_monitor_view',$data);
+    }
+    ////////////////////////////FinDepositos///////////////////////////////////////
     public function catalogo(){
         $this->load->model("catalogo_monitor_model");
         $catalogo = $this->catalogo_monitor_model->getCatalogo();

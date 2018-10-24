@@ -24,7 +24,7 @@ function MonitorNav(id) {
     }
 
 }
-
+/* Inicio participantes */
 function participantes() {
 
     $.ajax({
@@ -164,6 +164,92 @@ function estadoParticipanteSelectFiltro(estadoFiltro) {
     });
 
 }
+/* Fin Participantes */
+/* Inicio depositos */
+function depositos() {
+
+    $.ajax({
+        url: '/monitor/depositosInfo',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: "html",
+        error: function(object, error, anotherObject) {
+            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        global: true,
+        ifModified: false,
+        processData: true,
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                window.location.reload();
+            } else {
+                //console.log(result);
+                $('#depositoInformacion').html(result);
+            }
+
+        },
+        timeout: 30000,
+        type: "GET"
+    });
+
+}
+
+function fechaInicioFinSelect() {
+
+    var fechaInicio = document.getElementById("fechaInicio").value;
+    var fechaFin = document.getElementById("fechaFin").value;
+
+    if (fechaInicio == 'selecciona' || fechaFin == 'selecciona') {
+        throw new Error("Datos de formulario incompleto");
+    } else if (fechaInicio != 'selecciona' || fechaFin != 'selecciona') {
+
+        if (fechaInicio == fechaFin) {
+            throw new Error("Datos de formulario incompleto");
+        } else if (fechaInicio >= fechaFin) {
+            throw new Error("Datos de formulario incompleto");
+        } else if (fechaInicio <= fechaFin) {
+
+            console.log('datos correctos');
+            /*$.ajax({
+                url: '/monitor/depositosInforma',
+                async: 'true',
+                cache: false,
+                contentType: "application/x-www-form-urlencoded",
+                dataType: "json",
+                error: function(object, error, anotherObject) {
+                    alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                },
+                global: true,
+                ifModified: false,
+                processData: true,
+                data: { "fechaInicio": fechaInicio, "fechaFin": fechaFin },
+                beforeSend: function() {
+                    console.log('Procesando, espere por favor...');
+                },
+                success: function(result) {
+
+                    if (result == "0") {
+                        console.log("Expiro");
+                        window.location.reload();
+                    } else {
+                        //console.log(result);
+                        $('#depositoInformacion').html(result);
+                    }
+
+                },
+                timeout: 30000,
+                type: "POST"
+            });*/
+
+        }
+
+    }
+
+}
+/* fin depositos*/
 
 //Funcion salir de reconocelo monitor
 function exit() {
