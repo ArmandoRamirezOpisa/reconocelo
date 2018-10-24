@@ -25,13 +25,73 @@ function MonitorNav(id) {
 
 }
 
+function participantes() {
+
+    $.ajax({
+        url: '/monitor/conSaldoParticipantes',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: "html",
+        error: function(object, error, anotherObject) {
+            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        global: true,
+        ifModified: false,
+        processData: true,
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                window.location.reload();
+            } else {
+                //console.log(result);
+                $('#ParticipanteSaldo').html(result);
+            }
+
+        },
+        timeout: 30000,
+        type: "GET"
+    });
+
+}
+
 function filtroParticipantes(id) {
     var idSaldo = id.id;
     if (idSaldo == 'Saldo') {
         //Necesario hacerlo con ajax
         console.log('Tiene saldo');
+        participantes();
     } else if (idSaldo == 'sinSaldo') {
         console.log('No tiene saldo');
+
+        $.ajax({
+            url: '/monitor/sinSaldoParticipantes',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            dataType: "html",
+            error: function(object, error, anotherObject) {
+                alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            global: true,
+            ifModified: false,
+            processData: true,
+            success: function(result) {
+
+                if (result == "0") {
+                    console.log("Expiro");
+                    window.location.reload();
+                } else {
+                    //console.log(result);
+                    $('#ParticipanteSaldo').html(result);
+                }
+
+            },
+            timeout: 30000,
+            type: "GET"
+        });
+
     }
 }
 

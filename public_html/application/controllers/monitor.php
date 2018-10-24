@@ -119,15 +119,38 @@ class Monitor extends CI_Controller {
 
     /////////////////////////Menu navegacion reconocelo monitor/////////////////////
     public function participantes(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->geTParticipantes();
-            if ($participante)
+            //$this->load->model("participante_monitor_model");
+            
+            /*if ($participante)
             {
                 $data["participante"] = $participante;
             }else{
                 $data["participante"] = false;
-            }
-            $this->load->view('participante_monitor_view',$data);
+            }*/
+            $this->load->view('participante_monitor_view');
+    }
+
+    public function conSaldoParticipantes(){
+        $this->load->model("participante_monitor_model");
+        $participante = $this->participante_monitor_model->geTParticipantes();
+        if ($participante){
+            $data["participante"] = $participante;
+        }else{
+            $data["participante"] = false;
+        }
+        $this->load->view('partSaldo_monitor_view',$data);
+    }
+
+    public function sinSaldoParticipantes(){
+        $this->load->model("participante_monitor_model");
+        $participante = $this->participante_monitor_model->geTSinSaldoParticipantes();
+        if ($participante)
+        {
+            $data["participante"] = $participante;
+        }else{
+            $data["participante"] = false;
+        }
+        $this->load->view('partSaldo_monitor_view',$data);
     }
     
     public function depositos(){
