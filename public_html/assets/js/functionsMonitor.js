@@ -212,16 +212,13 @@ function fechaInicioFinSelect() {
             throw new Error("Datos de formulario incompleto");
         } else if (fechaInicio <= fechaFin) {
 
-            console.log('datos correctos');
-            /*$.ajax({
+            console.log('fechaInicio ' + fechaInicio);
+            console.log('fechaFin ' + fechaFin);
+            $.ajax({
                 url: '/monitor/depositosInforma',
                 async: 'true',
                 cache: false,
                 contentType: "application/x-www-form-urlencoded",
-                dataType: "json",
-                error: function(object, error, anotherObject) {
-                    alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                },
                 global: true,
                 ifModified: false,
                 processData: true,
@@ -235,14 +232,18 @@ function fechaInicioFinSelect() {
                         console.log("Expiro");
                         window.location.reload();
                     } else {
-                        //console.log(result);
+                        console.log('Correcto');
+                        console.log(result);
                         $('#depositoInformacion').html(result);
                     }
 
                 },
+                error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                },
                 timeout: 30000,
                 type: "POST"
-            });*/
+            });
 
         }
 

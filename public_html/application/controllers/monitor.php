@@ -227,7 +227,6 @@ class Monitor extends CI_Controller {
     }
 
     public function depositosInforma(){
-        /* Checar como imprime las fechas */
         $this->load->model("deposito_monitor_model");
 
         $infoFechas = array("fechaInicio"=>$_POST['fechaInicio'],
