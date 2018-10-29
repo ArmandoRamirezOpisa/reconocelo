@@ -7,19 +7,19 @@ function MonitorNav(id) {
 
     switch (idNavMonitor) {
         case 'inicioMonitor':
-            location.href = "http://" + location.hostname + "/monitor";
+            location.href = "https://" + location.hostname + "/monitor";
             break;
         case 'participantes':
-            location.href = "http://" + location.hostname + "/monitor/participantes";
+            location.href = "https://" + location.hostname + "/monitor/participantes";
             break;
         case 'depositosPuntos':
-            location.href = "http://" + location.hostname + "/monitor/depositos";
+            location.href = "https://" + location.hostname + "/monitor/depositos";
             break;
         case 'catologoActual':
-            location.href = "http://" + location.hostname + "/monitor/catalogo";
+            location.href = "https://" + location.hostname + "/monitor/catalogo";
             break;
         case 'monitorPrograma':
-            location.href = "http://" + location.hostname + "/monitor/programa";
+            location.href = "https://" + location.hostname + "/monitor/programa";
 
     }
 
@@ -266,7 +266,7 @@ function exit() {
         dangerMode: true,
     }).then(function(isConfirm) {
         if (isConfirm) {
-            location.href = "http://" + location.hostname + "/exit_controller_monitor";
+            location.href = "https://" + location.hostname + "/exit_controller_monitor";
         } else {
             //  swal("Cancelled", "Your imaginary file is safe :)", "error");
         }

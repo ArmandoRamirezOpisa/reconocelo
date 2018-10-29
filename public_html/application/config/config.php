@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://www.reconocelo.com.mx';
+$config['base_url']	= 'https://www.reconocelo.com.mx';
 
 /*
 |--------------------------------------------------------------------------
