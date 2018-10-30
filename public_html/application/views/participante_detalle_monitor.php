@@ -5,8 +5,6 @@ if(!$data){
 }
 else{
     echo '
-<div class="container">
-    <div class="table-responsive">
     <table class="table table-hover table-sm table-bordered ">
   <thead>
       <tr class="bg-primary text-center">
@@ -38,10 +36,7 @@ else{
     
     }
     echo '</tbody>
-</table>
-
-</div>
-    </div>';  
+    </table>';  
     
 }
 

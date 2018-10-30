@@ -26,35 +26,19 @@ include 'home_monitor_view_header.php';
                 <tbody>
                 <?php
 
-                    if ($programa){
-
-                        /*foreach($programa as $row => $info){
-                            echo '<h1>'.$row.'</h1>'.'<br>';
-                            foreach($info as $datos){
-                                if ($datos != 'depositos' or $datos != 'Canjes'){
-                                    echo '<h1>'.$datos.'</h1>'.'<br>';
-                                }
-                            }
-                        }*/
+                    if ($programa && $programaCanje){
 
                         $puntosCirculantes = 0;
+                        $canjes = 0;
                         foreach ($programa as $row){
-
-                            echo '<tr>';
-                                echo '<td>'.$row['Fecha'].'</td>';
-                                if ($row['Depositos'] != 'depositos'){
+                                
+                                echo '<tr>';
+                                    echo '<td>'.$row['Fecha'].'</td>';
                                     echo '<td>'.$row['Depositos'].'</td>';
-                                }else{
-                                    echo '<td>--</td>';
-                                }
-                                if ($row['Canjes'] != 'Canjes'){
-                                    echo '<td>'.$row['Canjes'].'</td>';
-                                }else{
-                                    echo '<td>--</td>';
-                                }
-                                $puntosCirculantes = $puntosCirculantes + ($row['Depositos'] - $row['Canjes']);
-                                echo '<td>'.$puntosCirculantes.'</td>';
-                            echo '</tr>';
+                                    echo '<td>'.$canjes.'</td>';
+                                    $puntosCirculantes = $puntosCirculantes + ($row['Depositos'] - $canjes);
+                                    echo '<td>'.$puntosCirculantes.'</td>';
+                                echo '</tr>';
 
                         }
                         

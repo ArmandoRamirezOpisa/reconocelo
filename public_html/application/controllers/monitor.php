@@ -257,10 +257,13 @@ class Monitor extends CI_Controller {
     public function programa(){
         $this->load->model("programa_monitor_model");
         $programa= $this->programa_monitor_model->getPrograma();
-        if ($programa){
-            $data['programa'] = $programa;
+        $programaCanje = $this->programa_monitor_model->getProgramaCanje();
+        if ($programa && $programaCanje){
+            $data = array( 'programa' => $programa,
+                            'programaCanje' => $programaCanje);
         }else{
-            $data['programa'] = false;
+            $data = array( 'programa' => false,
+                            'programaCanje' => false);
         }
       
         $this->load->view('programa_monitor_view',$data);
