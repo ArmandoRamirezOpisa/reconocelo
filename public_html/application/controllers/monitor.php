@@ -11,10 +11,14 @@ class Monitor extends CI_Controller {
 
     public function index() {
         if ($this->session->userdata('administrador')) {
-            $this->load->view("home_monitor_view");
+            header( 'Location: '.base_url().'monitor/home');
         } else {
             $this->load->view("monitor_Login_view");
         }
+    }
+
+    public function home(){
+        $this->load->view("home_monitor_view");
     }
 
     public function login() {

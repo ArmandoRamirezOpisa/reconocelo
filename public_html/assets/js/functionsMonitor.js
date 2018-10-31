@@ -7,7 +7,7 @@ function MonitorNav(id) {
 
     switch (idNavMonitor) {
         case 'inicioMonitor':
-            location.href = "https://" + location.hostname + "/monitor";
+            location.href = "https://" + location.hostname + "/monitor/home";
             break;
         case 'participantes':
             location.href = "https://" + location.hostname + "/monitor/participantes";
