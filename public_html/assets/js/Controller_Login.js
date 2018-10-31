@@ -23,7 +23,8 @@ angular.module('login', ['ngSanitize'])
                     success: function(result) {
                         if (result) {
 
-                            window.location.reload();
+                            //window.location.reload();
+                            location.href = "https://" + location.hostname + "/home";
                         } else {
                             $scope.$apply(function() {
                                 $scope.loading = false;
