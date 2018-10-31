@@ -10,7 +10,7 @@
         {
     		$query = $this->db->query("
                                           SELECT DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha, 
-                                          SUM( m.noPuntos ) AS Depositos,  'Canjes' AS Canjes
+                                          SUM( m.noPuntos ) AS Depositos
                                           FROM PartMovsRealizados m
                                           JOIN Participante p ON p.idParticipante = m.idParticipante
                                           WHERE feMov >=  '20180501'
@@ -32,7 +32,8 @@
         public function getProgramaCanje()
         {
     		$query = $this->db->query("
-                                          SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha, SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
+                                          SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha, 
+                                          SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
                                           FROM PreCanjeDet cd, PreCanje c, Participante p
                                           WHERE cd.noFolio = c.idCanje
                                           AND cd.idParticipante = c.idParticipante
