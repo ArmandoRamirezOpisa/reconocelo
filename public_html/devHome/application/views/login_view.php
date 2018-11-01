@@ -155,7 +155,7 @@
 
         </div>
         <script src="../../assets/js/angular.min.js" type="text/javascript"></script>
-        <script src="../../assets/js/Controller_Login.js" type="text/javascript"></script>
+        <script src="../../assets/js/Controller_Login_dev.js" type="text/javascript"></script>
         <script src="../../assets/js/angular-sanitize.js" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -163,7 +163,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="../../assets/js/notify.js"></script>
         <script src="../../assets/js/functions.js"></script>
-        <script src="../../assets/js/login.js"></script>
+        <script src="../../assets/js/login_dev.js"></script>
 
     </body>
 </html>
