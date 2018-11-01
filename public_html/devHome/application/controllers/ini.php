@@ -7,16 +7,10 @@
     		//var_dump($this->session->userdata);
 			if ($this->session->userdata('logged_in'))
 			{
-				header( 'Location: '.base_url().'devHome/home');
+				header( 'Location: '.base_url().'devHomeDev');
 			}else{
 				$this->load->view('login_view');
 			}
-		}
-
-		public function home()
-    	{
-			
-    		$this->load->view('home_view');
 		}
 		
     }

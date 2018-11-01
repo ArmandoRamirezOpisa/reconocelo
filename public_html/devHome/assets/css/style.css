@@ -1,102 +1,97 @@
 html, body{width:100%;height:100%;margin:0;padding:0;background:#FFF;font-family:"Aktiv Grotesk", Helvetica, Arial, sans-serif}
-a{text-decoration:none;cursor:pointer;}
-p{text-align:justify;}
+a{text-decoration:none}
 .imgGallery{max-width:171px;max-height:180px;}
 #cont{width:100%;height:100%;position:absolute;top:0;left:0}
-    #header{width:100%;height:110px;background:#00488B;position: relative;}
-    #logo{width:20%;height:25%;position:absolute;top:112px;left:50%;margin-left:-10%;z-index:100;text-align:center;}
-        .imgLogo{width:100%;max-height:100%;position:absolute;top:0;left:0}
-    #bann{width:50%;height:25%;position:absolute;top:23%;left:50%;margin-left:-25%;
-          border-radius:25px;background-position: center center;background:url("../images/bann_1.png");background-repeat: no-repeat;background-size: cover;);
-          -moz-box-shadow: 0 0 5px 5px #F2F2F2;-webkit-box-shadow: 0 0 5px 5px #F2F2F2;box-shadow: 0 0 5px 5px #F2F2F2;}
-          
-    #botonera{width:60%;height:100%;position:absolute;top:5%;left:50%;margin-left:-30%;}
-        .btn_m{width:21.5%;height:100%;position:absolute;top:0;background:#8FB5E1;border-radius:18px}
-        .btn1{left:0;}
-        .btn2{left:26.25%;}
-        .btn3{left:52.75%;}
-        .btn4{left:79.25%;}
-        
-        .btnTit{background:#E74B0F;color:#FFF;width:100%;height:15%;position:absolute;left:0;top:65%;padding-top:4%;font-size:16px;}
-        .imgBtn{position:absolute;width:50%;height:auto;top:10%;left:50%;margin-left:-25%;}
-            .imgInBtna{width:100%;height:auto;}
-    
-    .borange{background:#0ff6e00;}
+#header{width:100%;height:12%;background:#00488B;position: relative;}
+#logo{width:25%;height:45%;position:absolute;top:15%;left:50%;margin-left:-12.5%;z-index:100;text-align:center;}
+.imgLogo{width:100%;max-height:100%;position:absolute;top:0;left:0}
+#bann{width:50%;height:25%;position:absolute;top:23%;left:50%;margin-left:-25%;
+      border-radius:25px;background-position: center center;background:url("../images/bann_1.png");background-repeat: no-repeat;background-size: cover;);
+      -moz-box-shadow: 0 0 5px 5px #F2F2F2;-webkit-box-shadow: 0 0 5px 5px #F2F2F2;box-shadow: 0 0 5px 5px #F2F2F2;}
 
-    #dvSecc{width:90%;height:auto;min-height:30%;text-align:center;position:absolute;left:5%;top:40%;}
-    
-    .thHeadCart{text-align:center;background:#801414;color:#FFF;}
-    
-    #dvDatUser{height:100px;width:auto;position:absolute;right:10px;margin-top:5px;top:0;text-align:left;color:#FFF;z-index:200;}
-    
-    #headBut{position:absolute;width:100%;height:50px;top:100%;margin-top:-50px;z-index:100;text-align:center;}
-    .btn-orange{background:#f5802a;color:#FFF;}
-    
-    #mnuMobile{display:none;position:absolute;left:5px;top:20%;margin-top:-40px;z-index:1000;}
-    
-    .contLogin{margin-top:10%;width:30%;}
-    
-    #dvProd{position:absolute;height:100%;width:30%;top:0;left:0;background:url("../images/f3.png");-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;background-size: cover;
-            border-bottom-left-radius:25px;}
-    
-    #dvPrem{position:absolute;height:100%;width:30%;top:0;right:0;background:url("../images/f4.png");-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;background-size: cover;
+#botonera{width:60%;height:100%;position:absolute;top:5%;left:50%;margin-left:-30%;}
+.btn_m{width:23%;height:100%;position:absolute;top:0;background:#8FB5E1;border-radius:18px}
+.btn1{left:7.75%;}
+.btn3{left:38.5%;}
+.btn4{left:69.25%;}
+
+.btnTit{background:#E74B0F;color:#FFF;width:100%;height:15%;position:absolute;left:0;top:65%;padding-top:4%;font-size:16px;}
+.imgBtn{position:absolute;width:50%;height:auto;top:10%;left:50%;margin-left:-25%;}
+.imgInBtna{width:100%;height:auto;}
+
+.borange{background:#0ff6e00;}
+
+#dvSecc{width:90%;height:auto;min-height:30%;text-align:center;position:absolute;left:5%;top:50%;}
+
+.thHeadCart{text-align:center;background:#801414;color:#FFF;}
+
+#dvDatUser{height:100px;width:auto;position:absolute;left:10px;margin-top:5px;top:0;text-align:left;color:#FFF;}
+
+#headBut{position:absolute;width:100%;height:50px;top:100%;margin-top:-50px;z-index:100;text-align:center;}
+.btn-orange{background:#f5802a;color:#FFF;}
+
+#mnuMobile{display:none;position:absolute;left:5px;top:20%;margin-top:-40px;z-index:1000;}
+
+.contLogin{margin-top:10%;width:30%;}
+
+#dvProd{position:absolute;height:100%;width:30%;top:0;left:0;background:url("../images/f3.png");-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;background-size: cover;
+        border-bottom-left-radius:25px;}
+
+#dvPrem{position:absolute;height:100%;width:30%;top:0;right:0;background:url("../images/f4.png");-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;background-size: cover;
         border-bottom-right-radius:25px;}
-        
-    .tblTP{border:1px solid;border-spacing: 5px 5px; border-collapse: separate}    
-    .thTP{background:#ea3611;color:#FFF;text-align:center;}
-    .tdTP{background:#e4581d;color:#FFF;}
-    .tdTP2{background:#f07b1c;color:#FFF;}
-    
-    #footer{position:fixed;background:#000;bottom:0;left:0;height:35px;width:100%;text-align:center;color:#f07b1c;padding-top:5px;}
-    
-    #dvFace{position:absolute;right:10px;width:30px;height:auto;display:none;}
-        #imgFace{width:30px;height:30px;margin:5px 10px 0 0;}
-    
-    #dvLogo{position:absolute;width:200px;height:100px;top:5px;left:5px;}
 
-    #selProd{display:none}
+.tblTP{border:1px solid;border-spacing: 5px 5px; border-collapse: separate}    
+.thTP{background:#ea3611;color:#FFF;text-align:center;}
+.tdTP{background:#e4581d;color:#FFF;}
+.tdTP2{background:#f07b1c;color:#FFF;}
 
-    #exit{position:absolute;width:35px;height:27px;padding-top:3px;bottom:10px;right:10px;text-align:center;background:#fab914;color:#FFF;z-index:2000;}
+#footer{position:fixed;background:#000;bottom:0;left:0;height:35px;width:100%;text-align:center;color:#f07b1c;padding-top:5px;}
 
-    .dvProductsMin{max-height:180px;max-width:260px;}
+#dvFace{position:absolute;right:10px;width:30px;height:auto}
+#imgFace{width:30px;height:30px;margin:5px 10px 0 0;}
 
-    .lblText{color:#E74B0F;}
+#selProd{display:none}
 
-    .btnDef{background:#FF6A00;color:#FFF;}
+#exit{position:absolute;width:35px;height:27px;padding-top:3px;bottom:10px;right:10px;text-align:center;background:#fab914;color:#FFF;z-index:2000;}
 
-    /*Recuadro en el que se mostrara el formulario de registro*/
-    #dvAddress{position:absolute;background:rgba(0,0,0,0.5);z-index:60000;width:100%,heigth:100%;display:none;}
+.dvProductsMin{max-height:180px;max-width:260px;}
 
-    .btnMenu{background:#E74B0F;color:#FFF;}
-    .contNews{margin-bottom:50px}
+.lblText{color:#E74B0F;}
 
-     @media only screen and (max-device-width: 768px){
-        #logo{height:15%}
-        #botonera{height:60%;}
-        #dvSecc{top:35%;}
-     }
+.btnDef{background:#FF6A00;color:#FFF;}
 
-    @media only screen and (max-device-width: 480px){
-        #logo{width:50%;height:50%;position:absolute;top:18%;left:50%;margin-left:-25%;z-index:100;text-align:center;}
-            .imgLogo{width:100%;height:auto;max-height:100%;position:absolute;top:0;left:0}
-        /*#bann{width:90%;height:25%;position:absolute;top:23%;left:50%;margin-left:-45%;border:2px solid #fcd981;background:#fab914;}*/
-        
-        #dvSecc{min-height:13%;max-height:17%;}
-        
-        #botonera{width:90%;margin-left:-45%;margin-top:10px;height:75%;}
-        .btn_m{border-radius:5px}
-        
-        .imgBtn{position:absolute;width:60%;height:auto;top:10%;left:50%;margin-left:-30%;}
-        /*.btnTit{background:#424242;color:#fff;width:100%;height:15%;position:absolute;left:0;top:45%;padding-top:4%;font-size:5px;}*/
-        .btnTit{display:none;}
-        
-        .contLogin{width:100%;}
-        
-        #headBut{display:none}
-        #mnuMobile{display: block;}
-        #selProd{display:block}
-        #mnuProd{display: none;}
-        
-        #dvEc{display:none}
-        #exit{display:none;}
-    }
+/*Recuadro en el que se mostrara el formulario de registro*/
+#dvAddress{position:absolute;background:rgba(0,0,0,0.5);z-index:60000;width:100%;heigth:100%;display:none;}
+
+.btnMenu{background:#E74B0F;color:#FFF;}
+
+@media only screen and (max-device-width: 768px){
+    #logo{height:15%}
+    #botonera{height:60%;}
+    #dvSecc{top:35%;}
+}
+
+@media only screen and (max-device-width: 480px){
+    #logo{width:50%;height:50%;position:absolute;top:18%;left:50%;margin-left:-25%;z-index:100;text-align:center;}
+    .imgLogo{width:100%;height:auto;max-height:100%;position:absolute;top:0;left:0}
+    /*#bann{width:90%;height:25%;position:absolute;top:23%;left:50%;margin-left:-45%;border:2px solid #fcd981;background:#fab914;}*/
+
+    #dvSecc{min-height:13%;max-height:17%;}
+
+    #botonera{width:90%;margin-left:-45%;margin-top:10px;height:75%;}
+    .btn_m{border-radius:5px}
+
+    .imgBtn{position:absolute;width:60%;height:auto;top:10%;left:50%;margin-left:-30%;}
+    /*.btnTit{background:#424242;color:#fff;width:100%;height:15%;position:absolute;left:0;top:45%;padding-top:4%;font-size:5px;}*/
+    .btnTit{display:none;}
+
+    .contLogin{width:100%;}
+
+    #headBut{display:none}
+    #mnuMobile{display: block;}
+    #selProd{display:block}
+    #mnuProd{display: none;}
+
+    #dvEc{display:none}
+    #exit{display:none;}
+}

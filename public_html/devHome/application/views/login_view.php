@@ -8,10 +8,10 @@
         <title>Reconócelo</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <link href="assets/css/2018ReconoceloLogin.css" rel="stylesheet">
-        <link href="assets/css/2018ReconoceloButtons.css" rel="stylesheet">
+        <link href="../../assets/css/2018ReconoceloLogin.css" rel="stylesheet">
+        <link href="../../assets/css/2018ReconoceloButtons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-        <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
+        <link rel="shortcut icon" href="../assets/images/reconocelo.ico" type="image/x-icon" />  
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     </head>
     <body ng-controller="controller_login" >
