@@ -15,7 +15,7 @@ angular.module('login', ['ngSanitize'])
                 $scope.error = false;
                 $scope.loading = true;
                 $.ajax({
-                    url: 'login_controller_dev/login',
+                    url: 'devHome/login_controller_dev/login',
                     type: 'POST',
                     dataType: 'json',
                     async: 'true',
