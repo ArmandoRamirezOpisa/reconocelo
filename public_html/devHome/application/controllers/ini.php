@@ -7,9 +7,9 @@
     		//var_dump($this->session->userdata);
 			if ($this->session->userdata('logged_in'))
 			{
-				header( 'Location: '.base_url().'devHomeDev');
+				$this->load->view('home_view');
 			}else{
-				$this->load->view('login_view');
+				$this->load->view('home_view');
 			}
 		}
 		
