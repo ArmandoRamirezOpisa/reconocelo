@@ -26,23 +26,7 @@ include 'home_monitor_view_header.php';
                 <tbody>
                 <?php
 
-                    if ($programa && $programaCanje){
-
-                        /*$monitorComplete = array();
-
-                        $tableComplete = array_merge($programa, $programaCanje);
-
-                        print_r ($tableComplete);
-
-                        foreach($tableComplete as $table => $detalles)
-                        {
-                            echo "<h1> $table </h1>";
-                        
-                            foreach($detalles as $indice => $valor)
-                            {
-                                echo "<p> $indice:$valor </p>";
-                            }
-                        }*/
+                    if ($programa){
 
                         $puntosCirculantes = 0;
                         $canjes = 0;
