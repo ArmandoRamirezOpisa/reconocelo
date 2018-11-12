@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Recupera_passpord_controller extends CI_Controller {
+    class Recuperar_usuario extends CI_Controller {
             
-        public function RecuperarUsuario()
+        public function index()
     	{   
             $this->load->view('recuperaPasword_view');
            

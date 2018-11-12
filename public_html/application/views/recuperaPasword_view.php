@@ -59,8 +59,8 @@
              <form class="form-signin" role="form">
       
         <div class="form-group">
-            <label class="lblText mt-4" for="usuario"><b>Ingresa tu email</b></label>
-            <input class="form-control" placeholder="Ingresa tu email de registro" required="" autofocus="" type="email" name="usuario" id="usuario">
+            <label class="lblText mt-4" for="usuario"><b>Ingresa tu correo electr&ograve;nico</b></label>
+            <input class="form-control" placeholder="Ingresa tu correo electr&ograve;nico de registro" required="" autofocus="" type="email" name="usuario" id="usuario">
         </div>
        
              
@@ -70,11 +70,11 @@
        
         <a href="javascript:void(0)" onClick="alert('envio');" class="btn btn-primary text-center btn-block">Enviar contraseña</a>
              <small class="form-text text-muted text-center">  
-Para una correcta visualizaci?n del sitio se recomienda el uso de
+Para una correcta visualizaci&ograve;n del sitio se recomienda el uso de
 Chrome, Firefox, Internet Explorer 11 o superio
 </small>
     <small class="form-text text-muted text-center">  
-             <a href="http://www.reconocelo.com.mx"><h5>Iniciar sesion</h5></a> 
+             <a href="https://www.reconocelo.com.mx"><h5>Iniciar sesion</h5></a> 
 </small>  
         
         
