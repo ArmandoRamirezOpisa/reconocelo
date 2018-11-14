@@ -16,7 +16,7 @@
                                          SELECT pp.codPrograma,pp.codEmpresa,pp.codParticipante,pp.Status,pp.Cargo,pp.PrimerNombre,pp.SegundoNombre,pp.ApellidoPaterno,pp.ApellidoMaterno,pp.eMail,pp.SaldoActual,pp.idParticipante,
                                          pp.CalleNumero, pp.Colonia, pp.CP,pp.Ciudad,pp.Estado,pp.eMail,pp.Telefono,pp.fhInicioOrden,pp.fhFinOrden,Emp.Visibilidad,pp.pwd
                                          FROM Participante AS pp INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
-                                         WHERE pp.codPrograma = 41 AND pp.codEmpresa = ".$emp." AND pp.codParticipante = ".$part." AND pwd = '".$datos["password"]."' AND pp.Status = 1                                        
+                                         WHERE pp.codPrograma = 41 AND pp.loginWeb = '".$datos["usuario"]."' AND pwd = '".$datos["password"]."' AND pp.Status = 1
                                       ");
     		if ($query->num_rows() == 1)
     		{
@@ -36,7 +36,7 @@
                                          SELECT pp.codPrograma,pp.codEmpresa,pp.codParticipante,pp.Status,pp.Cargo,pp.PrimerNombre,pp.SegundoNombre,pp.ApellidoPaterno,pp.ApellidoMaterno,pp.eMail,pp.SaldoActual,pp.idParticipante,
                                          pp.CalleNumero, pp.Colonia, pp.CP,pp.Ciudad,pp.Estado,pp.eMail,pp.Telefono,pp.fhInicioOrden,pp.fhFinOrden,Emp.Visibilidad,pp.pwd
                                          FROM Participante AS pp INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
-                                         WHERE pp.codPrograma = 41 AND pp.codEmpresa = ".$emp." AND pp.codParticipante = ".$part." AND pwd = '".$datos["password"]."' AND pp.Status = 1                                        
+                                         WHERE pp.codPrograma = 41 AND pp.loginWeb = '".$datos["usuario"]."' AND pwd = '".$datos["password"]."' AND pp.Status = 1                                        
                                       ");
     		if ($query->num_rows() == 1)
     		{

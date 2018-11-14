@@ -14,7 +14,7 @@
 		public function login()
 		{
 			$login = $this->login_model->login($_POST);
-      //echo $login;
+            //echo $login;
 			if ($login)
 			{
 				//Crea la session con los datos del usuario
