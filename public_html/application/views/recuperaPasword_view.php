@@ -20,7 +20,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<link rel="shortcut icon" href="http://www.reconocelo.com.mx/assets/images/reconocelo.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.reconocelo.com.mx/assets/images/reconocelo.ico" type="image/x-icon" />
 
 
 
@@ -41,7 +41,7 @@
         <div class="row justify-content-center mt-4 mb-4">
 
             <div class="col-12 col-md-4 mt-4">
-                <img src="http://www.reconocelo.com.mx/assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
+                <img src="https://www.reconocelo.com.mx/assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
 
 
 
