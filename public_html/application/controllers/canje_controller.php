@@ -277,6 +277,75 @@
                                                                             </div>
                                                                         </td>
                                                                         <td width="60"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td width="40"></td>
+                                                                        <td width="230" align="center">
+                                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                                <div class="contentEditable">
+                                                                                    <ul>
+                                                                                        <h2 style="font-size:18px;line-height:50px;">Desc:</h2>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td width="60"></td>
+                                                                        <td width="230" align="center">
+                                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                                <div class="contentEditable">
+                                                                                    <ul>
+                                                                                        <h2 style="font-size:18px;line-height:50px;">'.$d->nombre.'</h2>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td width="60"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td width="40"></td>
+                                                                        <td width="230" align="center">
+                                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                                <div class="contentEditable">
+                                                                                    <ul>
+                                                                                        <h2 style="font-size:18px;line-height:50px;">Cantidad:</h2>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td width="60"></td>
+                                                                        <td width="230" align="center">
+                                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                                <div class="contentEditable">
+                                                                                    <ul>
+                                                                                        <h2 style="font-size:18px;line-height:50px;">'.$d->cantidad.'</h2>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td width="60"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td width="40"></td>
+                                                                        <td width="230" align="center">
+                                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                                <div class="contentEditable">
+                                                                                    <ul>
+                                                                                        <h2 style="font-size:18px;line-height:50px;">Puntos:</h2>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td width="60"></td>
+                                                                        <td width="230" align="center">
+                                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                                <div class="contentEditable">
+                                                                                    <ul>
+                                                                                        <h2 style="font-size:18px;line-height:50px;">'.number_format($d->puntos).'</h2>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td width="60"></td>
                                                                     </tr>';
                                                                 }
                                             $message .='
@@ -316,7 +385,7 @@
                                                                         <div class="contentEditableContainer contentTextEditable">
                                                                             <div class="contentEditable" style="color:#000000;font-size:13px;line-height:19px;">
                                                                                 <p>
-                                                                                    Tu orden será enviada en los próximos días hábiles, 
+                                                                                    Tu orden será enviada en los próximos 20 días hábiles, 
                                                                                     la mayoría de los productos son entregados por empresas 
                                                                                     de mensajería.
                                                                                 </p>
@@ -334,13 +403,13 @@
                                                                                     garantía correspondiente para aplicarla cuando se requiera. 
                                                                                     Si el participante tiene alguna duda o pregunta al respecto, 
                                                                                     podrá solicitar al proveedor una orientación a 
-                                                                                    soporte@Reconócelo.com.mx.
+                                                                                    soporte@Reconocelo.com.mx.
                                                                                 </p>
                                                                                 <br/>
                                                                                 <p>
                                                                                     Artículos dañados. En caso de recibir algún producto dañado 
                                                                                     o golpeado, el participante debe reportarlo inmediatamente 
-                                                                                    al proveedor a soporte@Reconócelo.com.mx en un plazo 
+                                                                                    al proveedor a soporte@Reconocelo.com.mx en un plazo 
                                                                                     límite de 24 horas posteriores a la recepción de este. 
                                                                                     El proveedor hará el reclamo con la mensajería y enviará 
                                                                                     un nuevo artículo sin costo adicional. Después del 
@@ -353,7 +422,7 @@
                                                                                     defectuoso, el proveedor podrá realizar el reemplazo 
                                                                                     correspondiente sin costo alguno, siempre que sea 
                                                                                     notificado dentro de los primeros 7 días posteriores a 
-                                                                                    la recepción de este a soporte@Reconócelo.com.mx. Después 
+                                                                                    la recepción de este a soporte@Reconocelo.com.mx. Después 
                                                                                     del plazo de 7 días, el participante tendrá que aplicar 
                                                                                     la garantía directamente con el fabricante o importador.
                                                                                 </p>
