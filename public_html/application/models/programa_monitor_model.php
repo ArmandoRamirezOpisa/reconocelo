@@ -43,7 +43,7 @@
                                           AND c.codPrograma =41
                                           AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
                                           GROUP BY DATE_FORMAT( feSolicitud,  '%Y %m' ) 
-                                          ORDER BY 1 
+                                          ORDER BY 1
                                         
                                       ");
     		if ($query->num_rows() > 0)
