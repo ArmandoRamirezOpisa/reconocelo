@@ -111,3 +111,9 @@ body {
 .dropdown-item:hover {
     background: #f25917;
 }
+
+.scrollable-menu {
+    height: auto;
+    max-height: 500px;
+    overflow-x: hidden;
+}

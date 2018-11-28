@@ -21,7 +21,7 @@
                                 <button class=" btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <i class="fa fa-archive mr-1" aria-hidden="true"></i>Categorias
   </button>
-                                <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                                <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
                                     
         <?php
             if($cat)

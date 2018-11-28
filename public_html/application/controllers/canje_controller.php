@@ -219,8 +219,6 @@
                                                                         <div class="contentEditableContainer contentTextEditable">
                                                                             <div class="contentEditable" style="color:#000000;font-size:13px;line-height:19px;">
                                                                                 <p>NOMBRE: '.$this->session->userdata('nombre').' </p>
-                                                                                <p>COD. PARTICIPANTE: '.$this->session->userdata('participante').' </p>
-                                                                                <p>COD. EMPRESA: '.$this->session->userdata('empresa').'</p>
                                                                             </div>
                                                                         </div>
                                                                     </td>
@@ -229,7 +227,7 @@
                                                             </table>
                                                         </div>
                                                         <div class="movableContent">
-                                                            <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                            <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
                                                                 <tr>
                                                                     <td colspan="5" height="50"></td>
                                                                 </tr>
@@ -364,7 +362,7 @@
                                                         </table>
                                                         </div>
                                                         <div class="movableContent">
-                                                            <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                            <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
                                                                 <tr>
                                                                     <td class="middle" width="100">
                                                                         <div style="border-top:0px solid #ffffff"></div>
@@ -381,7 +379,7 @@
                                                                 </tr>
                                                                 <tr>    
                                                                     <td width="80"></td>
-                                                                    <td align="center">
+                                                                    <td align="justify">
                                                                         <div class="contentEditableContainer contentTextEditable">
                                                                             <div class="contentEditable" style="color:#000000;font-size:13px;line-height:19px;">
                                                                                 <p>
@@ -391,39 +389,39 @@
                                                                                 </p>
                                                                                 <br/>
                                                                                 <p>
-                                                                                    Cuando un producto está listo para ser enviado, el 
-                                                                                    proveedor enviará un correo electrónico informativo al 
+                                                                                    Cuando un producto está listo para ser enviado, se enviará 
+                                                                                    un correo electrónico informativo al 
                                                                                     participante para que éste pueda monitorear el envío.
                                                                                 </p>
                                                                                 <br/>
                                                                                 <p>
                                                                                     Todos los productos del catálogo tienen una garantía 
                                                                                     directa con el fabricante o importador. Es muy 
-                                                                                    importante que los participantes mantengan su póliza de 
+                                                                                    importante que mantengan su póliza de 
                                                                                     garantía correspondiente para aplicarla cuando se requiera. 
-                                                                                    Si el participante tiene alguna duda o pregunta al respecto, 
+                                                                                    Si tiene alguna duda o pregunta al respecto, 
                                                                                     podrá solicitar al proveedor una orientación a 
                                                                                     soporte@Reconocelo.com.mx.
                                                                                 </p>
                                                                                 <br/>
                                                                                 <p>
-                                                                                    Artículos dañados. En caso de recibir algún producto dañado 
-                                                                                    o golpeado, el participante debe reportarlo inmediatamente 
-                                                                                    al proveedor a soporte@Reconocelo.com.mx en un plazo 
+                                                                                    <strong>Artículos dañados:</strong> En caso de recibir algún producto dañado 
+                                                                                    o golpeado, debe reportarlo inmediatamente 
+                                                                                    al proveedor a soporte@Reconocelo.com.mx, en un plazo 
                                                                                     límite de 24 horas posteriores a la recepción de este. 
                                                                                     El proveedor hará el reclamo con la mensajería y enviará 
-                                                                                    un nuevo artículo sin costo adicional. Después del 
+                                                                                    un nuevo artículo. Después del 
                                                                                     plazo de 24 horas, el proveedor no podrá ofrecer la 
                                                                                     sustitución del artículo.
                                                                                 </p>
                                                                                 <br/>
                                                                                 <p>
-                                                                                    Artículos Defectuosos. En caso de recibir un producto 
-                                                                                    defectuoso, el proveedor podrá realizar el reemplazo 
-                                                                                    correspondiente sin costo alguno, siempre que sea 
+                                                                                    <strong>Artículos Defectuosos:</strong> En caso de recibir un producto 
+                                                                                    en mal estado, el proveedor podrá realizar el reemplazo 
+                                                                                    correspondiente; siempre que sea 
                                                                                     notificado dentro de los primeros 7 días posteriores a 
-                                                                                    la recepción de este a soporte@Reconocelo.com.mx. Después 
-                                                                                    del plazo de 7 días, el participante tendrá que aplicar 
+                                                                                    la recepción a soporte@Reconocelo.com.mx. Después 
+                                                                                    del plazo de 7 días, tendrá que aplicar 
                                                                                     la garantía directamente con el fabricante o importador.
                                                                                 </p>
                                                                             </div>
@@ -440,7 +438,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <div style="border-top:10px solid #ffffff;"></div>
+                                                                        <div style="border-top:0px solid #ffffff;"></div>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -450,7 +448,8 @@
                                                                     <td>
                                                                         <div class="contentEditableContainer contentTextEditable">
                                                                             <div class="contentEditable" style="color:#000000;text-align:center;font-size:13px;line-height:19px;">
-                                                                            <p>Enviado por Reconocelo</p>
+                                                                            <p>Enviado por el equipo de Operaciones Reconocelo</p>
+													                        <p>soporte@Reconocelo.com.mx</p>
                                                                         </div>
                                                                         </div>
                                                                     </td>
