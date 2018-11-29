@@ -25,7 +25,38 @@ function MonitorNav(id) {
 
 }
 /* Inicio participantes */
-function participantes() {
+function Todosparticipantes() {
+
+    $.ajax({
+        url: '/monitor/ParticipantesTodos',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: "html",
+        error: function(object, error, anotherObject) {
+            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        global: true,
+        ifModified: false,
+        processData: true,
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                window.location.reload();
+            } else {
+                //console.log(result);
+                $('#ParticipanteSaldo').html(result);
+            }
+
+        },
+        timeout: 30000,
+        type: "GET"
+    });
+
+}
+
+function participantesSaldo() {
 
     $.ajax({
         url: '/monitor/conSaldoParticipantes',
@@ -58,10 +89,13 @@ function participantes() {
 
 function filtroParticipantes(id) {
     var idSaldo = id.id;
-    if (idSaldo == 'Saldo') {
-        //Necesario hacerlo con ajax
-        console.log('Tiene saldo');
-        participantes();
+    if (idSaldo == 'TodosSaldo') {
+        console.log('TodosSaldo');
+        //Con y sin saldo
+        Todosparticipantes();
+    } else if (idSaldo == 'Saldo') {
+        console.log('Saldo');
+        participantesSaldo();
     } else if (idSaldo == 'sinSaldo') {
         console.log('No tiene saldo');
 

@@ -139,6 +139,17 @@ class Monitor extends CI_Controller {
             $this->load->view('participante_monitor_view');
     }
 
+    public function ParticipantesTodos(){
+        $this->load->model("participante_monitor_model");
+        $participante = $this->participante_monitor_model->getTodosParticipantes();
+        if ($participante){
+            $data["participante"] = $participante;
+        }else{
+            $data["participante"] = false;
+        }
+        $this->load->view('partSaldo_monitor_view',$data);
+    }
+
     public function conSaldoParticipantes(){
         $this->load->model("participante_monitor_model");
         $participante = $this->participante_monitor_model->geTParticipantes();
