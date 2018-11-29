@@ -51,16 +51,16 @@
     
 		<form id="frmCanjeDir">
 			  <div class="form-group" id="gedo">
-			    <input type="text" class="form-control" id="edo" name="edo" placeholder="Estado" required>
+					<input type="text" class="form-control" id="num" name="num" placeholder="Calle y Número" required>
 			  </div>
 			  <div class="form-group" id="gdelmuni">
-			    <input type="text" class="form-control" id="delmuni" name="delmuni" placeholder="Delegación/Municipio" required>
+					<input type="text" class="form-control" id="col" name="col" placeholder="Colonia" required>	
 			  </div>
 			  <div class="form-group" id="gcol">
-			    <input type="text" class="form-control" id="col" name="col" placeholder="Colonia" required>
+					<input type="text" class="form-control" id="delmuni" name="delmuni" placeholder="Delegación/Municipio" required>
 			  </div>
 			  <div class="form-group" id="gnum">
-			    <input type="text" class="form-control" id="num" name="num" placeholder="Calle y Número" required>
+					<input type="text" class="form-control" id="edo" name="edo" placeholder="Estado" required>
 			  </div>
 			  <div class="form-group" id="gcp">
 			    <input type="text" class="form-control" id="cp"  maxlength="5" name="cp" placeholder="C.P." required>
