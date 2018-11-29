@@ -111,7 +111,7 @@
 
                 <div class="col bg-ligh">
 
-                    <p class="text-center"><a href="<?php echo site_url('aviso_controller_monitor/AvisoPrivacidad') ?>" target="_blank">Aviso de privacidad</a> </p> 
+                    <p class="text-center"><a href="<?php echo site_url('monitor/AvisoPrivacidad') ?>" target="_blank">Aviso de privacidad</a> </p> 
                     
                 </div>
                 

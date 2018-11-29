@@ -46,6 +46,10 @@ class Monitor extends CI_Controller {
         echo $result;
     }
 
+    public function AvisoPrivacidad(){   
+        $this->load->view('aviso_view_monitor');   
+    }
+
     public function ObtenerParticipantes() {
 
         $this->load->model("login_monitor_model");
