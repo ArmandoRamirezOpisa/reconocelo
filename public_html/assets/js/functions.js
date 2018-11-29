@@ -56,9 +56,9 @@ var formatNumber = {
 
 function addItemOrder(idProduct, name, puntos) {
     //console.log("Agregar:"+idProduct+"-"+name+"-"+puntos);
-    ////////////////
     var exist = 0;
-    //Arma array de productos seleccionados, si el id seleccionado ya se encuentra en el array lo elimina del mismo.
+    //Arma array de productos seleccionados, 
+    //si el id seleccionado ya se encuentra en el array lo elimina del mismo.
     numE = contOrder.length;
 
     if (numE == 0) {
