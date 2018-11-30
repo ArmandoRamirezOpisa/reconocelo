@@ -141,12 +141,12 @@ function estadoParticipante(id) {
     } else if (radioTodoSaldo.checked == true && idEstadoActivo) {
         estadoParticipantes('/monitor/saldoTodoActivo');
     } else if (radioTodoSaldo.checked == true && idEstadoInactivo) {
-        console.log('muestra todos los inactivos');
         estadoParticipantes('/monitor/saldoTodoInactivo');
     } else if (radioSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
-        console.log('muestra todos y con saldo');
+        estadoParticipantes('/monitor/saldoTodos');
     } else if (radioSaldo.checked == true && idEstadoActivo) {
         console.log('muestra los activos son saldo');
+        estadoParticipantes('/monitor/saldoActivo');
     } else if (radioSaldo.checked == true && idEstadoInactivo) {
         console.log('muestra los inactivos son saldo');
     } else if (radioSinSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
