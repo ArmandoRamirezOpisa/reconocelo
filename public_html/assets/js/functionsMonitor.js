@@ -90,11 +90,8 @@ function participantesSaldo() {
 function filtroParticipantes(id) {
     var idSaldo = id.id;
     if (idSaldo == 'TodosSaldo') {
-        console.log('TodosSaldo');
-        //Con y sin saldo
         Todosparticipantes();
     } else if (idSaldo == 'Saldo') {
-        console.log('Saldo');
         participantesSaldo();
     } else if (idSaldo == 'sinSaldo') {
         console.log('No tiene saldo');

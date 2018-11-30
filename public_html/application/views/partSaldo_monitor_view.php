@@ -1,16 +1,10 @@
-                <table id="infoParticipante" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <table id="infoParticipante" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="margin-bottom: 50px;">
                     <thead>
                         <tr>
                             <th class="th-sm">Codigo participante
                                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
                             </th>
                             <th class="th-sm">Nombre
-                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                            </th>
-                            <th class="th-sm">Apellido paterno
-                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                            </th>
-                            <th class="th-sm">Apellido materno
                                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
                             </th>
                             <th class="th-sm">Telefono
@@ -30,9 +24,7 @@
                         foreach($participante as $row){
                             echo '<tr>
                                 <td>'.$row["codParticipante"].'</td>
-                                <td>'.$row["PrimerNombre"]." ".$row["SegundoNombre"].'</td>
-                                <td>'.$row["ApellidoPaterno"].'</td>
-                                <td>'.$row["ApellidoMaterno"].'</td>
+                                <td>'.$row["PrimerNombre"].'</td>
                                 <td>'.$row["Telefono"].'</td>
                                 <td>'.$row["eMail"].'</td>
                                 <td>'.$row["SaldoActual"].'</td>
@@ -53,13 +45,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Codigo participante</th>
-                            <th>Nombre</th>
-                            <th>Apellido paterno</th>
-                            <th>Apellido materno</th>
-                            <th>Telefono</th>
-                            <th>Correo electrónico</th>
-                            <th>Saldo</th>
+                            <th class="th-sm">Codigo participante</th>
+                            <th class="th-sm">Nombre</th>
+                            <th class="th-sm">Telefono</th>
+                            <th class="th-sm">Correo electrónico</th>
+                            <th class="th-sm">Saldo</th>
                         </tr>
                     </tfoot>
                 </table>
