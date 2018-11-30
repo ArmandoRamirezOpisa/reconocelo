@@ -94,8 +94,6 @@ function filtroParticipantes(id) {
     } else if (idSaldo == 'Saldo') {
         participantesSaldo();
     } else if (idSaldo == 'sinSaldo') {
-        console.log('No tiene saldo');
-
         $.ajax({
             url: '/monitor/sinSaldoParticipantes',
             async: 'true',

@@ -17,10 +17,10 @@ include 'home_monitor_view_header.php';
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Saldo" onchange= "filtroParticipantes(this)"  value="conSaldo">
                         <label class="form-check-label" for="inlineRadio1">Con saldo</label>
                     </div>
-                    <!--<div class="form-check form-check-inline">
+                    <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sinSaldo" onchange= "filtroParticipantes(this)" value="sinSaldo">
                         <label class="form-check-label" for="inlineRadio2">Sin saldo</label>
-                    </div>-->
+                    </div>
                 </div>
                 <!--<div class="col">
                     <div class="form-check form-check-inline">
