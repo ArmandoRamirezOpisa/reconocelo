@@ -16,6 +16,9 @@
                             <th class="th-sm">Saldo
                                 <i class="fa fa-sort float right" aria-hidden="true"></i>
                             </th>
+                            <th class="th-sm">Información
+                                <i class="fa fa-sort float right" aria-hidden="true"></i>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,6 +31,11 @@
                                 <td>'.$row["Telefono"].'</td>
                                 <td>'.$row["eMail"].'</td>
                                 <td>'.$row["SaldoActual"].'</td>
+                                <td>
+                                    <button id='.$row["codParticipante"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                                        Información
+                                    </button>
+                                </td>
                             </tr>';
                         }
                     }else{
@@ -50,6 +58,7 @@
                             <th class="th-sm">Telefono</th>
                             <th class="th-sm">Correo electrónico</th>
                             <th class="th-sm">Saldo</th>
+                            <th class="th-sm">Información</th>
                         </tr>
                     </tfoot>
                 </table>

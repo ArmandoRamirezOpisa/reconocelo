@@ -127,10 +127,35 @@ function filtroParticipantes(id) {
 function estadoParticipante(id) {
 
     var idEstado = id.id;
-    if (document.getElementById(idEstado).checked) {
-        document.getElementById("selectEstadoParticipante").style.display = "block";
+
+    var radioTodoSaldo = document.getElementById("TodosSaldo");
+    var radioSaldo = document.getElementById("Saldo");
+    var radioSinSaldo = document.getElementById("sinSaldo");
+
+    var idEstadoActivo = document.getElementById('estadoActivo').checked;
+    var idEstadoInactivo = document.getElementById('estadoInactivo').checked;
+
+
+    if (radioTodoSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
+        Todosparticipantes();
+    } else if (radioTodoSaldo.checked == true && idEstadoActivo) {
+        console.log('muestra todos los activos');
+    } else if (radioTodoSaldo.checked == true && idEstadoInactivo) {
+        console.log('muestra todos los inactivos');
+    } else if (radioSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
+        console.log('muestra todos y con saldo');
+    } else if (radioSaldo.checked == true && idEstadoActivo) {
+        console.log('muestra los activos son saldo');
+    } else if (radioSaldo.checked == true && idEstadoInactivo) {
+        console.log('muestra los inactivos son saldo');
+    } else if (radioSinSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
+        console.log('muestra todos los que no tienen saldo');
+    } else if (radioSinSaldo.checked == true && idEstadoActivo) {
+        console.log('muestra los activos sin saldo');
+    } else if (radioSinSaldo.checked == true && idEstadoInactivo) {
+        console.log('muestra los inactivos sin saldo');
     } else {
-        document.getElementById("selectEstadoParticipante").style.display = "none";
+        alert('debes dejar seleccionado uno');
     }
 }
 
