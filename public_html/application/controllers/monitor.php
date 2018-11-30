@@ -164,9 +164,9 @@ class Monitor extends CI_Controller {
         $this->load->view('partSaldo_monitor_view',$data);
     }
 
-    public function sinSaldoParticipantes(){
+    public function saldoTodoInactivo(){
         $this->load->model("participante_monitor_model");
-        $participante = $this->participante_monitor_model->geTSinSaldoParticipantes();
+        $participante = $this->participante_monitor_model->geTodoInactivo();
         if ($participante)
         {
             $data["participante"] = $participante;
@@ -176,9 +176,9 @@ class Monitor extends CI_Controller {
         $this->load->view('partSaldo_monitor_view',$data);
     }
 
-    public function saldoActivo(){
+    public function saldoTodoActivo(){
         $this->load->model("participante_monitor_model");
-        $participante = $this->participante_monitor_model->geTSaldoActivo();
+        $participante = $this->participante_monitor_model->geTodoSaldoActivo();
         if ($participante)
         {
             $data["participante"] = $participante;

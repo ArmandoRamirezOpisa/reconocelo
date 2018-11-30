@@ -139,9 +139,10 @@ function estadoParticipante(id) {
     if (radioTodoSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
         Todosparticipantes();
     } else if (radioTodoSaldo.checked == true && idEstadoActivo) {
-        console.log('muestra todos los activos');
+        estadoParticipantes('/monitor/saldoTodoActivo');
     } else if (radioTodoSaldo.checked == true && idEstadoInactivo) {
         console.log('muestra todos los inactivos');
+        estadoParticipantes('/monitor/saldoTodoInactivo');
     } else if (radioSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
         console.log('muestra todos y con saldo');
     } else if (radioSaldo.checked == true && idEstadoActivo) {
@@ -159,7 +160,7 @@ function estadoParticipante(id) {
     }
 }
 
-function estadoParticipanteSelect() {
+/*function estadoParticipanteSelect() {
 
     var estado = document.getElementById("selectEstadoParticipante").value;
     var radioSaldo = document.getElementById("Saldo");
@@ -186,9 +187,9 @@ function estadoParticipanteSelect() {
         $("#selectEstadoParticipante").val('selecciona');
     }
 
-}
+}*/
 
-function estadoParticipanteSelectFiltro(estadoFiltro) {
+function estadoParticipantes(estadoFiltro) {
 
     $.ajax({
         url: estadoFiltro,

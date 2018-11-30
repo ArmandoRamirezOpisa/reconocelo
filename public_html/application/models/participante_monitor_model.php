@@ -47,7 +47,7 @@
     		}
         }
 
-        public function geTSinSaldoParticipantes()
+        public function geTodoInactivo()
         {
     		$query = $this->db->query("
                                           SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -56,6 +56,8 @@
                                           WHERE pr.codPrograma =41
                                           AND pr.SaldoActual = 0
                                           AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND pr.Considerar =1
+                                          AND pr.codParticipante <>1
                                           AND pr.Considerar =1
                                           AND pr.codParticipante <>1
                                         
@@ -68,17 +70,18 @@
     		}
         }
 
-        public function geTSaldoActivo()
+        public function geTodoSaldoActivo()
         {
     		$query = $this->db->query("
-                                        SELECT pr.codParticipante, pr.PrimerNombre, pr.SegundoNombre, 
-                                        pr.ApellidoPaterno, pr.ApellidoMaterno, pr.Telefono,
-                                        pr.eMail, pr.SaldoActual, pr.Status 
-                                        FROM Participante pr
-                                        WHERE 
-                                        pr.SaldoActual <> 0
-                                        AND pr.Status = 1
-                                        AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                                          pr.SaldoActual, pr.Status
+                                          FROM Participante pr
+                                          WHERE pr.codPrograma =41
+                                          AND pr.SaldoActual <> 0
+                                          AND pr.Status = 1
+                                          AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND pr.Considerar =1
+                                          AND pr.codParticipante <>1
                                         
                                       ");
     		if ($query->num_rows() > 0)
