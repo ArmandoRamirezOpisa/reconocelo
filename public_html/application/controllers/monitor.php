@@ -255,6 +255,19 @@ class Monitor extends CI_Controller {
         }
         $this->load->view('partSaldo_monitor_view',$data);
     }
+
+    //Informacion de los participantes
+    public function infoParticipante(){
+        $this->load->model("participante_monitor_model");
+        $codParticipante = array("codParticipante"=>$_POST['codParticipante']);
+        $infoParticipa = $this->participante_monitor_model->participanteInfo($codParticipante);
+        if ( $infoParticipa){
+            $data["infoParticipa"] = $infoParticipa;
+        }else {
+            $data["infoParticipa"] = false;
+        }
+        $this->load->view('partSaldo_monitor_view',$data);
+    }
     ////////////////////////////FinParticipantes///////////////////////////////////
     ////////////////////////////InicioDepositos///////////////////////////////////
     public function depositos(){

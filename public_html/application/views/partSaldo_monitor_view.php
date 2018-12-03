@@ -32,7 +32,7 @@
                                 <td>'.$row["eMail"].'</td>
                                 <td>'.$row["SaldoActual"].'</td>
                                 <td>
-                                    <button id='.$row["codParticipante"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#modalParticipante">
+                                    <button id='.$row["codParticipante"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#modalParticipante" onclick="infoParticipante(this)">
                                         Información
                                     </button>
 
@@ -68,17 +68,26 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Información participante</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                ...
+                                <div id="participanteInfo">
+
+                                    <?php
+                                                if($infoParticipa){
+                                                    print_r ($infoParticipa);
+                                                }else{
+                                                    echo 'mal echo';
+                                                }
+                                            ?>
+
+                                </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>

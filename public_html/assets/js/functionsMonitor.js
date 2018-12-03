@@ -201,6 +201,34 @@ function estadoParticipantes(estadoFiltro) {
     });
 
 }
+
+//Info participantes modal
+function infoParticipante(id) {
+
+    var codParticipante = id.id;
+    $.ajax({
+        type: 'POST',
+        url: "/monitor/infoParticipante",
+        dataType: "json",
+        data: { "codParticipante": codParticipante },
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(response) {
+            if (response) {
+                $('#participanteInfo').html(result);
+            } else {
+                console.log("Expiro");
+                window.location.reload();
+            }
+        },
+        error: function(x, e) {
+            console.log("Algo salio mal");
+        }
+    });
+
+}
+
 /* Fin Participantes */
 /* Inicio depositos */
 function depositos() {

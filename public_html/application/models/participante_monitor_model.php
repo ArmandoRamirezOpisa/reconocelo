@@ -204,5 +204,25 @@
             }
         }
 
+        public function participanteInfo($codParticipante){
+            $query = $this->db->query("
+                                          SELECT DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha, SUM( m.noPuntos ) AS Depositos
+                                          FROM PartMovsRealizados m
+                                          JOIN Participante p ON p.idParticipante = m.idParticipante
+                                          WHERE p.CodPrograma =41
+                                          AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND p.codParticipante = ".$codParticipante['codParticipante']."
+                                          GROUP BY DATE_FORMAT( m.feMov,  '%Y %m' ) 
+                                          ORDER BY 1
+          
+                                    ");
+            if ($query->num_rows() > 0)
+            {
+                  return $query->result_array(); 
+            }else{
+                  return false;
+            }
+        }
+
      }
 ?>
