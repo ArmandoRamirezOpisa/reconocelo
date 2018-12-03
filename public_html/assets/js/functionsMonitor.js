@@ -25,6 +25,8 @@ function MonitorNav(id) {
 
 }
 /* Inicio participantes */
+
+//Todos los participantes
 function Todosparticipantes() {
 
     $.ajax({
@@ -56,6 +58,7 @@ function Todosparticipantes() {
 
 }
 
+//Participantes con saldo
 function participantesSaldo() {
 
     $.ajax({
@@ -87,6 +90,7 @@ function participantesSaldo() {
 
 }
 
+//Filtro participantes
 function filtroParticipantes(id) {
     var idSaldo = id.id;
     if (idSaldo == 'TodosSaldo') {
@@ -124,70 +128,39 @@ function filtroParticipantes(id) {
     }
 }
 
-function estadoParticipante(id) {
+//Estado Activo e Inactivo, participantes
+function estadoParticipante() {
 
-    var idEstado = id.id;
+    var radioTodosParticipantes = document.getElementById("TodosSaldo");
+    var radioParticipantesSaldo = document.getElementById("Saldo");
+    var radioParticipantesSinSaldo = document.getElementById("sinSaldo");
 
-    var radioTodoSaldo = document.getElementById("TodosSaldo");
-    var radioSaldo = document.getElementById("Saldo");
-    var radioSinSaldo = document.getElementById("sinSaldo");
-
-    var idEstadoActivo = document.getElementById('estadoActivo').checked;
-    var idEstadoInactivo = document.getElementById('estadoInactivo').checked;
+    var EstadoActivo = document.getElementById('estadoActivo').checked;
+    var EstadoInactivo = document.getElementById('estadoInactivo').checked;
 
 
-    if (radioTodoSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
+    if (radioTodosParticipantes.checked == true && EstadoActivo && EstadoInactivo) {
         Todosparticipantes();
-    } else if (radioTodoSaldo.checked == true && idEstadoActivo) {
+    } else if (radioTodosParticipantes.checked == true && EstadoActivo) {
         estadoParticipantes('/monitor/saldoTodoActivo');
-    } else if (radioTodoSaldo.checked == true && idEstadoInactivo) {
+    } else if (radioTodosParticipantes.checked == true && EstadoInactivo) {
         estadoParticipantes('/monitor/saldoTodoInactivo');
-    } else if (radioSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
-        estadoParticipantes('/monitor/saldoTodos');
-    } else if (radioSaldo.checked == true && idEstadoActivo) {
-        console.log('muestra los activos son saldo');
+    } else if (radioParticipantesSaldo.checked == true && EstadoActivo && EstadoInactivo) {
+        estadoParticipantes('/monitor/conSaldoParticipantes');
+    } else if (radioParticipantesSaldo.checked == true && EstadoActivo) {
         estadoParticipantes('/monitor/saldoActivo');
-    } else if (radioSaldo.checked == true && idEstadoInactivo) {
-        console.log('muestra los inactivos son saldo');
-    } else if (radioSinSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
-        console.log('muestra todos los que no tienen saldo');
-    } else if (radioSinSaldo.checked == true && idEstadoActivo) {
-        console.log('muestra los activos sin saldo');
-    } else if (radioSinSaldo.checked == true && idEstadoInactivo) {
-        console.log('muestra los inactivos sin saldo');
+    } else if (radioParticipantesSaldo.checked == true && EstadoInactivo) {
+        estadoParticipantes('/monitor/saldoInactivo');
+    } else if (radioParticipantesSinSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
+        estadoParticipantes('/monitor/sinSaldoParticipantes');
+    } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo) {
+        estadoParticipantes('/monitor/sinSaldoActivo');
+    } else if (radioParticipantesSinSaldo.checked == true && idEstadoInactivo) {
+        estadoParticipantes('/monitor/sinSaldoInactivo');
     } else {
-        alert('debes dejar seleccionado uno');
+        console.log('Debes tener los dos seleccionados');
     }
 }
-
-/*function estadoParticipanteSelect() {
-
-    var estado = document.getElementById("selectEstadoParticipante").value;
-    var radioSaldo = document.getElementById("Saldo");
-    var radioSinSaldo = document.getElementById("sinSaldo");
-
-    if (estado == 'activo' && radioSaldo.checked == true) {
-
-        estadoParticipanteSelectFiltro('/monitor/saldoActivo');
-        $("#selectEstadoParticipante").val('selecciona');
-
-    } else if (estado == 'activo' && radioSinSaldo.checked == true) {
-
-        estadoParticipanteSelectFiltro('/monitor/sinSaldoActivo');
-        $("#selectEstadoParticipante").val('selecciona');
-
-    } else if (estado == 'inactivo' && radioSaldo.checked == true) {
-
-        estadoParticipanteSelectFiltro('/monitor/saldoInactivo');
-        $("#selectEstadoParticipante").val('selecciona');
-
-    } else if (estado == 'inactivo' && radioSinSaldo.checked == true) {
-
-        estadoParticipanteSelectFiltro('/monitor/sinSaldoInactivo');
-        $("#selectEstadoParticipante").val('selecciona');
-    }
-
-}*/
 
 function estadoParticipantes(estadoFiltro) {
 

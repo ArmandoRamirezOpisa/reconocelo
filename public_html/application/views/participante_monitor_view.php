@@ -24,11 +24,11 @@ include 'home_monitor_view_header.php';
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="estadoActivo" value="option1" checked onchange="estadoParticipante(this)">
+                        <input class="form-check-input" type="checkbox" id="estadoActivo" value="option1" checked onchange="estadoParticipante()">
                         <label class="form-check-label" for="inlineCheckbox1">Activo</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="estadoInactivo" value="option2" checked onchange="estadoParticipante(this)">
+                        <input class="form-check-input" type="checkbox" id="estadoInactivo" value="option2" checked onchange="estadoParticipante()">
                         <label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
                     </div>
                 </div>

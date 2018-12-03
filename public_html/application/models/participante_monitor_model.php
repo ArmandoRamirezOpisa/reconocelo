@@ -6,6 +6,7 @@
     		
     	}
         
+          //Todos los participantes
           public function getTodosParticipantes(){
     		$query = $this->db->query("
                                           SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -25,8 +26,8 @@
     		}
         }
 
-
-        public function geTParticipantes()
+        //Participantes con saldo
+        public function geTParticipantesSaldo()
         {
     		$query = $this->db->query("
                                           SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -47,7 +48,119 @@
     		}
         }
 
+        //Participantes sin saldo
+        public function geTParticipantesSinSaldo(){
+            $query = $this->db->query("
+                                          SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                                          pr.SaldoActual, pr.Status
+                                          FROM Participante pr
+                                          WHERE pr.codPrograma =41
+                                          AND pr.SaldoActual = 0
+                                          AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND pr.Considerar =1
+                                          AND pr.codParticipante <>1
+                                        
+                                      ");
+    		if ($query->num_rows() > 0)
+    		{
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
+
+        //Participantes todos activos
+        public function geTodoSaldoActivo()
+        {
+    		$query = $this->db->query("
+                                          SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                                          pr.SaldoActual, pr.Status
+                                          FROM Participante pr
+                                          WHERE pr.codPrograma =41
+                                          AND pr.Status = 1
+                                          AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND pr.Considerar =1
+                                          AND pr.codParticipante <>1
+                                        
+                                      ");
+    		if ($query->num_rows() > 0)
+    		{
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
+
+        //Participantes todos inactivos
         public function geTodoInactivo()
+        {
+    		$query = $this->db->query("
+                                          SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                                          pr.SaldoActual, pr.Status
+                                          FROM Participante pr
+                                          WHERE pr.codPrograma =41
+                                          AND pr.Status = 0
+                                          AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND pr.Considerar =1
+                                          AND pr.codParticipante <>1
+                                        
+                                      ");
+    		if ($query->num_rows() > 0)
+    		{
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
+
+        //Participantes activos con saldo
+        public function getSaldoActivo()
+        {
+    		$query = $this->db->query("
+                                          SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                                          pr.SaldoActual, pr.Status
+                                          FROM Participante pr
+                                          WHERE pr.codPrograma =41
+                                          AND pr.SaldoActual <> 0
+                                          AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND pr.Considerar =1
+                                          AND pr.codParticipante <>1
+                                          AND pr.Status = 1
+                                        
+                                      ");
+    		if ($query->num_rows() > 0)
+    		{
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
+
+        //Participantes con saldo inactivos
+        public function geTSaldoInactivo()
+        {
+    		$query = $this->db->query("
+                                          SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                                          pr.SaldoActual, pr.Status
+                                          FROM Participante pr
+                                          WHERE pr.codPrograma =41
+                                          AND pr.SaldoActual <> 0
+                                          AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND pr.Considerar =1
+                                          AND pr.codParticipante <>1
+                                          AND pr.Status = 0
+                                        
+                                      ");
+    		if ($query->num_rows() > 0)
+    		{
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
+
+        //Participantes sin saldo activos
+        public function geTSinSaldoActivo()
         {
     		$query = $this->db->query("
                                           SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -58,30 +171,7 @@
                                           AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
                                           AND pr.Considerar =1
                                           AND pr.codParticipante <>1
-                                          AND pr.Considerar =1
-                                          AND pr.codParticipante <>1
-                                        
-                                      ");
-    		if ($query->num_rows() > 0)
-    		{
-                return $query->result_array(); 
-    		}else{
-                return false;
-    		}
-        }
-
-        public function geTodoSaldoActivo()
-        {
-    		$query = $this->db->query("
-                                          SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                                          pr.SaldoActual, pr.Status
-                                          FROM Participante pr
-                                          WHERE pr.codPrograma =41
-                                          AND pr.SaldoActual <> 0
                                           AND pr.Status = 1
-                                          AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                                          AND pr.Considerar =1
-                                          AND pr.codParticipante <>1
                                         
                                       ");
     		if ($query->num_rows() > 0)
@@ -92,69 +182,26 @@
     		}
         }
 
-        public function getSaldoTodos()
-        {
-    		$query = $this->db->query("
+        //Participantes sin saldo inactivos
+        public function geTSinSaldoInactivo(){
+            $query = $this->db->query("
                                           SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                                           pr.SaldoActual, pr.Status
                                           FROM Participante pr
                                           WHERE pr.codPrograma =41
-                                          AND pr.SaldoActual <> 0
+                                          AND pr.SaldoActual = 0
                                           AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
                                           AND pr.Considerar =1
                                           AND pr.codParticipante <>1
-                                        
-                                      ");
-    		if ($query->num_rows() > 0)
-    		{
-                return $query->result_array(); 
-    		}else{
-                return false;
-    		}
-        }
-        
-        public function getSaldoActivo()
-        {
-    		$query = $this->db->query("
-                                          SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                                          pr.SaldoActual, pr.Status
-                                          FROM Participante pr
-                                          WHERE pr.codPrograma =41
-                                          AND pr.SaldoActual <> 0
                                           AND pr.Status = 0
-                                          AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                                          AND pr.Considerar =1
-                                          AND pr.codParticipante <>1
-                                          AND pr.Status = 1
-                                        
-                                      ");
-    		if ($query->num_rows() > 0)
-    		{
-                return $query->result_array(); 
-    		}else{
-                return false;
-    		}
-        }
-
-        public function geTSinSaldoInactivo()
-        {
-    		$query = $this->db->query("
-                                        SELECT pr.codParticipante, pr.PrimerNombre, pr.SegundoNombre, 
-                                        pr.ApellidoPaterno, pr.ApellidoMaterno, pr.Telefono,
-                                        pr.eMail, pr.SaldoActual, pr.Status 
-                                        FROM Participante pr
-                                        WHERE 
-                                        pr.SaldoActual = 0
-                                        AND pr.Status = 0
-                                        AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                                        
-                                      ");
-    		if ($query->num_rows() > 0)
-    		{
-                return $query->result_array(); 
-    		}else{
-                return false;
-    		}
+          
+                                    ");
+            if ($query->num_rows() > 0)
+            {
+                  return $query->result_array(); 
+            }else{
+                  return false;
+            }
         }
 
      }
