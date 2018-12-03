@@ -260,19 +260,12 @@ class Monitor extends CI_Controller {
     public function participanteInfo(){
         $this->load->model("participante_monitor_model");
         $codParticipante = array("codParticipante"=>$_POST['codParticipante']);
-        $infoParticipanteDato = $this->participante_monitor_model->participanteInfoData($codParticipante);
-        if ( $infoParticipanteDato){
-            $data = array( 'participante' => $participante,
-                            'infoParticipanteDato' => $infoParticipanteDato
-                    );
-
-            //$data["infoParticipante"] = $infoParticipante;
-        }else {
-            $data = array( 'participante' => false,
-                            'infoParticipanteDato' => false
-                    );
-
-            //$data["infoParticipante"] = false;
+        $participanteDato = $this->participante_monitor_model->participanteInfoData($codParticipante);
+        if ($participanteDato)
+        {
+            $data["participanteDato"] = $participanteDato;
+        }else{
+            $data["participanteDato"] = false;
         }
         $this->load->view('partSaldo_monitor_view',$data);
     }
