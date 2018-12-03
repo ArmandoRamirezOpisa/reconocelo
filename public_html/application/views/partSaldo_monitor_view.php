@@ -77,12 +77,12 @@
                                 <div id="participanteInfoBody">
 
                                     <?php
-                                                if($participanteDato){
-                                                    print_r ($participanteDato);
-                                                }else{
-                                                    echo 'mal echo';
-                                                }
-                                            ?>
+                                        if($participanteDato){
+                                            print_r ($participanteDato);
+                                        }else{
+                                            echo 'mal echo';
+                                        }
+                                    ?>
 
                                 </div>
                             </div>
