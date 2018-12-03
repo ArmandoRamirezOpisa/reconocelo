@@ -151,11 +151,11 @@ function estadoParticipante() {
         estadoParticipantes('/monitor/saldoActivo');
     } else if (radioParticipantesSaldo.checked == true && EstadoInactivo) {
         estadoParticipantes('/monitor/saldoInactivo');
-    } else if (radioParticipantesSinSaldo.checked == true && idEstadoActivo && idEstadoInactivo) {
+    } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo && EstadoInactivo) {
         estadoParticipantes('/monitor/sinSaldoParticipantes');
     } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo) {
         estadoParticipantes('/monitor/sinSaldoActivo');
-    } else if (radioParticipantesSinSaldo.checked == true && idEstadoInactivo) {
+    } else if (radioParticipantesSinSaldo.checked == true && EstadoInactivo) {
         estadoParticipantes('/monitor/sinSaldoInactivo');
     } else {
         console.log('Debes tener los dos seleccionados');
