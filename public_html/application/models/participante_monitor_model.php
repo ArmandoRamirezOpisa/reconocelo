@@ -204,7 +204,7 @@
             }
         }
 
-        public function participanteInfo($codParticipante){
+        public function participanteInfoData($codParticipante){
             $query = $this->db->query("
                                           SELECT DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha, SUM( m.noPuntos ) AS Depositos
                                           FROM PartMovsRealizados m

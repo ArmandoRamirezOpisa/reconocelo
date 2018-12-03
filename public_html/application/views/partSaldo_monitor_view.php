@@ -74,11 +74,11 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div id="participanteInfo">
+                                <div id="participanteInfoBody">
 
                                     <?php
-                                                if($infoParticipa){
-                                                    print_r ($infoParticipa);
+                                                if($infoParticipanteDato){
+                                                    print_r ($infoParticipanteDato);
                                                 }else{
                                                     echo 'mal echo';
                                                 }

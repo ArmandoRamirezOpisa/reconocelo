@@ -208,7 +208,7 @@ function infoParticipante(id) {
     var codParticipante = id.id;
     $.ajax({
         type: 'POST',
-        url: "/monitor/infoParticipante",
+        url: "/monitor/participanteInfo",
         dataType: "json",
         data: { "codParticipante": codParticipante },
         beforeSend: function() {
@@ -216,7 +216,7 @@ function infoParticipante(id) {
         },
         success: function(response) {
             if (response) {
-                $('#participanteInfo').html(result);
+                $('#participanteInfoBody').html(result);
             } else {
                 console.log("Expiro");
                 window.location.reload();
