@@ -141,24 +141,33 @@ function estadoParticipante() {
 
     if (radioTodosParticipantes.checked == true && EstadoActivo && EstadoInactivo) {
         Todosparticipantes();
+        document.getElementById("alertFiltro").style.display = "none";
     } else if (radioTodosParticipantes.checked == true && EstadoActivo) {
         estadoParticipantes('/monitor/saldoTodoActivo');
+        document.getElementById("alertFiltro").style.display = "none";
     } else if (radioTodosParticipantes.checked == true && EstadoInactivo) {
         estadoParticipantes('/monitor/saldoTodoInactivo');
+        document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoActivo && EstadoInactivo) {
         estadoParticipantes('/monitor/conSaldoParticipantes');
+        document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoActivo) {
         estadoParticipantes('/monitor/saldoActivo');
+        document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoInactivo) {
         estadoParticipantes('/monitor/saldoInactivo');
+        document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo && EstadoInactivo) {
         estadoParticipantes('/monitor/sinSaldoParticipantes');
+        document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo) {
         estadoParticipantes('/monitor/sinSaldoActivo');
+        document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoInactivo) {
         estadoParticipantes('/monitor/sinSaldoInactivo');
+        document.getElementById("alertFiltro").style.display = "none";
     } else {
-        console.log('Debes tener los dos seleccionados');
+        document.getElementById("alertFiltro").style.display = "block";
     }
 }
 

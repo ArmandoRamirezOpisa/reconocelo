@@ -5,6 +5,15 @@ include 'home_monitor_view_header.php';
 ?>
         
         <div class="container">
+                <div id="alertFiltro" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
+                    <strong>Atención!</strong> Debes tener seleccionado uno.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+        </div>
+
+        <div class="container">
 
             <div class="row">
 
