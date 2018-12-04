@@ -207,24 +207,34 @@ function infoParticipante(id) {
 
     var codParticipante = id.id;
     $.ajax({
-        type: 'POST',
-        url: "/monitor/participanteInfo",
-        dataType: "json",
+        url: '/monitor/participanteInfo',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
         data: { "codParticipante": codParticipante },
         beforeSend: function() {
             console.log('Procesando, espere por favor...');
         },
-        success: function(response) {
-            if (response) {
-                $('#participanteInfoBody').html(result);
-            } else {
+        success: function(result) {
+
+            if (result == "0") {
                 console.log("Expiro");
                 window.location.reload();
+            } else {
+                console.log('Correcto');
+                console.log(result);
+                $('#participanteInfoBody').html(result);
             }
+
         },
-        error: function(x, e) {
-            console.log("Algo salio mal");
-        }
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
     });
 
 }

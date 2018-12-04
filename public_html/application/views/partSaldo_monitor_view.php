@@ -77,8 +77,8 @@
                                 <div id="participanteInfoBody">
 
                                     <?php
-                                        if($participanteDato){
-                                            print_r ($participanteDato);
+                                        if($participanteData){
+                                            print_r ($participanteData);
                                         }else{
                                             echo 'mal echo';
                                         }
