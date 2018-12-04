@@ -224,5 +224,28 @@
             }
         }
 
+        public function participanteInfoDataCanje($infoParticipante){
+            $query = $this->db->query("
+                                          SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha, 
+                                          SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
+                                          FROM PreCanjeDet cd, PreCanje c, Participante p
+                                          WHERE cd.noFolio = c.idCanje
+                                          AND cd.idParticipante = c.idParticipante
+                                          AND c.idParticipante = p.idParticipante
+                                          AND c.codPrograma =41
+                                          AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                                          AND p.codParticipante = ".$infoParticipante['codParticipante']."
+                                          GROUP BY DATE_FORMAT( feSolicitud,  '%Y %m' ) 
+                                          ORDER BY 1
+          
+                                    ");
+            if ($query->num_rows() > 0)
+            {
+                  return $query->result_array(); 
+            }else{
+                  return false;
+            }
+        }
+
      }
 ?>

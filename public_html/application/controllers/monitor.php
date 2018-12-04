@@ -264,12 +264,23 @@ class Monitor extends CI_Controller {
              );
 
         $participanteData = $this->participante_monitor_model->participanteInfoData($infoParticipante);
+
+        $participanteDataCanje = $this->participante_monitor_model->participanteInfoDataCanje($infoParticipante);
+
         if ($participanteData){
-            $data["participanteData"] = $participanteData;
+            $data = array( 'participanteData' => $participanteData,
+                            'participanteDataCanje' => $participanteDataCanje
+                    );
+
+            //$data["participanteData"] = $participanteData;
         }else{
-            $data["participanteData"] = false;
+            $data = array( 'participanteData' => false,
+                            'participanteDataCanje' => false
+                    );
+
+            //$data["participanteData"] = false;
         }
-        $this->load->view('partSaldo_monitor_view',$data);
+        $this->load->view('modalPartici_monitor_view',$data);
     }
     ////////////////////////////FinParticipantes///////////////////////////////////
     ////////////////////////////InicioDepositos///////////////////////////////////

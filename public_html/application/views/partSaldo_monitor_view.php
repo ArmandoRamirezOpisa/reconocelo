@@ -74,17 +74,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div id="participanteInfoBody">
-
-                                    <?php
-                                        if($participanteData){
-                                            print_r ($participanteData);
-                                        }else{
-                                            echo 'mal echo';
-                                        }
-                                    ?>
-
-                                </div>
+                                <div id="participanteInfoBody"></div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
