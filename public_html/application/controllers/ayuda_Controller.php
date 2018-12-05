@@ -74,9 +74,10 @@
 
             $duda = $this->Ayuda_model-> addDudaPrueba($data);
             if ($duda) {
-            
-                $this->sendEmailTicket($data);
-                $this->output->set_output(json_encode('ok')); 
+                //$this->sendEmailTicket($data);
+                //$this->output->set_output(json_encode('ok')); 
+                $AtencionTicket = $this->Ayuda_model->AtencionTicket();
+                $AtencionTicketDetalle = $this->Ayuda_model->DetalleTicket($AtencionTicket,$data);
             }else{
                 $this->output->set_output(json_encode(false));
             }

@@ -151,7 +151,7 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
     alert('mensaje' + mensaje);
     alert('tipo' + tipo);
 
-    /*
+    
         $.ajax({
         type: 'POST',
         url: "ayuda_Controller/crearComentarioPrueba",
@@ -173,7 +173,7 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
         }
     });
     
-    */
+    
 
 }
 /* Fin funcion de prueba */
