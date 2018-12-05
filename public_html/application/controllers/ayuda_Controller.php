@@ -38,26 +38,52 @@
     	}
         
         public function crearComentario(){
-               $this->load->model("Ayuda_model");
-                  $this->load->library('email');
+
+            $this->load->model("Ayuda_model");
+            $this->load->library('email');
          
-         $data = array("idcanje"=>$_POST['idcanje'],
-             "nombre"=>$_POST['nombre'],
-             "mensaje"=>$_POST['mensaje'],
-             "tipo"=>$_POST['tipo']
+            $data = array("idcanje"=>$_POST['idcanje'],
+                        "nombre"=>$_POST['nombre'],
+                        "mensaje"=>$_POST['mensaje'],
+                        "tipo"=>$_POST['tipo']
              );
-        $duda = $this->Ayuda_model-> addDuda($data);
-        if ($duda) {
+
+            $duda = $this->Ayuda_model-> addDuda($data);
+            if ($duda) {
             
-            $this->sendEmailTicket($data);
-             $this->output->set_output(json_encode('ok')); 
-        }else{
-             $this->output->set_output(json_encode(false));
-        }
+                $this->sendEmailTicket($data);
+                $this->output->set_output(json_encode('ok')); 
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
         
         }
         
+        /* Funcion crearComentario prueba */
+        public function crearComentarioPrueba(){
+            
+            $this->load->model("Ayuda_model");
+            $this->load->library('email');
+         
+            $data = array("idcanje"=>$_POST['idcanje'],
+                        "nombre"=>$_POST['nombre'],
+                        "NombreCanjeArticulo"=>$_POST['NombreCanjeArticulo'],
+                        "mensaje"=>$_POST['mensaje'],
+                        "tipo"=>$_POST['tipo']
+             );
+
+            $duda = $this->Ayuda_model-> addDudaPrueba($data);
+            if ($duda) {
+            
+                $this->sendEmailTicket($data);
+                $this->output->set_output(json_encode('ok')); 
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
         
+        }
+        /* Fin funcion crearComentario prueba */
+
         function sendEmailTicket($data)
         {
             //Configuracion de SMTP

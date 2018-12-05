@@ -182,6 +182,15 @@ function enviarPregunta(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
     }
 }
 
+/* Funcion de prueba */
+function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
+    alert('idCanjeArticulo' + idCanjeArticulo);
+    alert('NombreCanjeArticulo' + NombreCanjeArticulo);
+    alert('mensaje' + mensaje);
+    alert('tipo' + tipo);
+}
+/* Fin funcion de prueba */
+
 function sendCanje($ptsUser, $ptsCanje) {
     $('#btnGenCanje').attr('disabled', false);
 
