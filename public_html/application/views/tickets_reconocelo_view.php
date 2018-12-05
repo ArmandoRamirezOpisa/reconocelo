@@ -144,7 +144,7 @@ $( "#tipoBusqueda" )
   });
 
   /* Funcion de prueba */
-function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
+/*function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 
     alert('idCanjeArticulo' + idCanjeArticulo);
     alert('NombreCanjeArticulo' + NombreCanjeArticulo);
@@ -175,7 +175,7 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
     
     
 
-}
+}*/
 /* Fin funcion de prueba */
   
 </script>

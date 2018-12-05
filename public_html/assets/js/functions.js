@@ -184,10 +184,36 @@ function enviarPregunta(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 
 /* Funcion de prueba */
 function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
+
     alert('idCanjeArticulo' + idCanjeArticulo);
     alert('NombreCanjeArticulo' + NombreCanjeArticulo);
     alert('mensaje' + mensaje);
     alert('tipo' + tipo);
+
+
+    $.ajax({
+        type: 'POST',
+        url: "ayuda_Controller/crearComentarioPrueba",
+        dataType: "json",
+        data: { "idcanje": idCanjeArticulo, "nombre": NombreCanjeArticulo, "mensaje": mensaje, "tipo": tipo },
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(response) {
+            if (response) {
+                swal("Mensaje enviado", "Envio de tu mensaje finalizado correctamente.", "success");
+                document.getElementById("mensaje").value = "";
+            } else {
+                swal("Envio de Mensaje", "Ha ocurrido un error al enviar tu mensaje.", "warning");
+            }
+        },
+        error: function(x, e) {
+            swal("Envio de Mensaje", "Ocurrio un error al enviar su mensaje", "warning");
+        }
+    });
+
+
+
 }
 /* Fin funcion de prueba */
 
