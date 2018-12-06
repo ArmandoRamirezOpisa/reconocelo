@@ -35,9 +35,10 @@ class Ayuda_model extends CI_Model {
     /* Funcion addDuda prueba */
     public function addDudaPrueba($data)
     {
+
     	$query = $this->db->query("                           
-        INSERT INTO `AtencionTicket`(`idCanje`, `idParticipante`, `status`, `FechaCreacion`, `Subject`) 
-        VALUES ('".$data['idcanje']."','".$this->session->userdata('idPart')."',1,NOW(),'".$data['NombreCanjeArticulo']."');
+        INSERT INTO `opisa_opisa`.`AtencionTicket`(`idCanje`, `idParticipante`, `status`, `FechaCreacion`, `Subject`) 
+        VALUES (".$data['idcanje'].",".$this->session->userdata('idPart').",1,NOW(),'".$data['nombre']."');
         ");
     	if ($query)
     	{
@@ -61,10 +62,11 @@ class Ayuda_model extends CI_Model {
         }
     }
 
-    public function DetalleTicket($AtencionTicket,$data){
+    public function detalleTicket($AtencionTicket,$data){
+
         $query = $this->db->query("                           
-        INSERT INTO `AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
-        VALUES ('".$AtencionTicket['IdTicket']."','".$data['mensaje']."',now(),'".$this->session->userdata('idPart')."');
+        INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
+        VALUES (".$AtencionTicket['IdTicket'].",'".$data['mensaje']."',NOW(),".$this->session->userdata('idPart').");
         ");
     	if ($query)
     	{
@@ -72,6 +74,7 @@ class Ayuda_model extends CI_Model {
     	}else{
             return false;
         }
+        
     }
     /* Fin funcion addDuda prueba */
 

@@ -67,17 +67,25 @@
          
             $data = array("idcanje"=>$_POST['idcanje'],
                         "nombre"=>$_POST['nombre'],
-                        "NombreCanjeArticulo"=>$_POST['NombreCanjeArticulo'],
                         "mensaje"=>$_POST['mensaje'],
                         "tipo"=>$_POST['tipo']
              );
 
-            $duda = $this->Ayuda_model-> addDudaPrueba($data);
+             $duda = $this->Ayuda_model->addDudaPrueba($data);
             if ($duda) {
                 //$this->sendEmailTicket($data);
-                //$this->output->set_output(json_encode('ok')); 
                 $AtencionTicket = $this->Ayuda_model->AtencionTicket();
-                $AtencionTicketDetalle = $this->Ayuda_model->DetalleTicket($AtencionTicket,$data);
+                if ($AtencionTicket){
+
+                    $dudaDetalle = $this->Ayuda_model->detalleTicket($AtencionTicket,$data);
+                    if ($dudaDetalle){
+                        $this->output->set_output(json_encode($dudaDetalle));
+                    }else{
+                        $this->output->set_output(json_encode('no hizo bien la insercion'));
+                    }
+                }else{
+                    $this->output->set_output(json_encode('no hizo bien el select'));
+                } 
             }else{
                 $this->output->set_output(json_encode(false));
             }

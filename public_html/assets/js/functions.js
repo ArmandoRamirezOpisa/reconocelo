@@ -183,17 +183,62 @@ function enviarPregunta(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 }
 
 /* Funcion de prueba */
+/* */
+function enviar_pregunta() {
+
+    if ($('#mensaje').val().trim() == "") {
+
+        $.notify("Debe de agregar una descripcion para poder enviar su duda", "error");
+
+    } else {
+
+        var pregunta = $('select[name=preguntas]').val();
+        var orden = $('select[name=orden]').val();
+        var mensaje = $('#mensaje').val();
+        var articulo = $('select[name=articulo]').val();
+
+        if (pregunta == "Sobre mi orden") {
+
+            if (orden == null) {
+
+                swal("Operación no permitida", "No existen ordenes afiliadas a su cuenta", "warning");
+
+            } else {
+
+                enviarPregunta1(orden, '', mensaje, 2);
+
+            }
+
+        } else if (pregunta == "Articulo de mi orden") {
+
+            if (articulo == null) {
+
+                swal("Operación no permitida", "No existen articulos afiliadas a su cuenta", "warning");
+
+            } else {
+
+                var fields = articulo.split('-');
+                var idCanjeArticulo = fields[0];
+                var NombreCanjeArticulo = fields[1];
+                enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, 1);
+
+            }
+
+        } else {
+
+            enviarPregunta1(' ', ' ', mensaje, 3);
+
+        }
+
+    }
+
+}
+/* */
 function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
-
-    alert('idCanjeArticulo' + idCanjeArticulo);
-    alert('NombreCanjeArticulo' + NombreCanjeArticulo);
-    alert('mensaje' + mensaje);
-    alert('tipo' + tipo);
-
 
     $.ajax({
         type: 'POST',
-        url: "ayuda_Controller/crearComentarioPrueba",
+        url: "/ayuda_Controller/crearComentarioPrueba",
         dataType: "json",
         data: { "idcanje": idCanjeArticulo, "nombre": NombreCanjeArticulo, "mensaje": mensaje, "tipo": tipo },
         beforeSend: function() {
@@ -203,12 +248,14 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
             if (response) {
                 swal("Mensaje enviado", "Envio de tu mensaje finalizado correctamente.", "success");
                 document.getElementById("mensaje").value = "";
+                console.log(response);
             } else {
                 swal("Envio de Mensaje", "Ha ocurrido un error al enviar tu mensaje.", "warning");
             }
         },
-        error: function(x, e) {
+        error: function(response) {
             swal("Envio de Mensaje", "Ocurrio un error al enviar su mensaje", "warning");
+            console.log(response);
         }
     });
 
