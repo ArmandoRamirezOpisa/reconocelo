@@ -62,12 +62,12 @@ class Ayuda_model extends CI_Model {
         }
     }
 
-    public function detalleTicket($ticketAtencion,$data)
+    public function detalleTicket($duda,$data)
     {
 
     	$query = $this->db->query("                           
         INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
-        VALUES (".$ticketAtencion['IdTicket'].",'".$data['mensaje']."',now(),".$this->session->userdata('idPart').");
+        VALUES (".$duda.",'".$data['mensaje']."',now(),".$this->session->userdata('idPart').");
         ");
     	if ($query)
     	{

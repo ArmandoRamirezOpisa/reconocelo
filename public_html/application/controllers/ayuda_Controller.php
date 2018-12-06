@@ -77,7 +77,7 @@
                 $ticketAtencion = $this->Ayuda_model->AtencionTicket();
                 if ($ticketAtencion){
 
-                    $dudaDetalle = $this->Ayuda_model->detalleTicket($ticketAtencion,$data);
+                    $dudaDetalle = $this->Ayuda_model->detalleTicket($duda,$data);
                     if ($dudaDetalle){
                         $this->output->set_output(json_encode($dudaDetalle));
                     }else{
