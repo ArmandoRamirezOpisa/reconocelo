@@ -74,14 +74,14 @@
              $duda = $this->Ayuda_model->addDudaPrueba($data);
             if ($duda) {
                 //$this->sendEmailTicket($data);
-                $AtencionTicket = $this->Ayuda_model->AtencionTicket();
-                if ($AtencionTicket){
+                $ticketAtencion = $this->Ayuda_model->AtencionTicket();
+                if ($ticketAtencion){
 
-                    $dudaDetalle = $this->Ayuda_model->detalleTicket($AtencionTicket,$data);
+                    $dudaDetalle = $this->Ayuda_model->detalleTicket($ticketAtencion,$data);
                     if ($dudaDetalle){
                         $this->output->set_output(json_encode($dudaDetalle));
                     }else{
-                        $this->output->set_output(json_encode('no hizo bien la insercion'));
+                        $this->output->set_output(json_encode($ticketAtencion));
                     }
                 }else{
                     $this->output->set_output(json_encode('no hizo bien el select'));

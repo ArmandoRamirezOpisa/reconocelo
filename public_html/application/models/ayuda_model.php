@@ -62,11 +62,12 @@ class Ayuda_model extends CI_Model {
         }
     }
 
-    public function detalleTicket($AtencionTicket,$data){
+    public function detalleTicket($ticketAtencion,$data)
+    {
 
-        $query = $this->db->query("                           
+    	$query = $this->db->query("                           
         INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
-        VALUES (".$AtencionTicket['IdTicket'].",'".$data['mensaje']."',NOW(),".$this->session->userdata('idPart').");
+        VALUES (".$ticketAtencion['IdTicket'].",'".$data['mensaje']."',now(),".$this->session->userdata('idPart').");
         ");
     	if ($query)
     	{
@@ -74,7 +75,6 @@ class Ayuda_model extends CI_Model {
     	}else{
             return false;
         }
-        
     }
     /* Fin funcion addDuda prueba */
 
