@@ -75,7 +75,7 @@
                             echo '</p>
                         </div>
                         <div class="card-footer text-muted">
-                            <strong><i class="fas fa-calendar"></i> Fecha de solución:</strong> <div class="float-right"><button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary"><i class="fas fa-history"></i>  Historial del ticket</button></div>
+                            <strong><i class="fas fa-calendar"></i> Fecha de solución:</strong> <div class="float-right"><button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial"><i class="fas fa-history"></i>  Historial del ticket</button></div>
                         </div>
                     </div>
                     </br>
@@ -90,6 +90,28 @@
 
     </div>  
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Información participante</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="historialTicket"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 <script>
 up();
 </script>
