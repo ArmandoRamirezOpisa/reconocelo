@@ -49,25 +49,40 @@
 
         <?php
             if ($tickets){
-                echo '
+
+                foreach ($tickets as $row){
+
+                    echo '
                     <div class="card text-center">
                         <div class="card-header">
-                            Featured
-                        </div>
+                            <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>
+                            <strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>
+                            <strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
+                             if ( $row['status'] == 1){
+                                 echo '<strong class="badge badge-success"><i class="fas fa-unlock"></i> Abierto</strong>';
+                             }else {
+                                 echo '<strong class="badge badge-danger"><i class="fas fa-lock"></i> Cerrado</strong>';
+                             }                          
+                        echo '</div>
                         <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <a href="#" class="btn btn-primary">
-                                Go somewhere
-                            </a>
+                            <h5 class="card-title">Descripción del ticket:</h5>
+                            <p class="card-text">';
+                            if ($row['Subject'] != ""){
+                                echo ''.$row['Subject'].'';
+                            }else{
+                                echo 'Otro';
+                            }
+                            echo '</p>
                         </div>
                         <div class="card-footer text-muted">
-                            2 days ago
+                            <strong><i class="fas fa-calendar"></i> Fecha de solución:</strong> <div class="float-right"><button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary"><i class="fas fa-history"></i>  Historial del ticket</button></div>
                         </div>
                     </div>
+                    </br>
                 ';
+
+                }
+                
             }else{
                 echo '<h1>No hay tickets</h1>';
             }
