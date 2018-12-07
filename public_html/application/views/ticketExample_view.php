@@ -75,7 +75,7 @@
                             echo '</p>
                         </div>
                         <div class="card-footer text-muted">
-                            <strong><i class="fas fa-calendar"></i> Fecha de solución:</strong> <div class="float-right"><button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial"><i class="fas fa-history"></i>  Historial del ticket</button></div>
+                            <strong><i class="fas fa-calendar"></i> Fecha de solución:</strong> <div class="float-right"><button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket</button></div>
                         </div>
                     </div>
                     </br>
@@ -97,7 +97,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Información participante</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Historial del ticket</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

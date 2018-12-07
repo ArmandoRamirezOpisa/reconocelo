@@ -64,6 +64,14 @@
             $this->load->view('ticketExample_view',$data);
         }
         /* Fin router ejemplo para ver el historial de los tickets */
+
+        /* funcion para abrir el modal del historial del ticket prueba */
+        public function historiaTicket(){
+            $this->load->model("Ticket_model");
+            $ticketData = array("idTicket"=>$_POST['idTicket']);
+        }
+        /* fin funcion para abrir el modal del historial del ticket prueba */
+
     }
 
 ?>

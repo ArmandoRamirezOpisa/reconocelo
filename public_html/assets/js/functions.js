@@ -264,6 +264,44 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 }
 /* Fin funcion de prueba */
 
+/* Funcion prueba del historial del ticket */
+function historiaTicket(id) {
+    var idTicket = id.id;
+
+    /*$.ajax({
+        url: '/home/historiaTicket',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: { "idTicket": idTicket },
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                window.location.reload();
+            } else {
+                console.log('Correcto');
+                console.log(result);
+                $('#historialTicket').html(result);
+            }
+
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
+    });*/
+
+}
+/* Fin funcion prueba del historial del ticket */
+
 function sendCanje($ptsUser, $ptsCanje) {
     $('#btnGenCanje').attr('disabled', false);
 
