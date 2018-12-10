@@ -133,6 +133,27 @@
         }
         /* fin funcion para abrir el modal del historial del ticket prueba */
 
+        /* Funcion para ver todo el historial de tickets administrador */
+        public function ticketsLista(){
+
+            $this->load->model("Ticket_model");
+
+            $ticketListAdmin = $this->Ticket_model->ticketsAdmin();
+
+            if ($ticketListAdmin){
+
+                $data['ticketListAdmin'] = $ticketListAdmin;
+
+            }else{
+
+                $data['ticketListAdmin'] = false;
+
+            }
+
+            $this->load->view('ticketsList_view',$data);
+        }
+        /* Fin funcion para ver todo el historial de tickets administrador*/
+
     }
 
 ?>

@@ -90,6 +90,29 @@ class Ticket_model extends CI_Model {
         }
     }
     /* fin funcion para la base de datos del historia ejemplo */
+
+    /* Funcion para la lista de los tickets administrador */
+    public function ticketsAdmin(){
+
+        $query = $this->db->query("
+                              
+        SELECT IdTicket, idCanje, idParticipante, 
+        STATUS , FechaCreacion, Subject
+        FROM AtencionTicket
+
+        ");
+        if ($query->num_rows() > 0) {
+
+            return $query->result_array();
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+    /* Fin funcion para la lista de los tickets administrador */
     
 }
 ?>
