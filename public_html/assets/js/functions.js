@@ -339,6 +339,98 @@ function answerTicket(id) {
     $('#ticketAnswer').show();
 
 }
+
+function sendTicket(id) {
+
+    var ticketId = id.id;
+
+    var respuestaTicket = $('#ticketRespuesta').val();
+
+    if (respuestaTicket == "") {
+
+        $('#mensaje').html('<div class = "alert alert-warning alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> Debes escribir algo en la caja de texto.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
+        $('#mensaje').show();
+        throw new Error("Datos de formulario incompleto");
+
+    } else {
+
+        $.ajax({
+            url: '/home/sendTicketAnswer',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "ticketId": ticketId, "respuestaTicket": respuestaTicket },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result == "0") {
+                    console.log("Expiro");
+                    $('#mensaje').html('<div class = "alert alert-danger alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> No se puedo enviar la respuesta, intentalo mas tarde.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
+                    $('#mensaje').show();
+                    $('#ticketAnswer').hide();
+                } else {
+                    console.log('Correcto');
+                    console.log(result);
+                    $('#mensaje').html('<div class = "alert alert-success alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> Se envio la respuesta correctamente.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
+                    $('#mensaje').show();
+                    $('#ticketAnswer').hide();
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                $('#mensaje').html('<div class = "alert alert-danger alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> No se puedo enviar la respuesta, intentalo mas tarde.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
+                $('#mensaje').show();
+                $('#ticketAnswer').hide();
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+
+    }
+
+}
+
+function closeTicket(id) {
+
+    var ticketId = id.id;
+
+    $.ajax({
+        url: '/home/closeTicket',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: { "ticketId": ticketId },
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+            } else {
+                console.log('Correcto');
+                console.log(result);
+                window.location.reload();
+            }
+
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
+    });
+
+}
 /* Fin funcion prueba del historial del ticket */
 
 function sendCanje($ptsUser, $ptsCanje) {

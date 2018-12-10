@@ -64,6 +64,31 @@ class Ticket_model extends CI_Model {
         }
 
     }
+
+    public function sendAnswerTicket($ticketAnswer){
+        $query = $this->db->query("                           
+        INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
+        VALUES (".$ticketAnswer['ticketId'].",'".$ticketAnswer['respuestaTicket']."',now(),".$this->session->userdata('idPart').");
+        ");
+    	if ($query)
+    	{
+            return $this->db->insert_id();
+    	}else{
+            return false;
+        }
+    }
+
+    public function closeTicket($ticketDataClose){
+        $query = $this->db->query("                           
+        UPDATE `AtencionTicket` SET `status`=0 WHERE `IdTicket` = ".$ticketDataClose['ticketId'].";
+        ");
+    	if ($query)
+    	{
+            return $this->db->insert_id();
+    	}else{
+            return false;
+        }
+    }
     /* fin funcion para la base de datos del historia ejemplo */
     
 }

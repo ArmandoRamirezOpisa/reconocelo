@@ -89,6 +89,48 @@
             $this->load->view('modalTicketAns_view',$ticketHistoria);
 
         }
+
+        public function sendTicketAnswer(){
+
+            $this->load->model("Ticket_model");
+
+            $ticketAnswer = array(
+                "ticketId"=>$_POST['ticketId'],
+                "respuestaTicket"=>$_POST['respuestaTicket']
+            );
+
+            $ticketHistoryData = $this->Ticket_model->sendAnswerTicket($ticketAnswer);
+
+            if ($ticketHistoryData){
+
+                $this->output->set_output(json_encode('ok'));
+
+            }else{
+
+                $this->output->set_output(json_encode(false));
+
+            }
+
+        }
+
+        public function closeTicket(){
+            $this->load->model("Ticket_model");
+
+            $ticketDataClose = array("ticketId"=>$_POST['ticketId']);
+
+            $ticketCloseData = $this->Ticket_model->closeTicket($ticketDataClose);
+
+            if ($ticketCloseData){
+
+                $this->output->set_output(json_encode('ok'));
+
+            }else{
+
+                $this->output->set_output(json_encode(false));
+
+            }
+
+        }
         /* fin funcion para abrir el modal del historial del ticket prueba */
 
     }

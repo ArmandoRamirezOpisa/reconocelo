@@ -1,13 +1,12 @@
 <?php
+
     if ($idTicketHistory){
-        echo '<form id="formAnswer">
-            <div class="form-group">
+        echo '<div class="form-group">
                 <label for="ticketAnswer">Respuesta del ticket</label>
-                <textarea class="form-control" id="ticketAnswer" rows="3"></textarea>
+                <textarea class="form-control" id="ticketRespuesta" rows="3" placeholder="Escribe la respuesta del ticket..."></textarea>
             </div>
             <div class="form-group">
-                <button id='.$idTicketHistory.' class="btn btn-primary"><i class="fas fa-paper-plane"></i>  Enviar</button>
-            </div>
-        </form>';
+                <button id='.$idTicketHistory.' class="btn btn-primary" onclick="sendTicket(this)"><i class="fas fa-paper-plane"></i>  Enviar</button>
+            </div>';
     }
 ?>
