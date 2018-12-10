@@ -69,6 +69,25 @@
         public function historiaTicket(){
             $this->load->model("Ticket_model");
             $ticketData = array("idTicket"=>$_POST['idTicket']);
+
+            $ticketHistory = $this->Ticket_model->Get_TicketsHistory($ticketData);
+
+            if ($ticketHistory){
+                $data['ticketHistory'] = $ticketHistory;
+            }else{
+                $data['ticketHistory'] = false;
+            }
+
+            $this->load->view('modalTickect_view',$data);
+
+        }
+
+        public function historiaTicketAnswer(){
+
+            $ticketHistoria = array("idTicketHistory"=>$_POST['idTicketHistory']);
+
+            $this->load->view('modalTicketAns_view',$ticketHistoria);
+
         }
         /* fin funcion para abrir el modal del historial del ticket prueba */
 

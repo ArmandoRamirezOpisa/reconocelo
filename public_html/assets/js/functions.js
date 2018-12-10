@@ -268,7 +268,7 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 function historiaTicket(id) {
     var idTicket = id.id;
 
-    /*$.ajax({
+    $.ajax({
         url: '/home/historiaTicket',
         async: 'true',
         cache: false,
@@ -297,7 +297,46 @@ function historiaTicket(id) {
         },
         timeout: 30000,
         type: "POST"
-    });*/
+    });
+
+}
+
+function answerTicket(id) {
+
+    var idTicketHistory = id.id;
+
+    $.ajax({
+        url: '/home/historiaTicketAnswer',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: { "idTicketHistory": idTicketHistory },
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                window.location.reload();
+            } else {
+                console.log('Correcto');
+                console.log(result);
+                $('#ticketAnswer').html(result);
+            }
+
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
+    });
+
+    $('#ticketAnswer').show();
 
 }
 /* Fin funcion prueba del historial del ticket */

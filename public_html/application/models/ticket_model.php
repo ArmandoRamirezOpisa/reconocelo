@@ -44,6 +44,26 @@ class Ticket_model extends CI_Model {
 
         }
     }
+
+    public function Get_TicketsHistory($ticketData){
+        $query = $this->db->query("
+                              
+        SELECT IdTicket, mensaje, fecha, loginWeb
+        FROM AtencionTicketDetalle
+        WHERE IdTicket =".$ticketData['idTicket']."
+
+        ");
+        if ($query->num_rows() > 0) {
+
+            return $query->result_array();
+
+        } else {
+
+            return false;
+
+        }
+
+    }
     /* fin funcion para la base de datos del historia ejemplo */
     
 }
