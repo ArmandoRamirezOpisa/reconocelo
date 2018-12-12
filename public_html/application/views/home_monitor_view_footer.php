@@ -14,6 +14,9 @@
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="assets/js/controller.js"></script> 
-        <!--<script>
-            loadSection("nav_monitor_controller/getNavegacionParticipante", "navegacion");
-        </script>-->
+        <script>
+            //loadSection("nav_monitor_controller/getNavegacionParticipante", "navegacion");
+            $(document).ready(function() {
+                $('#infoParticipante').DataTable();
+            } );
+        </script>

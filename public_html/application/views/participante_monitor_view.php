@@ -58,11 +58,6 @@ include 'home_monitor_view_footer.php';
 
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de participantes</h1>";
-
-            $(document).ready(function() {
-                $('#infoParticipante').DataTable();
-            } );
-
             Todosparticipantes();
 
         </script>
