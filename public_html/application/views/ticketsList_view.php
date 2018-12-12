@@ -29,6 +29,17 @@
 
 
 
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">
+                    <i class="far fa-life-ring  mr-2"></i>
+                    Bienvenido al Centro de Respuestas Reconócelo
+                </h1>
+                <p class="text-center lead">
+                    Aqui podras visualizar las respuestas a tus preguntas que se llevaron a cabo
+                </p>
+            </div>
+        </div>
 
 
         <div class="w-100 mb-4"></div>
