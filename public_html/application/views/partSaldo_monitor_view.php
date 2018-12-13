@@ -82,3 +82,9 @@
                         </div>
                     </div>
                 </div>
+
+            <script>
+                $(document).ready(function() {
+                $('#infoParticipante').DataTable();
+            } );
+            </script>

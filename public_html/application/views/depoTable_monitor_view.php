@@ -55,3 +55,9 @@
                         </tr>
                     </tfoot>
                 </table>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#infoDeposito').DataTable();
+                    } );
+                </script>
