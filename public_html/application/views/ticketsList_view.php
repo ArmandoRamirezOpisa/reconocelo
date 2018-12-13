@@ -50,6 +50,8 @@
                     <?php
                         if ($ticketListAdmin){
                             foreach ($ticketListAdmin as $row){
+                                $id = $row['IdTicket'];
+
                                 echo '<div class="card text-center">
                                     <div class="card-header">
                                         <strong class="space-ticket"><i class="fas fa-user"></i> Usuario: '.$row['PrimerNombre'].'</strong>
@@ -57,7 +59,8 @@
                                         <strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>
                                         <strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
                                         if ($row['STATUS'] == 1){
-                                            echo '<strong class="badge badge-success"><i class="fas fa-unlock"></i> Abierto</strong>';
+                                            echo '<div class="space-ticket"><strong class="badge badge-success"><i class="fas fa-unlock"></i> Abierto</strong></div>';
+                                            echo '<button type="button" class="btn btn-link space-ticket" id="'.$row['IdTicket'].'" data-toggle="modal" data-target="#modalCloseTicket" onclick="confirmCloseTicket(this)">Cerrar ticket</button>';
                                         }else{
                                             echo '<strong class="badge badge-danger"><i class="fas fa-lock"></i> Cerrado</strong>';
                                         }
@@ -85,11 +88,11 @@
                                         echo '</strong>';
                                         if ($row['STATUS'] == 1){
                                             echo '<div class="float-right">
-                                                <button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket</button>
+                                                <button id="'.$row['IdTicket'].'-'.$row['STATUS'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket</button>
                                             </div>';
                                         }else{
                                             echo '<div class="float-right">
-                                                <button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)" disabled><i class="fas fa-history"></i>  Historial del ticket</button>
+                                                <button id="'.$row['IdTicket'].'-'.$row['STATUS'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket</button>
                                             </div>';
                                         }
                                     echo '</div>
@@ -125,6 +128,17 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal cerrar ticket -->
+<div class="modal" tabindex="-1" role="dialog" id="modalCloseTicket">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id="closeTicketConfirm"></div>
+        </div>
+    </div>
+</div>
+<!-- Fin modal cerrar ticket -->
 
 
 

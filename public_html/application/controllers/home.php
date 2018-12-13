@@ -69,13 +69,16 @@
         public function historiaTicket(){
             $this->load->model("Ticket_model");
             $ticketData = array("idTicket"=>$_POST['idTicket']);
+            $ticketStatus = array("status"=>$_POST['status']);
 
             $ticketHistory = $this->Ticket_model->Get_TicketsHistory($ticketData);
 
             if ($ticketHistory){
                 $data['ticketHistory'] = $ticketHistory;
+                $data['status'] = $ticketStatus;
             }else{
                 $data['ticketHistory'] = false;
+                $data['status'] = false;
             }
 
             $this->load->view('modalTickect_view',$data);
@@ -153,6 +156,14 @@
             $this->load->view('ticketsList_view',$data);
         }
         /* Fin funcion para ver todo el historial de tickets administrador*/
+
+        /* Funcion para confirmar para cerrar un ticket */
+        public function closeConfirmTicket(){
+            $ticketClose = array("idTicket"=>$_POST['idTicket']);
+
+            $this->load->view('modalTicketClose_view',$ticketClose);
+        }
+        /* Fin funcion para confirmar para cerrar un ticket */
 
     }
 
