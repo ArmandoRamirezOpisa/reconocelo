@@ -10,7 +10,7 @@
           public function getTodosParticipantes(){
     		$query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status, pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.codEmpresa = ".$this->session->userdata('CodEmpresa')."
@@ -30,7 +30,7 @@
         {
     		$query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status, pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.SaldoActual <> 0
@@ -50,7 +50,7 @@
         public function geTParticipantesSinSaldo(){
             $query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status,pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.SaldoActual = 0
@@ -71,7 +71,7 @@
         {
     		$query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status,pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.Status = 1
@@ -92,7 +92,7 @@
         {
     		$query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status,pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.Status = 0
@@ -113,7 +113,7 @@
         {
     		$query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status,pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.SaldoActual <> 0
@@ -135,7 +135,7 @@
         {
     		$query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status,pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.SaldoActual <> 0
@@ -157,7 +157,7 @@
         {
     		$query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status,pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.SaldoActual = 0
@@ -178,7 +178,7 @@
         public function geTSinSaldoInactivo(){
             $query = $this->db->query("
                   SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
-                  pr.SaldoActual, pr.Status
+                  pr.SaldoActual, pr.Status,pr.idParticipante
                   FROM Participante pr
                   WHERE pr.codPrograma =41
                   AND pr.SaldoActual = 0
@@ -197,14 +197,21 @@
 
         public function participanteInfoData($infoParticipante){
             $query = $this->db->query("
-                  SELECT DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha, SUM( m.noPuntos ) AS Depositos
-                  FROM PartMovsRealizados m
-                  JOIN Participante p ON p.idParticipante = m.idParticipante
-                  WHERE p.CodPrograma =41
-                  AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                  AND p.codParticipante = ".$infoParticipante['codParticipante']."
-                  GROUP BY DATE_FORMAT( m.feMov,  '%Y %m' ) 
-                  ORDER BY 1
+
+                  SELECT p.idCanje,p.feSolicitud,d.Cantidad,pr.Nombre_Esp,d.Status,d.Mensajeria,
+                  d.NumeroGuia,d.Cantidad*d.PuntosXUnidad *-1 as puntos
+                  FROM PreCanje p
+                  INNER JOIN PreCanjeDet d on d.noFolio = p.idCanje
+                  INNER join Premio pr ON pr.codPremio = d.CodPremio 
+                  WHERE  
+                  p.codPrograma = 41
+                  AND p.idParticipante = ".$infoParticipante['codParticipante']."
+                  UNION ALL SELECT p.NoFolio as idCanje, p.feMov as feSolicitud,null as Cantidad, 
+                  dsMov as Nombre_Esp, '-' as Status,'-' as Mensajeria,'-' as NumeroGuia,
+                  noPuntos as puntos 
+                  from PartMovsRealizados p
+                  where p.idParticipante = ".$infoParticipante['codParticipante']."
+
             ");
             if ($query->num_rows() > 0)
             {

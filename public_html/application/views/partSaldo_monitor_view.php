@@ -32,10 +32,9 @@
                                 <td>'.$row["eMail"].'</td>
                                 <td>'.$row["SaldoActual"].'</td>
                                 <td>
-                                    <button id='.$row["codParticipante"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#modalParticipante" onclick="infoParticipante(this)">
+                                    <button id='.$row["idParticipante"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#modalParticipante" onclick="infoParticipante(this)">
                                         Información
                                     </button>
-
                                 </td>
                             </tr>';
                         }

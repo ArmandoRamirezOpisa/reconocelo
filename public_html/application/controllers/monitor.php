@@ -129,7 +129,6 @@ class Monitor extends CI_Controller {
     ///////////////////////////////Participantes///////////////////////////////////
     public function participantes(){
             //$this->load->model("participante_monitor_model");
-            
             /*if ($participante)
             {
                 $data["participante"] = $participante;
@@ -265,17 +264,15 @@ class Monitor extends CI_Controller {
 
         $participanteData = $this->participante_monitor_model->participanteInfoData($infoParticipante);
 
-        $participanteDataCanje = $this->participante_monitor_model->participanteInfoDataCanje($infoParticipante);
+        //$participanteDataCanje = $this->participante_monitor_model->participanteInfoDataCanje($infoParticipante);
 
         if ($participanteData){
-            $data = array( 'participanteData' => $participanteData,
-                            'participanteDataCanje' => $participanteDataCanje
+            $data = array( 'participanteData' => $participanteData
                     );
 
             //$data["participanteData"] = $participanteData;
         }else{
-            $data = array( 'participanteData' => false,
-                            'participanteDataCanje' => false
+            $data = array( 'participanteData' => false
                     );
 
             //$data["participanteData"] = false;
