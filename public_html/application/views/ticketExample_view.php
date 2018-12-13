@@ -48,9 +48,9 @@
     <div class="col-8">  
 
         <?php
-            if ($tickets){
+            if ($ticketHistory){
 
-                foreach ($tickets as $row){
+                foreach ($ticketHistory as $row){
 
                     echo '
                     <div class="card text-center">

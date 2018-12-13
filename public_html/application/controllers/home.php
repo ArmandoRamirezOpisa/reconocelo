@@ -66,8 +66,24 @@
         /* Fin router ejemplo para ver el historial de los tickets */
 
         /* funcion para abrir el modal del historial del ticket prueba */
+        public function historialTicket(){
+            $this->load->model("Ticket_model");
+
+            $ticketHistory = $this->Ticket_model->Get_TicketsExample();
+
+            if ($ticketHistory){
+                $data['ticketHistory'] = $ticketHistory;
+            }else{
+                $data['ticketHistory'] = false;
+            }
+
+            $this->load->view('ticketExample_view',$data);
+        }
+
+
         public function historiaTicket(){
             $this->load->model("Ticket_model");
+            
             $ticketData = array("idTicket"=>$_POST['idTicket']);
             $ticketStatus = array("status"=>$_POST['status']);
 
