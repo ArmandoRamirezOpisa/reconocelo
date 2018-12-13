@@ -15,7 +15,4 @@
         <script src="assets/js/controller.js"></script> 
         <script>
             //loadSection("nav_monitor_controller/getNavegacionParticipante", "navegacion");
-            $(document).ready(function() {
-                $('#infoParticipante').DataTable();
-            } );
         </script>
