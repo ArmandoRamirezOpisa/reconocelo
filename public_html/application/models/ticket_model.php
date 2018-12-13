@@ -96,9 +96,11 @@ class Ticket_model extends CI_Model {
 
         $query = $this->db->query("
                               
-        SELECT IdTicket, idCanje, idParticipante, 
-        STATUS , FechaCreacion, Subject
-        FROM AtencionTicket
+        SELECT at.IdTicket, at.idCanje, at.idParticipante, at.STATUS, at.FechaCreacion, at.Subject, 
+        p.PrimerNombre
+        FROM AtencionTicket at, Participante p
+        WHERE 
+        at.idParticipante = p.idParticipante
 
         ");
         if ($query->num_rows() > 0) {

@@ -52,6 +52,7 @@
                             foreach ($ticketListAdmin as $row){
                                 echo '<div class="card text-center">
                                     <div class="card-header">
+                                        <strong class="space-ticket"><i class="fas fa-user"></i> Usuario: '.$row['PrimerNombre'].'</strong>
                                         <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>
                                         <strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>
                                         <strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
