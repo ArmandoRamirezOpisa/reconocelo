@@ -9,13 +9,12 @@
           public function getFechaDeposito()
           {
                   $query = $this->db->query("
-                                                SELECT DATE_FORMAT( m.feMov,  '%Y %m' ) AS Fecha
-                                                FROM PartMovsRealizados m
-                                                JOIN Participante p ON p.idParticipante = m.idParticipante
-                                                WHERE p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                                                AND p.CodPrograma =41
-                                                AND feMov >=  '20180101'
-                                          
+                        SELECT DISTINCT DATE_FORMAT( m.feMov,  '%Y %m' ) AS Fecha
+                        FROM PartMovsRealizados m
+                        JOIN Participante p ON p.idParticipante = m.idParticipante
+                        WHERE p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                        AND p.CodPrograma =41
+                        AND feMov >=  '20180101'                  
                                         ");
                   if ($query->num_rows() > 0)
                   {
