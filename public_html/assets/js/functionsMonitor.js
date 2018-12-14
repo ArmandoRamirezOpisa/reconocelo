@@ -245,6 +245,18 @@ function infoParticipante(id) {
 function catalogoIMG(id) {
 
     var codPremio = id.id;
+    var longitudPremio = codPremio.length;
+    if (longitudPremio == 1) {
+        var codPremi = "0000".concat(codPremio);
+    } else if (longitudPremio == 2) {
+        codPremi = "000".concat(codPremio);
+    } else if (longitudPremio == 3) {
+        codPremi = "00".concat(codPremio);
+    } else if (longitudPremio == 4) {
+        codPremi = "0".concat(codPremio);
+    } else if (longitudPremio == 5) {
+        codPremi = codPremio;
+    }
     /* foto catologo */
     $.ajax({
         url: '/monitor/catalogoImg',
@@ -254,7 +266,7 @@ function catalogoIMG(id) {
         global: true,
         ifModified: false,
         processData: true,
-        data: { "codPremio": codPremio },
+        data: { "codPremio": codPremi },
         beforeSend: function() {
             console.log('Procesando, espere por favor...');
         },
