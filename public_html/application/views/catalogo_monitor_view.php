@@ -27,6 +27,9 @@ include 'home_monitor_view_header.php';
                         <th class="th-sm">Puntos
                             <i class="fa fa-sort float-right" aria-hidden="true"></i>
                         </th>
+                        <th class="th-sm">Premio
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,6 +45,11 @@ include 'home_monitor_view_header.php';
                                 <td>'.$row["Marca"].'</td>
                                 <td>'.$row["Modelo"].'</td>
                                 <td>'.$row["Puntos"].'</td>
+                                <td>
+                                    <button id='.$row["codPremio"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#catalogoImgModal" onclick="catalogoIMG(this)">
+                                        Premio
+                                    </button>
+                                </td>
                             </tr>';
 
                         }
@@ -49,6 +57,7 @@ include 'home_monitor_view_header.php';
                     }else{
 
                         echo '<tr>
+                                <td>--</td>
                                 <td>--</td>
                                 <td>--</td>
                                 <td>--</td>
@@ -69,11 +78,33 @@ include 'home_monitor_view_header.php';
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Puntos</th>
+                        <th>Premio</th>
                     </tr>
                 </tfoot>
             </table>
 
         </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="catalogoImgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="imgCatalogo"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <?php
 include 'home_monitor_view_footer.php';

@@ -27,6 +27,9 @@ include 'home_monitor_view_header.php';
                         <th class="th-sm">Puntos
                             <i class="fa fa-sort float-right" aria-hidden="true"></i>
                         </th>
+                        <th class="th-sm">Premio
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,6 +45,11 @@ include 'home_monitor_view_header.php';
                                 <td>'.$row["Marca"].'</td>
                                 <td>'.$row["Modelo"].'</td>
                                 <td>'.$row["Puntos"].'</td>
+                                <td>
+                                    <button id='.$row["codPremio"].' type="button" class="btn btn-link">
+                                        Premio
+                                    </button>
+                                </td>
                             </tr>';
 
                         }
@@ -49,6 +57,7 @@ include 'home_monitor_view_header.php';
                     }else{
 
                         echo '<tr>
+                            <td>--</td>
                             <td>--</td>
                             <td>--</td>
                             <td>--</td>
@@ -69,6 +78,7 @@ include 'home_monitor_view_header.php';
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Puntos</th>
+                        <th>Premio</th>
                     </tr>
                 </tfoot>
             </table>

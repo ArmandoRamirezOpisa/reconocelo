@@ -240,6 +240,47 @@ function infoParticipante(id) {
 }
 
 /* Fin Participantes */
+
+/* Inicio Catologo */
+function catalogoIMG(id) {
+
+    var codPremio = id.id;
+    /* foto catologo */
+    $.ajax({
+        url: '/monitor/catalogoImg',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: { "codPremio": codPremio },
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                window.location.reload();
+            } else {
+                console.log('Correcto');
+                console.log(result);
+                $('#imgCatalogo').html(result);
+            }
+
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
+    });
+    /* fin foto catalogo */
+
+}
+/* Fin Catalogo */
+
 /* Inicio depositos */
 function depositos() {
 

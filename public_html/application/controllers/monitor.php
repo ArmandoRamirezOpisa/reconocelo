@@ -320,6 +320,7 @@ class Monitor extends CI_Controller {
         $this->load->view('depoTable_monitor_view',$data);
     }
     ////////////////////////////FinDepositos///////////////////////////////////////
+    ///////////////////////////InicioCatalogo//////////////////////////////////////
     public function catalogo(){
         $this->load->model("catalogo_monitor_model");
         $catalogo = $this->catalogo_monitor_model->getCatalogo();
@@ -332,6 +333,13 @@ class Monitor extends CI_Controller {
         $this->load->view('catalogo_monitor_view',$data);
     }
 
+    public function catalogoImg(){
+
+        $codPremio = array("codPremio"=>$_POST['codPremio']);
+
+        $this->load->view('catalogoModal_monitor_view',$codPremio);
+    }
+    ///////////////////////////FinCatalogo//////////////////////////////////////
     public function programa(){
         $this->load->model("programa_monitor_model");
         $programa= $this->programa_monitor_model->getPrograma();
