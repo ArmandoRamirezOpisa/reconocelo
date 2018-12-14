@@ -85,11 +85,11 @@
                             echo '</strong>';
                             if ( $row['status'] == 1){
                             echo '<div class="float-right">
-                                <button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket</button>
+                                <button id="'.$row['IdTicket'].'-'.$row['status'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket</button>
                             </div>';
                             }else{
                                 echo '<div class="float-right">
-                                <button id="'.$row['IdTicket'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)" disabled><i class="fas fa-history"></i>  Historial del ticket</button>
+                                <button id="'.$row['IdTicket'].'-'.$row['status'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)" disabled><i class="fas fa-history"></i>  Historial del ticket</button>
                             </div>';
                             }
                         echo '</div>
