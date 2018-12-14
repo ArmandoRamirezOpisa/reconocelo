@@ -14,7 +14,6 @@
                                           FROM PartMovsRealizados m
                                           JOIN Participante p ON p.idParticipante = m.idParticipante
                                           WHERE feMov >=  '20180501'
-                                          AND feMov <=  '20181030'
                                           AND p.CodPrograma =41
                                           AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
                                           GROUP BY DATE_FORMAT( m.feMov,  '%Y %m' ) 
@@ -39,7 +38,6 @@
                                           AND cd.idParticipante = c.idParticipante
                                           AND c.idParticipante = p.idParticipante
                                           AND feSolicitud >=  '20180501'
-                                          AND feSolicitud <=  '20181030'
                                           AND c.codPrograma =41
                                           AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
                                           GROUP BY DATE_FORMAT( feSolicitud,  '%Y %m' ) 
