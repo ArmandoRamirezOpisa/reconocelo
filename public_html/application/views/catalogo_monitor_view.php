@@ -44,7 +44,7 @@ include 'home_monitor_view_header.php';
                                 <td>'.$row["nombrePremio"].'</td>
                                 <td>'.$row["Marca"].'</td>
                                 <td>'.$row["Modelo"].'</td>
-                                <td>'.$row["Puntos"].'</td>
+                                <td>'.number_format($row["Puntos"]).'</td>
                                 <td>
                                     <button id='.$row["codPremio"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#catalogoImgModal" onclick="catalogoIMG(this)">
                                         Premio
@@ -111,7 +111,7 @@ include 'home_monitor_view_footer.php';
 ?>
 
         <script>
-            document.getElementById("navegacionMonitor").innerHTML = "<h1>Informacion del catologo actual</h1>";
+            document.getElementById("navegacionMonitor").innerHTML = "<h1>Información del catalogo actual</h1>";
 
             $(document).ready(function() {
                 $('#infoCatologoActual').DataTable();

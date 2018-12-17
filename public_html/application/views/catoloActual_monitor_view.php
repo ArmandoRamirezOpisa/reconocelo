@@ -90,7 +90,7 @@ include 'home_monitor_view_footer.php';
 ?>
 
         <script>
-            document.getElementById("navegacionMonitor").innerHTML = "<h1>Informacion del catologo actual</h1>";
+            document.getElementById("navegacionMonitor").innerHTML = "<h1>Información del catalogo actual</h1>";
 
             $(document).ready(function() {
                 $('#infoDeposito').DataTable();
