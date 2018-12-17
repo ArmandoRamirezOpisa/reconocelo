@@ -196,24 +196,13 @@ function enviar_pregunta() {
         var orden = $('select[name=orden]').val();
         var mensaje = $('#mensaje').val();
         var articulo = $('select[name=articulo]').val();
+        var temaOrden = $('#mensajeOtro').val();
 
-        if (pregunta == "Sobre mi orden") {
+        if (pregunta == "Articulo de mi orden") {
 
-            if (orden == null) {
+            if (orden == "Selecciona" || articulo == "Selecciona") {
 
-                swal("Operación no permitida", "No existen ordenes afiliadas a su cuenta", "warning");
-
-            } else {
-
-                enviarPregunta1(orden, '', mensaje, 2);
-
-            }
-
-        } else if (pregunta == "Articulo de mi orden") {
-
-            if (articulo == null) {
-
-                swal("Operación no permitida", "No existen articulos afiliadas a su cuenta", "warning");
+                $.notify("Debe de seleccionar una orden o artículo", "error");
 
             } else {
 
@@ -224,10 +213,33 @@ function enviar_pregunta() {
 
             }
 
-        } else {
+        } else if (pregunta == "Sobre mi orden") {
 
-            enviarPregunta1(' ', ' ', mensaje, 3);
+            if (orden == "Selecciona" || temaOrden == "") {
 
+                $.notify("Debe de seleccionar una orden o escribir el tema", "error");
+
+            } else {
+
+                enviarPregunta1(orden, temaOrden, mensaje, 2);
+
+            }
+
+        } else if (pregunta == "otro") {
+
+            if (temaOrden == "") {
+
+                $.notify("Debe de escribir el tema", "error");
+
+            } else {
+
+                console.log('orden vacio');
+                console.log(temaOrden);
+                console.log(mensaje);
+                orden = 0;
+                enviarPregunta1(orden, temaOrden, mensaje, 3);
+
+            }
         }
 
     }
