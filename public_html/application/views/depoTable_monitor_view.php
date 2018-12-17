@@ -28,7 +28,7 @@
                                     <td>'.$row['Nombre'].'</td>
                                     <td>'.$row['Fecha'].'</td>
                                     <td>'.$row['Descripcion'].'</td>
-                                    <td>'.$row['Puntos'].'</td>
+                                    <td>'.number_format($row['Puntos']).'</td>
                                 </tr>';
 
                             }
