@@ -264,6 +264,26 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 }
 /* Fin funcion de prueba */
 
+/* Funcion aparecer opciones select prueba */
+function selectOptionTicket(id) {
+    var idSelectPregunta = id.id;
+    var x = document.getElementById(idSelectPregunta).value;
+    if (x == "Articulo de mi orden") {
+        document.getElementById("articulo").style = "display:block";
+        document.getElementById("temaOtro").style = "display:none";
+        document.getElementById("exampleFormControlSelect3").disabled = false;
+    } else if (x == "Sobre mi orden") {
+        document.getElementById("articulo").style = "display:none";
+        document.getElementById("temaOtro").style = "display:block";
+        document.getElementById("exampleFormControlSelect3").disabled = false;
+    } else if (x == "otro") {
+        document.getElementById("articulo").style = "display:none";
+        document.getElementById("temaOtro").style = "display:block";
+        document.getElementById("exampleFormControlSelect3").disabled = true;
+    }
+}
+/* Fin funcion aparecer opciones select prueba */
+
 /* Funcion prueba del historial del ticket */
 function historiaTicket(id) {
     var id = id.id;

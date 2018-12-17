@@ -10,7 +10,6 @@
         <link href="../../assets/css/2018Reconocelo.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <script src="https://use.fontawesome.com/1f2183b84e.js"></script>
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -35,44 +34,51 @@
             <div class="form-group">
                 <label for="exampleFormControlSelect1" class="font-weight-bold lblText"> * Selecciona tu tipo de pregunta</label>
                 <div id="tipoBusqueda">
-                    <select class="form-control" id="exampleFormControlSelect1" name="preguntas">
-                   <?php 
-                     
+                    <select class="form-control" id="exampleFormControlSelect1" name="preguntas" onchange="selectOptionTicket(this)">
+                        <option>Selecciona</option>
+                        <?php 
                   
-                   foreach ($preguntas as $key => $value) {
-                    echo '<option>'.$value["TipoPregunta"].'</option>';   
-                   }
-                   ?>
-                 
-                </select>  
+                            foreach ($preguntas as $key => $value) {
+                                echo '<option>'.$value["TipoPregunta"].'</option>';   
+                            }
+
+                        ?>
+                    </select>  
                 </div>
                
-                <div id="articulo">
-                 <label for="exampleFormControlSelect2" class="font-weight-bold lblText"> * Selecciona tu articulo </label>
-                 
-                 <select class="form-control" id="exampleFormControlSelect2" name="articulo">
-                   <?php 
-                   foreach ($ordenes as $key => $value) {
-                    
-                    echo '<option>'.$value["idCanje"].'-'.$value["Nombre_Esp"].'</option>';   
-                   }
-                   ?>
-                 
-                </select>
-                </div>
                 <div id="orden">
-                  <label for="exampleFormControlSelect3" class="font-weight-bold lblText"> * Selecciona tu orden </label>
-                
-                  <select class="form-control" id="exampleFormControlSelect3" name="orden">
-                   <?php 
-                   foreach ($ordenesFolio as $key => $value) {
-                    
-                    echo '<option>'.$value["idCanje"].'</option>';   
-                   }
-                   ?>
-                 
-                </select>
+                    <label for="exampleFormControlSelect3" class="font-weight-bold lblText"> * Selecciona tu orden </label>
+                    <select class="form-control" id="exampleFormControlSelect3" name="orden" disabled>
+                        <option>Selecciona</option>
+                        <?php 
+
+                            foreach ($ordenesFolio as $key => $value) {
+                                echo '<option>'.$value["idCanje"].'</option>';   
+                            }
+
+                        ?>
+                    </select>
                  </div>
+
+                <div id="articulo" style="display:none;">
+                    <label for="exampleFormControlSelect2" class="font-weight-bold lblText"> * Selecciona tu articulo </label>
+                    <select class="form-control" id="exampleFormControlSelect2" name="articulo">
+                        <option>Selecciona</option>
+                        <?php 
+
+                            foreach ($ordenes as $key => $value) {
+                                echo '<option>'.$value["idCanje"].'-'.$value["Nombre_Esp"].'</option>';   
+                            }
+
+                        ?>
+                    </select>
+                </div>
+
+                <div id="temaOtro" style="display:none;">
+                    <label for="exampleForControlText" class="font-weight-bold lblText">* Describe el tema</label>
+                    <input id="mensajeOtro" class="form-control" type="text">
+                </div>
+
                 <label for="mensaje" class="font-weight-bold lblText">* Describe la duda</label>
                 <textarea class="form-control" id="mensaje" rows="3" ></textarea>
  
