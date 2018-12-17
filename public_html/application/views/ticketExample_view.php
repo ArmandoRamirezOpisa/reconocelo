@@ -55,9 +55,13 @@
                     echo '
                     <div class="card text-center">
                         <div class="card-header">
-                            <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>
-                            <strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>
-                            <strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
+                            <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>';
+                            if ($row['idCanje'] == 0){
+                                echo '<strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: Otro</strong>';
+                            }else{
+                                echo '<strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>';
+                            }
+                            echo '<strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
                              if ( $row['status'] == 1){
                                  echo '<strong class="badge badge-success"><i class="fas fa-unlock"></i> Abierto</strong>';
                              }else {

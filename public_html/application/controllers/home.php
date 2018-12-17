@@ -46,26 +46,6 @@
         /* Fin router ejemplo para hacer un ticket */
 
         /* Router ejemplo para ver el historial de los tickets */
-        public function ticketsHistorial()
-        {
-            $this->load->model("Ticket_model");
-            $tickets = $this->Ticket_model->Get_TicketsExample();
-            
-            if ($tickets){
-
-                $data["tickets"] = $tickets;
-
-            }else{
-
-                $data["tickets"] = false;
-
-            }
-               
-            $this->load->view('ticketExample_view',$data);
-        }
-        /* Fin router ejemplo para ver el historial de los tickets */
-
-        /* funcion para abrir el modal del historial del ticket prueba */
         public function historialTicket(){
             $this->load->model("Ticket_model");
 
@@ -79,8 +59,9 @@
 
             $this->load->view('ticketExample_view',$data);
         }
+        /* Fin router ejemplo para ver el historial de los tickets */
 
-
+        /* funcion para abrir el modal del historial del ticket prueba */
         public function historiaTicket(){
             $this->load->model("Ticket_model");
             

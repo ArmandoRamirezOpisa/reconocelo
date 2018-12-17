@@ -55,9 +55,13 @@
                                 echo '<div class="card text-center">
                                     <div class="card-header">
                                         <strong class="space-ticket"><i class="fas fa-user"></i> Usuario: '.$row['PrimerNombre'].'</strong>
-                                        <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>
-                                        <strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>
-                                        <strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
+                                        <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>';
+                                        if ($row['idCanje'] == 0){
+                                            echo '<strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: Otro</strong>;';
+                                        }else{
+                                            echo '<strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>';
+                                        }
+                                        echo '<strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
                                         if ($row['STATUS'] == 1){
                                             echo '<div class="space-ticket"><strong class="badge badge-success"><i class="fas fa-unlock"></i> Abierto</strong></div>';
                                             echo '<button type="button" class="btn btn-link space-ticket" id="'.$row['IdTicket'].'" data-toggle="modal" data-target="#modalCloseTicket" onclick="confirmCloseTicket(this)">Cerrar ticket</button>';
@@ -70,7 +74,7 @@
                                             Descripción del ticket:
                                         </h5>
                                         <p class="card-text">';
-                                            if($row['Subject'] =! ""){
+                                            if ($row['Subject'] != ""){
                                                 echo ''.$row['Subject'].'';
                                             }else{
                                                 echo 'Otro';
@@ -97,6 +101,7 @@
                                         }
                                     echo '</div>
                                 </div>';
+                                echo '</br>';
                             }
                         }else{
                             echo '<h1>En estos momentos no hay tickets</h1>';
