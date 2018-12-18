@@ -239,6 +239,86 @@ function infoParticipante(id) {
 
 }
 
+/* Exportando participantes a excel */
+function exportToExcel() {
+
+    $('#contentido').html('<div class="loading" style="text-align: center;"><img src="../assets/images/loader.gif"/><br/>Un momento, por favor...</div>');
+
+    var radioTodosParticipantes = document.getElementById("TodosSaldo");
+    var radioParticipantesSaldo = document.getElementById("Saldo");
+    var radioParticipantesSinSaldo = document.getElementById("sinSaldo");
+
+    var EstadoActivo = document.getElementById('estadoActivo').checked;
+    var EstadoInactivo = document.getElementById('estadoInactivo').checked;
+
+    var numberExportDB = 0;
+
+    if (radioTodosParticipantes.checked == true && EstadoActivo && EstadoInactivo) {
+        alert("Jalar todos");
+        numberExportDB = 1;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else if (radioTodosParticipantes.checked == true && EstadoActivo) {
+        alert("Jalar todos los participantes activos");
+        numberExportDB = 2;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else if (radioTodosParticipantes.checked == true && EstadoInactivo) {
+        alert("Jalar todos los participantes inactivos");
+        numberExportDB = 3;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else if (radioParticipantesSaldo.checked == true && EstadoActivo && EstadoInactivo) {
+        alert("Jalar los participantes con saldo");
+        numberExportDB = 4;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else if (radioParticipantesSaldo.checked == true && EstadoActivo) {
+        alert("Jalar los participantes con sald activos");
+        numberExportDB = 5;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else if (radioParticipantesSaldo.checked == true && EstadoInactivo) {
+        alert("Jalar los participantes con inactivos");
+        numberExportDB = 6;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo && EstadoInactivo) {
+        alert("Jalar los participantes sin saldo");
+        numberExportDB = 7;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo) {
+        alert("Jalar los participantes sin saldo activos");
+        numberExportDB = 8;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else if (radioParticipantesSinSaldo.checked == true && EstadoInactivo) {
+        alert("Jalar los participantes sin saldo inactivos");
+        numberExportDB = 9;
+        document.getElementById("alertFiltro").style.display = "none";
+    } else {
+        numberExportDB = 10;
+        document.getElementById("alertFiltro").style.display = "block";
+    }
+
+    $.ajax({
+        url: '/monitor/exportParticipantesExcel',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(result) {
+
+            $('#contentido').fadeIn(1000).html(result);
+
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
+    });
+
+}
+/* Fin exportando participantes a excel */
 /* Fin Participantes */
 
 /* Inicio Catologo */

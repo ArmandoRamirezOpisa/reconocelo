@@ -5,12 +5,18 @@ include 'home_monitor_view_header.php';
 ?>
         
         <div class="container">
-                <div id="alertFiltro" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
-                    <strong>Atención!</strong> Debes tener seleccionado uno.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+            <div id="alertFiltro" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
+                <strong>Atención!</strong> Debes tener seleccionado uno.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center mb-4 mt-3">
+                <div id="contentido" class="card-deck mt-3"></div>
+            </div>
         </div>
 
         <div class="container">
@@ -39,6 +45,11 @@ include 'home_monitor_view_header.php';
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="estadoInactivo" value="option2" checked onchange="estadoParticipante()">
                         <label class="form-check-label" for="inlineCheckbox2">Inactivo</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <button id="btnExport" type="submit" class="btn btn-primary mb-2" onclick="exportToExcel()"><i class="fas fa-file-excel"></i> Exportar participantes</button>
                     </div>
                 </div>
             </div>

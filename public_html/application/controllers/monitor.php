@@ -279,6 +279,11 @@ class Monitor extends CI_Controller {
         }
         $this->load->view('modalPartici_monitor_view',$data);
     }
+
+    //Exportando participantes a excel
+    public function exportParticipantesExcel(){
+        $this->load->view('participanteExcel_monitor_view');
+    }
     ////////////////////////////FinParticipantes///////////////////////////////////
     ////////////////////////////InicioDepositos///////////////////////////////////
     public function depositos(){
