@@ -283,8 +283,92 @@ class Monitor extends CI_Controller {
     //Exportando participantes a excel
     public function exportParticipantesExcel(){
 
+        $this->load->model("participante_monitor_model");
         $optionExportData = array("numberExportDB"=>$_POST['numberExportDB']);
-        $this->load->view('participanteExcel_monitor_view',$optionExportData);
+        $number = $optionExportData['numberExportDB'];
+
+        switch ($optionExportData['numberExportDB']){
+            case 1:
+                $participante = $this->participante_monitor_model->getTodosParticipantes();
+                if ($participante){
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+            case 2:
+                $participante = $this->participante_monitor_model->geTodoSaldoActivo();
+                if ($participante)
+                {
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+            case 3:
+                $participante = $this->participante_monitor_model->geTodoInactivo();
+                if ($participante)
+                {
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+            case 4:
+                $participante = $this->participante_monitor_model->geTParticipantesSaldo();
+                if ($participante){
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+            case 5:
+                $participante = $this->participante_monitor_model->getSaldoActivo();
+                if ($participante)
+                {
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+            case 6:
+                $participante = $this->participante_monitor_model->geTSaldoInactivo();
+                if ($participante)
+                {
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+            case 7:
+                $participante = $this->participante_monitor_model->geTParticipantesSinSaldo();
+                if ($participante){
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+            case 8:
+                $participante = $this->participante_monitor_model->geTSinSaldoActivo();
+                if ($participante)
+                {
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+            case 9:
+                $participante = $this->participante_monitor_model->geTSinSaldoInactivo();
+                if ($participante)
+                {
+                    $data["participante"] = $participante;
+                }else{
+                    $data["participante"] = false;
+                }
+                break;
+        }
+
+        $this->load->view('participanteExcel_monitor_view',$data);
 
     }
     ////////////////////////////FinParticipantes///////////////////////////////////
