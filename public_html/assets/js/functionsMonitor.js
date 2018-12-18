@@ -254,39 +254,30 @@ function exportToExcel() {
     var numberExportDB = 0;
 
     if (radioTodosParticipantes.checked == true && EstadoActivo && EstadoInactivo) {
-        alert("Jalar todos");
         numberExportDB = 1;
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioTodosParticipantes.checked == true && EstadoActivo) {
-        alert("Jalar todos los participantes activos");
         numberExportDB = 2;
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioTodosParticipantes.checked == true && EstadoInactivo) {
-        alert("Jalar todos los participantes inactivos");
         numberExportDB = 3;
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoActivo && EstadoInactivo) {
-        alert("Jalar los participantes con saldo");
         numberExportDB = 4;
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoActivo) {
-        alert("Jalar los participantes con sald activos");
         numberExportDB = 5;
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoInactivo) {
-        alert("Jalar los participantes con inactivos");
         numberExportDB = 6;
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo && EstadoInactivo) {
-        alert("Jalar los participantes sin saldo");
         numberExportDB = 7;
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo) {
-        alert("Jalar los participantes sin saldo activos");
         numberExportDB = 8;
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoInactivo) {
-        alert("Jalar los participantes sin saldo inactivos");
         numberExportDB = 9;
         document.getElementById("alertFiltro").style.display = "none";
     } else {
@@ -302,6 +293,7 @@ function exportToExcel() {
         global: true,
         ifModified: false,
         processData: true,
+        data: { "numberExportDB": numberExportDB },
         beforeSend: function() {
             console.log('Procesando, espere por favor...');
         },
