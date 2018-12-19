@@ -8,7 +8,7 @@
         die('This example should only be run from a Web Browser');
     }
 
-    require_once(APPPATH.'libraries/Classes/PHPExcel.php');
+    require_once(APPPATH.'/libraries/Classes/PHPExcel.php');
 
     $objPHPExcel = new PHPExcel();
 

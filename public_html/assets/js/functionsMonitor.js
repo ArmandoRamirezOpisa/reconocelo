@@ -299,7 +299,7 @@ function exportToExcel() {
         },
         success: function(result) {
 
-            $('#contentido').fadeIn(1000).html(result);
+            $('#contentido').fadeIn(1000).html("Excel creado exitosamente");
 
         },
         error: function(object, error, anotherObject) {
