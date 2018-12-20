@@ -1,13 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
     class Login_controller extends CI_Controller {
     	   
         public function __construct()
         {
-            parent::__construct();
-            $this->load->model("login_model");
+                parent::__construct();
+                $this->load->model("login_model");
         }
-
+		
 		public function login()
 		{
 			$login = $this->login_model->login($_POST);
@@ -21,7 +20,6 @@
                 }else{
                 	$email_s = "-";
                 }    
-
 				$userData = array(
 			                   'logged_in'      => TRUE,
                                'nombre'      	  => $login[0]["PrimerNombre"],

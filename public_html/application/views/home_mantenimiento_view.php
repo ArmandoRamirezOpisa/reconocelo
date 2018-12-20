@@ -12,6 +12,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     </head>
     <body>
+        <div id="MessageError" class="container"></div>
         <div class="container">          
             <div class="row justify-content-center mb-4 mt-3">
                 <div class="col-12 col-md-6 mt-4 ">
@@ -20,36 +21,22 @@
                             <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
                             <div class="card-body">
                                 <form>
-                                    <p class="card-title text-center mt-4 h2">Iniciar sesión</p>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="input-group  mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Usuario</span>
-                                                </div>
-                                                <input type="text" class="form-control" type="number" id="user" oninput="this.value = this.value.toUpperCase()" placeholder="Ejem: Usuario01">
-                                            </div>
-                                            <div class="input-group  mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Contraseña</span>
-                                                </div>
-                                                <input type="password" class="form-control" id="password" placeholder="Ejem: *****">
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="user">Usuario</label>
+                                        <input type="email" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Ejem: usuario01">
                                     </div>
-                                    <div class="row justify-content-end">
-                                        <div class="col-12 col-md-12">
-                                            <div class="form-group mb-0">
-                                                <button type="submit" class="btn btn-primary btn-block font-weight-bold" onclick="loginMantenimiento()"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="password">Contraseña</label>
+                                        <input type="password" class="form-control" id="password" placeholder="Ejem: *****">
                                     </div>
-                                 </form>
+                                    <button id="btnEntrarMantenimiento" type="button" class="btn btn-primary" onclick="loginMantenimiento()"><i class="fas fa-sign-in-alt mr-2"></i> Entrar</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         <script src="../assets/js/angular.min.js" type="text/javascript"></script>
         <script src="../assets/js/functionsMantenimiento.js"></script>
         <script src="../assets/js/angular-sanitize.js" type="text/javascript"></script>
