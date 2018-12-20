@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Login_controller extends CI_Controller {
+    class LoginMantenimiento_controller extends CI_Controller {
     	   
         public function __construct()
         {
@@ -10,7 +10,7 @@
 
 		public function login()
 		{
-			$login = $this->login_model->login($_POST);
+			$login = $this->login_model->loginMantenimiento($_POST);
             //echo $login;
 			if ($login)
 			{
