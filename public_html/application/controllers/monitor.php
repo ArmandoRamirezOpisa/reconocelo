@@ -284,7 +284,6 @@ class Monitor extends CI_Controller {
     public function exportParticipantesExcel(){
 
         $this->load->model("participante_monitor_model");
-        $this->load->library('export_excel');
         $optionExportData = array("numberExportDB"=>$_POST['numberExportDB']);
         $number = $optionExportData['numberExportDB'];
 
@@ -369,8 +368,7 @@ class Monitor extends CI_Controller {
                 break;
         }
 
-        $this->export_excel->to_excel($participante, 'lista_de_personas');
-        //$this->load->view('participanteExcel_monitor_view',$data);
+        $this->load->view('participanteExcel_monitor_view',$data);
 
     }
     ////////////////////////////FinParticipantes///////////////////////////////////
