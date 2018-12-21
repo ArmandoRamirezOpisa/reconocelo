@@ -1,12 +1,46 @@
+//Funcion login mantenimiento
 function loginMantenimiento() {
 
-    alert("Entrando...");
+    $('#MessageError').hide();
     var usuario = $('#user').val();
     var password = $('#password').val();
 
     if (usuario == "" || password == "") {
-        $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $('#MessageError').show();
         throw new Error("Datos de formulario incompleto");
+    } else {
+
+        $.ajax({
+            url: '/mantenimiento/login',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "usuario": usuario, "password": password },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result) {
+                    console.log('Correcto');
+                    window.location.reload();
+                } else {
+                    console.log("Expiro");
+                    console.log(result);
+                    $('#MessageError').show();
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+
     }
 
 }
