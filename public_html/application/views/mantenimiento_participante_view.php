@@ -27,10 +27,10 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="/mantenimiento/participantes">Participantes</a>
                     </li>
                     <li class="nav-item">
@@ -63,7 +63,7 @@
         <div class="container" style="margin-top: 100px;">
             <div class="row justify-content-center mb-4 mt-3">
                 <div id="navegacionMonitor" class="card-deck mt-3">
-                    <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
+                    Aqui va para insertar los participantes
                 </div>
             </div>
         </div>
