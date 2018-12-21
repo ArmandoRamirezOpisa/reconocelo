@@ -47,6 +47,11 @@
             $this->load->view('mantenimiento_participante_view',$PrimerNombre);
         }
 
+        public function premios(){
+            $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
+            $this->load->view('mantenimiento_premio_view',$PrimerNombre);
+        }
+
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');
             $this->session->unset_userdata($array_items);

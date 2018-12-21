@@ -63,7 +63,7 @@
         <div class="container" style="margin-top: 100px;">
             <div class="row justify-content-center mb-4 mt-3">
                 <div id="navegacionMonitor" class="card-deck mt-3">
-                    Aqui va para insertar los participantes
+                    Aqui va para insertar los premios
                 </div>
             </div>
         </div>

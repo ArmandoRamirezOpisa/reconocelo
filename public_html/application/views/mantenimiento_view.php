@@ -34,7 +34,7 @@
                         <a class="nav-link" href="/mantenimiento/participantes">Participantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Premios</a>
+                        <a class="nav-link" href="/mantenimiento/premios">Premios</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
