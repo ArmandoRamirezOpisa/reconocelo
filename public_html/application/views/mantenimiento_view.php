@@ -15,7 +15,7 @@
 
             <!-- Image and text -->
             <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/mantenimiento/home">
                     <img src="../../assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Reconocelo
                 </a>

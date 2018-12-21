@@ -46,7 +46,7 @@
             $array_items = array('administrador' => '', 'CodEmpresa' => '');
             $this->session->unset_userdata($array_items);
             //Manda al inicio de la página, si no hay session se va al login.
-            header( 'Location: '.base_url().'/mantenimiento');
+            header( 'Location: '.base_url().'mantenimiento');
         }
 
     }

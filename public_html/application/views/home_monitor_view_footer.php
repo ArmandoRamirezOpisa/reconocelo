@@ -1,4 +1,4 @@
-        <script src="assets/js/notify.js"></script>
+<script src="assets/js/notify.js"></script>
         <script src="../assets/js/angular.min.js" type="text/javascript"></script>
         <script src="../assets/js/angular-sanitize.js" type="text/javascript"></script>
         <script src="../assets/js/angular-route.min.js" type="text/javascript"></script>
