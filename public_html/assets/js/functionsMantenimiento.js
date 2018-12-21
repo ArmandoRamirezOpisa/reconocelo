@@ -26,10 +26,11 @@ function loginMantenimiento() {
 
                 if (result) {
                     console.log('Correcto');
-                    window.location.reload();
+                    location.href = "https://" + location.hostname + "/mantenimiento/home";
                 } else {
                     console.log("Expiro");
                     console.log(result);
+                    window.location.reload();
                     $('#MessageError').show();
                 }
 

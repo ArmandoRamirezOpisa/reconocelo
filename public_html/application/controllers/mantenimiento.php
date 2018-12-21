@@ -23,8 +23,7 @@
                 $InformacionLoginUsuario = array(
                     'administrador' => TRUE,
                     'CodEmpresa' => $InformacionLogin[0]["CodEmpresa"],
-                    'CodPrograma' => $InformacionLogin[0]["CodPrograma"],
-                    'empresa' => $InformacionLogin[0]["empresa"]
+                    'CodPrograma' => $InformacionLogin[0]["CodPrograma"]
                 );
                 $this->session->set_userdata($InformacionLoginUsuario);
                 $this->output->set_output(json_encode(true));//si encuantra al usuario regresa true
@@ -37,7 +36,7 @@
         public function home(){
 
             $this->load->view('mantenimiento_view');
-            
+
         }
 
     }
