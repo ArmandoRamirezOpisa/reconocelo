@@ -23,7 +23,8 @@
                 $InformacionLoginUsuario = array(
                     'administrador' => TRUE,
                     'CodEmpresa' => $InformacionLogin[0]["CodEmpresa"],
-                    'CodPrograma' => $InformacionLogin[0]["CodPrograma"]
+                    'CodPrograma' => $InformacionLogin[0]["CodPrograma"],
+                    'PrimerNombre' => $InformacionLogin[0]["PrimerNombre"]
                 );
                 $this->session->set_userdata($InformacionLoginUsuario);
                 $this->output->set_output(json_encode(true));//si encuantra al usuario regresa true
@@ -35,8 +36,17 @@
 
         public function home(){
 
-            $this->load->view('mantenimiento_view');
+            //$PrimerNombre = $this->session->userdata('PrimerNombre');
+            $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
+            $this->load->view('mantenimiento_view',$PrimerNombre);
 
+        }
+
+        public function exit_mantenimiento(){
+            $array_items = array('administrador' => '', 'CodEmpresa' => '');
+            $this->session->unset_userdata($array_items);
+            //Manda al inicio de la página, si no hay session se va al login.
+            header( 'Location: '.base_url().'/mantenimiento');
         }
 
     }

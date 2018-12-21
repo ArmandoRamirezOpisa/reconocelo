@@ -45,3 +45,7 @@ function loginMantenimiento() {
     }
 
 }
+
+function salirMantenimiento() {
+    location.href = "https://" + location.hostname + "/mantenimiento/exit_mantenimiento";
+}
