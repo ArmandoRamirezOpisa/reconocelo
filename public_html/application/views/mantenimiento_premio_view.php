@@ -61,11 +61,45 @@
         </nav>
 
         <div class="container" style="margin-top: 100px;">
-            <div class="row justify-content-center mb-4 mt-3">
-                <div id="navegacionMonitor" class="card-deck mt-3">
-                    Aqui va para insertar los premios
+            <form>
+                <div class="form-group">
+                    <label for="codPremio">Codigo de premio</label>
+                    <input type="number" class="form-control" id="codPremio">
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="codCategoria">Codigo categoria</label>
+                    <input type="number" class="form-control" id="codCategoria">
+                </div>
+                <div class="form-group">
+                    <label for="codProveedor">Codigo proveedor</label>
+                    <input type="number" class="form-control" id="codProveedor">
+                </div>
+                <div class="form-group">
+                    <label for="marca">Marca</label>
+                    <input type="text" class="form-control" id="marca">
+                </div>
+                <div class="form-group">
+                    <label for="modelo">Modelo</label>
+                    <input type="text" class="form-control" id="modelo">
+                </div>
+                <div class="form-group">
+                    <label for="NombreESP">Nombre en espanol</label>
+                    <input type="text" class="form-control" id="NombreESP">
+                </div>
+                <div class="form-group">
+                    <label for="NombreING">Nombre en ingles</label>
+                    <input type="text" class="form-control" id="NombreING">
+                </div>
+                <div class="form-group">
+                    <label for="CaracESP">Caracteristicas en espanol</label>
+                    <input type="text" class="form-control" id="CaracESP">
+                </div>
+                <div class="form-group">
+                    <label for="CaracING">Caracteristicas en ingles</label>
+                    <input type="text" class="form-control" id="CaracING">
+                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block""><i class="fas fa-save"></i> Guardar</button>
+            </form>
         </div>
 
         <!-- Modal -->

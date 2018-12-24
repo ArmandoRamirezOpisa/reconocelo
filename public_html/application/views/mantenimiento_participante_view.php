@@ -11,7 +11,7 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav id="menu-mantenimiento" class="navbar navbar-expand-lg navbar-light bg-light">
 
             <!-- Image and text -->
             <nav class="navbar navbar-light bg-light">
@@ -60,30 +60,89 @@
             </div>
         </nav>
 
-        <div class="container" style="margin-top: 100px;">
-                    
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Example select</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                    </form>
+            <div class="container" style="margin-top: 100px;">
+                        
+                <form>
+                    <div class="form-group">
+                        <label for="idParticipante">Id participante</label>
+                        <input type="number" class="form-control" id="idParticipante">
+                    </div>
+                    <div class="form-group">
+                        <label for="codPrograma">Codigo de programa</label>
+                        <input type="number" class="form-control" id="codPrograma">
+                    </div>
+                    <div class="form-group">
+                        <label for="codEmpresa">Codigo empresa</label>
+                        <input type="number" class="form-control" id="codEmpresa">
+                    </div>
+                    <div class="form-group">
+                        <label for="codParticipante">Codigo participante</label>
+                        <input type="number" class="form-control" id="codParticipante">
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo">Cargo</label>
+                        <input type="text" class="form-control" id="cargo">
+                    </div>
+                    <div class="form-group">
+                        <label for="primerNombre">Primer nombre</label>
+                        <input type="text" class="form-control" id="primerNombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="segundoNombre">Segundo nombre</label>
+                        <input type="text" class="form-control" id="segundoNombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoPaterno">Apellido paterno</label>
+                        <input type="text" class="form-control" id="apellidoPaterno">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoMaterno">Apellido materno</label>
+                        <input type="text" class="form-control" id="apellidoMaterno">
+                    </div>
+                    <div class="form-group">
+                        <label for="calleNumero">Calle y numero</label>
+                        <input type="text" class="form-control" id="calleNumero">
+                    </div>
+                    <div class="form-group">
+                        <label for="colonia">Colonia</label>
+                        <input type="text" class="form-control" id="colonia">
+                    </div>
+                    <div class="form-group">
+                        <label for="cp">Codigo postal</label>
+                        <input type="number" class="form-control" id="cp">
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad">
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <input type="text" class="form-control" id="estado">
+                    </div>
+                    <div class="form-group">
+                        <label for="pais">Pais</label>
+                        <input type="text" class="form-control" id="pais">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="tel" class="form-control" id="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contrasena</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" class="form-control" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginweb">Login web</label>
+                        <input type="number" class="form-control" id="loginweb">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg btn-block""><i class="fas fa-save"></i> Guardar</button>
+                </form>
 
-        </div>
+            </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -111,6 +170,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
     </body>
 </html>
