@@ -26,8 +26,33 @@
 
             }else{
 
-                  return false;
+                return false;
 
+            }
+        }
+
+        public function participanteMantenimiento($saveParticipantesData){
+
+            $query = $this->db->query("
+                INSERT INTO `opisa_opisa`.`Participante`(`loginWeb`, `codPrograma`, `codEmpresa`, `codParticipante`, 
+                `Status`, `Cargo`, `PrimerNombre`, `SegundoNombre`, `ApellidoPaterno`, `ApellidoMaterno`, 
+                `CalleNumero`, `Colonia`, `CP`, `Ciudad`, `Estado`, `Pais`, `Telefono`, 
+                `EnvioDocumentacion`, `TipoMov`, `pwd`, `eMail`, `stEmail`, 
+                `SaldoActual`,`idParticipante`,`codCategoria`, `Administrador`) VALUES (
+                '".$saveParticipantesData['loginwebMantenimiento']."','".$saveParticipantesData['codProgramaMantenimiento']."',
+                '".$saveParticipantesData['codEmpresaMantenimiento']."','".$saveParticipantesData['codParticipanteMantenimiento']."',
+                0,'".$saveParticipantesData['cargoMantenimiento']."','".$saveParticipantesData['nombreCompletoMantenimiento']."',
+                'NULL','NULL','NULL','".$saveParticipantesData['calleNumeroMantenimiento']."','".$saveParticipantesData['coloniaMantenimiento']."',
+                '".$saveParticipantesData['cpMantenimiento']."','".$saveParticipantesData['ciudadMantenimiento']."',
+                '".$saveParticipantesData['estadoMantenimiento']."','".$saveParticipantesData['paisMantenimiento']."',
+                '".$saveParticipantesData['telefonoMantenimiento']."',0,'A','".$saveParticipantesData['passwordMantenimiento']."',
+                '".$saveParticipantesData['emailMantenimiento']."',0,0,'".$saveParticipantesData['$saveParticipantesData']."',
+                1,0);
+            ");
+            if ($query){
+                return $this->db->insert_id(); 
+            }else{
+                return false;
             }
         }
         

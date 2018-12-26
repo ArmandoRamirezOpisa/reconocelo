@@ -48,15 +48,13 @@ function loginMantenimiento() {
 
 function saveParticipante(){
 
+    $('#alertMessage').hide();
     var idParticipanteMantenimiento = $('#idParticipante').val();
     var codProgramaMantenimiento = $('#codPrograma').val();
     var codEmpresaMantenimiento = $('#codEmpresa').val();
     var codParticipanteMantenimiento = $('#codParticipante').val();
     var cargoMantenimiento = $('#cargo').val();
-    var primerNombreMantenimiento = $('#primerNombre').val();
-    var segundoNombreMantenimiento = $('#segundoNombre').val();
-    var apellidoPaternoMantenimiento = $('#apellidoPaterno').val();
-    var apellidoMaternoMantenimiento = $('#apellidoMaterno').val();
+    var nombreCompletoMantenimiento = $('#nombreCompleto').val();
     var calleNumeroMantenimiento = $('#calleNumero').val();
     var coloniaMantenimiento = $('#colonia').val();
     var cpMantenimiento = $('#cp').val();
@@ -71,10 +69,77 @@ function saveParticipante(){
     var saveParticipantes = $('#participanteBtn');
     saveParticipantes.html('Guardando...');
 
-    if(idParticipanteMantenimiento == "" || codProgramaMantenimiento == "" || codEmpresaMantenimiento == "" || codParticipanteMantenimiento == "" || cargoMantenimiento == "" || primerNombreMantenimiento == "" || segundoNombreMantenimiento == "" || apellidoPaternoMantenimiento == "" || apellidoMaternoMantenimiento == "" || calleNumeroMantenimiento == "" || coloniaMantenimiento == "" || cpMantenimiento == "" || ciudadMantenimiento == "" || estadoMantenimiento == "" || paisMantenimiento == "" || telefonoMantenimiento == "" || passwordMantenimiento == "" || emailMantenimiento == "" || loginwebMantenimiento == ""){
+    var btnIcon = $('#btnIcon');
+    $('#btnIcon').removeClass('fas fa-save');
+    $(this).addClass('fas fa-cog fa-spin');
 
-        document.getElementById("alertMessage").style.display = "block";;
+    if(idParticipanteMantenimiento == "" || codProgramaMantenimiento == "" || codEmpresaMantenimiento == "" || codParticipanteMantenimiento == "" || cargoMantenimiento == "" || nombreCompletoMantenimiento == "" || calleNumeroMantenimiento == "" || coloniaMantenimiento == "" || cpMantenimiento == "" || ciudadMantenimiento == "" || estadoMantenimiento == "" || paisMantenimiento == "" || passwordMantenimiento == "" || emailMantenimiento == "" || loginwebMantenimiento == ""){
+
+        $('#alertMessage').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Hay algunos campos vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $('#alertMessage').show();
         throw new Error("Datos de formulario incompleto");
+
+    }else{
+
+        if (telefonoMantenimiento == ""){
+            telefonoMantenimiento = 0;
+        }
+
+        $.ajax({
+            url: '/mantenimiento/participanteSave',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "idParticipanteMantenimiento": idParticipanteMantenimiento,
+                    "codProgramaMantenimiento": codProgramaMantenimiento,
+                    "codEmpresaMantenimiento": codEmpresaMantenimiento,
+                    "codParticipanteMantenimiento": codParticipanteMantenimiento,
+                    "cargoMantenimiento": cargoMantenimiento,
+                    "nombreCompletoMantenimiento": nombreCompletoMantenimiento,
+                    "calleNumeroMantenimiento": calleNumeroMantenimiento,
+                    "coloniaMantenimiento": coloniaMantenimiento,
+                    "cpMantenimiento": cpMantenimiento,
+                    "ciudadMantenimiento": ciudadMantenimiento,
+                    "estadoMantenimiento": estadoMantenimiento,
+                    "paisMantenimiento": paisMantenimiento,
+                    "telefonoMantenimiento": telefonoMantenimiento,
+                    "passwordMantenimiento": passwordMantenimiento,
+                    "emailMantenimiento": emailMantenimiento,
+                    "loginwebMantenimiento": loginwebMantenimiento },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result) {
+                    console.log('Correcto'+result);
+                    var saveParticipantes = $('#participanteBtn');
+                    saveParticipantes.html('Guardar');
+
+                    var btnIcon = $('#btnIcon');
+                    $('#btnIcon').removeClass('fas fa-cog fa-spin');
+                    $(this).addClass('fas fa-save');
+
+                    $('#alertMessage').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Datos guardados correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#alertMessage').show();
+
+                } else {
+                    console.log("Expiro");
+                    $('#alertMessage').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se guardo correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#alertMessage').show();
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                $('#alertMessage').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se guardo correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            },
+            timeout: 30000,
+            type: "POST"
+        });
 
     }
 

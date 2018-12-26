@@ -103,20 +103,8 @@
                     <input type="text" class="form-control" id="cargo">
                 </div>
                 <div class="form-group">
-                    <label for="primerNombre">Primer nombre</label>
-                    <input type="text" class="form-control" id="primerNombre">
-                </div>
-                <div class="form-group">
-                    <label for="segundoNombre">Segundo nombre</label>
-                    <input type="text" class="form-control" id="segundoNombre">
-                </div>
-                <div class="form-group">
-                    <label for="apellidoPaterno">Apellido paterno</label>
-                    <input type="text" class="form-control" id="apellidoPaterno">
-                </div>
-                <div class="form-group">
-                    <label for="apellidoMaterno">Apellido materno</label>
-                    <input type="text" class="form-control" id="apellidoMaterno">
+                    <label for="nombreCompleto">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombreCompleto">
                 </div>
                 <div class="form-group">
                     <label for="calleNumero">Calle y numero</label>

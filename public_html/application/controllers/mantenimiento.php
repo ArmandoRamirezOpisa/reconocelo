@@ -14,6 +14,7 @@
             
         }
         
+        //Login mantenimiento
         public function login(){
 
             $loginMantenimientoData = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
@@ -34,6 +35,7 @@
 
         }
 
+        //Inicio manteniniento
         public function home(){
 
             //$PrimerNombre = $this->session->userdata('PrimerNombre');
@@ -42,16 +44,51 @@
 
         }
 
+        //pantalla participantes
         public function participantes(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('mantenimiento_participante_view',$PrimerNombre);
         }
 
+        //guardando participantes
+        public function participanteSave(){
+            $this->load->model("mantenimiento_model");
+            $saveParticipantesData = array(
+                "idParticipanteMantenimiento"=>$_POST['idParticipanteMantenimiento'],
+                "codProgramaMantenimiento"=>$_POST['codProgramaMantenimiento'],
+                "codEmpresaMantenimiento"=>$_POST['codEmpresaMantenimiento'],
+                "codParticipanteMantenimiento"=>$_POST['codParticipanteMantenimiento'],
+                "cargoMantenimiento"=>$_POST['cargoMantenimiento'],
+                "nombreCompletoMantenimiento"=>$_POST['nombreCompletoMantenimiento'],
+                "calleNumeroMantenimiento"=>$_POST['calleNumeroMantenimiento'],
+                "coloniaMantenimiento"=>$_POST['coloniaMantenimiento'],
+                "cpMantenimiento"=>$_POST['cpMantenimiento'],
+                "ciudadMantenimiento"=>$_POST['ciudadMantenimiento'],
+                "estadoMantenimiento"=>$_POST['estadoMantenimiento'],
+                "paisMantenimiento"=>$_POST['paisMantenimiento'],
+                "telefonoMantenimiento"=>$_POST['telefonoMantenimiento'],
+                "passwordMantenimiento"=>$_POST['passwordMantenimiento'],
+                "emailMantenimiento"=>$_POST['emailMantenimiento'],
+                "loginwebMantenimiento"=>$_POST['loginwebMantenimiento']
+            );
+
+            $participanteData = $this->mantenimiento_model->participanteMantenimiento($saveParticipantesData);
+
+            if($participanteData){
+                $this->output->set_output(json_encode($participanteData));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+
+        }
+
+        //pantalla premios
         public function premios(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('mantenimiento_premio_view',$PrimerNombre);
         }
 
+        //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');
             $this->session->unset_userdata($array_items);
