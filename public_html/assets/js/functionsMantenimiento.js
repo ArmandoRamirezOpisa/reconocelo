@@ -46,6 +46,38 @@ function loginMantenimiento() {
 
 }
 
+function saveParticipante(){
+
+    var idParticipanteMantenimiento = $('#idParticipante').val();
+    var codProgramaMantenimiento = $('#codPrograma').val();
+    var codEmpresaMantenimiento = $('#codEmpresa').val();
+    var codParticipanteMantenimiento = $('#codParticipante').val();
+    var cargoMantenimiento = $('#cargo').val();
+    var primerNombreMantenimiento = $('#primerNombre').val();
+    var segundoNombreMantenimiento = $('#segundoNombre').val();
+    var apellidoPaternoMantenimiento = $('#apellidoPaterno').val();
+    var apellidoMaternoMantenimiento = $('#apellidoMaterno').val();
+    var calleNumeroMantenimiento = $('#calleNumero').val();
+    var coloniaMantenimiento = $('#colonia').val();
+    var cpMantenimiento = $('#cp').val();
+    var ciudadMantenimiento = $('#ciudad').val();
+    var estadoMantenimiento = $('#estado').val();
+    var paisMantenimiento = $('#pais').val();
+    var telefonoMantenimiento = $('#telefono').val();
+    var passwordMantenimiento = $('#password').val();
+    var emailMantenimiento = $('#email').val();
+    var loginwebMantenimiento = $('#loginweb').val();
+
+    if(idParticipanteMantenimiento == "" || codProgramaMantenimiento == "" || codEmpresaMantenimiento == "" || codParticipanteMantenimiento == "" || cargoMantenimiento == "" || primerNombreMantenimiento == "" || segundoNombreMantenimiento == "" || apellidoPaternoMantenimiento == "" || apellidoMaternoMantenimiento == "" || calleNumeroMantenimiento == "" || coloniaMantenimiento == "" || cpMantenimiento == "" || ciudadMantenimiento == "" || estadoMantenimiento == "" || paisMantenimiento == "" || telefonoMantenimiento == "" || passwordMantenimiento == "" || emailMantenimiento == "" || loginwebMantenimiento == ""){
+
+        document.getElementById("alertMessage").style.display = "block";
+        throw new Error("Datos de formulario incompleto");
+
+    }
+
+}
+
+//Exit mantenimiento
 function salirMantenimiento() {
     location.href = "https://" + location.hostname + "/mantenimiento/exit_mantenimiento";
 }

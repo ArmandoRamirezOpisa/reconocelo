@@ -60,89 +60,108 @@
             </div>
         </nav>
 
-            <div class="container" style="margin-top: 100px;">
-                        
-                <form>
-                    <div class="form-group">
-                        <label for="idParticipante">Id participante</label>
-                        <input type="number" class="form-control" id="idParticipante">
-                    </div>
-                    <div class="form-group">
-                        <label for="codPrograma">Codigo de programa</label>
-                        <input type="number" class="form-control" id="codPrograma">
-                    </div>
-                    <div class="form-group">
-                        <label for="codEmpresa">Codigo empresa</label>
-                        <input type="number" class="form-control" id="codEmpresa">
-                    </div>
-                    <div class="form-group">
-                        <label for="codParticipante">Codigo participante</label>
-                        <input type="number" class="form-control" id="codParticipante">
-                    </div>
-                    <div class="form-group">
-                        <label for="cargo">Cargo</label>
-                        <input type="text" class="form-control" id="cargo">
-                    </div>
-                    <div class="form-group">
-                        <label for="primerNombre">Primer nombre</label>
-                        <input type="text" class="form-control" id="primerNombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="segundoNombre">Segundo nombre</label>
-                        <input type="text" class="form-control" id="segundoNombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="apellidoPaterno">Apellido paterno</label>
-                        <input type="text" class="form-control" id="apellidoPaterno">
-                    </div>
-                    <div class="form-group">
-                        <label for="apellidoMaterno">Apellido materno</label>
-                        <input type="text" class="form-control" id="apellidoMaterno">
-                    </div>
-                    <div class="form-group">
-                        <label for="calleNumero">Calle y numero</label>
-                        <input type="text" class="form-control" id="calleNumero">
-                    </div>
-                    <div class="form-group">
-                        <label for="colonia">Colonia</label>
-                        <input type="text" class="form-control" id="colonia">
-                    </div>
-                    <div class="form-group">
-                        <label for="cp">Codigo postal</label>
-                        <input type="number" class="form-control" id="cp">
-                    </div>
-                    <div class="form-group">
-                        <label for="ciudad">Ciudad</label>
-                        <input type="text" class="form-control" id="ciudad">
-                    </div>
-                    <div class="form-group">
-                        <label for="estado">Estado</label>
-                        <input type="text" class="form-control" id="estado">
-                    </div>
-                    <div class="form-group">
-                        <label for="pais">Pais</label>
-                        <input type="text" class="form-control" id="pais">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Telefono</label>
-                        <input type="tel" class="form-control" id="telefono">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Contrasena</label>
-                        <input type="password" class="form-control" id="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo electronico</label>
-                        <input type="email" class="form-control" id="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="loginweb">Login web</label>
-                        <input type="number" class="form-control" id="loginweb">
-                    </div>
-                    <button type="button" class="btn btn-primary btn-lg btn-block""><i class="fas fa-save"></i> Guardar</button>
-                </form>
+        <div id="alertMessage" class="container" style="display:none;">
 
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Advertencia!</strong> Hay algunos campos vacios.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+
+        </div>
+
+        <div class="container" style="margin-top: 100px;">
+            
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="col-sm">
+                    <h1>Participantes</h1>
+                </div>
+                <div class="col-sm"></div>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label for="idParticipante">Id participante</label>
+                    <input type="number" class="form-control" id="idParticipante">
+                </div>
+                <div class="form-group">
+                    <label for="codPrograma">Codigo de programa</label>
+                    <input type="number" class="form-control" id="codPrograma">
+                </div>
+                <div class="form-group">
+                    <label for="codEmpresa">Codigo empresa</label>
+                    <input type="number" class="form-control" id="codEmpresa">
+                </div>
+                <div class="form-group">
+                    <label for="codParticipante">Codigo participante</label>
+                    <input type="number" class="form-control" id="codParticipante">
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Cargo</label>
+                    <input type="text" class="form-control" id="cargo">
+                </div>
+                <div class="form-group">
+                    <label for="primerNombre">Primer nombre</label>
+                    <input type="text" class="form-control" id="primerNombre">
+                </div>
+                <div class="form-group">
+                    <label for="segundoNombre">Segundo nombre</label>
+                    <input type="text" class="form-control" id="segundoNombre">
+                </div>
+                <div class="form-group">
+                    <label for="apellidoPaterno">Apellido paterno</label>
+                    <input type="text" class="form-control" id="apellidoPaterno">
+                </div>
+                <div class="form-group">
+                    <label for="apellidoMaterno">Apellido materno</label>
+                    <input type="text" class="form-control" id="apellidoMaterno">
+                </div>
+                <div class="form-group">
+                    <label for="calleNumero">Calle y numero</label>
+                    <input type="text" class="form-control" id="calleNumero">
+                </div>
+                <div class="form-group">
+                    <label for="colonia">Colonia</label>
+                    <input type="text" class="form-control" id="colonia">
+                </div>
+                <div class="form-group">
+                    <label for="cp">Codigo postal</label>
+                    <input type="number" class="form-control" id="cp">
+                </div>
+                <div class="form-group">
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" class="form-control" id="ciudad">
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" class="form-control" id="estado">
+                </div>
+                <div class="form-group">
+                    <label for="pais">Pais</label>
+                    <input type="text" class="form-control" id="pais">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" class="form-control" id="telefono">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contrasena</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electronico</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="loginweb">Login web</label>
+                    <input type="number" class="form-control" id="loginweb">
+                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="saveParticipante()"><i class="fas fa-save"></i> Guardar</button>
+            </form>
+
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
