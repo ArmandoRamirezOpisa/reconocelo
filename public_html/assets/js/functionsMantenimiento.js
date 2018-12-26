@@ -68,9 +68,12 @@ function saveParticipante(){
     var emailMantenimiento = $('#email').val();
     var loginwebMantenimiento = $('#loginweb').val();
 
+    var saveParticipantes = $('#participanteBtn');
+    saveParticipantes.html('Guardando...');
+
     if(idParticipanteMantenimiento == "" || codProgramaMantenimiento == "" || codEmpresaMantenimiento == "" || codParticipanteMantenimiento == "" || cargoMantenimiento == "" || primerNombreMantenimiento == "" || segundoNombreMantenimiento == "" || apellidoPaternoMantenimiento == "" || apellidoMaternoMantenimiento == "" || calleNumeroMantenimiento == "" || coloniaMantenimiento == "" || cpMantenimiento == "" || ciudadMantenimiento == "" || estadoMantenimiento == "" || paisMantenimiento == "" || telefonoMantenimiento == "" || passwordMantenimiento == "" || emailMantenimiento == "" || loginwebMantenimiento == ""){
 
-        document.getElementById("alertMessage").style.display = "block";
+        document.getElementById("alertMessage").style.display = "block";;
         throw new Error("Datos de formulario incompleto");
 
     }

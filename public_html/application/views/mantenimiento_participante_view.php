@@ -158,7 +158,7 @@
                     <label for="loginweb">Login web</label>
                     <input type="number" class="form-control" id="loginweb">
                 </div>
-                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="saveParticipante()"><i class="fas fa-save"></i> Guardar</button>
+                <button id="participanteBtn" type="button" class="btn btn-primary btn-lg btn-block" onclick="saveParticipante()"><i id="btnIcon" class="fas fa-save"></i> Guardar</button>
             </form>
 
         </div>
