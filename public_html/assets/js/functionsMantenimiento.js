@@ -46,7 +46,7 @@ function loginMantenimiento() {
 
 }
 
-function saveParticipante(){
+function saveParticipante() {
 
     $('#alertMessage').hide();
     var idParticipanteMantenimiento = $('#idParticipante').val();
@@ -73,15 +73,15 @@ function saveParticipante(){
     $('#btnIcon').removeClass('fas fa-save');
     $(this).addClass('fas fa-cog fa-spin');
 
-    if(idParticipanteMantenimiento == "" || codProgramaMantenimiento == "" || codEmpresaMantenimiento == "" || codParticipanteMantenimiento == "" || cargoMantenimiento == "" || nombreCompletoMantenimiento == "" || calleNumeroMantenimiento == "" || coloniaMantenimiento == "" || cpMantenimiento == "" || ciudadMantenimiento == "" || estadoMantenimiento == "" || paisMantenimiento == "" || passwordMantenimiento == "" || emailMantenimiento == "" || loginwebMantenimiento == ""){
+    if (idParticipanteMantenimiento == "" || codProgramaMantenimiento == "" || codEmpresaMantenimiento == "" || codParticipanteMantenimiento == "" || cargoMantenimiento == "" || nombreCompletoMantenimiento == "" || calleNumeroMantenimiento == "" || coloniaMantenimiento == "" || cpMantenimiento == "" || ciudadMantenimiento == "" || estadoMantenimiento == "" || paisMantenimiento == "" || passwordMantenimiento == "" || emailMantenimiento == "" || loginwebMantenimiento == "") {
 
         $('#alertMessage').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Hay algunos campos vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         $('#alertMessage').show();
         throw new Error("Datos de formulario incompleto");
 
-    }else{
+    } else {
 
-        if (telefonoMantenimiento == ""){
+        if (telefonoMantenimiento == "") {
             telefonoMantenimiento = 0;
         }
 
@@ -93,29 +93,31 @@ function saveParticipante(){
             global: true,
             ifModified: false,
             processData: true,
-            data: { "idParticipanteMantenimiento": idParticipanteMantenimiento,
-                    "codProgramaMantenimiento": codProgramaMantenimiento,
-                    "codEmpresaMantenimiento": codEmpresaMantenimiento,
-                    "codParticipanteMantenimiento": codParticipanteMantenimiento,
-                    "cargoMantenimiento": cargoMantenimiento,
-                    "nombreCompletoMantenimiento": nombreCompletoMantenimiento,
-                    "calleNumeroMantenimiento": calleNumeroMantenimiento,
-                    "coloniaMantenimiento": coloniaMantenimiento,
-                    "cpMantenimiento": cpMantenimiento,
-                    "ciudadMantenimiento": ciudadMantenimiento,
-                    "estadoMantenimiento": estadoMantenimiento,
-                    "paisMantenimiento": paisMantenimiento,
-                    "telefonoMantenimiento": telefonoMantenimiento,
-                    "passwordMantenimiento": passwordMantenimiento,
-                    "emailMantenimiento": emailMantenimiento,
-                    "loginwebMantenimiento": loginwebMantenimiento },
+            data: {
+                "idParticipanteMantenimiento": idParticipanteMantenimiento,
+                "codProgramaMantenimiento": codProgramaMantenimiento,
+                "codEmpresaMantenimiento": codEmpresaMantenimiento,
+                "codParticipanteMantenimiento": codParticipanteMantenimiento,
+                "cargoMantenimiento": cargoMantenimiento,
+                "nombreCompletoMantenimiento": nombreCompletoMantenimiento,
+                "calleNumeroMantenimiento": calleNumeroMantenimiento,
+                "coloniaMantenimiento": coloniaMantenimiento,
+                "cpMantenimiento": cpMantenimiento,
+                "ciudadMantenimiento": ciudadMantenimiento,
+                "estadoMantenimiento": estadoMantenimiento,
+                "paisMantenimiento": paisMantenimiento,
+                "telefonoMantenimiento": telefonoMantenimiento,
+                "passwordMantenimiento": passwordMantenimiento,
+                "emailMantenimiento": emailMantenimiento,
+                "loginwebMantenimiento": loginwebMantenimiento
+            },
             beforeSend: function() {
                 console.log('Procesando, espere por favor...');
             },
             success: function(result) {
 
                 if (result) {
-                    console.log('Correcto'+result);
+                    console.log('Correcto');
                     var saveParticipantes = $('#participanteBtn');
                     saveParticipantes.html('Guardar');
 
@@ -125,6 +127,23 @@ function saveParticipante(){
 
                     $('#alertMessage').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Datos guardados correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#alertMessage').show();
+
+                    $('#idParticipante').val("");
+                    $('#codPrograma').val("");
+                    $('#codEmpresa').val("");
+                    $('#codParticipante').val("");
+                    $('#cargo').val("");
+                    $('#nombreCompleto').val("");
+                    $('#calleNumero').val("");
+                    $('#colonia').val("");
+                    $('#cp').val("");
+                    $('#ciudad').val("");
+                    $('#estado').val("");
+                    $('#pais').val("");
+                    $('#telefono').val("");
+                    $('#password').val("");
+                    $('#email').val("");
+                    $('#loginweb').val("");
 
                 } else {
                     console.log("Expiro");

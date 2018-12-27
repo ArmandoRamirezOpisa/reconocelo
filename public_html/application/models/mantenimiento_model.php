@@ -32,7 +32,23 @@
         }
 
         public function participanteMantenimientoExits($saveParticipantesData){
-            $query = $this->db->query("");
+
+            $query = $this->db->query("
+            SELECT loginWeb, codPrograma, codEmpresa, codParticipante, Status, Cargo, PrimerNombre, SegundoNombre, 
+            ApellidoPaterno, ApellidoMaterno, CalleNumero, Colonia, CP, Ciudad, Estado, Pais, Telefono, 
+            EnvioDocumentacion, TipoMov, pwd, eMail, stEmail, SaldoActual, idParticipante, codCategoria, 
+            Administrador FROM Participante
+            WHERE loginWeb = '".$saveParticipantesData['loginwebMantenimiento']."'
+            AND pwd = '".$saveParticipantesData['passwordMantenimiento']."'
+            AND eMail = '".$saveParticipantesData['emailMantenimiento']."'
+            AND idParticipante = '".$saveParticipantesData['idParticipanteMantenimiento']."'
+            ");
+            if($query->num_rows() == 1){
+                return $query->result_array();
+            }else{
+                return false;
+            }
+
         }
 
         public function participanteMantenimiento($saveParticipantesData){
@@ -50,7 +66,7 @@
                 '".$saveParticipantesData['cpMantenimiento']."','".$saveParticipantesData['ciudadMantenimiento']."',
                 '".$saveParticipantesData['estadoMantenimiento']."','".$saveParticipantesData['paisMantenimiento']."',
                 '".$saveParticipantesData['telefonoMantenimiento']."',0,'A','".$saveParticipantesData['passwordMantenimiento']."',
-                '".$saveParticipantesData['emailMantenimiento']."',0,0,'".$saveParticipantesData['$saveParticipantesData']."',
+                '".$saveParticipantesData['emailMantenimiento']."',0,0,'".$saveParticipantesData['idParticipanteMantenimiento']."',
                 1,0);
             ");
             if ($query){

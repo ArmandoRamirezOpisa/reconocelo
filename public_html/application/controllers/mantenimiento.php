@@ -74,12 +74,24 @@
 
             $participanteDataExits = $this->mantenimiento_model->participanteMantenimientoExits($saveParticipantesData);
 
-            $participanteData = $this->mantenimiento_model->participanteMantenimiento($saveParticipantesData);
+            if ($participanteDataExits){
 
-            if($participanteData){
-                $this->output->set_output(json_encode($participanteData));
-            }else{
                 $this->output->set_output(json_encode(false));
+                
+            }else{
+
+                $participanteData = $this->mantenimiento_model->participanteMantenimiento($saveParticipantesData);
+
+                if($participanteData){
+
+                    $this->output->set_output(json_encode(true));
+
+                }else{
+
+                    $this->output->set_output(json_encode(false));
+
+                }
+
             }
 
         }
