@@ -42,5 +42,5 @@
                         <label for="caracING">Caracteristicas ingles</label>
                         <input type="text" class="form-control" id="caracING">
                     </div>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>  Guardar</button>
                 </form>
