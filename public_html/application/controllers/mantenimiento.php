@@ -72,6 +72,8 @@
                 "loginwebMantenimiento"=>$_POST['loginwebMantenimiento']
             );
 
+            $participanteDataExits = $this->mantenimiento_model->participanteMantenimientoExits($saveParticipantesData);
+
             $participanteData = $this->mantenimiento_model->participanteMantenimiento($saveParticipantesData);
 
             if($participanteData){

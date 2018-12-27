@@ -1,5 +1,5 @@
 <?php
-    class Login_model extends CI_Model {
+    class Mantenimiento_model extends CI_Model {
     	
         public function __construct(){}
         
@@ -29,6 +29,10 @@
                 return false;
 
             }
+        }
+
+        public function participanteMantenimientoExits($saveParticipantesData){
+            $query = $this->db->query("");
         }
 
         public function participanteMantenimiento($saveParticipantesData){
