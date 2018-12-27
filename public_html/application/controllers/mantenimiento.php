@@ -102,6 +102,13 @@
             $this->load->view('mantenimiento_premio_view',$PrimerNombre);
         }
 
+        //Alta de premios
+        public function altaParticipante(){
+
+            $this->load->view('premio_alta_view');
+            
+        }
+
         //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');

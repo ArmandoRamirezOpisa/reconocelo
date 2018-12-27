@@ -46,6 +46,7 @@ function loginMantenimiento() {
 
 }
 
+/* Funcion participantes */
 function saveParticipante() {
 
     $('#alertMessage').hide();
@@ -163,36 +164,63 @@ function saveParticipante() {
     }
 
 }
+/* Fin funcion participantes */
 
-//Premios
+/*Premios funcion */
 function optionsPremio(id) {
 
-    $('#premioFuntionsAlta').hide();
-    $('#premioFuntionsBaja').hide();
-    $('#premioFuntionsActualizar').hide();
+    $('#premioFunctions').hide();
     var idOptionPremio = id.id;
     var optionPremio = document.getElementById(idOptionPremio).value;
     if (optionPremio == "A") {
 
-        $('#premioFuntionsAlta').show();
-        $('#premioFuntionsBaja').hide();
-        $('#premioFuntionsActualizar').hide();
+        chanceOpcionPremio('/mantenimiento/altaParticipante');
 
     } else if (optionPremio == "B") {
 
-        $('#premioFuntionsAlta').hide();
-        $('#premioFuntionsBaja').show();
-        $('#premioFuntionsActualizar').hide();
+        $('#premioFunctions').html('Baja');
+        $('#premioFunctions').show();
 
     } else if (optionPremio == "U") {
 
-        $('#premioFuntionsAlta').hide();
-        $('#premioFuntionsBaja').hide();
-        $('#premioFuntionsActualizar').show();
+        $('#premioFunctions').html('Update');
+        $('#premioFunctions').show();
 
     }
 
 }
+
+//Ajax funcion
+function chanceOpcionPremio(ruta) {
+    $.ajax({
+        url: ruta,
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: {},
+        beforeSend: function() {
+            console.log('Cargando seccion, espere por favor...');
+        },
+        success: function(result) {
+            if (result) {
+                console.log('Correcto');
+                $('#premioFunctions').html(result);
+                $('#premioFunctions').show();
+            } else {
+                console.log("Expiro");
+            }
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
+    });
+}
+/*Fin premios funcion */
 
 //Exit mantenimiento
 function salirMantenimiento() {
