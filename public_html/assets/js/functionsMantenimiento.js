@@ -164,6 +164,36 @@ function saveParticipante() {
 
 }
 
+//Premios
+function optionsPremio(id) {
+
+    $('#premioFuntionsAlta').hide();
+    $('#premioFuntionsBaja').hide();
+    $('#premioFuntionsActualizar').hide();
+    var idOptionPremio = id.id;
+    var optionPremio = document.getElementById(idOptionPremio).value;
+    if (optionPremio == "A") {
+
+        $('#premioFuntionsAlta').show();
+        $('#premioFuntionsBaja').hide();
+        $('#premioFuntionsActualizar').hide();
+
+    } else if (optionPremio == "B") {
+
+        $('#premioFuntionsAlta').hide();
+        $('#premioFuntionsBaja').show();
+        $('#premioFuntionsActualizar').hide();
+
+    } else if (optionPremio == "U") {
+
+        $('#premioFuntionsAlta').hide();
+        $('#premioFuntionsBaja').hide();
+        $('#premioFuntionsActualizar').show();
+
+    }
+
+}
+
 //Exit mantenimiento
 function salirMantenimiento() {
     location.href = "https://" + location.hostname + "/mantenimiento/exit_mantenimiento";
