@@ -61,6 +61,7 @@
         </nav>
 
         <div class="container" style="margin-top: 100px;">
+
             <div class="row">
                 <div class="col-sm"></div>
                 <div class="col-sm">
@@ -68,6 +69,18 @@
                 </div>
                 <div class="col-sm"></div>
             </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
         </div>
 
         <!-- Modal -->
