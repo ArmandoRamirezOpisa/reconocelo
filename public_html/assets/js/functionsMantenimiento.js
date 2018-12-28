@@ -306,6 +306,21 @@ function altaPremio() {
 
 }
 //Fin alta premios
+
+//Baja premios
+function premioBaja() {
+
+    var codPremioBaja = $('#codPremioBaja').val();
+
+    if (codPremioBaja == "") {
+        jQuery("#bajaPremioModal").modal("hide");
+        $('#MessagePremio').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> El campo se encuentra vacio.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>')
+        $('#MessagePremio').show();
+
+    }
+
+}
+//Fin baja premios
 /*Fin premios funcion */
 
 //Exit mantenimiento
