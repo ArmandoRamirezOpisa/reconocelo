@@ -220,6 +220,31 @@ function chanceOpcionPremio(ruta) {
         type: "POST"
     });
 }
+
+//Alta premios
+function altaPremio() {
+
+    var codPremio = $('#codPremio').val();
+    var codCategoria = $('#codCategoria').val();
+    var codProveedor = $('#codProveedor').val();
+    var marca = $('#marca').val();
+    var modelo = $('#modelo').val();
+    var nomESP = $('#nomESP').val();
+    var nomING = $('#nomING').val();
+    var caracESP = $('#caracESP').val();
+    var caracING = $('#caracING').val();
+    var codPrograma = $('#codPrograma').val();
+    var codEmpresa = $('#codEmpresa').val();
+    var valorPuntos = $('#valorPuntos').val();
+
+    if (codPremio == "" || codCategoria == "" || codProveedor == "" || marca == "" || modelo == "" || nomESP == "" || nomING == "" || caracESP == "" || caracING == "" || codPrograma == "" || codEmpresa == "" || valorPuntos == "") {
+        $('#MessagePremio').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algunos campos estan vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
+        $('#MessagePremio').show();
+        throw new Error("Datos de formulario incompleto");
+    }
+
+}
+//Fin alta premios
 /*Fin premios funcion */
 
 //Exit mantenimiento
