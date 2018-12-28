@@ -174,12 +174,11 @@ function optionsPremio(id) {
     var optionPremio = document.getElementById(idOptionPremio).value;
     if (optionPremio == "A") {
 
-        chanceOpcionPremio('/mantenimiento/altaParticipante');
+        chanceOpcionPremio('/mantenimiento/altaPremio');
 
     } else if (optionPremio == "B") {
 
-        $('#premioFunctions').html('Baja');
-        $('#premioFunctions').show();
+        chanceOpcionPremio('/mantenimiento/bajaPremio');
 
     } else if (optionPremio == "U") {
 

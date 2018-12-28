@@ -103,7 +103,7 @@
         }
 
         //Alta de premios
-        public function altaParticipante(){
+        public function altaPremio(){
 
             $this->load->view('premio_alta_view');
             
@@ -134,7 +134,6 @@
             }else{
 
                 $premioData = $this->mantenimiento_model->premioMantenimiento($savePremioData);
-                //if($premioData){
 
                 $premioProgramaData = $this->mantenimiento_model->premioProgramaMantenimiento($savePremioData);
                 if($premioProgramaData){
@@ -146,13 +145,14 @@
                     $this->output->set_output(json_encode(false));
 
                 }
-
-                //}else{
-
-                    //$this->output->set_output(json_encode(false));
-
-                //}
             }
+        }
+
+        //baja de premio
+        public function bajaPremio(){
+
+            $this->load->view('premio_baja_view');
+            
         }
 
         //salir del mantenimiento
