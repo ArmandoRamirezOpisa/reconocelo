@@ -103,11 +103,27 @@
                 '".$savePremioData['nomING']."','".$savePremioData['caracESP']."','".$savePremioData['caracING']."');
             ");
             if ($query){
-                return $this->db->insert_id(); 
+                return $this->db->insert_id();
             }else{
                 return false;
             }
 
+        }
+
+        public function premioProgramaMantenimiento($savePremioData){
+            $query = $this->db->query("
+                INSERT INTO `opisa_opisa`.`PremioPrograma` (`codPrograma`, `codPremio`, `codEmpresa`, 
+                `ValorPuntos`, `stAtipico`, `codCategoria`, `Visible`) 
+                SELECT '".$savePremioData['codPrograma']."' , codPremio, '".$savePremioData['codEmpresa']."', 
+                '".$savePremioData['valorPuntos']."', 0, codCategoria, 1
+                FROM Premio 
+                WHERE codPremio ='".$savePremioData['codPremio']."';
+            ");
+            if ($query){
+                return $this->db->insert_id();
+            }else{
+                return false;
+            }
         }
         /* Fin premios alta */
         

@@ -134,15 +134,24 @@
             }else{
 
                 $premioData = $this->mantenimiento_model->premioMantenimiento($savePremioData);
-                if($premioData){
+                //if($premioData){
 
-                    $this->output->set_output(json_encode(true));
+                $premioProgramaData = $this->mantenimiento_model->premioProgramaMantenimiento($savePremioData);
+                if($premioProgramaData){
+
+                    $this->output->set_output(json_encode($premioData));
 
                 }else{
 
                     $this->output->set_output(json_encode(false));
-                    
+
                 }
+
+                //}else{
+
+                    //$this->output->set_output(json_encode(false));
+
+                //}
             }
         }
 

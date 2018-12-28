@@ -271,6 +271,7 @@ function altaPremio() {
 
                 if (result) {
                     console.log('Correcto');
+                    console.log(result);
                     $('#MessagePremio').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Datos guardados correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessagePremio').show();
 
