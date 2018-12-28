@@ -75,6 +75,41 @@
                 return false;
             }
         }
+
+        /* Premios alta */
+        public function premioMantenimientoExits($savePremioData){
+
+            $query = $this->db->query("
+                SELECT codPremio, CodCategoria, codProveedor, Marca, Modelo, Nombre_Esp, Nombre_Ing, Caracts_Esp, 
+                Caracts_Ing
+                FROM Premio
+                WHERE codPremio ='".$savePremioData['codPremio']."'
+            ");
+            if($query->num_rows() == 1){
+                return $query->result_array();
+            }else{
+                return false;
+            }
+
+        }
+
+        public function premioMantenimiento($savePremioData){
+
+            $query = $this->db->query("
+                INSERT INTO `opisa_opisa`.`Premio`(`codPremio`, `CodCategoria`, `codProveedor`, `Marca`, `Modelo`, 
+                `Nombre_Esp`, `Nombre_Ing`, `Caracts_Esp`, `Caracts_Ing`) VALUES ('".$savePremioData['codPremio']."',
+                '".$savePremioData['codCategoria']."','".$savePremioData['codProveedor']."',
+                '".$savePremioData['marca']."','".$savePremioData['modelo']."','".$savePremioData['nomESP']."',
+                '".$savePremioData['nomING']."','".$savePremioData['caracESP']."','".$savePremioData['caracING']."');
+            ");
+            if ($query){
+                return $this->db->insert_id(); 
+            }else{
+                return false;
+            }
+
+        }
+        /* Fin premios alta */
         
 	}
 ?>

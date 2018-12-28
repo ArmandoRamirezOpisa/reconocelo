@@ -241,6 +241,67 @@ function altaPremio() {
         $('#MessagePremio').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algunos campos estan vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
         $('#MessagePremio').show();
         throw new Error("Datos de formulario incompleto");
+    } else {
+        $.ajax({
+            url: '/mantenimiento/premiosAlta',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: {
+                "codPremio": codPremio,
+                "codCategoria": codCategoria,
+                "codProveedor": codProveedor,
+                "marca": marca,
+                "modelo": modelo,
+                "nomESP": nomESP,
+                "nomING": nomING,
+                "caracESP": caracESP,
+                "caracING": caracING,
+                "codPrograma": codPrograma,
+                "codEmpresa": codEmpresa,
+                "valorPuntos": valorPuntos
+            },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result) {
+                    console.log('Correcto');
+                    $('#MessagePremio').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Datos guardados correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessagePremio').show();
+
+                    $('#codPremio').val("");
+                    $('#codCategoria').val("");
+                    $('#codProveedor').val("");
+                    $('#marca').val("");
+                    $('#modelo').val("");
+                    $('#nomESP').val("");
+                    $('#nomING').val("");
+                    $('#caracESP').val("");
+                    $('#caracING').val("");
+                    $('#codPrograma').val("");
+                    $('#codEmpresa').val("");
+                    $('#valorPuntos').val("");
+
+                } else {
+                    console.log("Expiro");
+                    $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se guardo correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessagePremio').show();
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se guardo correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                $('#MessagePremio').show();
+            },
+            timeout: 30000,
+            type: "POST"
+        });
     }
 
 }

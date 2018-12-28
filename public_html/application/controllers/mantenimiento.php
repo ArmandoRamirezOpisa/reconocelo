@@ -109,6 +109,43 @@
             
         }
 
+        //save alta premios
+        public function premiosAlta(){
+            $this->load->model("mantenimiento_model");
+            $savePremioData = array(
+                "codPremio"=>$_POST['codPremio'],
+                "codCategoria"=>$_POST['codCategoria'],
+                "codProveedor"=>$_POST['codProveedor'],
+                "marca"=>$_POST['marca'],
+                "modelo"=>$_POST['modelo'],
+                "nomESP"=>$_POST['nomESP'],
+                "nomING"=>$_POST['nomING'],
+                "caracESP"=>$_POST['caracESP'],
+                "caracING"=>$_POST['caracING'],
+                "codPrograma"=>$_POST['codPrograma'],
+                "codEmpresa"=>$_POST['codEmpresa'],
+                "valorPuntos"=>$_POST['valorPuntos']
+            );
+            $PremioDataExits = $this->mantenimiento_model->premioMantenimientoExits($savePremioData);
+            if($PremioDataExits){
+
+                $this->output->set_output(json_encode(false));
+
+            }else{
+
+                $premioData = $this->mantenimiento_model->premioMantenimiento($savePremioData);
+                if($premioData){
+
+                    $this->output->set_output(json_encode(true));
+
+                }else{
+
+                    $this->output->set_output(json_encode(false));
+                    
+                }
+            }
+        }
+
         //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');
