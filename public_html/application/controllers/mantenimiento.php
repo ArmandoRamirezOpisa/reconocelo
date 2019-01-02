@@ -196,18 +196,41 @@
             $PremioProgramaDataInfo = $this->mantenimiento_model->premioProgramaMantenimientoExits($savePremioData);
             
             if($PremioDataInfo){
-                //$data["PremioDataInfo"] = $PremioDataInfo;
                 $data = array( 'PremioDataInfo' => $PremioDataInfo,
                         'PremioProgramaDataInfo' => $PremioProgramaDataInfo
                     );
             }else{
-                //$data["PremioDataInfo"] = false;
                 $data = array( 'PremioDataInfo' => false,
                         'PremioProgramaDataInfo' => false
                     );
             }
 
             $this->load->view('premio_updateInfo_view',$data);
+
+        }
+
+        public function premiosUpdateInfoData(){
+            $this->load->model("mantenimiento_model");
+            $savePremioData = array(
+                "codPremioUpdate"=>$_POST['codPremioUpdate'],
+                "codCategoriaUpdate"=>$_POST['codCategoriaUpdate'],
+                "codProveedorUpdate"=>$_POST['codProveedorUpdate'],
+                "marcaUpdate"=>$_POST['marcaUpdate'],
+                "modeloUpdate"=>$_POST['modeloUpdate'],
+                "nomESPUpdate"=>$_POST['nomESPUpdate'],
+                "nomINGUpdate"=>$_POST['nomINGUpdate'],
+                "caracESPUpdate"=>$_POST['caracESPUpdate'],
+                "caracINGUpdate"=>$_POST['caracINGUpdate'],
+                "codProgramaUpdate"=>$_POST['codProgramaUpdate'],
+                "codEmpresaUpdate"=>$_POST['codEmpresaUpdate'],
+                "valorPuntosUpdate"=>$_POST['valorPuntosUpdate']
+            );
+            $PremioDataInfo = $this->mantenimiento_model->updatePremio($savePremioData);
+            $PremioProgramaDataInfo = $this->mantenimiento_model->updatePremioPrograma($savePremioData);
+
+            if($PremioDataInfo && $PremioProgramaDataInfo){
+                $this->output->set_output(json_encode("Bien"));
+            }
 
         }
         /* Fin update premios */

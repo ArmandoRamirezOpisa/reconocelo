@@ -401,10 +401,7 @@ function UpdatePremio(id) {
             },
             success: function(result) {
 
-                //if (result == "Bien") {
                 $('#InfoPremioUpdate').html(result);
-
-                //}
 
             },
             error: function(object, error, anotherObject) {
@@ -414,6 +411,74 @@ function UpdatePremio(id) {
             type: "POST"
         });
 
+    }
+
+}
+
+function premioUpdate() {
+
+    var codPremioUpdate = $('#codPremioUpdate').val();
+    var codCategoriaUpdate = $('#codCategoriaUpdate').val();
+    var codProveedorUpdate = $('#codProveedorUpdate').val();
+    var marcaUpdate = $('#marcaUpdate').val();
+    var modeloUpdate = $('#modeloUpdate').val();
+    var nomESPUpdate = $('#nomESPUpdate').val();
+    var nomINGUpdate = $('#nomINGUpdate').val();
+    var caracESPUpdate = $('#caracESPUpdate').val();
+    var caracINGUpdate = $('#caracINGUpdate').val();
+    var codProgramaUpdate = $('#codProgramaUpdate').val();
+    var codEmpresaUpdate = $('#codEmpresaUpdate').val();
+    var valorPuntosUpdate = $('#valorPuntosUpdate').val();
+
+    if (codPremioUpdate == "" || codCategoriaUpdate == "" || codProveedorUpdate == "" || marcaUpdate == "" || modeloUpdate == "" || nomESPUpdate == "" || nomINGUpdate == "" || caracESPUpdate == "" || caracINGUpdate == "" || codProgramaUpdate == "" || codEmpresaUpdate == "" || valorPuntosUpdate == "") {
+        $('#MessagePremio').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> El campo se encuentra vacio.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>')
+        $('#MessagePremio').show();
+    } else {
+        $.ajax({
+            url: '/mantenimiento/premiosUpdateInfoData',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: {
+                "codPremioUpdate": codPremioUpdate,
+                "codCategoriaUpdate": codCategoriaUpdate,
+                "codProveedorUpdate": codProveedorUpdate,
+                "marcaUpdate": marcaUpdate,
+                "modeloUpdate": modeloUpdate,
+                "nomESPUpdate": nomESPUpdate,
+                "nomINGUpdate": nomINGUpdate,
+                "caracESPUpdate": caracESPUpdate,
+                "caracINGUpdate": caracINGUpdate,
+                "codProgramaUpdate": codProgramaUpdate,
+                "codEmpresaUpdate": codEmpresaUpdate,
+                "valorPuntosUpdate": valorPuntosUpdate
+            },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result == "Bien") {
+                    $('#MessagePremio').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Premio eliminado correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessagePremio').show();
+                    document.getElementById("premioFunctions").style.display = "none";
+                } else {
+                    $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se elimino correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessagePremio').show();
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se elimino correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                $('#MessagePremio').show();
+            },
+            timeout: 30000,
+            type: "POST"
+        });
     }
 
 }

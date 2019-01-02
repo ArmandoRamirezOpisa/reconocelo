@@ -170,6 +170,35 @@
                 return false;
     		}
         }
+
+        public function updatePremio($savePremioData){
+            $query = $this->db->query("
+                UPDATE `opisa_opisa`.`Premio` SET `codPremio`='".$savePremioData['codPremioUpdate']."',
+                `CodCategoria`='".$savePremioData['codCategoriaUpdate']."',`codProveedor`='".$savePremioData['codProveedorUpdate']."',
+                `Marca`='".$savePremioData['marcaUpdate']."',`Modelo`='".$savePremioData['modeloUpdate']."',
+                `Nombre_Esp`='".$savePremioData['nomESPUpdate']."',`Nombre_Ing`='".$savePremioData['nomINGUpdate']."',
+                `Caracts_Esp`='".$savePremioData['caracESPUpdate']."',`Caracts_Ing`='".$savePremioData['caracINGUpdate']."' 
+                WHERE codPremio = '".$savePremioData['codPremioUpdate']."'
+            ");
+            if ($query){
+                return $this->db->insert_id();
+            }else{
+                return false;
+            }
+        }
+
+        public function updatePremioPrograma($savePremioData){
+            $query = $this->db->query("
+                UPDATE `PremioPrograma` SET `codPrograma`='".$savePremioData['codProgramaUpdate']."',
+                `codEmpresa`='".$savePremioData['codEmpresaUpdate']."',`ValorPuntos`='".$savePremioData['valorPuntosUpdate']."' 
+                WHERE codPremio = '".$savePremioData['codPremioUpdate']."'
+            ");
+            if ($query){
+                return $this->db->insert_id();
+            }else{
+                return false;
+            }
+        }
         /* Fin update premios */
         
 	}
