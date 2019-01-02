@@ -172,6 +172,14 @@
 
         }
 
+        /* Update premios */
+        public function updatePremio(){
+
+            $this->load->view('premio_update_view');
+            
+        }
+        /* Fin update premios */
+
         //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');

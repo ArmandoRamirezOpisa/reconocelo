@@ -177,8 +177,7 @@ function optionsPremio(id) {
 
     } else if (optionPremio == "U") {
 
-        $('#premioFunctions').html('Update');
-        $('#premioFunctions').show();
+        chanceOpcionPremio('/mantenimiento/updatePremio');
 
     }
 
