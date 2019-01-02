@@ -187,6 +187,22 @@
             $this->load->view('premio_update_view',$data);
 
         }
+
+        public function premiosUpdateInfo(){
+
+            $this->load->model("mantenimiento_model");
+            $savePremioData = array("codPremio"=>$_POST['codPremio']);
+            $PremioDataInfo = $this->mantenimiento_model->premioMantenimientoExits($savePremioData);
+            
+            if($PremioDataInfo){
+                $data["PremioDataInfo"] = $PremioDataInfo;
+            }else{
+                $data["PremioDataInfo"] = false;
+            }
+
+            $this->load->view('premio_updateInfo_view',$data);
+
+        }
         /* Fin update premios */
 
         //salir del mantenimiento

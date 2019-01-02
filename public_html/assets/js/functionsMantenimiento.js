@@ -384,7 +384,37 @@ function UpdatePremio(id) {
     var premio = document.getElementById(codPremios).value;
 
     if (premio != "selecciona") {
-        alert(premio);
+
+        $.ajax({
+            url: '/mantenimiento/premiosUpdateInfo',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: {
+                "codPremio": premio
+            },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result == "Bien") {
+                    $('#InfoPremioUpdate').html(result);
+                    $('#InfoPremioUpdate').show();
+
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+
     }
 
 }

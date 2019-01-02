@@ -5,6 +5,7 @@
                 </div>
                 <div class="col-sm"></div>
             </div>
+
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Premios</label>
                 <select class="form-control" id="listPremios" onchange="UpdatePremio(this)">
@@ -18,3 +19,5 @@
                     ?>
                 </select>
             </div>
+
+            <div id="InfoPremioUpdate"></div>
