@@ -376,6 +376,20 @@ function premioBajaOk() {
 
 }
 //Fin baja premios
+
+/* Update premios */
+function UpdatePremio(id) {
+
+    var codPremios = id.id;
+    var premio = document.getElementById(codPremios).value;
+
+    if (premio != "selecciona") {
+        alert(premio);
+    }
+
+}
+/* Fin update premios */
+
 /*Fin premios funcion */
 
 //Exit mantenimiento

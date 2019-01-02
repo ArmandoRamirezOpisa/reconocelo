@@ -7,7 +7,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Premios</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="listPremios" onchange="UpdatePremio(this)">
                     <option value="selecciona">Selecciona un premio:</option>
                     <?php
                         if($PremioData){
