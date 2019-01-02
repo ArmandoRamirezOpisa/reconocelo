@@ -175,8 +175,17 @@
         /* Update premios */
         public function updatePremio(){
 
-            $this->load->view('premio_update_view');
-            
+            $this->load->model("mantenimiento_model");
+            $PremioData = $this->mantenimiento_model->premioData();
+
+            if($PremioData){
+                $data["PremioData"] = $PremioData;
+            }else{
+                $data["PremioData"] = false;
+            }
+
+            $this->load->view('premio_update_view',$data);
+
         }
         /* Fin update premios */
 

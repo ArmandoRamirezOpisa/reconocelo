@@ -139,6 +139,24 @@
             }
         }
         /* Fin baja premios */ 
+
+        /* Update premios */
+        //Buscando premios
+        public function premioData(){
+
+            $query = $this->db->query("
+                SELECT codPremio, Nombre_Esp
+                FROM Premio
+            ");
+            if ($query->num_rows() > 0)
+    		{
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+
+        }
+        /* Fin update premios */
         
 	}
 ?>
