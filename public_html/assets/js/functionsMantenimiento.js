@@ -401,11 +401,10 @@ function UpdatePremio(id) {
             },
             success: function(result) {
 
-                if (result == "Bien") {
-                    $('#InfoPremioUpdate').html(result);
-                    $('#InfoPremioUpdate').show();
+                //if (result == "Bien") {
+                $('#InfoPremioUpdate').html(result);
 
-                }
+                //}
 
             },
             error: function(object, error, anotherObject) {

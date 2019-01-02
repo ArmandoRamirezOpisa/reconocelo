@@ -156,6 +156,20 @@
     		}
 
         }
+
+        public function premioProgramaMantenimientoExits($savePremioData){
+            $query = $this->db->query("
+                SELECT codPrograma, codEmpresa, ValorPuntos
+                FROM PremioPrograma
+                WHERE codPremio = '".$savePremioData['codPremio']."'
+            ");
+            if ($query->num_rows() > 0)
+    		{
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
         /* Fin update premios */
         
 	}
