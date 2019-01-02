@@ -313,9 +313,32 @@ function premioBaja() {
     var codPremioBaja = $('#codPremioBaja').val();
 
     if (codPremioBaja == "") {
-        $('#bajaPremioModal').modal('hide');
+
         $('#MessagePremio').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> El campo se encuentra vacio.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>')
         $('#MessagePremio').show();
+
+    } else {
+
+        $('#MessagePremio').hide();
+        document.getElementById("BajaPremioConfirmacion").style.display = "block";
+        document.getElementById("PremioBaja").disabled = true;
+
+    }
+
+}
+
+function bajaPremio() {
+
+    if ($("#noBaja").is(':checked')) {
+
+        document.getElementById("BajaPremioConfirmacion").style.display = "none";
+        document.getElementById("PremioBaja").disabled = false;
+        document.getElementById("deletePremio").disabled = true;
+
+    } else if ($("#siBaja").is(':checked')) {
+
+        document.getElementById("deletePremio").disabled = false;
+
     }
 
 }
