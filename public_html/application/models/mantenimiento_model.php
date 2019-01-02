@@ -126,6 +126,19 @@
             }
         }
         /* Fin premios alta */
+
+        /* Baja premios */
+        public function premioDelete($savePremioData){
+            $query = $this->db->query("
+                DELETE FROM `opisa_opisa`.`PremioPrograma` WHERE `codPremio` = '".$savePremioData['codPremio']."'
+            ");
+            if ($query){
+                return $this->db->insert_id();
+            }else{
+                return false;
+            }
+        }
+        /* Fin baja premios */ 
         
 	}
 ?>

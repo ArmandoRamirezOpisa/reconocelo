@@ -155,6 +155,23 @@
             
         }
 
+        //Baja del premio--
+        public function premiosBaja(){
+
+            $this->load->model("mantenimiento_model");
+            $savePremioData = array("codPremio"=>$_POST['codPremio']);
+            $PremioDataExits = $this->mantenimiento_model->premioMantenimientoExits($savePremioData);
+            if($PremioDataExits){
+
+                $PremioDelete = $this->mantenimiento_model->premioDelete($savePremioData);
+                $this->output->set_output(json_encode("Bien"));
+
+            }else{
+                $this->output->set_output(json_encode("Mal"));
+            }
+
+        }
+
         //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');

@@ -30,6 +30,6 @@
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="noBaja" value="no" onclick="bajaPremio()">
                     <label class="form-check-label" for="inlineRadio2">No darlo de baja</label>
                 </div>
-                <button id="deletePremio" type="button" class="btn btn-primary mb-2" disabled>Eliminar premio</button>
+                <button id="deletePremio" type="button" class="btn btn-primary mb-2" onclick="premioBajaOk()" disabled>Eliminar premio</button>
 
             </div>

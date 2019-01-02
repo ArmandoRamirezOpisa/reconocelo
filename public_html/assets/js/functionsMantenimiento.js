@@ -25,11 +25,8 @@ function loginMantenimiento() {
             success: function(result) {
 
                 if (result) {
-                    console.log('Correcto');
                     location.href = "https://" + location.hostname + "/mantenimiento/home";
                 } else {
-                    console.log("Expiro");
-                    console.log(result);
                     window.location.reload();
                     $('#MessageError').show();
                 }
@@ -118,7 +115,6 @@ function saveParticipante() {
             success: function(result) {
 
                 if (result) {
-                    console.log('Correcto');
                     var saveParticipantes = $('#participanteBtn');
                     saveParticipantes.html('Guardar');
 
@@ -147,7 +143,6 @@ function saveParticipante() {
                     $('#loginweb').val("");
 
                 } else {
-                    console.log("Expiro");
                     $('#alertMessage').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se guardo correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#alertMessage').show();
                 }
@@ -205,7 +200,6 @@ function chanceOpcionPremio(ruta) {
         },
         success: function(result) {
             if (result) {
-                console.log('Correcto');
                 $('#premioFunctions').html(result);
                 $('#premioFunctions').show();
             } else {
@@ -269,8 +263,6 @@ function altaPremio() {
             success: function(result) {
 
                 if (result) {
-                    console.log('Correcto');
-                    console.log(result);
                     $('#MessagePremio').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Datos guardados correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessagePremio').show();
 
@@ -288,7 +280,6 @@ function altaPremio() {
                     $('#valorPuntos').val("");
 
                 } else {
-                    console.log("Expiro");
                     $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se guardo correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessagePremio').show();
                 }
@@ -340,6 +331,49 @@ function bajaPremio() {
         document.getElementById("deletePremio").disabled = false;
 
     }
+
+}
+
+function premioBajaOk() {
+
+    var codPremioBaja = $('#codPremioBaja').val();
+
+    $.ajax({
+        url: '/mantenimiento/premiosBaja',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: {
+            "codPremio": codPremioBaja
+        },
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(result) {
+
+            if (result == "Bien") {
+                $('#MessagePremio').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Premio eliminado correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                $('#MessagePremio').show();
+
+                $('#codPremioBaja').val("");
+
+            } else {
+                $('#MessagePremio').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Premio eliminado correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                $('#MessagePremio').show();
+            }
+
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se elimino correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            $('#MessagePremio').show();
+        },
+        timeout: 30000,
+        type: "POST"
+    });
 
 }
 //Fin baja premios
