@@ -1,11 +1,9 @@
 <?php
       class Login_model extends CI_Model {
     	
-            public function __construct()
-            {}
+            public function __construct(){}
         
-            public function login($datos)
-            {
+            public function login($datos){
                   $emp=substr($datos["usuario"],0,5);
                   $part=intval(substr($datos["usuario"],5,3));
                         
@@ -22,9 +20,9 @@
                         AND pp.Status = 1
                   ");
                   if ($query->num_rows() == 1){
-                  return $query->result_array(); 
+                        return $query->result_array(); 
                   }else{
-                  return false;
+                        return false;
                   }
             }
         
@@ -46,9 +44,9 @@
                         AND pp.Status = 1
                   ");
                   if ($query->num_rows() == 1){
-                  return $query->result_array(); 
+                        return $query->result_array(); 
                   }else{
-                  return false;
+                        return false;
                   }
             }
 
@@ -70,12 +68,10 @@
                         AND pp.Status = 1
                   ");
                   if ($query->num_rows() == 1){
-                  return $query->result_array(); 
+                        return $query->result_array(); 
                   }else{
-                  return false;
+                        return false;
                   }
-                  
             }
-        
 	}
 ?>
