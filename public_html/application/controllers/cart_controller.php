@@ -7,52 +7,39 @@
             parent::__construct();
             $this->load->model("cart_model");
 
-            if (!$this->session->userdata('logged_in'))
-            {
+            if (!$this->session->userdata('logged_in')){
                 $this->load->view('login_view');
             }
         }
 		
-    	public function index()
-    	{
+    	public function index(){
     	    /*$pr = $this->cart_model->getAwards();
     		$this->load->view('cart_view');*/
     	}
         
-        public function getCategory()
-        {
+        public function getCategory(){
     	    $cat = $this->cart_model->getCategory();
-            if ($cat)
-            {
+            if ($cat){
                 $data["cat"] = $cat;
             }else{
                 $data["cat"] = false;
             }
     		$this->load->view('cat_view',$data);
         }
-
         
-        
-        public function getCategoryNavbar()
-        {
+        public function getCategoryNavbar(){
     	    $cat = $this->cart_model->getCategory();
-            if ($cat)
-            {
+            if ($cat){
                 $data["cat"] = $cat;
             }else{
                 $data["cat"] = false;
             }
     		$this->load->view('navbarView',$data);
-        } 
+        }
 
-
-
-
-        public function getAwards($idCat)
-        {
+        public function getAwards($idCat){
     	    $aw = $this->cart_model->getAwards($idCat);
-            if ($aw)
-            {
+            if ($aw){
                 $data["awards"] = $aw;
             }else{
                 $data["awards"] = false;
@@ -61,11 +48,9 @@
     		$this->load->view('cart_view',$data);
         }
         
-        public function showItem($id)
-        {
+        public function showItem($id){
     	    $item = $this->cart_model->getDataItem($id);
-            if ($item)
-            {
+            if ($item){
                 $data["item"] = $item;
             }else{
                 $data["item"] = false;
@@ -73,10 +58,8 @@
     		$this->load->view('det_item_view',$data);
         }
 		
-		public function showContentCart()
-		{
+		public function showContentCart(){
 			$this->load->view('prev_cart_view');
 		}
     }
-
 ?>

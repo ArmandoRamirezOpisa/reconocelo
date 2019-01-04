@@ -2,15 +2,13 @@
 
     class Mantenimiento extends CI_Controller {
     
-    	public function index()
-    	{
+    	public function index(){
 			
             if ($this->session->userdata('administrador')) {
                 header( 'Location: '.base_url().'mantenimiento/home');
             } else {
                 $this->load->view('home_mantenimiento_view');
             }
-
             
         }
         
@@ -38,7 +36,6 @@
         //Inicio manteniniento
         public function home(){
 
-            //$PrimerNombre = $this->session->userdata('PrimerNombre');
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('mantenimiento_view',$PrimerNombre);
 
@@ -197,12 +194,12 @@
             
             if($PremioDataInfo){
                 $data = array( 'PremioDataInfo' => $PremioDataInfo,
-                        'PremioProgramaDataInfo' => $PremioProgramaDataInfo
-                    );
+                    'PremioProgramaDataInfo' => $PremioProgramaDataInfo
+                );
             }else{
                 $data = array( 'PremioDataInfo' => false,
-                        'PremioProgramaDataInfo' => false
-                    );
+                    'PremioProgramaDataInfo' => false
+                );
             }
 
             $this->load->view('premio_updateInfo_view',$data);

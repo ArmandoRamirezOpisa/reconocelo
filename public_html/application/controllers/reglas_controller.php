@@ -2,14 +2,11 @@
 
     class Reglas_controller extends CI_Controller {
     
-    	public function index()
-    	{
+    	public function index(){
     		$this->load->model("reglas_model");
-			if ($this->session->userdata('logged_in'))
-			{
+			if ($this->session->userdata('logged_in')){
                 $cat = $this->reglas_model->getRules();
-                if ($cat)
-                {
+                if ($cat){
                     $data["cat"] = $cat;
                 }else{
                     $data["cat"] = false;
@@ -18,7 +15,6 @@
 			}else{
 				echo "0";
 			}
-    		
     	}
     }
 
