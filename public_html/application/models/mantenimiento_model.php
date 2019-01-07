@@ -3,6 +3,26 @@
     	
         public function __construct(){}
         
+        public function loginUserMantenimiento($loginMantenimientoData){
+            $usuario =$loginMantenimientoData['usuario'];
+            $password = $loginMantenimientoData['password'];
+            $query = $this->db->query("
+                SELECT * 
+                FROM  Participante
+                WHERE  loginWeb = '".$usuario."'
+                AND  pwd = '".$password."'
+            ");
+            if ($query->num_rows() == 1){
+
+                return $query->result_array(); 
+
+            }else{
+
+                return false;
+
+            }
+        }
+
         public function login($loginMantenimientoData)
         {
             $usuario =$loginMantenimientoData['usuario'];

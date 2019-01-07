@@ -15,20 +15,24 @@
         //Login mantenimiento
         public function login(){
 
-            $loginMantenimientoData = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
             $this->load->model("mantenimiento_model");
-            $InformacionLogin = $this->mantenimiento_model->login($loginMantenimientoData);
-            if ($InformacionLogin){
-                $InformacionLoginUsuario = array(
-                    'administrador' => TRUE,
-                    'CodEmpresa' => $InformacionLogin[0]["CodEmpresa"],
-                    'CodPrograma' => $InformacionLogin[0]["CodPrograma"],
-                    'PrimerNombre' => $InformacionLogin[0]["PrimerNombre"]
-                );
-                $this->session->set_userdata($InformacionLoginUsuario);
-                $this->output->set_output(json_encode(true));//si encuantra al usuario regresa true
-            }else{
-                $this->output->set_output(json_encode(false));//si no encuentra al usuario regresa false
+            $loginMantenimientoData = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
+            $userMantenimientoExist = $this->mantenimiento_model->loginUserMantenimiento($loginMantenimientoData);
+            if ($userMantenimientoExist['loginWeb'] == '41160001' && $userMantenimientoExist['pwd'] == 5674){
+
+                $InformacionLogin = $this->mantenimiento_model->login($loginMantenimientoData);
+                if ($InformacionLogin){
+                    $InformacionLoginUsuario = array(
+                        'administrador' => TRUE,
+                        'CodEmpresa' => $InformacionLogin[0]["CodEmpresa"],
+                        'CodPrograma' => $InformacionLogin[0]["CodPrograma"],
+                        'PrimerNombre' => $InformacionLogin[0]["PrimerNombre"]
+                    );
+                    $this->session->set_userdata($InformacionLoginUsuario);
+                    $this->output->set_output(json_encode(true));//si encuantra al usuario regresa true
+                }else{
+                    $this->output->set_output(json_encode(false));//si no encuentra al usuario regresa false
+                }
             }
 
         }
