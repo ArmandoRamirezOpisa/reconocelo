@@ -52,8 +52,7 @@ function optionsParticipante(id) {
     if (optionParticipante == "oneParticipantes") {
         changeOptionParticipante('/mantenimiento/unParticipante');
     } else if (optionParticipante == "moreParticipantes") {
-        $('#opcionesParticipantes').html('Agrega varios participantes');
-        $('#opcionesParticipantes').show();
+        changeOptionParticipante('/mantenimiento/variosParticipantes');
     } else if (optionParticipante == "selecciona") {
         console.log("no hace ninguna accion");
     }

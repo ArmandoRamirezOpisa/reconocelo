@@ -57,6 +57,10 @@
 
         }
 
+        public function variosParticipantes(){
+            $this->load->view('participante_varios_view');
+        }
+
         //guardando participantes
         public function participanteSave(){
             $this->load->model("mantenimiento_model");
