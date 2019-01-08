@@ -44,6 +44,51 @@ function loginMantenimiento() {
 }
 
 /* Funcion participantes */
+function optionsParticipante(id) {
+
+    $('#opcionesParticipantes').hide();
+    var idOptionParticipante = id.id;
+    var optionParticipante = document.getElementById(idOptionParticipante).value;
+    if (optionParticipante == "oneParticipantes") {
+        changeOptionParticipante('/mantenimiento/unParticipante');
+    } else if (optionParticipante == "moreParticipantes") {
+        $('#opcionesParticipantes').html('Agrega varios participantes');
+        $('#opcionesParticipantes').show();
+    } else if (optionParticipante == "selecciona") {
+        console.log("no hace ninguna accion");
+    }
+
+}
+
+function changeOptionParticipante(rutaParticipante) {
+    $.ajax({
+        url: rutaParticipante,
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: {},
+        beforeSend: function() {
+            console.log('Cargando seccion, espere por favor...');
+        },
+        success: function(result) {
+            if (result) {
+                $('#opcionesParticipantes').html(result);
+                $('#opcionesParticipantes').show();
+            } else {
+                console.log("Expiro");
+            }
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
+    });
+}
+
 function saveParticipante() {
 
     $('#alertMessage').hide();

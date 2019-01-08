@@ -51,6 +51,12 @@
             $this->load->view('mantenimiento_participante_view',$PrimerNombre);
         }
 
+        public function unParticipante(){
+
+            $this->load->view('participante_uno_view');
+
+        }
+
         //guardando participantes
         public function participanteSave(){
             $this->load->model("mantenimiento_model");
