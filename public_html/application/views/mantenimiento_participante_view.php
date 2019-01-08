@@ -60,7 +60,7 @@
             </div>
         </nav>
 
-        <div id="alertMessage" class="container" style="display:none;">
+        <div id="alertMessage" class="container" style="display:none;" style="margin-top: 50px;">
 
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Advertencia!</strong> Hay algunos campos vacios.

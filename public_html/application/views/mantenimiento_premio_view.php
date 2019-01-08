@@ -60,7 +60,7 @@
             </div>
         </nav>
         
-        <div id="MessagePremio" class="container" style="display:none;"></div>
+        <div id="MessagePremio" class="container" style="display:none;" style="margin-top: 50px;"></div>
 
         <div class="container" style="margin-top: 100px;">
 

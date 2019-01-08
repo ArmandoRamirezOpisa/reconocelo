@@ -212,18 +212,22 @@ function subirVariosParticipantes() {
 
         extension = (fileParticipante.substring(fileParticipante.lastIndexOf("."))).toLowerCase();
 
-        if (extension == ".xlsx") {
+        if (extension == ".xlsx" || extension == ".xlsm" || extension == ".xlsb" || extension == ".xltx" || extension == ".xltm" || extension == ".xls" || extension == ".xlt" || extension == ".xls" || extension == ".xml" || extension == ".xml" || extension == ".xlam" || extension == ".xla" || extension == ".xlw" || extension == ".xlr" || extension == ".csv" || extension == ".ods") {
 
             alert("archivo correcto");
 
         } else {
 
-            alert("archivo incorrecto");
+            $('#archivoParticipantes').val("");
+            $('#alertMessage').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Esta subiendo un archivo incorrecto.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            $('#alertMessage').show();
 
         }
 
     } else {
-        alert("No leyo el archivo");
+
+        $('#alertMessage').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se selecciono ningun archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $('#alertMessage').show();
     }
 
 }
