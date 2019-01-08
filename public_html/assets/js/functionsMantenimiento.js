@@ -206,10 +206,22 @@ function saveParticipante() {
 
 function subirVariosParticipantes() {
 
-    var file = $('#archivoParticipantes').val();
+    var fileParticipante = $('#archivoParticipantes').val();
 
-    if (file) {
-        alert("Si esta leyendo el archivo");
+    if (fileParticipante) {
+
+        extension = (fileParticipante.substring(fileParticipante.lastIndexOf("."))).toLowerCase();
+
+        if (extension == ".xlsx") {
+
+            alert("archivo correcto");
+
+        } else {
+
+            alert("archivo incorrecto");
+
+        }
+
     } else {
         alert("No leyo el archivo");
     }
