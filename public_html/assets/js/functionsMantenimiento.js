@@ -205,7 +205,15 @@ function saveParticipante() {
 }
 
 function subirVariosParticipantes() {
-    alert("Entro");
+
+    var file = $('#archivoParticipantes').val();
+
+    if (file) {
+        alert("Si esta leyendo el archivo");
+    } else {
+        alert("No leyo el archivo");
+    }
+
 }
 /* Fin funcion participantes */
 
