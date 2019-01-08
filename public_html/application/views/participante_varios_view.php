@@ -10,5 +10,5 @@
                     <label for="exampleFormControlFile1">Selecciona un archivo de excel, para subir los participantes</label>
                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
-                <button type="button" class="btn btn-primary"><i class="fas fa-upload"></i> Subir</button>
+                <button type="button" class="btn btn-primary" onclick="subirVariosParticipantes()"><i class="fas fa-upload"></i> Subir</button>
                 </form>

@@ -203,6 +203,10 @@ function saveParticipante() {
     }
 
 }
+
+function subirVariosParticipantes() {
+    alert("Entro");
+}
 /* Fin funcion participantes */
 
 /*Premios funcion */
