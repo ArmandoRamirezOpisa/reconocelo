@@ -529,7 +529,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                         success: function(response) {
                             if (response) {
                                 swal("Solicitud de canje", "Tu orden ha sido realizada correctamente", "success");
-                                setTimeout(function() { location.href = "https://www.reconocelo.com.mx"; }, 3000);
+                                //setTimeout(function() { location.href = "https://www.reconocelo.com.mx"; }, 3000);
                             } else {
                                 swal("Error de comunicación", "Ha ocurrido un error de comunicación. Intente nuevamente", "warning");
                                 $("#btnGenCanje").show();
