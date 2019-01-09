@@ -8,16 +8,8 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Premios</label>
-                <select class="form-control" id="listPremios" onchange="UpdatePremio(this)">
-                    <option value="selecciona">Selecciona un premio:</option>
-                    <?php
-                        if($PremioData){
-                            foreach($PremioData as $row){
-                                echo '<option value='.$row['codPremio'].'>'.$row['Nombre_Esp'].'</option>';
-                            }
-                        }
-                    ?>
-                </select>
+                <input type="text" class="form-control" id="listPremios" placeholder="Escribe el premio que se desea actualizar">
             </div>
+            <button id="listPremiosBtn" type="button" class="btn btn-primary" onclick="UpdatePremio(this)"><i class="fas fa-search"></i> Buscar</button>
 
             <div id="InfoPremioUpdate"></div>

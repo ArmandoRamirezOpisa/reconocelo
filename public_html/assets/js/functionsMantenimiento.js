@@ -456,9 +456,9 @@ function premioBajaOk() {
 function UpdatePremio(id) {
 
     var codPremios = id.id;
-    var premio = document.getElementById(codPremios).value;
+    var premio = $('#listPremios').val();
 
-    if (premio != "selecciona") {
+    if (premio != "") {
 
         $.ajax({
             url: '/mantenimiento/premiosUpdateInfo',
