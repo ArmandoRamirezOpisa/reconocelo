@@ -12,17 +12,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="MessageError" class="container" style="display:none;">
-
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Advertencia!</strong> 
-                Usuario o contraseña incorrectos.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-        </div>
+        <div id="MessageError" class="container" style="display:none;"></div>
         <div class="container">          
             <div class="row justify-content-center mb-4 mt-3">
                 <div class="col-12 col-md-6 mt-4 ">

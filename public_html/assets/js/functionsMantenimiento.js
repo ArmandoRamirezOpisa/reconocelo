@@ -6,6 +6,7 @@ function loginMantenimiento() {
     var password = $('#password').val();
 
     if (usuario == "" || password == "") {
+        $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Hay campos vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         $('#MessageError').show();
         throw new Error("Datos de formulario incompleto");
     } else {
@@ -27,8 +28,10 @@ function loginMantenimiento() {
                 if (result) {
                     location.href = "https://" + location.hostname + "/mantenimiento/home";
                 } else {
-                    window.location.reload();
+                    $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageError').show();
+                    $('#user').val("");
+                    $('#password').val("");
                 }
 
             },
