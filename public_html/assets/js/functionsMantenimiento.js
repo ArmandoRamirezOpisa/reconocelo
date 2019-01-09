@@ -486,6 +486,9 @@ function UpdatePremio(id) {
             type: "POST"
         });
 
+    } else {
+        $('#MessagePremio').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Campo vacio.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $('#MessagePremio').show();
     }
 
 }
