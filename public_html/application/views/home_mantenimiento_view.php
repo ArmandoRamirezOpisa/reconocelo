@@ -22,11 +22,11 @@
                             <div class="card-body">
                                 <form>
                                     <div class="form-group">
-                                        <label for="user">Usuario</label>
+                                        <label for="user"><strong>Usuario</strong></label>
                                         <input type="email" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Ejem: usuario01">
                                     </div>
                                     <div class="form-group">
-                                        <label for="password">Contraseña</label>
+                                        <label for="password"><strong>Contraseña</strong></label>
                                         <input type="password" class="form-control" id="password" placeholder="Ejem: *****">
                                     </div>
                                     <button id="btnEntrarMantenimiento" type="button" class="btn btn-primary" onclick="loginMantenimiento()"><i class="fas fa-sign-in-alt mr-2"></i> Entrar</button>
