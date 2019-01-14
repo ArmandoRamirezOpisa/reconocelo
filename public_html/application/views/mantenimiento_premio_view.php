@@ -79,6 +79,7 @@
                     <option value="A">Alta</option>
                     <option value="B">Baja</option>
                     <option value="U">Actualizar</option>
+                    <option value="T">Transferencia</option>
                 </select>
             </div>
 

@@ -246,6 +246,12 @@
         }
         /* Fin update premios */
 
+        /* Transferencia de premios */
+        public function transferenciaPremio(){
+            $this->load->view('premio_transferencia_view');
+        }
+        /* Fin transferencia de premios */
+
         //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');

@@ -254,6 +254,8 @@ function optionsPremio(id) {
 
         chanceOpcionPremio('/mantenimiento/updatePremio');
 
+    } else if (optionPremio == "T") {
+        chanceOpcionPremio('/mantenimiento/transferenciaPremio');
     }
 
 }
