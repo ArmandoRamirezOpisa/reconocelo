@@ -198,19 +198,9 @@
         public function participanteInfoData($infoParticipante){
             $query = $this->db->query("
 
-                  SELECT p.idCanje,p.feSolicitud,d.Cantidad,pr.Nombre_Esp,d.Status,d.Mensajeria,
-                  d.NumeroGuia,d.Cantidad*d.PuntosXUnidad *-1 as puntos
-                  FROM PreCanje p
-                  INNER JOIN PreCanjeDet d on d.noFolio = p.idCanje
-                  INNER join Premio pr ON pr.codPremio = d.CodPremio 
-                  WHERE  
-                  p.codPrograma = 41
-                  AND p.idParticipante = ".$infoParticipante['codParticipante']."
-                  UNION ALL SELECT p.NoFolio as idCanje, p.feMov as feSolicitud,null as Cantidad, 
-                  dsMov as Nombre_Esp, '-' as Status,'-' as Mensajeria,'-' as NumeroGuia,
-                  noPuntos as puntos 
-                  from PartMovsRealizados p
-                  where p.idParticipante = ".$infoParticipante['codParticipante']."
+                  SELECT codPrograma, codEmpresa, codParticipante
+                  FROM Participante
+                  WHERE idParticipante =".$infoParticipante['codParticipante']."
 
             ");
             if ($query->num_rows() > 0)
@@ -219,6 +209,33 @@
             }else{
                   return false;
             }
+        }
+
+        public function movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante){
+              $query = $this->db->query("
+
+                  select c.idCanje as Folio, c.feSolicitud as Fecha, d.cantidad,d.codPremio, pr.Nombre_Esp as Descripcion,d.PuntosXUnidad*d.cantidad*-1 as Puntos
+                  FROM PreCanje c JOIN PreCanjeDet d on c.idParticipante=d.idParticipante and c.idCanje=d.noFolio
+                  JOIN Participante p on p.idParticipante=c.idParticipante
+                  JOIN Premio pr on pr.codPremio=d.codPremio
+                  WHERE p.codPrograma=".$codPrograma."
+                  and p.codEmpresa=".$codEmpresa."
+                  and p.codParticipante=".$codParticipante." 
+                  and c.Status=1
+                  UNION ALL
+                  SELECT m.noFolio as Folio, m.feMov as Fecha, 1 as cantidad, 0 as codPremio, m.dsMov as Descripcion, m.noPuntos as Puntos
+                  FROM PartMovsRealizados m Join Participante p on p.idParticipante=m.idParticipante
+                  WHERE p.codPrograma = ".$codPrograma."
+                  AND p.codEmpresa = ".$codEmpresa."
+                  AND p.codParticipante=".$codParticipante."
+                  ORDER BY 2,1
+                  
+              ");
+              if($query->num_rows()>0){
+                    return $query->result_array();
+              }else{
+                    return false;
+              }
         }
 
         public function participanteInfoDataCanje($infoParticipante){

@@ -251,7 +251,13 @@
 
             $infoParticipante = array("codParticipante"=>$_POST['codParticipante']);
 
-            $participanteData = $this->participante_monitor_model->participanteInfoData($infoParticipante);
+            $movimientosDeParticipante = $this->participante_monitor_model->participanteInfoData($infoParticipante);
+
+            $codPrograma = $movimientosDeParticipante[0]["codPrograma"];
+            $codEmpresa = $movimientosDeParticipante[0]["codEmpresa"];
+            $codParticipante = $movimientosDeParticipante[0]["codParticipante"];
+
+            $participanteData = $this->participante_monitor_model->movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante);
 
             if ($participanteData){
                 $data = array( 'participanteData' => $participanteData);

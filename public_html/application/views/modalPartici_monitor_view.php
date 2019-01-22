@@ -1,25 +1,19 @@
 <table id="infoParticipante" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="margin-bottom: 50px;">
     <thead>
         <tr>
-            <th class="th-sm">Canje
+            <th class="th-sm">Folio
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
-            <th class="th-sm">Fecha Solicitud
+            <th class="th-sm">Fecha
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
             <th class="th-sm">Cantidad
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
-            <th class="th-sm">Nombre
+            <th class="th-sm">Codigo de premio
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
-            <th class="th-sm">Status
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Mensajeria
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Numero de guia
+            <th class="th-sm">Descripcion
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
             <th class="th-sm">Puntos
@@ -32,20 +26,16 @@
             if($participanteData){
                 foreach($participanteData as $row){
                     echo '<tr>
-                        <td>'.$row["idCanje"].'</td>
-                        <td>'.$row["feSolicitud"].'</td>
-                        <td>'.$row["Cantidad"].'</td>
-                        <td>'.$row["Nombre_Esp"].'</td>
-                        <td>'.$row["Status"].'</td>
-                        <td>'.$row["Mensajeria"].'</td>
-                        <td>'.$row["NumeroGuia"].'</td>
-                        <td>'.$row["puntos"].'</td>
+                        <td>'.$row["Folio"].'</td>
+                        <td>'.$row["Fecha"].'</td>
+                        <td>'.$row["cantidad"].'</td>
+                        <td>'.$row["codPremio"].'</td>
+                        <td>'.$row["Descripcion"].'</td>
+                        <td>'.$row["Puntos"].'</td>
                     </tr>';
                 }
             }else{
                 echo '<tr>
-                    <td>--</td>
-                    <td>--</td>
                     <td>--</td>
                     <td>--</td>
                     <td>--</td>
@@ -58,25 +48,19 @@
     </tbody>
     <tfoot>
         <tr>
-            <th class="th-sm">Canje
+            <th class="th-sm">Folio
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
-            <th class="th-sm">Fecha Solicitud
+            <th class="th-sm">Fecha
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
             <th class="th-sm">Cantidad
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
-            <th class="th-sm">Nombre
+            <th class="th-sm">Codigo de premio
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
-            <th class="th-sm">Status
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Mensajeria
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Numero de guia
+            <th class="th-sm">Descripcion
                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
             </th>
             <th class="th-sm">Puntos
