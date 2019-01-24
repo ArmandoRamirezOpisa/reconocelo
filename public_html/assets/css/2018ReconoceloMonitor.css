@@ -1,30 +1,26 @@
-       body {
-           padding-top: 80px;
-       }
-       
-       .navbar {
-           background: #034889;
-       }
-       
-       a {
-           color: #fff;
-       }
-       
-       a:hover {
-           color: #6C7DAC;
-       }
-       
-       .navbar-toggler {
-           color: #fff;
-           background-color: #6C7DAC;
-       }
-       
-       #Depositos {
-           float: left;
-           width: 49%;
-       }
-       
-       #Canjes {
-           float: left;
-           width: 49%;
-       }
+.navbar {
+    background: #034889;
+}
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: #6C7DAC;
+}
+
+.navbar-toggler {
+    color: #fff;
+    background-color: #6C7DAC;
+}
+
+#Depositos {
+    float: left;
+    width: 49%;
+}
+
+#Canjes {
+    float: left;
+    width: 49%;
+}
