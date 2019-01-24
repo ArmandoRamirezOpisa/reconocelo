@@ -42,6 +42,14 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
+                    <?php 
+                        if($this->session->userdata('CodEmpresa') == "41160"){
+                            echo '<img src="../assets/images/41160.png" width="100" height="30" alt="">';
+                        }else if($this->session->userdata('CodEmpresa') == "41162"){
+                            echo '<img src="../assets/images/41162.png" width="100" height="30" alt="">';
+                        }
+                    ?>
+
                     <div class="btn-group">
                         <button class="btn btn-secondary btn-lg" type="button">
                             <i class="fas fa-user-alt mr-2"></i><?php echo $this->session->userdata('empresa'); ?>

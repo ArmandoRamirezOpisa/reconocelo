@@ -9,7 +9,7 @@
                 FROM opisa_opisa.administrador as adm inner join opisa_opisa.Programa as
                 pr on adm.CodPrograma = pr.codPrograma
                 inner join opisa_opisa.Empresa as emp on emp.codEmpresa = adm.CodEmpresa 
-                and adm.Usuario = '".$usuario."' and adm.Pwd = '".$password."'                                         
+                and adm.Usuario = '".$usuario."' and adm.Pwd = '".$password."'                                       
             ;");
         
             if ($query) {
