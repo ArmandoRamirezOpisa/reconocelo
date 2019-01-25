@@ -402,6 +402,11 @@
         public function insertarDepositos(){
             $this->load->view('depositoInsert_monitor_view');
         }
+
+        public function uploadDepositosNews(){
+            $infoDepositosNews = array("infoNewsDepositos"=>$_POST['infoNewsDepositos']);
+            $this->load->view('depositoInsertResu_monitor_view',$infoDepositosNews);
+        }
 ////////////////////////////FinDepositos///////////////////////////////////////
 /////////////////////////InicioCanjes/////////////////////////////////////////
         public function canjes(){

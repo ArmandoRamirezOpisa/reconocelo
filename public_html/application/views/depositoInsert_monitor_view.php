@@ -19,7 +19,7 @@ include 'home_monitor_view_header.php';
                     <input type="file" class="form-control-file" id="file-CSV" accept=".csv" required>
                 </div>
                 <div class="form-group">
-				    <button type="button" id="subirArchivoParticipantes" class="btn btn-primary"><i class="fas fa-upload"></i> Subir archivo</button>
+				    <button type="button" id="subirArchivoDepositos" class="btn btn-primary"><i class="fas fa-upload"></i> Subir archivo</button>
 			    </div>
             </form>
 
@@ -35,12 +35,12 @@ include 'home_monitor_view_footer.php';
             //titulo
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Insertar depósitos</h1>";
             //boton para leer un archivo csv
-            $('#subirArchivoParticipantes').on("click",function(e){
+            $('#subirArchivoDepositos').on("click",function(e){
 				e.preventDefault();
 				$('#file-CSV').parse({
 					config: {
 						delimiter: "auto",
-						complete: ProcesarInfoParticipantes,
+						complete: ProcesarInfoDepositos,
 					},
 					before: function(file, inputElem)
 					{
@@ -60,10 +60,41 @@ include 'home_monitor_view_footer.php';
 			});
             
             //funcion que pasa a la base de datos
-			function ProcesarInfoParticipantes(results){
-				var table = "<table class='table'>";
-				var data = results.data;
-				console.log(data);
+			function ProcesarInfoDepositos(results){
+
+                var data = results.data;
+                console.log(data);
+
+                $.ajax({
+                    url: '/monitor/uploadDepositosNews',
+                    async: 'true',
+                    cache: false,
+                    contentType: "application/x-www-form-urlencoded",
+                    global: true,
+                    ifModified: false,
+                    processData: true,
+                    data: { "infoNewsDepositos": data },
+                    beforeSend: function() {
+                        console.log('Procesando, espere por favor...');
+                    },
+                    success: function(result) {
+                        if (result == "0") {
+                            console.log("Expiro");
+                        } else {
+                            console.log('Correcto');
+                            $("#parsed_csv_list").html(result);
+                        }
+                    },
+                    error: function(object, error, anotherObject) {
+                        console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                    },
+                    timeout: 30000,
+                    type: "POST"
+                });
+
+
+                /*var table = "<table class='table'>";
+				
 				
 				for(i=0;i<data.length;i++){
 					table+= "<tr>";
@@ -77,7 +108,8 @@ include 'home_monitor_view_footer.php';
 					table+= "</tr>";
 				}
 				table+= "</table>";
-				$("#parsed_csv_list").html(table);
+                $("#parsed_csv_list").html(table);*/
+                
 			}
         </script>
 </body>
