@@ -16,10 +16,10 @@ include 'home_monitor_view_header.php';
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Sube tu archivo CSV</label>
-                    <input type="file" class="form-control-file" id="files" accept=".csv" required>
+                    <input type="file" class="form-control-file" id="file-CSV" accept=".csv" required>
                 </div>
                 <div class="form-group">
-				    <button type="button" id="submit-file" class="btn btn-primary"><i class="fas fa-upload"></i> Subir archivo</button>
+				    <button type="button" id="subirArchivoParticipantes" class="btn btn-primary"><i class="fas fa-upload"></i> Subir archivo</button>
 			    </div>
             </form>
 
@@ -32,13 +32,15 @@ include 'home_monitor_view_footer.php';
 ?>
 
         <script>
+            //titulo
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Insertar depósitos</h1>";
-            $('#submit-file').on("click",function(e){
+            //boton para leer un archivo csv
+            $('#subirArchivoParticipantes').on("click",function(e){
 				e.preventDefault();
-				$('#files').parse({
+				$('#file-CSV').parse({
 					config: {
 						delimiter: "auto",
-						complete: displayHTMLTable,
+						complete: ProcesarInfoParticipantes,
 					},
 					before: function(file, inputElem)
 					{
@@ -46,16 +48,19 @@ include 'home_monitor_view_footer.php';
 					},
 					error: function(err, file)
 					{
+                        $('#MessageInsertarDepositos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 						console.log("ERROR:", err, file);
 					},
 					complete: function()
 					{
+                        $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 						console.log("Se cargo exitosamente");
 					}
 				});
 			});
-			
-			function displayHTMLTable(results){
+            
+            //funcion que pasa a la base de datos
+			function ProcesarInfoParticipantes(results){
 				var table = "<table class='table'>";
 				var data = results.data;
 				console.log(data);
