@@ -399,6 +399,46 @@
             $this->load->view('depoTable_monitor_view',$data);
         }
 ////////////////////////////FinDepositos///////////////////////////////////////
+/////////////////////////InicioCanjes/////////////////////////////////////////
+        public function canjes(){
+            $this->load->model("canje_monitor_model");
+            $canje = $this->canje_monitor_model->getFechaCanje();
+            if ($canje){
+                $data["canje"] = $canje;
+            }else{
+                $data["canje"] = false;
+            }
+
+            $this->load->view('canje_monitor_view',$data);
+        }
+
+        public function canjesInfo(){
+            $this->load->model("canje_monitor_model");
+            $canje = $this->canje_monitor_model->getCanje();
+            if ($canje){
+                $data["canje"] = $canje;
+            }else{
+                $data["canje"] = false;
+            }
+            $this->load->view('canjeTable_monitor_view',$data);
+        }
+
+        public function canjesInforma(){
+            $this->load->model("canje_monitor_model");
+
+            $infoFechas = array("fechaInicio"=>$_POST['fechaInicio'],
+                "fechaFin"=>$_POST['fechaFin']
+                );
+
+            $canje = $this->canje_monitor_model->getCanjeFechas($infoFechas);
+            if ($canje){
+                $data["canje"] = $canje;
+            }else{
+                $data["canje"] = false;
+            }
+            $this->load->view('canjeTable_monitor_view',$data);
+        }
+////////////////////////FinCanjes////////////////////////////////////////////
 ///////////////////////////InicioCatalogo//////////////////////////////////////
         public function catalogo(){
             $this->load->model("catalogo_monitor_model");

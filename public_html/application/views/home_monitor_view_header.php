@@ -35,6 +35,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a id="canjesPuntos" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-exchange-alt"></i>Canjes</a>
+                    </li>
+                    <li class="nav-item">
                         <a id="catologoActual" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
                     </li>
                     <li class="nav-item">

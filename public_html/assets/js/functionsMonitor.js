@@ -20,7 +20,10 @@ function MonitorNav(id) {
             break;
         case 'monitorPrograma':
             location.href = "https://" + location.hostname + "/monitor/programa";
-
+            break;
+        case 'canjesPuntos':
+            location.href = "https://" + location.hostname + "/monitor/canjes";
+            break;
     }
 
 }
@@ -379,6 +382,89 @@ function fechaInicioFinSelect() {
 
 }
 /* fin depositos*/
+
+/* Inicio canjes */
+function canjes() {
+    $.ajax({
+        url: '/monitor/canjesInfo',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: "html",
+        error: function(object, error, anotherObject) {
+            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        global: true,
+        ifModified: false,
+        processData: true,
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                window.location.reload();
+            } else {
+                //console.log(result);
+                $('#CanjeInformacion').html(result);
+            }
+
+        },
+        timeout: 30000,
+        type: "GET"
+    });
+}
+
+function fechaInicioFinSelectCanje() {
+    var fechaInicio = document.getElementById("fechaInicio").value;
+    var fechaFin = document.getElementById("fechaFin").value;
+
+    if (fechaInicio == 'selecciona' || fechaFin == 'selecciona') {
+        throw new Error("Datos de formulario incompleto");
+    } else if (fechaInicio != 'selecciona' || fechaFin != 'selecciona') {
+
+        if (fechaInicio == fechaFin) {
+            throw new Error("Datos de formulario incompleto");
+        } else if (fechaInicio >= fechaFin) {
+            throw new Error("Datos de formulario incompleto");
+        } else if (fechaInicio <= fechaFin) {
+
+            console.log('fechaInicio ' + fechaInicio);
+            console.log('fechaFin ' + fechaFin);
+            $.ajax({
+                url: '/monitor/canjesInforma',
+                async: 'true',
+                cache: false,
+                contentType: "application/x-www-form-urlencoded",
+                global: true,
+                ifModified: false,
+                processData: true,
+                data: { "fechaInicio": fechaInicio, "fechaFin": fechaFin },
+                beforeSend: function() {
+                    console.log('Procesando, espere por favor...');
+                },
+                success: function(result) {
+
+                    if (result == "0") {
+                        console.log("Expiro");
+                        window.location.reload();
+                    } else {
+                        console.log('Correcto');
+                        console.log(result);
+                        $('#depositoInformacion').html(result);
+                    }
+
+                },
+                error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                },
+                timeout: 30000,
+                type: "POST"
+            });
+
+        }
+
+    }
+}
+/* Fin canjes */
 
 //Funcion salir de reconocelo monitor
 function exit() {
