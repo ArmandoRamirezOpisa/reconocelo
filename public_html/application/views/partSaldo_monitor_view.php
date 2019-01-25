@@ -1,7 +1,10 @@
                 <table id="infoParticipante" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="margin-bottom: 50px;">
                     <thead>
                         <tr>
-                            <th class="th-sm">Codigo participante
+                            <th class="th-sm">Codigo participante OPI
+                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                            </th>
+                            <th class="th-sm">Id participante OPI
                                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
                             </th>
                             <th class="th-sm">Nombre
@@ -29,6 +32,7 @@
                         foreach($participante as $row){
                             echo '<tr>
                                 <td>'.$row["codParticipante"].'</td>
+                                <td>'.$row["idParticipante"].'</td>
                                 <td>'.$row["PrimerNombre"].'</td>
                                 <td>'.$row["Telefono"].'</td>
                                 <td>'.$row["eMail"].'</td>
@@ -50,13 +54,15 @@
                             <td>--</td>
                             <td>--</td>
                             <td>--</td>
+                            <td>--</td>
                             </tr>';
                     }
                     ?>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th class="th-sm">Codigo participante</th>
+                            <th class="th-sm">Codigo participante OPI</th>
+                            <th class="th-sm">Id participante OPI</th>
                             <th class="th-sm">Nombre</th>
                             <th class="th-sm">Telefono</th>
                             <th class="th-sm">Correo electrónico</th>

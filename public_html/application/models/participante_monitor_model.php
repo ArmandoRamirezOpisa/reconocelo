@@ -6,7 +6,7 @@
             //Todos los participantes
             public function getTodosParticipantes(){
     		      $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante ,pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status, pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -24,7 +24,7 @@
             //Participantes con saldo
             public function geTParticipantesSaldo(){
     		      $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status, pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -43,7 +43,7 @@
             //Participantes sin saldo
             public function geTParticipantesSinSaldo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -62,7 +62,7 @@
             //Participantes todos activos
             public function geTodoSaldoActivo(){
     		      $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -81,7 +81,7 @@
             //Participantes todos inactivos
             public function geTodoInactivo(){
     		      $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -100,7 +100,7 @@
             //Participantes activos con saldo
             public function getSaldoActivo(){
     		      $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -120,7 +120,7 @@
             //Participantes con saldo inactivos
             public function geTSaldoInactivo(){
     		      $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -140,7 +140,7 @@
             //Participantes sin saldo activos
             public function geTSinSaldoActivo(){
     		      $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -160,7 +160,7 @@
             //Participantes sin saldo inactivos
             public function geTSinSaldoInactivo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41

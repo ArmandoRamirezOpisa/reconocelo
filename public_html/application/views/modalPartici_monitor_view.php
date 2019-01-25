@@ -46,26 +46,4 @@
             }
         ?>
     </tbody>
-    <tfoot>
-        <tr>
-            <th class="th-sm">Folio
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Fecha
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Cantidad
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Codigo de premio
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Descripcion
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Puntos
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-        </tr>
-    </tfoot>
 </table>
