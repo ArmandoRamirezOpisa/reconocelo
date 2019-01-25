@@ -100,6 +100,6 @@ include 'home_monitor_view_footer.php';
 
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>información del monitor programa</h1>";
-        </script>-
+        </script>
 </body>
 </html>
