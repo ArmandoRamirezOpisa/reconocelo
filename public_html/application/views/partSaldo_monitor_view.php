@@ -23,6 +23,8 @@
                     </thead>
                     <tbody>
                     <?php
+                    $totalParticipantes = 0;
+                    $saldoTotal = 0;
                     if($participante){
                         foreach($participante as $row){
                             echo '<tr>
@@ -37,6 +39,8 @@
                                     </button>
                                 </td>
                             </tr>';
+                            $totalParticipantes ++;
+                            $saldoTotal = $saldoTotal + $row["SaldoActual"];
                         }
                     }else{
                         echo '<tr>
@@ -84,6 +88,16 @@
 
             <script>
                 $(document).ready(function() {
-                $('#infoParticipante').DataTable();
-            } );
+
+                    $('#infoParticipante').DataTable();
+
+                    var totalParticipantes = '<?php echo $totalParticipantes; ?>';
+
+                    $('#totalParticipantesNum').html(totalParticipantes);
+
+                    var saldoTotalNumero = '<?php echo $saldoTotal; ?>';
+
+                    $('#saldoTotalNum').html(saldoTotalNumero);
+
+                } );
             </script>
