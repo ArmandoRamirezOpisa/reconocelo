@@ -64,7 +64,7 @@ include 'home_monitor_view_footer.php';
 ?>
 
         <script>
-            document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de los depositos</h1>";
+            document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de los depósitos</h1>";
             depositos();
 
         </script>-

@@ -24,7 +24,7 @@
             public function getDeposito()
             {
     		      $query = $this->db->query("
-                        SELECT m.noFolio, 
+                        SELECT m.noFolio, p.idParticipante,
                         CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', 
                         p.ApellidoMaterno ) AS Nombre, DATE_FORMAT( m.feMov,  '%Y %m %d' ) AS Fecha, 
                         m.dsMov AS Descripcion, 
@@ -47,7 +47,7 @@
             public function getDepositoFechas($infoFechas)
             {
     		      $query = $this->db->query("
-                        SELECT m.noFolio, CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', 
+                        SELECT m.noFolio, p.idParticipante,CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', 
                         p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) AS Nombre, 
                         DATE_FORMAT( m.feMov, '%Y %m %d' ) AS Fecha, m.dsMov AS Descripcion, 
                         m.noPuntos AS Puntos

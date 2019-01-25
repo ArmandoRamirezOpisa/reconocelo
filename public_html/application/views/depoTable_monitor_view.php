@@ -1,7 +1,10 @@
                 <table id="infoDeposito" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th class="th-sm">Codigo deposito
+                            <th class="th-sm">Codigo depósito OPI
+                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                            </th>
+                            <th class="th-sm">Id participante OPI
                                 <i class="fa fa-sort float-right" aria-hidden="true"></i>
                             </th>
                             <th class="th-sm">Nombre
@@ -25,6 +28,7 @@
 
                                 echo '<tr>
                                     <td>'.$row['noFolio'].'</td>
+                                    <td>'.$row['idParticipante'].'</td>
                                     <td>'.$row['Nombre'].'</td>
                                     <td>'.$row['Fecha'].'</td>
                                     <td>'.$row['Descripcion'].'</td>
@@ -40,6 +44,7 @@
                                 <td>--</td>
                                 <td>--</td>
                                 <td>--</td>
+                                <td>--</td>
                             </tr>';
                         }
                             
@@ -47,7 +52,8 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Codigo deposito</th>
+                            <th>Codigo depósito OPI</th>
+                            <th>Id participante OPI</th>
                             <th>Nombre</th>
                             <th>Fecha</th>
                             <th>Descripción</th>
