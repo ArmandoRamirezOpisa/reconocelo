@@ -24,6 +24,9 @@ function MonitorNav(id) {
         case 'canjesPuntos':
             location.href = "https://" + location.hostname + "/monitor/canjes";
             break;
+        case 'depositosPuntosInsertar':
+            location.href = "https://" + location.hostname + "/monitor/insertarDepositos";
+            break;
     }
 
 }

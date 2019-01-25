@@ -31,7 +31,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a id="depositosPuntos" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-piggy-bank mr-2"></i>Ver Depositos</a>
                             <div class="dropdown-divider"></div>
-                            <a id="depositosPuntos" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)" style="display:none;"><i class="fas fa-piggy-bank mr-2"></i>Insertar Depositos</a>
+                            <a id="depositosPuntosInsertar" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-piggy-bank mr-2"></i>Insertar Depositos</a>
                         </div>
                     </li>
                     <li class="nav-item">

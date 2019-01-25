@@ -398,6 +398,10 @@
             }
             $this->load->view('depoTable_monitor_view',$data);
         }
+
+        public function insertarDepositos(){
+            $this->load->view('depositoInsert_monitor_view');
+        }
 ////////////////////////////FinDepositos///////////////////////////////////////
 /////////////////////////InicioCanjes/////////////////////////////////////////
         public function canjes(){
