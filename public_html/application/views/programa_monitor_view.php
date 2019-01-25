@@ -41,19 +41,6 @@ include 'home_monitor_view_header.php';
                             </tr>';
                         }
 
-
-                        /*if ($programa){
-                            echo '<h1>Depositos</h1>';
-                        }else{
-                            echo '<h1>Depositos no no</h1>';
-                        }
-        
-                        if($programaCanje){
-                            echo '<h1>Canjes</h1>';
-                        }else{
-                            echo '<h1>Canjes no no</h1>';
-                        }*/
-
                     ?>
                     </tbody>
                     <tfoot>
@@ -68,9 +55,6 @@ include 'home_monitor_view_header.php';
                 <table id="infoMonitorPrograma" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th class="th-sm">Mes/Año
-                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                                </th>
                                 <th class="th-sm">Canjes
                                     <i class="fa fa-sort float-right" aria-hidden="true"></i>
                                 </th>
@@ -86,7 +70,6 @@ include 'home_monitor_view_header.php';
                                 foreach ($programaCanje as $row){
                                         
                                         echo '<tr>';
-                                            echo '<td>'.$row['Fecha'].'</td>';
                                             echo '<td>'.$row['Canjes'].'</td>';
                                         echo '</tr>';
 
@@ -103,7 +86,6 @@ include 'home_monitor_view_header.php';
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Mes/Año</th>
                                 <th>Canjes</th>
                             </tr>
                         </tfoot>
