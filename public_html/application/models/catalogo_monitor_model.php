@@ -20,5 +20,18 @@
                         return false;
     		      }
             }
+
+            public function getDescripcionIMG($codPremio){
+                  $query = $this->db->query("
+                        SELECT  `Caracts_Esp` 
+                        FROM  `Premio` 
+                        WHERE  `codPremio` =".$codPremio['codPremio']."
+                  ");
+                  if ($query->num_rows() > 0){
+                        return $query->result_array(); 
+    		      }else{
+                        return false;
+    		      }
+            }
       }
 ?>

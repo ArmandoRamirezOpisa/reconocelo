@@ -95,12 +95,9 @@ include 'home_monitor_view_header.php';
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div id="imgCatalogo"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
+
+                <div id="imgCatalogo"></div>
+
             </div>
         </div>
     </div>

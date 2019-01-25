@@ -416,7 +416,20 @@
 
             $codPremio = array("codPremio"=>$_POST['codPremio']);
 
-            $this->load->view('catalogoModal_monitor_view',$codPremio);
+            $this->load->model("catalogo_monitor_model");
+            $descripcionImg = $this->catalogo_monitor_model->getDescripcionIMG($codPremio);
+
+            if($descripcionImg){
+                $data = array('codPremio'=>$codPremio,
+                    'descripcion'=>$descripcionImg
+                );
+            }else{
+                $data = array('codPremio'=>$codPremio,
+                    'descripcion'=>false
+                );
+            }
+
+            $this->load->view('catalogoModal_monitor_view',$data);
         }
 ///////////////////////////FinCatalogo//////////////////////////////////////
         public function programa(){
