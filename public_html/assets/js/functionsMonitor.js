@@ -472,6 +472,33 @@ function fechaInicioFinSelectCanje() {
 }
 /* Fin canjes */
 
+/* Funcion configuracion */
+function config(id) {
+    var id = id.id;
+    if (id == "changeUser") {
+
+        var usuario = $('#userReconoceloMonitor').val();
+        if (usuario == "") {
+            $('#messageUser').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de escribir un nombre, para poder cambiar el nombre.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            throw new Error("Datos de formulario incompleto");
+        }
+
+    } else if (id == "changePassword") {
+
+        var password = $('#password').val();
+        var passwordConfirm = $('#passwordConfirm').val();
+        if (password == "" || passwordConfirm == "") {
+            $('#messagePassword').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de escribir una Contraseña, para poder cambiarla.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            throw new Error("Datos de formulario incompleto");
+        } else if (password != passwordConfirm) {
+            $('#messagePassword').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Las contraseñas, no coinciden.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            throw new Error("Datos de formulario incompleto");
+        }
+
+    }
+}
+/* Fin funcion configuracion */
+
 //Funcion salir de reconocelo monitor
 function exit() {
 
