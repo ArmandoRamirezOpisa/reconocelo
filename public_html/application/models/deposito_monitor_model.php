@@ -66,5 +66,53 @@
                         return false;
     		      }
             }
+
+            public function insertDepositoMasivo(){
+                  $query = $this->db->query("                            
+                        INSERT INTO `opisa_opisa`.`despositos_dev`(`fhDeposito`, `idParticipante`, `standBy`) 
+                        VALUES (NOW(),'".$this->session->userdata('usuario')."',0)
+                  ");
+    	            if ($query)
+    	            {
+                        return $this->db->insert_id();
+    	            }else{
+                        return false;
+    	            }  
+            }
+
+            public function insertDepositoDetalleMasivo($infoDepositosNews,$depositoMasivo){
+                  $valorReturn = 0;
+                  if($infoDepositosNews){
+                        foreach($infoDepositosNews as $row){
+                              foreach($row as $row1){
+                                    $valoresDefinidosDepositos = explode(",",$row1);
+                                    if(! isset($valoresDefinidosDepositos[0]) || ! isset($valoresDefinidosDepositos[1]) || ! isset($valoresDefinidosDepositos[2]) ){
+                                          $valoresDefinidosDepositos[0] = null;
+                                          $valoresDefinidosDepositos[1] = null;
+                                          $valoresDefinidosDepositos[2] = null;
+                                    }else{
+                                          if($valoresDefinidosDepositos[0] == "idParticipanteCliente" || $valoresDefinidosDepositos[1] == "Puntos" || $valoresDefinidosDepositos[2] == "Concepto"){}
+                                          else{
+                                                $query = $this->db->query("
+                                                      INSERT INTO `opisa_opisa`.`depositosDet_dev`(`idDeposito`, 
+                                                      `idParticipanteCliente`, `Puntos`, `Concepto`, 
+                                                      `fechaRegistro`, `status`) 
+                                                      VALUES ('".$depositoMasivo."','".$valoresDefinidosDepositos[0]."',
+                                                      '".$valoresDefinidosDepositos[1]."','".$valoresDefinidosDepositos[2]."',
+                                                      NOW(),0)
+                                                ");
+                                                if ($query)
+    	                                          {
+                                                      $valorReturn = 1;
+    	                                          }else{
+                                                      $valorReturn = 0;
+    	                                          }
+                                          }                                           
+                                    }
+                              }
+                        }
+                  }
+                  return $valorReturn;
+            }
       }
 ?>

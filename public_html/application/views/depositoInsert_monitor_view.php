@@ -82,7 +82,7 @@ include 'home_monitor_view_footer.php';
                             console.log("Expiro");
                         } else {
                             console.log('Correcto');
-                            $("#parsed_csv_list").html(result);
+                            $("#file-CSV").val("");
                         }
                     },
                     error: function(object, error, anotherObject) {

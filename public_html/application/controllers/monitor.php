@@ -35,7 +35,8 @@
                     'administrador' => TRUE,
                     'CodEmpresa' => $InformacionLogin[0]["CodEmpresa"],
                     'CodPrograma' => $InformacionLogin[0]["CodPrograma"],
-                    'empresa' => $InformacionLogin[0]["empresa"]
+                    'empresa' => $InformacionLogin[0]["empresa"],
+                    'usuario' => $InformacionLogin[0]["Usuario"]
                 );
                 $this->session->set_userdata($InformacionLoginUsuario);
                 // var_dump($InformacionLoginUsuario);
@@ -404,8 +405,24 @@
         }
 
         public function uploadDepositosNews(){
-            $infoDepositosNews = array("infoNewsDepositos"=>$_POST['infoNewsDepositos']);
-            $this->load->view('depositoInsertResu_monitor_view',$infoDepositosNews);
+            $this->load->model("deposito_monitor_model");
+
+            //$infoDepositosNews = array("infoNewsDepositos"=>$_POST['infoNewsDepositos']);
+
+            $infoDepositosNews = $_POST['infoNewsDepositos'];
+
+            $depositoMasivo = $this->deposito_monitor_model->insertDepositoMasivo();
+
+            if($depositoMasivo){
+                $depositoDetalleMasivo = $this->deposito_monitor_model->insertDepositoDetalleMasivo($infoDepositosNews,$depositoMasivo);
+                if($depositoDetalleMasivo){
+                    $this->output->set_output(json_encode($depositoDetalleMasivo));
+                }else{
+                    $this->output->set_output(json_encode(false));
+                }
+            }
+
+            //$this->load->view('depositoInsertResu_monitor_view',$infoDepositosNews);
         }
 ////////////////////////////FinDepositos///////////////////////////////////////
 /////////////////////////InicioCanjes/////////////////////////////////////////
