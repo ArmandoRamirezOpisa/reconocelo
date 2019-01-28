@@ -84,7 +84,6 @@ include 'home_monitor_view_footer.php';
                             console.log('Correcto');
                             $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                             console.log("Se cargo exitosamente");
-                            console.log(result);
                             $("#file-CSV").val("");
                         }
                     },

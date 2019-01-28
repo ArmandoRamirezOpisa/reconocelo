@@ -36,7 +36,8 @@
                     'CodEmpresa' => $InformacionLogin[0]["CodEmpresa"],
                     'CodPrograma' => $InformacionLogin[0]["CodPrograma"],
                     'empresa' => $InformacionLogin[0]["empresa"],
-                    'usuario' => $InformacionLogin[0]["Usuario"]
+                    'usuario' => $InformacionLogin[0]["Usuario"],
+                    'email' => $InformacionLogin[0]["email"]
                 );
                 $this->session->set_userdata($InformacionLoginUsuario);
                 // var_dump($InformacionLoginUsuario);
@@ -423,8 +424,96 @@
                 }
             }
 
-            //$this->load->view('depositoInsertResu_monitor_view',$infoDepositosNews);
+            /* Notificacion por correo */
+
+            //Configuracion de SMTP
+            $config['smtp_host'] = 'm176.neubox.net';
+            $config['smtp_user'] = 'envios@opisa.com';
+            $config['smtp_pass'] = '3hf89w';
+            $config['smtp_port'] = 465;
+            $config['mailtype'] = 'html';
+
+             /* Estructura del correo de reconocelo monitor*/
+            $message = '<html>
+                <head>
+                    <title>Reconocelo - Monitor</title>
+                    <style>
+                        body{
+                            background-color: #cccccc;
+                        }
+                        .infoMail{
+                            background-color: #fafafa;
+                            margin: 1rem;
+                            padding: 1rem;
+                            border: 1px solid #ccc;
+                            text-align: center;
+                            margin-top:170px
+                        }
+                        .mainInfo{
+                            background-color: #EBE8E8;
+                            margin-left: 200px;
+                            margin-right: 200px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="infoMail">
+                        <h3>
+                            <strong>
+                                Estimado(a) :
+                            </strong>
+                        </h3>
+                        <p>
+                            Le informamos que los participantes se han subido exitosamente
+                        </p>
+                        <div class="mainInfo">
+                            <p>
+                                <strong>Numero de transaccion generado: </strong>" + carrier + "
+                            </p>
+                            <p>
+                                <strong>Numero de participantes que se han subido: </strong>" + TrackingCode + "
+                            </p>
+                            <p>
+                                <strong>Total de puntos: </strong>" + WebSite + "
+                            </p>
+                            <p>
+                                <strong>Fecha de creación: </strong>" + SendDate + "
+                            </p>
+                        </div>
+                        <p>
+                            Los puntos que se han subido, en este momento se encuentran inactivos
+                        </p>
+                        <p>
+                            Si desea activarlos favor a ir a la misma sección, donde los subio para poder activarlos
+                        </p>
+                        <p>
+                            Muchas gracias por su atención.
+                        </p>
+                        <p>
+                            Saludos cordiales
+                        </p>
+                        <p>
+                            <img src="monitorLog.png" width="150" height="30" alt="">
+                        </p>
+                    </div>
+                </body>
+            </html>';
+            /* Fin de la Estructura del correo de reconocelo monitor */
+            //Inicializa
+            $this->email->initialize($config);
+            //Envío de alerta.
+            $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
+            $this->email->to($this->session->userdata('email'));
+            //$this->email->cc($this->session->userdata('email'));
+
+            $this->email->subject('Nuevos depositos');
+            $this->email->message($message);
+
+            $this->email->send();
+
+            /* Fin notificacion por correo */
         }
+
 ////////////////////////////FinDepositos///////////////////////////////////////
 /////////////////////////InicioCanjes/////////////////////////////////////////
         public function canjes(){
