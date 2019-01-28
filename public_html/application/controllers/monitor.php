@@ -603,5 +603,10 @@
 
             $this->load->view('programa_monitor_view',$data);
         }
+///////////////////////Configuracion usuario reconocelo monitor///////////////
+        public function configuracion(){
+            $this->load->view('configuracionUser_monitor_view');
+        }
+///////////////////////Fin Configuracion usuario reconocelo monitor///////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
     }

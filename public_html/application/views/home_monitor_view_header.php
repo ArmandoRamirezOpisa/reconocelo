@@ -63,6 +63,8 @@
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a id="configuracionUsuarioMonitor" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-cog"></i>Configuracion</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="javascript:void(0)" onClick = "exit()"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar session</a>
                         </div>
                     </div>

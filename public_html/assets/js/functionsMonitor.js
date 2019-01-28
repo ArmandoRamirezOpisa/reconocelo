@@ -27,6 +27,9 @@ function MonitorNav(id) {
         case 'depositosPuntosInsertar':
             location.href = "https://" + location.hostname + "/monitor/insertarDepositos";
             break;
+        case 'configuracionUsuarioMonitor':
+            location.href = "https://" + location.hostname + "/monitor/configuracion";
+            break;
     }
 
 }
