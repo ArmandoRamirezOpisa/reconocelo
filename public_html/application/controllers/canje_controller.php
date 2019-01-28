@@ -468,6 +468,7 @@
                             </body>
                         </html>';
             /* Fin de la Estructura del correo de reconocelo */
+
                        
             //Inicializa
             $this->email->initialize($config);
