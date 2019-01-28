@@ -103,9 +103,9 @@
                                                 ");
                                                 if ($query)
     	                                          {
-                                                      $valorReturn = 1;
+                                                      $valorReturn = $this->db->insert_id();
     	                                          }else{
-                                                      $valorReturn = 0;
+                                                      $valorReturn = false;
     	                                          }
                                           }                                           
                                     }

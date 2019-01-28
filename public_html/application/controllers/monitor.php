@@ -419,6 +419,7 @@
                     $this->output->set_output(json_encode($depositoDetalleMasivo));
                 }else{
                     $this->output->set_output(json_encode(false));
+                    
                 }
             }
 
