@@ -27,5 +27,31 @@
 			}
         }
 
+        public function checkMailExits($email){
+            $query = $this->db->query("
+                SELECT Usuario, CodEmpresa
+                FROM administrador
+                WHERE email =  '".$email['email']."'
+            ");
+    		if ($query->num_rows() > 0){
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
+
+        public function cambiarPasswordNew($passwordConfig){
+            $query = $this->db->query("
+                UPDATE `administrador` SET `Pwd`=".$passwordConfig['password']." 
+                WHERE `CodEmpresa` = ".$passwordConfig['codEmpresa']."
+                AND `Usuario` = '".$passwordConfig['usuario']."'
+            ");
+			if ($query){
+			        return true;
+			}else{
+				return false;
+			}
+        }
+
     }
 ?>

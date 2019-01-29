@@ -566,6 +566,98 @@ function config(id) {
 }
 /* Fin funcion configuracion */
 
+/* Funcion recuperar password */
+function sendRecuperaPassword() {
+    var email = $('#mailRecuperar').val();
+    if (email == "") {
+        $('#MessageRecupera').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> debes de escribir un correo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        throw new Error("Datos de formulario incompleto");
+    } else {
+        $.ajax({
+            url: '/monitor/sendMailRecupera',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "email": email },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result == "0") {
+                    console.log("Expiro");
+                    $('#MessageRecupera').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal al mandar el correo, verifica si lo escribiste correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                } else {
+                    console.log('Correcto');
+                    console.log(result);
+                    $('#MessageRecupera').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se mando a tu correo, para que puedas recuperar tu cuenta.En caso de no aparecer, favor de revisar la carpeta de spam.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+    }
+}
+
+function configNew(id) {
+    var userConfig = id.id;
+    var userConfigToal = userConfig.split("-");
+    var usuario = userConfigToal[0];
+    var codEmpresa = userConfigToal[1];
+    console.log(usuario);
+    console.log(codEmpresa);
+    var password = $('#passwordNew').val();
+    var passwordConfirm = $('#passwordConfirmNew').val();
+    if (password == "" || passwordConfirm == "") {
+        $('#MessageRecuperar').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Campos vacios, debes escribir.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        throw new Error("Datos de formulario incompleto");
+    } else {
+        if (password != passwordConfirm) {
+            $('#MessageRecuperar').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No coinciden.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            throw new Error("Datos de formulario incompleto");
+        } else {
+            $.ajax({
+                url: '/monitor/cambiarUserPasswordNew',
+                async: 'true',
+                cache: false,
+                contentType: "application/x-www-form-urlencoded",
+                global: true,
+                ifModified: false,
+                processData: true,
+                data: { "password": password, "usuario": usuario, "codEmpresa": codEmpresa },
+                beforeSend: function() {
+                    console.log('Procesando, espere por favor...');
+                },
+                success: function(result) {
+
+                    if (result == "0") {
+                        console.log("Expiro");
+                        $('#MessageRecuperar').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    } else {
+                        console.log('Correcto');
+                        console.log(result);
+                        $('#MessageRecuperar').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    }
+
+                },
+                error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                },
+                timeout: 30000,
+                type: "POST"
+            });
+        }
+    }
+}
+/* Fin funcion recuperar password */
+
 //Funcion salir de reconocelo monitor
 function exit() {
 

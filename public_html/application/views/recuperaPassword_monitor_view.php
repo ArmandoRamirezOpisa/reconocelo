@@ -31,13 +31,14 @@
         </div>
 
         <div class="container">
+            <div id="MessageRecupera"></div>
             <h2>Escribe tu correo electronico</h1>
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Correo electronico</label>
                     <input type="email" class="form-control" id="mailRecuperar" aria-describedby="emailHelp">
                 </div>
-                <button type="button" class="btn btn-primary"><i class="fas fa-envelope"></i> Recuperar</button>
+                <button type="button" class="btn btn-primary" onClick = "sendRecuperaPassword()"><i class="fas fa-envelope"></i> Recuperar</button>
             </form>
         </div>
 
