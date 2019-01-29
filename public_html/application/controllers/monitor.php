@@ -862,6 +862,28 @@
         public function configuracion(){
             $this->load->view('configuracionUser_monitor_view');
         }
+
+        public function cambiarUserName(){
+            $this->load->model("configuracion_monitor_model");
+            $usuario = array("usuario"=>$_POST['usuario']);
+            $usuarioCambiado = $this->configuracion_monitor_model->cambiarNombre($usuario);
+            if($usuarioCambiado){
+                $this->output->set_output(json_encode($usuarioCambiado));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
+
+        public function cambiarUserPassword(){
+            $this->load->model("configuracion_monitor_model");
+            $password = array("password"=>$_POST['password']);
+            $passwordCambiado = $this->configuracion_monitor_model->cambiarPassword($password);
+            if($passwordCambiado){
+                $this->output->set_output(json_encode($passwordCambiado));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
 ///////////////////////Fin Configuracion usuario reconocelo monitor///////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
     }

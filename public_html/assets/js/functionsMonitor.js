@@ -483,6 +483,36 @@ function config(id) {
             throw new Error("Datos de formulario incompleto");
         } else {
             console.log("Cambiar nombre de usuario");
+            $.ajax({
+                url: '/monitor/cambiarUserName',
+                async: 'true',
+                cache: false,
+                contentType: "application/x-www-form-urlencoded",
+                global: true,
+                ifModified: false,
+                processData: true,
+                data: { "usuario": usuario },
+                beforeSend: function() {
+                    console.log('Procesando, espere por favor...');
+                },
+                success: function(result) {
+
+                    if (result == "0") {
+                        console.log("Expiro");
+                        $('#messageUser').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio el nombre correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    } else {
+                        console.log('Correcto');
+                        console.log(result);
+                        $('#messageUser').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio el nombre correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    }
+
+                },
+                error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                },
+                timeout: 30000,
+                type: "POST"
+            });
         }
 
     } else if (id == "changePassword") {
@@ -490,13 +520,43 @@ function config(id) {
         var password = $('#password').val();
         var passwordConfirm = $('#passwordConfirm').val();
         if (password == "" || passwordConfirm == "") {
-            $('#messagePassword').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de escribir una Contraseña, para poder cambiarla.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            $('#messagePassword').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de escribir una contraseña, para poder cambiarla.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             throw new Error("Datos de formulario incompleto");
         } else if (password != passwordConfirm) {
             $('#messagePassword').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Las contraseñas, no coinciden.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             throw new Error("Datos de formulario incompleto");
         } else if (password == passwordConfirm) {
             console.log("cambiar contrasenas");
+            $.ajax({
+                url: '/monitor/cambiarUserPassword',
+                async: 'true',
+                cache: false,
+                contentType: "application/x-www-form-urlencoded",
+                global: true,
+                ifModified: false,
+                processData: true,
+                data: { "password": password },
+                beforeSend: function() {
+                    console.log('Procesando, espere por favor...');
+                },
+                success: function(result) {
+
+                    if (result == "0") {
+                        console.log("Expiro");
+                        $('#messagePassword').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    } else {
+                        console.log('Correcto');
+                        console.log(result);
+                        $('#messagePassword').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    }
+
+                },
+                error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                },
+                timeout: 30000,
+                type: "POST"
+            });
         }
 
     }
