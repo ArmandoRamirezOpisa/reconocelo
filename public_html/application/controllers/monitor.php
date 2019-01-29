@@ -409,8 +409,6 @@
         public function uploadDepositosNews(){
             $this->load->model("deposito_monitor_model");
 
-            //$infoDepositosNews = array("infoNewsDepositos"=>$_POST['infoNewsDepositos']);
-
             $infoDepositosNews = $_POST['infoNewsDepositos'];
 
             $depositoMasivo = $this->deposito_monitor_model->insertDepositoMasivo();
@@ -425,6 +423,12 @@
                 }
             }
 
+            //Total de puntos
+            $totalPuntos = $this->deposito_monitor_model->totalPuntos($depositoMasivo);
+
+            //TotalParticipantes
+            $totalParticipantesSubidos = $this->deposito_monitor_model->totalParticipantesSubidos($depositoMasivo);
+
             /* Notificacion por correo */
 
             //Configuracion de SMTP
@@ -435,68 +439,305 @@
             $config['mailtype'] = 'html';
 
              /* Estructura del correo de reconocelo monitor*/
-            $message = '<html>
+            $message = '<!DOCTYPE html>
+            <html xmlns="http://www.w3.org/1999/xhtml">
                 <head>
-                    <title>Reconocelo - Monitor</title>
-                    <style>
-                        body{
-                            background-color: #cccccc;
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                    <title>Reconocelo Monitor mail</title>
+                    <style type="text/css">
+                        body {
+                            padding-top: 0 !important;
+                            padding-bottom: 0 !important;
+                            padding-top: 0 !important;
+                            padding-bottom: 0 !important;
+                            margin: 0 !important;
+                            width: 100% !important;
+                            -webkit-text-size-adjust: 100% !important;
+                            -ms-text-size-adjust: 100% !important;
+                            -webkit-font-smoothing: antialiased !important;
                         }
-                        .infoMail{
-                            background-color: #fafafa;
-                            margin: 1rem;
-                            padding: 1rem;
-                            border: 1px solid #ccc;
+                        .tableContent img {
+                            border: 0 !important;
+                            display: inline-block !important;
+                            outline: none !important;
+                        }
+                        a {
+                            color: #382F2E;
+                        }
+                        p,
+                        h1,
+                        h2,
+                        ul,
+                        ol,
+                        li,
+                        div {
+                            margin: 0;
+                            padding: 0;
+                        }
+                        h1,
+                        h2 {
+                            font-weight: normal;
+                            background: transparent !important;
+                            border: none !important;
+                        }
+                        .contentEditable h2.big {
+                            font-size: 30px !important;
+                        }
+                        .contentEditable h2.bigger {
+                            font-size: 37px !important;
+                        }
+                        td,
+                        table {
+                            vertical-align: top;
+                        }
+                        td.middle {
+                            vertical-align: middle;
+                        }
+                        a.link1 {
+                            font-size: 13px;
+                            color: #B791BF;
+                            text-decoration: none;
+                        }
+                        .link2 {
+                            font-size: 13px;
+                            color: #ffffff;
+                            text-decoration: none;
+                            line-height: 19px;
+                            font-family: Helvetica;
+                        }
+                        .link3 {
+                            color: #FBEFFE;
+                            text-decoration: none;
+                        }
+                        .contentEditable li {
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            list-style: none;
+                            color: #ffffff;
                             text-align: center;
-                            margin-top:170px
+                            font-size: 13px;
+                            line-height: 19px;
                         }
-                        .mainInfo{
-                            background-color: #EBE8E8;
-                            margin-left: 200px;
-                            margin-right: 200px;
+                        .appart p {
+                            font-size: 13px;
+                            line-height: 19px;
+                            color: #aaaaaa !important;
+                        }
+                        .bgBody {
+                            background: #ffffff;
+                        }
+                        .bgItem {
+                            background: #ffffff;
                         }
                     </style>
-                </head>
-                <body>
-                    <div class="infoMail">
-                        <h3>
-                            <strong>
-                                Estimado(a) :
-                            </strong>
-                        </h3>
-                        <p>
-                            Le informamos que los participantes se han subido exitosamente
-                        </p>
-                        <div class="mainInfo">
-                            <p>
-                                <strong>Numero de transaccion generado: </strong>" + carrier + "
-                            </p>
-                            <p>
-                                <strong>Numero de participantes que se han subido: </strong>" + TrackingCode + "
-                            </p>
-                            <p>
-                                <strong>Total de puntos: </strong>" + WebSite + "
-                            </p>
-                            <p>
-                                <strong>Fecha de creación: </strong>" + SendDate + "
-                            </p>
-                        </div>
-                        <p>
-                            Los puntos que se han subido, en este momento se encuentran inactivos
-                        </p>
-                        <p>
-                            Si desea activarlos favor a ir a la misma sección, donde los subio para poder activarlos
-                        </p>
-                        <p>
-                            Muchas gracias por su atención.
-                        </p>
-                        <p>
-                            Saludos cordiales
-                        </p>
-                        <p>
-                            <img src="monitorLog.png" width="150" height="30" alt="">
-                        </p>
-                    </div>
+                    <script type="colorScheme" class="swatch active">
+                        { "name":"Default", "bgBody":"ffffff", "link":"B791BF", "color":"ffffff", "bgItem":"CFB4D5", "title":"ffffff" }
+                    </script>
+                    </head>
+                    <body paddingwidth="0" paddingheight="0" class="bgBody" style="padding-top: 0; padding-bottom: 0; padding-top: 0; padding-bottom: 0; background-repeat: repeat; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased;"
+                    offset="0" toppadding="0" leftpadding="0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableContent bgBody" align="center" style="font-family:Georgia, serif;">
+                            <tr>
+                                <td width="660" align="center">
+                                    <table width="660" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem">
+                                        <tr>
+                                            <td align="center" width="660" class="movableContentContainer">
+                                                <div class="movableContent">
+                                                    <table width="660" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                        <tr>
+                                                            <td align="center">
+                                                                <div class="contentEditableContainer contentImageEditable">
+                                                                    <div class="contentEditable">
+                                                                        <img src="https://www.reconocelo.com.mx/assets/images/monitorLog.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="movableContent">
+                                                    <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                        <tr>
+                                                            <td height="30" colspan="3"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="middle" width="100">
+                                                                <div style="border-top:0px solid #ffffff"></div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="contentEditableContainer contentTextEditable">
+                                                                    <div class="contentEditable" style="color:#000000;text-align:center;font-family:Baskerville;">
+                                                                        <h2 class="bigger">Se han subido exitosamente los depositos con numero de transaccion: '.$depositoMasivo.'</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="middle" width="100">
+                                                                <div style="border-top:0px solid #ffffff"></div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="movableContent">
+                                                    <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                        <tr>
+                                                            <td colspan="5">
+                                                                <div style="border-top:0px solid #ffffff;"></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5" height="35"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5">
+                                                                <div class="contentEditableContainer contentTextEditable">
+                                                                    <div class="contentEditable" style="color:#000000;text-align:center;font-family:Helvetica;font-weight:normal;font-style:italic;">
+                                                                        <h2 class="big">Descripcion</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5" height="15"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="40"></td>
+                                                            <td width="230" align="center">
+                                                                <div class="contentEditableContainer contentTextEditable">
+                                                                    <div class="contentEditable">
+                                                                        <ul>
+                                                                            <h2 style="font-size:18px;line-height:50px;">Total de puntos:</h2>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td width="60"></td>
+                                                            <td width="230" align="center">
+                                                                <div class="contentEditableContainer contentTextEditable">
+                                                                    <div class="contentEditable">
+                                                                        <ul>
+                                                                            <h2 style="font-size:18px;line-height:50px;">'.$totalPuntos[0]['Puntos'].'</h2>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td width="60"></td>
+                                                        </tr>
+                                                    <tr>
+                                                        <td width="40"></td>
+                                                        <td width="230" align="center">
+                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                <div class="contentEditable">
+                                                                    <ul>
+                                                                        <h2 style="font-size:18px;line-height:50px;">Numero de participantes:</h2>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td width="60"></td>
+                                                        <td width="230" align="center">
+                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                <div class="contentEditable">
+                                                                    <ul>
+                                                                        <h2 style="font-size:18px;line-height:50px;">'.$totalParticipantesSubidos[0]['TotalSubido'].'</h2>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td width="60"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td colspan="2" height="50"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <div style="border-top:0px solid #ffffff;"></div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td class="middle" width="100">
+                                                            <div style="border-top:0px solid #ffffff"></div>
+                                                        </td>
+                                                        <td class="middle" width="100">
+                                                            <div style="border-top:0px solid #ffffff"></div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td class="middle" width="100">
+                                                            <div style="border-top:0px solid #ffffff"></div>
+                                                        </td>
+                                                        <td class="middle" width="100">
+                                                            <div style="border-top:0px solid #ffffff"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="50" colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="20" colspan="3"></td>
+                                                    </tr>
+                                                    <tr>    
+                                                        <td width="80"></td>
+                                                        <td align="justify">
+                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                <div class="contentEditable" style="color:#000000;font-size:13px;line-height:19px;">
+                                                                    <p>
+                                                                        Los depositos que has subido, se encuentran inactivos, en la misma seccion,
+                                                                        donde se subieron,aparecera una parte para poder activarlos, en el momento 
+                                                                        que ustdes desee.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td width="80"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td height="75"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div style="border-top:0px solid #ffffff;"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="25"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                <div class="contentEditable" style="color:#000000;text-align:center;font-size:13px;line-height:19px;">
+                                                                <p>Enviado por el equipo de Operaciones Reconocelo</p>
+                                                                <p>soporte@Reconocelo.com.mx</p>
+                                                            </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="20"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </body>
             </html>';
             /* Fin de la Estructura del correo de reconocelo monitor */
@@ -513,6 +754,20 @@
             $this->email->send();
 
             /* Fin notificacion por correo */
+        }
+
+        public function depositosSubidos(){
+
+            $idDepositoParticipante = "";
+            $this->load->model("deposito_monitor_model");
+            $depositover = $this->deposito_monitor_model->verDepositosUsuario();
+            if ($depositover){
+                $data["depositover"] = $depositover;
+            }else{
+                $data["depositover"] = false;
+            }
+            $this->load->view('depositoUpload_monitor_view',$data);
+        
         }
 
 ////////////////////////////FinDepositos///////////////////////////////////////

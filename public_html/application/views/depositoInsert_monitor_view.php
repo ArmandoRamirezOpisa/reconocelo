@@ -34,6 +34,11 @@ include 'home_monitor_view_footer.php';
         <script>
             //titulo
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Insertar depósitos</h1>";
+
+            $(document).ready(function () {
+                activarDepositosSubidos();
+            });
+
             //boton para leer un archivo csv
             $('#subirArchivoDepositos').on("click",function(e){
 				e.preventDefault();
@@ -82,9 +87,10 @@ include 'home_monitor_view_footer.php';
 						    console.log("ERROR:", err, file);
                         } else {
                             console.log('Correcto');
-                            $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                            $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente, se ha enviado una notificación al tu corrreo electrónico.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                             console.log("Se cargo exitosamente");
                             $("#file-CSV").val("");
+                            activarDepositosSubidos();
                         }
                     },
                     error: function(object, error, anotherObject) {
@@ -93,26 +99,33 @@ include 'home_monitor_view_footer.php';
                     timeout: 30000,
                     type: "POST"
                 });
-
-
-                /*var table = "<table class='table'>";
-				
-				
-				for(i=0;i<data.length;i++){
-					table+= "<tr>";
-					var row = data[i];
-					var cells = row.join(",").split(",");
-					for(j=0;j<cells.length;j++){
-						table+= "<td>";
-						table+= cells[j];
-						table+= "</th>";
-					}
-					table+= "</tr>";
-				}
-				table+= "</table>";
-                $("#parsed_csv_list").html(table);*/
                 
-			}
+            }
+
+            function activarDepositosSubidos(){
+                $.ajax({
+                    url: '/monitor/depositosSubidos',
+                    async: 'true',
+                    cache: false,
+                    contentType: "application/x-www-form-urlencoded",
+                    dataType: "html",
+                    error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                    },
+                    global: true,
+                    ifModified: false,
+                    processData: true,
+                    success: function(result) {
+                        if (result == "0") {
+                            console.log("Expiro");
+                        } else {
+                            $('#parsed_csv_list').html(result);
+                        }
+                    },
+                    timeout: 30000,
+                    type: "GET"
+                });
+            }
         </script>
 </body>
 </html>

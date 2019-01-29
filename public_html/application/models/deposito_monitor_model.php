@@ -67,10 +67,10 @@
     		      }
             }
 
-            public function insertDepositoMasivo(){
+            public function insertDepositoMasivo($usuario){
                   $query = $this->db->query("                            
                         INSERT INTO `opisa_opisa`.`despositos_dev`(`fhDeposito`, `idParticipante`, `standBy`) 
-                        VALUES (NOW(),'".$this->session->userdata('usuario')."',0)
+                        VALUES (NOW(),'".$this->session->userdata('CodEmpresa')."',0)
                   ");
     	            if ($query)
     	            {
@@ -114,5 +114,49 @@
                   }
                   return $valorReturn;
             }
+
+            public function totalPuntos($depositoMasivo){
+                  $query = $this->db->query("
+                        SELECT SUM( Puntos ) AS Puntos
+                        FROM depositosDet_dev
+                        WHERE idDeposito ='".$depositoMasivo."'
+                  ");
+    		      if ($query->num_rows() > 0)
+    		      {
+                        return $query->result_array(); 
+    		      }else{
+                        return false;
+    		      }
+            }
+
+            public function totalParticipantesSubidos($depositoMasivo){
+                  $query = $this->db->query("
+                        SELECT COUNT( * ) AS TotalSubido
+                        FROM depositosDet_dev
+                        WHERE idDeposito ='".$depositoMasivo."'
+                  ");
+    		      if ($query->num_rows() > 0)
+    		      {
+                        return $query->result_array(); 
+    		      }else{
+                        return false;
+    		      }
+            }
+
+            public function verDepositosUsuario(){
+                  $query = $this->db->query("
+                        SELECT idDeposito
+                        FROM  `despositos_dev` 
+                        WHERE idParticipante ='".$this->session->userdata('CodEmpresa')."'
+                        AND standBy = 0
+                  ");
+    		      if ($query->num_rows() > 0)
+    		      {
+                        return $query->result_array(); 
+    		      }else{
+                        return false;
+    		      }     
+            }
+
       }
 ?>
