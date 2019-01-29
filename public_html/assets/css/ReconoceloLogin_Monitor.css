@@ -53,15 +53,6 @@ input[type=password] {
     text-transform: uppercase;
 }
 
-
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-
-
-/* 
-    Created on : Octuvre 16, 2018, 04:09:00 PM
-    Author     : armando.ramirez
-*/
+#olvidoPassword:hover {
+    color: #cccccc;
+}
