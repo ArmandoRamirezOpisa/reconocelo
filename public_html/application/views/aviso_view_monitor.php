@@ -6,27 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Monitor Reconocelo</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="../assets/css/ReconoceloLogin_Monitor.css" rel="stylesheet">
-         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="shortcut icon" href="assets/images/monitorLogLink.png" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
+        <link href="../assets/css/2018ReconoceloMonitor.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="../assets/js/papaparse.min.js"></script>
 
     </head>
     <body ng-controller="validarLogin">
     
-        <div class="container-fluid">
-
-            <div  class="row mb-4 sizetopbottom">
-                <div class="col" style="background: #034889;color: white;">
-
-                    <a class="navbar-brand" href="#">
-                        <img src="../assets/images/monitorLog.png" width="150" height="30" alt="" class="img-thumbnail">
-                    </a>
-
-                </div> 
-            </div>
-            
-        </div>
+        <nav class="navbar navbar-expand-lg">
+            <a id="inicioMonitor" class="navbar-brand" href="https://www.reconocelo.com.mx/monitor/">
+                <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
+            </a>
+        </nav>
         
         <div class="container">
                 

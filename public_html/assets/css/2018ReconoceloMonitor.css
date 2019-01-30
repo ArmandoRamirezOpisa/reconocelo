@@ -24,3 +24,20 @@ a:hover {
     float: left;
     width: 49%;
 }
+
+.input-group-text {
+    background: #034889;
+    color: white;
+}
+
+#entrarMonitorLogin {
+    background: #034889;
+    border-color: #034889;
+    color: #f2f2f2;
+}
+
+#entrarMonitorLogin:hover {
+    background: #8EB4E0;
+    border-color: #8EB4E0;
+    color: #034889;
+}

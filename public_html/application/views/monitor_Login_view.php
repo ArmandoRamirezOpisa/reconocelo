@@ -6,21 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Monitor Reconocelo</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="../assets/css/ReconoceloLogin_Monitor.css" rel="stylesheet">
-         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-         <link rel="shortcut icon" href="assets/images/monitorLogLink.png" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
+        <link href="../assets/css/2018ReconoceloMonitor.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="../assets/js/papaparse.min.js"></script>
     </head>
     <body ng-controller="validarLogin">
-        <div class="container-fluid">
+
+        <nav class="navbar navbar-expand-lg">
+            <a id="inicioMonitor" class="navbar-brand" href="https://www.reconocelo.com.mx/monitor/">
+                <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
+            </a>
+        </nav>
+        <!--<div class="container-fluid">
             <div  class="row mb-4 sizetopbottom">
                 <div class="col" style="background: #034889;color: white;"></div> 
             </div>
-        </div>
+        </div>-->
+
         <div class="container">  
             <div class="row justify-content-center mb-4 mt-3">
                 <div class="col-12 col-md-6 mt-4 ">
-                    <div class="card-deck mt-3">
+                    <div class="card border-light mt-3">
                         <div class="card bg-ligh">
                             <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
                             <div class="card-body">
@@ -45,7 +55,7 @@
                                     <div class="row justify-content-end">
                                         <div class="col-12 col-md-12">
                                             <div class="form-group mb-0">
-                                                <button type="submit" class="btn btn-primary    btn-block  font-weight-bold"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>
+                                                <button id="entrarMonitorLogin" type="submit" class="btn btn-primary btn-block  font-weight-bold"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +81,7 @@
 
             <div  class="row fixed-bottom mt-4 sizetopbottom">
                 <div class="col bg-ligh">
-                    <p class="text-center"><a href="<?php echo site_url('monitor/AvisoPrivacidad') ?>" target="_blank">Aviso de privacidad</a> </p> 
+                    <p class="text-center bg-ligh"><a href="<?php echo site_url('monitor/AvisoPrivacidad') ?>" target="_blank" style="color:#000000;">Aviso de privacidad</a> </p> 
                 </div>                
             </div>
         <script src="../assets/js/angular.min.js" type="text/javascript"></script>
