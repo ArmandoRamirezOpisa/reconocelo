@@ -5,21 +5,6 @@ include 'home_monitor_view_header.php';
 ?>
 
         <div class="container">
-            <!--<form>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Nombre usuario</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Contraseña*</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Confirmar contraseña*</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar cambios</button>
-            </form>-->
             <div class="row">
                 <div class="col-4">
                     <div class="list-group" id="list-tab" role="tablist">
