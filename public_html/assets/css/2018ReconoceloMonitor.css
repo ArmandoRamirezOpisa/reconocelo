@@ -41,3 +41,11 @@ a:hover {
     border-color: #8EB4E0;
     color: #034889;
 }
+
+.selectElementMonitor {
+    color: #000000;
+}
+
+.selectElementMonitor:hover {
+    color: #034889;
+}

@@ -74,14 +74,14 @@
             <div class="container">
                 <div  class="row mt-4 sizetopbottom">
                     <div class="col bg-ligh">
-                        <p class="text-center"><a id="olvidoPassword" href="javascript:void(0)" onClick = "MonitorNav(this)" class="text-center"><span style="color:#000000">Olvidaste tu contraseña</span></a></p> 
+                        <p class="text-center"><a id="olvidoPassword" href="javascript:void(0)" onClick = "MonitorNav(this)" class="text-center selectElementMonitor"><span class="selectElementMonitor">Olvidaste tu contraseña</span></a></p> 
                     </div>                
                 </div>
             </div>
 
             <div  class="row fixed-bottom mt-4 sizetopbottom">
                 <div class="col bg-ligh">
-                    <p class="text-center bg-ligh"><a href="<?php echo site_url('monitor/AvisoPrivacidad') ?>" target="_blank" style="color:#000000;">Aviso de privacidad</a> </p> 
+                    <p class="text-center bg-ligh"><a href="<?php echo site_url('monitor/AvisoPrivacidad') ?>" class="selectElementMonitor" target="_blank">Aviso de privacidad</a> </p> 
                 </div>                
             </div>
         <script src="../assets/js/angular.min.js" type="text/javascript"></script>
