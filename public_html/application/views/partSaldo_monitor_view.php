@@ -1,4 +1,4 @@
-                <table id="infoParticipante" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="margin-bottom: 50px;">
+                <table id="infoParticipante" class="table table-bordered table-sm table-hover" cellspacing="0" width="100%" style="margin-bottom: 50px;">
                     <thead>
                         <tr>
                             <th class="th-sm">Codigo participante OPI
@@ -31,7 +31,7 @@
                     if($participante){
                         foreach($participante as $row){
                             echo '<tr>
-                                <td>'.$row["codParticipante"].'</td>
+                                <td scope="row">'.$row["codParticipante"].'</td>
                                 <td>'.$row["idParticipante"].'</td>
                                 <td>'.$row["PrimerNombre"].'</td>
                                 <td>'.$row["Telefono"].'</td>
@@ -101,7 +101,7 @@
 
                     $('#totalParticipantesNum').html(totalParticipantes);
 
-                    var saldoTotalNumero = '<?php echo $saldoTotal; ?>';
+                    var saldoTotalNumero = '<?php echo number_format($saldoTotal); ?>';
 
                     $('#saldoTotalNum').html(saldoTotalNumero);
 

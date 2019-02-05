@@ -56,7 +56,7 @@
                     ?>
 
                     <div class="btn-group">
-                        <button class="btn btn-secondary btn-lg" type="button">
+                        <button class="btn btn-secondary btn-lg" type="button" style="margin-left: 10px;">
                             <i class="fas fa-user-alt mr-2"></i><?php echo $this->session->userdata('empresa'); ?>
                         </button>
                         <button type="button" id="dropdownMenuButton" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
