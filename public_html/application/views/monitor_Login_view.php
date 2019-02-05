@@ -40,13 +40,13 @@
                                         <div class="col-12">
                                             <div class="input-group  mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="" >Usuario</span>
+                                                    <span class="input-group-text" id="" ><i class="fas fa-user"></i> <span style="margin-left: 10px;">Usuario</span></span>
                                                 </div>
                                                 <input type="text" class="form-control" type="number" ng-model="usuario" id="user" oninput="this.value = this.value.toUpperCase()">
                                             </div>
                                             <div class="input-group  mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" >Contraseña</span>
+                                                    <span class="input-group-text" ><i class="fas fa-key"></i> <span style="margin-left: 10px;">Contraseña</span></span>
                                                 </div>
                                                 <input type="password" class="form-control" ng-model="password" id="password">
                                             </div>
