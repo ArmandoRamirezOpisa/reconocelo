@@ -1,4 +1,4 @@
-                <table id="infoDeposito" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <table id="infoDeposito" class="table table-bordered table-sm table-hover" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th class="th-sm">Codigo depósito OPI
@@ -23,17 +23,20 @@
                     </thead>
                     <tbody>
                     <?php
+                        $totalPuntos = 0;
                         if ($deposito){
                             foreach($deposito as $row){
 
                                 echo '<tr>
-                                    <td>'.$row['noFolio'].'</td>
+                                    <td scope="row">'.$row['noFolio'].'</td>
                                     <td>'.$row['idParticipante'].'</td>
                                     <td>'.$row['Nombre'].'</td>
                                     <td>'.$row['Fecha'].'</td>
                                     <td>'.$row['Descripcion'].'</td>
                                     <td>'.number_format($row['Puntos']).'</td>
                                 </tr>';
+
+                                $totalPuntos = $totalPuntos + $row['Puntos'];
 
                             }
 
@@ -66,4 +69,9 @@
                     $(document).ready(function() {
                         $('#infoDeposito').DataTable();
                     } );
+
+                    var puntosTotalNumero = '<?php echo number_format($totalPuntos); ?>';
+
+                    $('#totalNumPuntos').html(puntosTotalNumero);
+
                 </script>

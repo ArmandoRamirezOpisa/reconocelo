@@ -342,14 +342,17 @@ function fechaInicioFinSelect() {
     var fechaInicio = document.getElementById("fechaInicio").value;
     var fechaFin = document.getElementById("fechaFin").value;
 
-    if (fechaInicio == 'selecciona' || fechaFin == 'selecciona') {
-        throw new Error("Datos de formulario incompleto");
+    if (fechaInicio == 'selecciona' && fechaFin == 'selecciona') {
+        $('#alertFiltroDeposito').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Atención!</strong> Debes tener seleccionar una fecha.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        throw new Error("Seleccionaste selecciona");
     } else if (fechaInicio != 'selecciona' || fechaFin != 'selecciona') {
 
         if (fechaInicio == fechaFin) {
-            throw new Error("Datos de formulario incompleto");
+            $('#alertFiltroDeposito').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Atención!</strong> Las fechas que seleccionaste son iguales, selecciona diferentes.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            throw new Error("Fechas iguales");
         } else if (fechaInicio >= fechaFin) {
-            throw new Error("Datos de formulario incompleto");
+            $('#alertFiltroDeposito').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Atención!</strong> La primer fecha que seleccionastes es mayor.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            throw new Error("La fecha de inicio es mayor");
         } else if (fechaInicio <= fechaFin) {
 
             console.log('fechaInicio ' + fechaInicio);
@@ -369,8 +372,7 @@ function fechaInicioFinSelect() {
                 success: function(result) {
 
                     if (result == "0") {
-                        console.log("Expiro");
-                        window.location.reload();
+                        $('#alertFiltroDeposito').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Atención!</strong> No se encontraron datos con las fechas seleccionadas.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
                         console.log('Correcto');
                         console.log(result);
@@ -379,6 +381,7 @@ function fechaInicioFinSelect() {
 
                 },
                 error: function(object, error, anotherObject) {
+                    $('#alertFiltroDeposito').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Atención!</strong> Ocurrio un error intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
                 },
                 timeout: 30000,
