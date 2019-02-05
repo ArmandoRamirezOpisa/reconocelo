@@ -770,6 +770,45 @@
         
         }
 
+        public function uploadPuntosDeposito(){
+
+            $numTransaccion = array("numTransaccion"=>$_POST['numTransaccion']);
+            $this->load->model("deposito_monitor_model");
+            $depositoverUpload = $this->deposito_monitor_model->UploadDepositosPuntos($numTransaccion);
+            $saldoTotalParticipante = 0;
+            if($depositoverUpload){
+
+                foreach($depositoverUpload as $row){
+
+                    $saldoParticipantes = $this->deposito_monitor_model->UpdatePuntosParticipante($row['idParticipanteCliente'],$row['Puntos']);
+                    if($saldoParticipantes){
+                        
+                        $updateDepositosDet = $this->deposito_monitor_model->UpdateDepositosDet($numTransaccion,$row['idParticipanteCliente']);
+                        if($updateDepositosDet){
+
+                            $insertPartMovsRealiza = $this->deposito_monitor_model->insertPartMovsRealiza($row['idParticipanteCliente'],$row['Concepto'],$row['Puntos']);
+                            if($insertPartMovsRealiza){
+                                $saldoTotalParticipante = $saldoTotalParticipante + 1;
+                                $UpdateDeposito = $this->deposito_monitor_model->UpdateDeposito($numTransaccion);
+                            }
+
+                        }
+                    }
+                }
+
+                if($saldoTotalParticipante > 0){
+
+                    $this->output->set_output(json_encode($saldoTotalParticipante));
+
+                }else{
+                    $this->output->set_output(json_encode(false));    
+                }
+
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
+
 ////////////////////////////FinDepositos///////////////////////////////////////
 /////////////////////////InicioCanjes/////////////////////////////////////////
         public function canjes(){

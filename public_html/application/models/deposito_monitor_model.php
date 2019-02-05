@@ -155,8 +155,71 @@
                         return $query->result_array(); 
     		      }else{
                         return false;
-    		      }  
+    		      }
             }
 
+            public function UploadDepositosPuntos($numTransaccion){
+                  $query = $this->db->query("
+                        SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS 
+                        FROM depositosDet_dev
+                        WHERE idDeposito =".$numTransaccion['numTransaccion']."
+                  ");
+    		      if ($query->num_rows() > 0)
+    		      {
+                        return $query->result_array(); 
+    		      }else{
+                        return false;
+    		      }
+            }
+
+            public function UpdatePuntosParticipante($idParticipanteCliente,$Puntos){
+                  $query = $this->db->query("
+                        UPDATE `ZParticipante-desarrollo`
+                        SET SaldoActual = SaldoActual + ".$Puntos."
+                        WHERE idParticipante =".$idParticipanteCliente
+                        );
+			if ($query){
+			        return true;
+			}else{
+				return false;
+			}
+            }
+
+            public function UpdateDepositosDet($numTransaccion,$idParticipanteCliente){
+                  $query = $this->db->query("
+                        UPDATE `depositosDet_dev` SET `status`= 1 
+                        WHERE `idDeposito` = ".$numTransaccion['numTransaccion']." 
+                        and `idParticipanteCliente` = ".$idParticipanteCliente
+                        );
+			if ($query){
+			        return true;
+			}else{
+				return false;
+			}
+            }
+
+            public function insertPartMovsRealiza($idParticipanteCliente,$Concepto,$Puntos){
+                  $query = $this->db->query("
+                        INSERT INTO `opisa_opisa`.`ZPartMovsRealizados`(`idParticipante`, `feMov`, `dsMov`, 
+                        `noPuntos`) VALUES (".$idParticipanteCliente.",NOW(),'".$Concepto."',".$Puntos.")
+                  ");
+                  if ($query){
+                        $valorReturn = $this->db->insert_id();
+    	            }else{
+                        $valorReturn = false;
+    	            }
+            }
+
+            public function UpdateDeposito($numTransaccion){
+                  $query = $this->db->query("
+                        UPDATE `despositos_dev` SET `standBy`=1 
+                        WHERE `idDeposito`=".$numTransaccion['numTransaccion']
+                  );
+			if ($query){
+			      return true;
+			}else{
+				return false;
+			}
+            }
       }
 ?>

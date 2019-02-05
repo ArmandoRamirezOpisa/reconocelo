@@ -12,7 +12,7 @@
         ?>
     </select>
   </div>
-  <button type="button" id="ActivarDepositos" class="btn btn-primary"><i class="fas fa-check"></i> Activar</button>
+  <button type="button" id="ActivarDepositos" class="btn btn-primary" onclick="uploadPuntosDepo()"><i class="fas fa-check"></i> Activar puntos</button>
 </form>
 <?php
     }
