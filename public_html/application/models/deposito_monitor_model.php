@@ -214,7 +214,7 @@
                   $query = $this->db->query("
                         UPDATE `despositos_dev` SET `standBy`=1 
                         WHERE `idDeposito`=".$numTransaccion['numTransaccion']
-                  );
+                  );//Este no quiere actualizar
 			if ($query){
 			      return true;
 			}else{
