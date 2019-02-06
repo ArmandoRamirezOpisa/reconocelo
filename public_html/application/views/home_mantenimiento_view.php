@@ -12,7 +12,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="MessageError" class="container" style="display:none;"></div>
+        <div id="MessageError" class="container mt-5" style="display:none;"></div>
         <div class="container">          
             <div class="row justify-content-center mb-4 mt-3">
                 <div class="col-12 col-md-6 mt-4 ">
@@ -29,7 +29,7 @@
                                         <label for="password"><strong>Contraseña</strong></label>
                                         <input type="password" class="form-control" id="password" placeholder="Ejem: *****">
                                     </div>
-                                    <button id="btnEntrarMantenimiento" type="button" class="btn btn-primary" onclick="loginMantenimiento()"><i class="fas fa-sign-in-alt mr-2"></i> Entrar</button>
+                                    <button id="btnEntrarMantenimiento" type="button" class="btn btn-primary btn-lg btn-block" onclick="loginMantenimiento()"><i class="fas fa-sign-in-alt mr-2"></i> Entrar</button>
                                 </form>
                             </div>
                         </div>
