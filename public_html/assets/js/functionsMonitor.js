@@ -480,8 +480,6 @@ function fechaInicioFinSelectCanje() {
             throw new Error("Fecha de inicio menor");
         } else if (fechaInicio <= fechaFin) {
 
-            console.log('fechaInicio ' + fechaInicio);
-            console.log('fechaFin ' + fechaFin);
             $.ajax({
                 url: '/monitor/canjesInforma',
                 async: 'true',
