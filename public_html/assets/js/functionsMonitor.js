@@ -397,35 +397,38 @@ function fechaInicioFinSelect() {
 function uploadPuntosDepo() {
     var numTransaccion = $('#numTransaccion').val()
 
-    $.ajax({
-        url: '/monitor/uploadPuntosDeposito',
-        async: 'true',
-        cache: false,
-        contentType: "application/x-www-form-urlencoded",
-        global: true,
-        ifModified: false,
-        processData: true,
-        data: { "numTransaccion": numTransaccion },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
-        success: function(result) {
+    if (numTransaccion != "Selecciona") {
+        $.ajax({
+            url: '/monitor/uploadPuntosDeposito',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "numTransaccion": numTransaccion },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
 
-            if (result == "0") {
-                $('#MessageInsertarDepositos').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se activaron todos los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            } else {
-                console.log(result);
-                $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se activaron los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                if (result == "0") {
+                    $('#MessageInsertarDepositos').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se activaron todos los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                } else {
+                    console.log(result);
+                    $('#parsed_csv_list').hide();
+                    $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se activaron los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 
-            }
+                }
 
-        },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
-        timeout: 30000,
-        type: "POST"
-    });
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+    }
 
 }
 /* fin depositos*/

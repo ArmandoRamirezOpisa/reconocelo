@@ -158,7 +158,7 @@
     		      }
             }
 
-            public function UploadDepositosPuntos($numTransaccion){
+            public function getDepositosDet($numTransaccion){
                   $query = $this->db->query("
                         SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS 
                         FROM depositosDet_dev
@@ -172,7 +172,7 @@
     		      }
             }
 
-            public function UpdatePuntosParticipante($idParticipanteCliente,$Puntos){
+            public function UpdateSaldoParticipante($idParticipanteCliente,$Puntos){
                   $query = $this->db->query("
                         UPDATE `ZParticipante-desarrollo`
                         SET SaldoActual = SaldoActual + ".$Puntos."
@@ -187,7 +187,8 @@
 
             public function UpdateDepositosDet($numTransaccion,$idParticipanteCliente){
                   $query = $this->db->query("
-                        UPDATE `depositosDet_dev` SET `status`= 1 
+                        UPDATE `depositosDet_dev` 
+                        SET `status`= 1 
                         WHERE `idDeposito` = ".$numTransaccion['numTransaccion']." 
                         and `idParticipanteCliente` = ".$idParticipanteCliente
                         );
@@ -210,11 +211,12 @@
     	            }
             }
 
-            public function UpdateDeposito($numTransaccion){
+            public function UpdateMasterDeposito($numTransaccion){
                   $query = $this->db->query("
-                        UPDATE `despositos_dev` SET `standBy`=1 
-                        WHERE `idDeposito`=".$numTransaccion['numTransaccion']
-                  );//Este no quiere actualizar
+                        UPDATE  `opisa_opisa`.`despositos_dev` 
+                        SET  `standBy` =  '1' 
+                        WHERE  `despositos_dev`.`idDeposito` = ".$numTransaccion['numTransaccion'].";
+                  ");//Este no quiere actualizar
 			if ($query){
 			      return true;
 			}else{

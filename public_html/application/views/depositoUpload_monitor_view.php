@@ -5,6 +5,7 @@
   <div class="form-group">
     <label for="exampleInputEmail1">Numero de transaccion</label>
     <select class="form-control" id="numTransaccion">
+        <option value="Selecciona">Selecciona:</option>
         <?php
                 foreach($depositover as $row){
                     echo '<option value='.$row['idDeposito'].'>'.$row['idDeposito'].'</option>';
