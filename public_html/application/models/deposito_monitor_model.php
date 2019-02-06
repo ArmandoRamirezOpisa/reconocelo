@@ -174,7 +174,7 @@
 
             public function UpdateSaldoParticipante($idParticipanteCliente,$Puntos){
                   $query = $this->db->query("
-                        UPDATE `ZParticipante-desarrollo`
+                        UPDATE `Participante`
                         SET SaldoActual = SaldoActual + ".$Puntos."
                         WHERE idParticipante =".$idParticipanteCliente
                         );
@@ -201,7 +201,7 @@
 
             public function insertPartMovsRealiza($idParticipanteCliente,$Concepto,$Puntos){
                   $query = $this->db->query("
-                        INSERT INTO `opisa_opisa`.`ZPartMovsRealizados`(`idParticipante`, `feMov`, `dsMov`, 
+                        INSERT INTO `opisa_opisa`.`PartMovsRealizados`(`idParticipante`, `feMov`, `dsMov`, 
                         `noPuntos`) VALUES (".$idParticipanteCliente.",NOW(),'".$Concepto."',".$Puntos.")
                   ");
                   if ($query){
