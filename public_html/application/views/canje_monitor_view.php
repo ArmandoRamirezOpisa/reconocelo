@@ -3,6 +3,8 @@
 <?php
 include 'home_monitor_view_header.php';
 ?>
+        <div id="messageCanjeAlert" class="container"></div>
+
         <div class="container">
             <div class="row">
                 <div class="col">

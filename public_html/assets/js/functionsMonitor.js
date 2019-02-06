@@ -467,14 +467,17 @@ function fechaInicioFinSelectCanje() {
     var fechaInicio = document.getElementById("fechaInicio").value;
     var fechaFin = document.getElementById("fechaFin").value;
 
-    if (fechaInicio == 'selecciona' || fechaFin == 'selecciona') {
-        throw new Error("Datos de formulario incompleto");
+    if (fechaInicio == 'selecciona' && fechaFin == 'selecciona') {
+        $('#messageCanjeAlert').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de seleccionar alguna fecha.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        throw new Error("Seleccionaste Selecciona");
     } else if (fechaInicio != 'selecciona' || fechaFin != 'selecciona') {
 
         if (fechaInicio == fechaFin) {
-            throw new Error("Datos de formulario incompleto");
+            $('#messageCanjeAlert').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Seleccionaste fechas iguales.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            throw new Error("Fechas iguales");
         } else if (fechaInicio >= fechaFin) {
-            throw new Error("Datos de formulario incompleto");
+            $('#messageCanjeAlert').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> La fecha de inicio, tiene que ser menor.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            throw new Error("Fecha de inicio menor");
         } else if (fechaInicio <= fechaFin) {
 
             console.log('fechaInicio ' + fechaInicio);
@@ -495,7 +498,7 @@ function fechaInicioFinSelectCanje() {
 
                     if (result == "0") {
                         console.log("Expiro");
-                        window.location.reload();
+                        $('#messageCanjeAlert').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
                         console.log('Correcto');
                         console.log(result);
