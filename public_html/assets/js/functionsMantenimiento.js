@@ -209,7 +209,9 @@ function saveParticipante() {
 
 function subirVariosParticipantes() {
 
-    var fileParticipante = $('#archivoParticipantes').val();
+    alert("Entytro");
+
+    /*var fileParticipante = $('#archivoParticipantes').val();
 
     if (fileParticipante) {
 
@@ -231,7 +233,7 @@ function subirVariosParticipantes() {
 
         $('#alertMessage').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se selecciono ningun archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         $('#alertMessage').show();
-    }
+    }*/
 
 }
 /* Fin funcion participantes */

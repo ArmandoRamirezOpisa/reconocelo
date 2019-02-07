@@ -11,7 +11,7 @@
     </head>
     <body>
 
-        <nav id="menu-mantenimiento" class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav id="menu-mantenimiento" class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
 
             <!-- Image and text -->
             <nav class="navbar navbar-light bg-light">

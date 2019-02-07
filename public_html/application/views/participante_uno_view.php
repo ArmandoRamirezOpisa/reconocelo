@@ -1,6 +1,6 @@
                 <div class="row">
                     <div class="col-sm">
-                        <h1>Guardar participantes</h1>
+                        <h1 class="text-center">Registra un participante</h1>
                     </div>
                     <div class="col-sm"></div>
                 </div>
