@@ -60,6 +60,20 @@
             }
         }
 
+        public function sendAnswerTicketAdmin($ticketAnswerAdmin){
+            $query = $this->db->query("                           
+                INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
+                VALUES (".$ticketAnswerAdmin['ticketId'].",'".$ticketAnswerAdmin['respuestaTicket']."',
+                now(),'Administrador');
+            ");
+    	    if ($query)
+    	    {
+                return $this->db->insert_id();
+    	    }else{
+                return false;
+            }
+        }
+
         public function closeTicket($ticketDataClose){
             $query = $this->db->query("                           
                 UPDATE `AtencionTicket` SET `status`=0 WHERE `IdTicket` = ".$ticketDataClose['ticketId'].";

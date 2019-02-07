@@ -86,7 +86,7 @@
                 "ticketId"=>$_POST['ticketId'],
                 "respuestaTicket"=>$_POST['respuestaTicket']
             );
-            $ticketHistoryData = $this->Ticket_model->sendAnswerTicket($ticketAnswer);
+            $ticketHistoryData = $this->Ticket_model->sendAnswerTicketAdmin($ticketAnswer);
 
             if ($ticketHistoryData){
                 $this->output->set_output(json_encode('ok'));

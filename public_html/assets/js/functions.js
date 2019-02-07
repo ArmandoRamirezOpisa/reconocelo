@@ -371,7 +371,7 @@ function sendTicket(id) {
     } else {
 
         $.ajax({
-            url: '/home/sendTicketAnswer',
+            url: '/ticketsAdmin/sendTicketAnswer',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",

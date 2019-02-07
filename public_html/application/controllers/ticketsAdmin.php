@@ -40,6 +40,23 @@
 
             $this->load->view('ticketsList_view',$data);
         }
+
+        public function sendTicketAnswer(){
+
+            $this->load->model("ticket_model");
+            $ticketAnswerAdmin = array(
+                "ticketId"=>$_POST['ticketId'],
+                "respuestaTicket"=>$_POST['respuestaTicket']
+            );
+            $ticketHistoryData = $this->ticket_model->sendAnswerTicketAdmin($ticketAnswerAdmin);
+
+            if ($ticketHistoryData){
+                $this->output->set_output(json_encode($ticketHistoryData));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
+
     }
 
 ?>
