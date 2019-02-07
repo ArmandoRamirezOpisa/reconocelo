@@ -32,7 +32,7 @@
     		$this->load->view('ayuda_View',$data);
     	}
         
-        public function crearComentario(){
+        /*public function crearComentario(){
 
             $this->load->model("Ayuda_model");
             $this->load->library('email');
@@ -51,10 +51,10 @@
                 $this->output->set_output(json_encode(false));
             }
         
-        }
+        }*/
         
-        /* Funcion crearComentario prueba */
-        public function crearComentarioPrueba(){
+        /* Funcion crearTicketReconocelo */
+        public function crearTicketReconocelo(){
             
             $this->load->model("Ayuda_model");
             $this->load->library('email');
@@ -65,10 +65,10 @@
                 "tipo"=>$_POST['tipo']
              );
 
-             $duda = $this->Ayuda_model->addDudaPrueba($data);
+            $duda = $this->Ayuda_model->addDudaTicket($data);
             if ($duda){
-                //$this->sendEmailTicket($data);
                 $ticketAtencion = $this->Ayuda_model->AtencionTicket();
+                $this->sendEmailTicket($data);
                 if ($ticketAtencion){
                     $dudaDetalle = $this->Ayuda_model->detalleTicket($duda,$data);
                     if ($dudaDetalle){
@@ -89,8 +89,8 @@
         function sendEmailTicket($data){
             //Configuracion de SMTP
             $config['smtp_host'] = 'm176.neubox.net';
-            $config['smtp_user'] = 'envios@opisa.com';
-            $config['smtp_pass'] = '3hf89w';
+            $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
+            $config['smtp_pass'] = '3hf89w';//3hf89w
             $config['smtp_port'] = 465;
             $config['mailtype'] = 'html';
             
@@ -126,9 +126,9 @@
             $this->email->initialize($config);
             //Envío de alerta de canje.
             $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
-            $this->email->to('operaciones@opisa.com');
+            $this->email->to('operaciones@opisa.com');//operaciones@opisa.com
             $this->email->cc($this->session->userdata('email'));
-             // $this->email->cc('mauro.morales.limon1@gmail.com');
+            //$this->email->cc('armando.ramirez@opisa.com');
             $this->email->subject('Nuevo Ticket Generado Reconócelo');
             $this->email->message($message);
             $this->email->send();

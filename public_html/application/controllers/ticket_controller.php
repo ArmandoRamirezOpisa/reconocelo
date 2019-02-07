@@ -4,12 +4,12 @@
     
     	public function index(){
             $this->load->model("Ticket_model");
-            $tickets = $this->Ticket_model->Get_Tickets();
+            $ticketHistory = $this->Ticket_model->Get_TicketsReconocelo();
             
-            if ($tickets){
-                $data["tickets"] = $tickets;
+            if ($ticketHistory){
+                $data["ticketHistory"] = $ticketHistory;
             }else{
-                $data["tickets"] = false;
+                $data["ticketHistory"] = false;
             }
             $this->load->view('ticket_view',$data);
         }

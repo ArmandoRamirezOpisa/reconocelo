@@ -182,75 +182,52 @@ function enviarPregunta(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
     }
 }
 
-/* Funcion de prueba */
+/* Funcion para guardar tickets */
 /* */
 function enviar_pregunta() {
 
     if ($('#mensaje').val().trim() == "") {
-
         $.notify("Debe de agregar una descripcion para poder enviar su duda", "error");
-
     } else {
-
         var pregunta = $('select[name=preguntas]').val();
         var orden = $('select[name=orden]').val();
         var mensaje = $('#mensaje').val();
         var articulo = $('select[name=articulo]').val();
         var temaOrden = $('#mensajeOtro').val();
-
         if (pregunta == "Articulo de mi orden") {
-
             if (orden == "Selecciona" || articulo == "Selecciona") {
-
                 $.notify("Debe de seleccionar una orden o artículo", "error");
-
             } else {
-
                 var fields = articulo.split('-');
                 var idCanjeArticulo = fields[0];
                 var NombreCanjeArticulo = fields[1];
                 enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, 1);
-
             }
-
         } else if (pregunta == "Sobre mi orden") {
-
             if (orden == "Selecciona" || temaOrden == "") {
-
                 $.notify("Debe de seleccionar una orden o escribir el tema", "error");
-
             } else {
-
                 enviarPregunta1(orden, temaOrden, mensaje, 2);
-
             }
-
         } else if (pregunta == "otro") {
-
             if (temaOrden == "") {
-
                 $.notify("Debe de escribir el tema", "error");
-
             } else {
-
                 console.log('orden vacio');
                 console.log(temaOrden);
                 console.log(mensaje);
                 orden = 0;
                 enviarPregunta1(orden, temaOrden, mensaje, 3);
-
             }
         }
-
     }
-
 }
 /* */
 function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 
     $.ajax({
         type: 'POST',
-        url: "/ayuda_Controller/crearComentarioPrueba",
+        url: "/ayuda_Controller/crearTicketReconocelo",
         dataType: "json",
         data: { "idcanje": idCanjeArticulo, "nombre": NombreCanjeArticulo, "mensaje": mensaje, "tipo": tipo },
         beforeSend: function() {
@@ -276,7 +253,7 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 }
 /* Fin funcion de prueba */
 
-/* Funcion aparecer opciones select prueba */
+/* Funcion aparecer opciones select*/
 function selectOptionTicket(id) {
     var idSelectPregunta = id.id;
     var x = document.getElementById(idSelectPregunta).value;
@@ -292,11 +269,15 @@ function selectOptionTicket(id) {
         document.getElementById("articulo").style = "display:none";
         document.getElementById("temaOtro").style = "display:block";
         document.getElementById("exampleFormControlSelect3").disabled = true;
+    } else if (x == "Selecciona") {
+        document.getElementById("orden").style = "display:none";
+        document.getElementById("articulo").style = "display:none";
+        document.getElementById("temaOtro").style = "display:none";
     }
 }
-/* Fin funcion aparecer opciones select prueba */
+/* Fin funcion aparecer opciones select*/
 
-/* Funcion prueba del historial del ticket */
+/* Funcion del historial del ticket */
 function historiaTicket(id) {
     var id = id.id;
     var tickeyArray = id.split("-");

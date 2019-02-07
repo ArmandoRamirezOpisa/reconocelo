@@ -6,66 +6,86 @@
 </div>
 
 <div class="row justify-content-center mt-4">
-    
-    <div class="col-8">  
-
-
-<?php 
-if (count($tickets)>0  && $tickets !=null) {
-  foreach ($tickets as $key => $value) {
-  
-    if ($value['idCanje']=='0') {
-      $value['idCanje']='## ';  
-    }
-    
-    if ($value['status'] =='0') {
-   // echo "<h3>Ticket : ".$value['IdTicket']." de Canje : ".$value['idCanje']."<span class=\"badge badge-danger\">Tema Abierto</span>"."</h3>";    
-    
-     echo "<div class=\"card bg-light mb-3\">
-  <h5 class=\"card-header\"><i class=\"far fa-comment-alt mr-2\"></i><span class=\"font-weight-bold mr-4\">Ticket: ".$value['IdTicket']."<i class=\"fas fa-trophy ml-3 mr-2\"></i> Canje : ".$value['idCanje']."</span><small class=\"text-muted\"> Fecha de creacion : ".$value['FechaCreacion']."</small> <span class=\"badge badge-danger  ml-4\"><i class=\"fas fa-unlock-alt mr-2\"></i> Abierto</span></h5> 
-  <div class=\"card-body\">
- <h5 class=\"card-title text-center font-weight-bold\">Categoria de ticket: ".$value['TipoPregunta']."</h5>
- <p class=\"card-text font-weight-bold\"><i class=\"fas fa-exclamation-triangle mr-3\"></i>Descripcion del problema : </p><p>".$value['mensaje'] ."</p>
-
-  </div>
-</div>";
-    
-    
-    
-    }else{
- echo "<div class=\"card   bg-light mb-3\">
-  <h5 class=\"card-header\"><i class=\"far fa-comment-alt mr-2\"></i><span class = \"font-weight-bold mr-4\">Ticket: ".$value['IdTicket']."<i class=\"fas fa-trophy ml-3 mr-2\"></i> Canje : ".$value['idCanje']."</span><small class\"text-muted\"> Fecha de creacion : ".$value['FechaCreacion'] ."</small><span class=\"badge badge-success  ml-4\"><i class=\"fas fa-lock mr-2\"></i> Cerrado</span></h5> 
-  
-<div class=\"card-body\">
-     <h5 class=\"card-title text-center font-weight-bold\">Categoria de ticket: ".$value['TipoPregunta']."</h5>
-   <p class=\"card-text font-weight-bold\"><i class=\"fas fa-exclamation-triangle mr-3\"></i>Descripcion del problema : </p><p>".$value['mensaje'] ."</p>
-    <p class=\"card-text text-right font-weight-bold\"><i class=\"far fa-star mr-3\"></i>Solucion : ".$value['solucion'] ."</p>
-    
-  </div>
-  <div class=\"card-footer text-muted\">
-   Fecha de Solucion :".$value['FechaFinalizacion']."
-  </div>
-</div>";   
-
-// echo "<h3>Ticket : ".$value['IdTicket']." de Canje : ".$value['idCanje']."<span class=\"badge badge-success\">Tema Cerrado</span>"."</h3>";  
-   // echo "<p class=\"lead\">Descripcion : ".$value['mensaje']."</p>"; 
-   // echo "<p class=\"lead\"><b>Solucion : </b>".$value['solucion']."</p>";  
-    }
-   
-  
-   
-}  
-}else{
-    echo "<h1 class=\"text-center\">NO EXISTEN TICKETS</h1>";
-    
-}
-
-
-
-//print_r($tickets);
+    <div class="col-8">
+        <?php
+            if ($ticketHistory){
+                foreach ($ticketHistory as $row){
+                    echo '
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>';
+                            if ($row['idCanje'] == 0){
+                                echo '<strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: Otro</strong>';
+                            }else{
+                                echo '<strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>';
+                            }
+                            echo '<strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
+                             if ( $row['status'] == 1){
+                                 echo '<strong class="badge badge-success"><i class="fas fa-unlock"></i> Abierto</strong>';
+                             }else {
+                                 echo '<strong class="badge badge-danger"><i class="fas fa-lock"></i> Cerrado</strong>';
+                             }                          
+                        echo '</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Descripción del ticket:</h5>
+                            <p class="card-text">';
+                            if ($row['Subject'] != ""){
+                                echo ''.$row['Subject'].'';
+                            }else{
+                                echo 'Otro';
+                            }
+                            echo '</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <strong>
+                                <i class="fas fa-calendar"></i>';
+                                if ( $row['status'] == 1){
+                                    echo 'Fecha de solución: ';
+                                }else{
+                                    echo 'Fecha de solución: '.$row['FechaCreacion'];
+                                }
+                            echo '</strong>';
+                            if ( $row['status'] == 1){
+                            echo '<div class="float-right">
+                                <button id="'.$row['IdTicket'].'-'.$row['status'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket '.$row['IdTicket'].'</button>
+                            </div>';
+                            }else{
+                                echo '<div class="float-right">
+                                <button id="'.$row['IdTicket'].'-'.$row['status'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)" disabled><i class="fas fa-history"></i>  Historial del ticket '.$row['IdTicket'].'</button>
+                            </div>';
+                            }
+                        echo '</div>
+                    </div>
+                    </br>
+                    ';
+                }  
+            }else{
+                echo "<h1 class=\"text-center\">NO EXISTEN TICKETS</h1>";
+            }
 ?>
-</div>  
+    </div>  
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Historial del ticket</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="historialTicket"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
     </div>
+</div>
+
 <script>
 up();
 </script>

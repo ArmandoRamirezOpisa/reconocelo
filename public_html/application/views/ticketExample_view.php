@@ -45,7 +45,7 @@
 
 <div class="row justify-content-center mt-4">
     
-    <div class="col-8">  
+    <div class="col-8">
 
         <?php
             if ($ticketHistory){

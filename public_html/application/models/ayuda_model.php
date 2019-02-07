@@ -29,16 +29,15 @@
     	    }  
         }
 
-        /* Funcion addDuda prueba */
-        public function addDudaPrueba($data){
+        /* Funcion addDudaTicket */
+        public function addDudaTicket($data){
 
     	    $query = $this->db->query("
-                INSERT INTO `opisa_opisa`.`AtencionTicket`(`idCanje`, `idParticipante`, `status`, `FechaCreacion`, 
+                INSERT INTO `opisa_opisa`.`AtencionTicket`(`idCanje`, `idParticipante`, `status`, `FechaCreacion`,
                 `Subject`) VALUES (".$data['idcanje'].",".$this->session->userdata('idPart').",
                 1,NOW(),'".$data['nombre']."');
             ");
-    	    if ($query)
-    	    {
+    	    if ($query){
                 return $this->db->insert_id();
     	    }else{
                 return false;

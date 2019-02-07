@@ -19,8 +19,8 @@
             }
         }
 
-        /* funcion para la base de datos del historial ejemplo */
-        public function Get_TicketsExample() {
+        /* funcion para la base de datos del historial */
+        public function Get_TicketsReconocelo() {
             $query = $this->db->query("                  
                 SELECT IdTicket,idCanje,idParticipante,status,FechaCreacion,Subject
                 FROM AtencionTicket 
