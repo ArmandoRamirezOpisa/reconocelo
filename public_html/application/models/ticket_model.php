@@ -61,10 +61,16 @@
         }
 
         public function sendAnswerTicketAdmin($ticketAnswerAdmin){
+            $loginWeb = $this->session->userdata('idPart');
+            if($loginWeb){
+                $loginWeb;
+            }else{
+                $loginWeb = "Administrador";
+            }
             $query = $this->db->query("                           
                 INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
                 VALUES (".$ticketAnswerAdmin['ticketId'].",'".$ticketAnswerAdmin['respuestaTicket']."',
-                now(),'Administrador');
+                now(),'".$loginWeb."');
             ");
     	    if ($query)
     	    {
