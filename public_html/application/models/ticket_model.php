@@ -73,6 +73,26 @@
         /* fin funcion para la base de datos del historia ejemplo */
 
         /* Funcion para la lista de los tickets administrador */
+        public function loginUserTicket($loginTicketAdmin){
+            $usuario =$loginTicketAdmin['usuario'];
+            $password = $loginTicketAdmin['password'];
+            $query = $this->db->query("
+                SELECT * 
+                FROM  `administrador` 
+                WHERE Usuario =  '".$usuario."'
+                AND Pwd =".$password."
+            ");
+            if ($query->num_rows() == 1){
+
+                return $query->result_array(); 
+
+            }else{
+
+                return false;
+
+            }
+        }
+
         public function ticketsAdmin(){
 
             $query = $this->db->query("                              

@@ -62,7 +62,7 @@
                                             echo '<strong class="space-ticket"><i class="fas fa-exchange-alt"></i> Canje: '.$row['idCanje'].'</strong>';
                                         }
                                         echo '<strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
-                                        if ($row['STATUS'] == 0){
+                                        if ($row['STATUS'] == 1){
                                             echo '<div class="space-ticket"><strong class="badge badge-success"><i class="fas fa-unlock"></i> Abierto</strong></div>';
                                             echo '<button type="button" class="btn btn-link space-ticket" id="'.$row['IdTicket'].'" data-toggle="modal" data-target="#modalCloseTicket" onclick="confirmCloseTicket(this)">Cerrar ticket</button>';
                                         }else{

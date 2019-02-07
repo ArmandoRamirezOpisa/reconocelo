@@ -627,3 +627,52 @@ function validateEmailLogIn(correo) {
     var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return pattern.test(correo);
 }
+
+/* Ticket administrador */
+function loginTicketAdmin() {
+
+    $('#MessageError').hide();
+    var usuario = $('#user').val();
+    var password = $('#password').val();
+
+    if (usuario == "" || password == "") {
+        $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Hay campos vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $('#MessageError').show();
+        throw new Error("Datos de formulario incompleto");
+    } else {
+
+        $.ajax({
+            url: '/ticketsAdmin/login',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "usuario": usuario, "password": password },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result) {
+                    location.href = "https://" + location.hostname + "/ticketsAdmin/home";
+                } else {
+                    $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessageError').show();
+                    $('#user').val("");
+                    $('#password').val("");
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+
+    }
+}
+
+/* Fin ticket administrador */
