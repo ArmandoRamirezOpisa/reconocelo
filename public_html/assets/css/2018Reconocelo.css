@@ -121,3 +121,11 @@ body {
 .space-ticket {
     padding-right: 30px;
 }
+
+.CerrarTicketAdmin {
+    color: #034889;
+}
+
+.CerrarTicketAdmin:hover {
+    color: #007bff;
+}

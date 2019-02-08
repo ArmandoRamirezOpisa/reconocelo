@@ -87,7 +87,7 @@
                                         echo '<strong class="space-ticket"><i class="fas fa-calendar"></i> Fecha de Creacion: '.$row['FechaCreacion'].'</strong>';
                                         if ($row['STATUS'] == 1){
                                             echo '<div class="space-ticket"><strong class="badge badge-success"><i class="fas fa-unlock"></i> Abierto</strong></div>';
-                                            echo '<button type="button" class="btn btn-link space-ticket" id="'.$row['IdTicket'].'" data-toggle="modal" data-target="#modalCloseTicket" onclick="confirmCloseTicket(this)">Cerrar ticket</button>';
+                                            echo '<button type="button" class="btn btn-link CerrarTicketAdmin space-ticket" id="'.$row['IdTicket'].'" data-toggle="modal" data-target="#modalCloseTicket" onclick="confirmCloseTicket(this)">Cerrar ticket</button>';
                                         }else{
                                             echo '<strong class="badge badge-danger"><i class="fas fa-lock"></i> Cerrado</strong>';
                                         }
@@ -162,8 +162,8 @@
 <div class="modal fade bd-example-modal-lg" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Historial del ticket</h5>
+            <div class="modal-header text-center">
+                <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Historial del ticket</strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
