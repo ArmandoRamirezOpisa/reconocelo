@@ -11,8 +11,8 @@ echo '<div id="ticketAnswer" style="display:none;"></div>';
         foreach ($ticketHistory as $row){
 
             echo '<div class="card">
-                <div class="card-header">
-                    Ticket: '.$row['IdTicket'].'
+                <div class="card-header text-center">
+                    <strong>Ticket: '.$row['IdTicket'].'</strong>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Fecha de creacion: '.$row['fecha'].'</h5>
