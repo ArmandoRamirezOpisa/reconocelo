@@ -366,7 +366,7 @@ function sendTicket(id) {
 
         $('#mensaje').html('<div class = "alert alert-warning alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> Debes escribir algo en la caja de texto.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
         $('#mensaje').show();
-        throw new Error("Datos de formulario incompleto");
+        throw new Error("Respuesta Tickets vacio");
 
     } else {
 

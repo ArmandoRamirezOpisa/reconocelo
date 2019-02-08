@@ -128,6 +128,32 @@
                 return false;
             }
         }
+
+        public function participanteTicket($ticketId){
+            $query = $this->db->query("                              
+                SELECT idParticipante,FechaCreacion,Subject
+                FROM  `AtencionTicket` 
+                WHERE IdTicket =".$ticketId."
+            ");
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            } else {
+                return false;
+            }
+        }
+
+        public function datosParticipante($ParticipanteId){
+            $query = $this->db->query("                              
+                SELECT PrimerNombre, eMail
+                FROM  `Participante` 
+                WHERE idParticipante =".$ParticipanteId."
+            ");
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            } else {
+                return false;
+            }
+        }
         /* Fin funcion para la lista de los tickets administrador */
     
     }
