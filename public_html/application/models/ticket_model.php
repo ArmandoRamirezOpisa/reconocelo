@@ -100,7 +100,8 @@
                 SELECT * 
                 FROM  `administrador` 
                 WHERE Usuario =  '".$usuario."'
-                AND Pwd =".$password."
+                AND Pwd ='".$password."'
+                AND typeTicket = 1
             ");
             if ($query->num_rows() > 0){
 

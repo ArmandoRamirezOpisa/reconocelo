@@ -15,7 +15,7 @@
             $this->load->model("ticket_model");
             $loginTicketAdmin = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
             $userTicketExist = $this->ticket_model->loginUserTicket($loginTicketAdmin);
-            if ($userTicketExist[0]['Usuario'] == 'AdminTickets'){
+            if ($userTicketExist){
                 $userTicketExist = array(
                     'administrador' => TRUE,
                     'CodEmpresa' => $userTicketExist[0]["CodEmpresa"],
