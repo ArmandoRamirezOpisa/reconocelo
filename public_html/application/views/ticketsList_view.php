@@ -10,17 +10,40 @@
         <link href="../../assets/css/2018Reconocelo.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <script src="https://use.fontawesome.com/1f2183b84e.js"></script>
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--     WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link rel="shortcut icon" href="../../assets/images/reconocelo.ico" type="image/x-icon" />
     </head>
     <body ng-controller="Reconocelo" data-ng-init="init()">
+
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="../../assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Reconocelo Tickets
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://reconocelo.com.mx/ticketsAdmin/home">Tickets <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="btn-group dropleft">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?php echo $this->session->userdata('Usuario') ?>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalTicket">Cerrar sesion</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </nav>
+
+
         <div class="row justify-content-center mt-4 mb-4">
             <div class="col-12 col-md-4 mt-4">
                 <img src="../../assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
@@ -113,8 +136,29 @@
         </div>
 
 
+<!-- Modal Cerrar secion-->
+<div class="modal fade" id="modalTicket" tabindex="-1" role="dialog" aria-labelledby="modalTicketLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTicketLabel">Cerrar sesion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Estas seguro de salir?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="salirTicket()">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- Modal -->
+
+<!-- Modal Historial -->
 <div class="modal fade bd-example-modal-lg" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

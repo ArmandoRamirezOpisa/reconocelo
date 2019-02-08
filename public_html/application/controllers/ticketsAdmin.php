@@ -15,16 +15,17 @@
             $this->load->model("ticket_model");
             $loginTicketAdmin = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
             $userTicketExist = $this->ticket_model->loginUserTicket($loginTicketAdmin);
-            if ($userTicketExist){
+            if ($userTicketExist[0]['Usuario'] == 'AdminTickets'){
                 $userTicketExist = array(
-                        'administrador' => TRUE,
-                        'CodEmpresa' => $userTicketExist[0]["CodEmpresa"],
-                        'CodPrograma' => $userTicketExist[0]["CodPrograma"],
-                        'Usuario' => $userTicketExist[0]["Usuario"]
-                    );
-                    $this->session->set_userdata($InformacionLoginUsuario);
-                    $this->output->set_output(json_encode(true));//si encuantra al usuario regresa true    
+                    'administrador' => TRUE,
+                    'CodEmpresa' => $userTicketExist[0]["CodEmpresa"],
+                    'CodPrograma' => $userTicketExist[0]["CodPrograma"],
+                    'Usuario' => $userTicketExist[0]["Usuario"]
+                );
+                $this->session->set_userdata($userTicketExist);
+                $this->output->set_output(json_encode($userTicketExist));
             }else{
+                $NoEntro = "NoEntro";
                 $this->output->set_output(json_encode(false));
             }
         }
@@ -55,6 +56,13 @@
             }else{
                 $this->output->set_output(json_encode(false));
             }
+        }
+
+        public function exit_ticket(){
+            $array_items = array('administrador' => '', 'Usuario' => '');
+            $this->session->unset_userdata($array_items);
+            //Manda al inicio de la página, si no hay session se va al login.
+            header( 'Location: '.base_url().'ticketsAdmin');
         }
 
     }

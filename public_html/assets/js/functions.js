@@ -638,7 +638,7 @@ function loginTicketAdmin() {
     if (usuario == "" || password == "") {
         $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Hay campos vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         $('#MessageError').show();
-        throw new Error("Datos de formulario incompleto");
+        throw new Error("Campos vacios");
     } else {
 
         $.ajax({
@@ -655,13 +655,14 @@ function loginTicketAdmin() {
             },
             success: function(result) {
 
-                if (result) {
-                    location.href = "https://" + location.hostname + "/ticketsAdmin/home";
-                } else {
+                console.log(result);
+                if (result == "false") {
                     $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageError').show();
                     $('#user').val("");
                     $('#password').val("");
+                } else {
+                    location.href = "https://" + location.hostname + "/ticketsAdmin/home";
                 }
 
             },
@@ -675,4 +676,7 @@ function loginTicketAdmin() {
     }
 }
 
+function salirTicket() {
+    location.href = "https://" + location.hostname + "/ticketsAdmin/exit_ticket";
+}
 /* Fin ticket administrador */

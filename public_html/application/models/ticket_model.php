@@ -102,7 +102,7 @@
                 WHERE Usuario =  '".$usuario."'
                 AND Pwd =".$password."
             ");
-            if ($query->num_rows() == 1){
+            if ($query->num_rows() > 0){
 
                 return $query->result_array(); 
 
