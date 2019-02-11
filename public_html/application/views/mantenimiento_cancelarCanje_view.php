@@ -76,12 +76,10 @@
             </div>
 
             <div class="form-group">
-                <label for="functionsPremio">Selecciona algun canje:</label>
-                <select class="form-control" id="searchCanje">
-                    <option value="selecciona">Selecciona</option>
-                    <option value="Canje">Canje</option>
-                </select>
+                <label for="functionsPremio">Busca el canje que deseas cancelar:</label>
+                <input type="text" maxlength="10" class="form-control" id="canjeCancelarText" placeholder="Escribe el canje que quieres cancelar">
             </div>
+            <button id="cancelarCanjeBtn" type="button" class="btn btn-primary btn-lg btn-block" onclick="searchCanje()"><i id="btnIconCanjeCancelar" class="fas fa-search"></i> Buscar canje</button>
 
         </div>
 
