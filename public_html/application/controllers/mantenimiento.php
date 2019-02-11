@@ -107,6 +107,17 @@
 
         }
 
+        public function uploadParticipantesNews(){
+
+            $infoDepositosNews = $_POST['infoNewsDepositos'];
+
+            if($infoDepositosNews){
+                $this->output->set_output(json_encode($infoDepositosNews));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
+
         //pantalla premios
         public function premios(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));

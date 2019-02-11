@@ -59,7 +59,7 @@
                         <input type="tel" class="form-control" id="telefono">
                     </div>
                     <div class="form-group">
-                        <label for="password">Contrasena</label>
+                        <label for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password">
                     </div>
                     <div class="form-group">

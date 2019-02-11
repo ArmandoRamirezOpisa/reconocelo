@@ -33,7 +33,7 @@
 					        },
 					        error: function(err, file)
 					        {
-                                //
+                                console.log("Algo saio mal");
 					        },
 					        complete: function()
 					        {
@@ -44,32 +44,34 @@
                     
                     //funcion que pasa a la base de datos
 			        function ProcesarInfoParticipantes(results){
-                        var data = results.data;
-                        console.log(data);
+                        var dataParticipantes = results.data;
+                        console.log(dataParticipantes);
 
-                        /*$.ajax({
-                            url: '/monitor/uploadDepositosNews',
+                        $.ajax({
+                            url: '/mantenimiento/uploadParticipantesNews',
                             async: 'true',
                             cache: false,
                             contentType: "application/x-www-form-urlencoded",
                             global: true,
                             ifModified: false,
                             processData: true,
-                            data: { "infoNewsDepositos": data },
+                            data: { "infoNewsParticipantes": dataParticipantes },
                             beforeSend: function() {
                                 console.log('Procesando, espere por favor...');
                             },
                             success: function(result) {
                                 if (result == "0") {
                                     console.log("Expiro");
-                                    $('#MessageInsertarDepositos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                                    $('#alertMessage').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                                    $('#alertMessage').show();
                                     console.log("ERROR:", err, file);
                                 } else {
                                     console.log('Correcto');
-                                    $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente, se ha enviado una notificación al tu corrreo electrónico.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                                    $('#alertMessage').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                                    $('#alertMessage').show();
                                     console.log("Se cargo exitosamente");
-                                    $("#file-CSV").val("");
-                                    activarDepositosSubidos();
+                                    $("#archivoParticipantes").val("");
+                                    //activarDepositosSubidos();
                                 }
                             },
                             error: function(object, error, anotherObject) {
@@ -77,7 +79,7 @@
                             },
                             timeout: 30000,
                             type: "POST"
-                        });*/
+                        });
 
 }
                 </script>
