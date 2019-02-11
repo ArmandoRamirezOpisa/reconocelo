@@ -258,11 +258,18 @@
         }
         /* Fin update premios */
 
-        /* Transferencia de premios */
+        /* Transferencia de puntos pendiente */
         public function transferenciaPremio(){
             $this->load->view('premio_transferencia_view');
         }
-        /* Fin transferencia de premios */
+        /* Fin transferencia de puntos */
+
+        /* Cancelar un canje */
+        public function cancelarCanje(){
+            $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
+            $this->load->view('mantenimiento_cancelarCanje_view',$PrimerNombre);
+        }
+        /* Fin cancelar un canje */
 
         //salir del mantenimiento
         public function exit_mantenimiento(){

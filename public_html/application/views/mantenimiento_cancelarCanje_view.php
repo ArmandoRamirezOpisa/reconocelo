@@ -7,13 +7,11 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="shortcut icon" href="../../assets/images/monitorLogLink.png" type="image/x-icon" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="../assets/js/papaparse.min.js"></script>
         <title>Mantenimiento Reconocelo</title>
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
             <!-- Image and text -->
             <nav class="navbar navbar-light bg-light">
@@ -29,7 +27,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/mantenimiento/home">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
@@ -38,7 +36,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/mantenimiento/premios">Premios</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="/mantenimiento/cancelarCanje">Cancelar Canje</a>
                     </li>
                 </ul>
@@ -66,14 +64,28 @@
         </nav>
 
         <div class="container" style="margin-top: 100px;">
-            <div class="row justify-content-center mb-4 mt-3">
-                <div id="navegacionMonitor" class="card-deck mt-3">
-                    <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
+
+            <div id="MessageCancelarCanje" class="container" style="display:none;"></div>
+
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="col-sm">
+                    <h1>Cancelar Canje</h1>
                 </div>
+                <div class="col-sm"></div>
             </div>
+
+            <div class="form-group">
+                <label for="functionsPremio">Selecciona algun canje:</label>
+                <select class="form-control" id="searchCanje">
+                    <option value="selecciona">Selecciona</option>
+                    <option value="Canje">Canje</option>
+                </select>
+            </div>
+
         </div>
 
-        <!-- Modal -->
+        <!-- Modal Salir -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -95,8 +107,10 @@
         </div>
 
         <script src="../assets/js/functionsMantenimiento.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     </body>
 </html>
