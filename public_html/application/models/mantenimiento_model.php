@@ -123,15 +123,15 @@
                             if($valoresDefinidosParticipantes[0] == "idParticipante" || $valoresDefinidosParticipantes[1] == "codPrograma" || $valoresDefinidosParticipantes[2] == "codEmpresa" || $valoresDefinidosParticipantes[3] == "codParticipante" || $valoresDefinidosParticipantes[4] == "cargo" || $valoresDefinidosParticipantes[5] == "nombreCompleto" || $valoresDefinidosParticipantes[6] == "calleNumero" || $valoresDefinidosParticipantes[7] == "colonia" || $valoresDefinidosParticipantes[8] == "cp" || $valoresDefinidosParticipantes[9] == "ciudad" || $valoresDefinidosParticipantes[10] == "estado" || $valoresDefinidosParticipantes[11] == "pais" || $valoresDefinidosParticipantes[12] == "telefono" || $valoresDefinidosParticipantes[13] == "pwd" || $valoresDefinidosParticipantes[14] == "eMail" || $valoresDefinidosParticipantes[15] == "loginWeb" ){}
                             else{
                                 $query = $this->db->query("
-                                    INSERT INTO `opisa_opisa`.`ZParticipante-desarrollo`(`Id participante`, 
-                                    `Cod programa`, `Cod empresa`, `Cod participante`, `Cargo`, `Nombre completo`, 
-                                    `Calle y numero`, `Colonia`, `Codigo postal`, `Cuidad`, `Estado`, `Pais`, 
-                                    `Telefono`, `Contraseña`, `Correo electronico`, `Login web`) 
+                                    INSERT INTO `opisa_opisa`.`Participante`(`idParticipante`, 
+                                    `codPrograma`, `codEmpresa`, `codParticipante`, `Cargo`, `PrimerNombre`, 
+                                    `CalleNumero`, `Colonia`, `CP`, `Ciudad`, `Estado`, `Pais`, 
+                                    `Telefono`, `pwd`, `eMail`, `loginWeb`) 
                                     VALUES (".$valoresDefinidosParticipantes[0].",".$valoresDefinidosParticipantes[1].",
                                     ".$valoresDefinidosParticipantes[2].",".$valoresDefinidosParticipantes[3].",
-                                    ".$valoresDefinidosParticipantes[4].",'".$valoresDefinidosParticipantes[5]."',
+                                    '".$valoresDefinidosParticipantes[4]."','".$valoresDefinidosParticipantes[5]."',
                                     '".$valoresDefinidosParticipantes[6]."','".$valoresDefinidosParticipantes[7]."',
-                                    '".$valoresDefinidosParticipantes[8]."',".$valoresDefinidosParticipantes[9].",
+                                    '".$valoresDefinidosParticipantes[8]."','".$valoresDefinidosParticipantes[9]."',
                                     '".$valoresDefinidosParticipantes[10]."','".$valoresDefinidosParticipantes[11]."',
                                     '".$valoresDefinidosParticipantes[12]."',".$valoresDefinidosParticipantes[13].",
                                     '".$valoresDefinidosParticipantes[14]."',".$valoresDefinidosParticipantes[15].")
