@@ -108,13 +108,14 @@
         }
 
         public function uploadParticipantesNews(){
-
-            $infoDepositosNews = $_POST['infoNewsDepositos'];
-
-            if($infoDepositosNews){
-                $this->output->set_output(json_encode($infoDepositosNews));
+            $this->load->model("mantenimiento_model");
+            $infoNewsParticipantes = $_POST['infoNewsParticipantes'];
+            $participanteMasivo = $this->mantenimiento_model->insertParticipantesMasivo($infoNewsParticipantes);
+            if($participanteMasivo){
+                $this->output->set_output(json_encode($participanteMasivo));
             }else{
                 $this->output->set_output(json_encode(false));
+                    
             }
         }
 
