@@ -1,0 +1,155 @@
+/* Variables globales */
+
+:root {
+    /* Colores */
+    --colorAzul: #034889;
+    --colorBlanco: #fff;
+    --colorVioleta: #6C7DAC;
+    --colorGrisClaro: #8EB4E0;
+    --colorBlacoGris: #f2f2f2;
+    --colorRojo: #B00000;
+    --colorNaranja: #E64C13;
+    --colorNaranjaClaro: #f25e26;
+    /* fin colores */
+    /* Aliniaciones */
+    --textAlingCenter: center;
+    /* Fin aliniaciones */
+}
+
+
+/* Fin variables globales */
+
+
+/* Estilos Reconocelo login */
+
+body {
+    background-color: var(--colorBlanco);
+}
+
+.titleReconocelo {
+    color: var(--colorAzul);
+}
+
+.jumbotron {
+    background: var(--colorBlanco);
+    color: var(--colorAzul);
+}
+
+.card {
+    box-shadow: 0px 1px 0 hsl(174, 5%, 80%), 0 0 5px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .2), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .3);
+    border-radius: 25px;
+    border: 0px solid transparent;
+}
+
+.card-body {
+    background: var(--colorGrisClaro);
+    border-color: var(--colorGrisClaro);
+    border-radius: 0px 0px 25px 25px;
+}
+
+.input-group-text {
+    background: var(--colorAzul);
+    color: var(--colorBlacoGris);
+    border-radius: 10px;
+    border-color: var(--colorAzul);
+}
+
+input[type=text],
+input[type=password] {
+    border-radius: 10px;
+    border-color: var(--colorBlacoGris);
+}
+
+.footer {
+    background: var(--colorBlanco);
+    color: var(--colorAzul);
+    height: 80px;
+}
+
+.iconoColorSession {
+    color: var(--colorVioleta);
+}
+
+.errorMessage {
+    color: var(--colorRojo);
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 10px 16px;
+}
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-lg {
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    color: var(--colorBlanco);
+    background-color: var(--colorNaranja);
+    border-color: var(--colorNaranja);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    color: var(--colorBlanco);
+    background-color: var(--colorNaranja);
+    border-color: var(--colorNaranja);
+}
+
+.sharp {
+    border-radius: 0;
+}
+
+.btn-primary {
+    background: var(--colorNaranja);
+    color: var(--colorBlanco);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+    background: var(--colorNaranjaClaro);
+    box-shadow: none;
+}
+
+
+/* Fin estilos Reconocelo login */

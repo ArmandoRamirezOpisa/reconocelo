@@ -129,5 +129,13 @@
             $this->load->view('modalTicketClose_view',$ticketClose);
         }
         /* Fin funcion para confirmar para cerrar un ticket */
+
+
+        /* Ejemplo nuevo para las nuevas rutas */
+        public function homeEjemplo(){
+			$this->load->view('homeEjemplo_view');
+		}
+        /* Fin ejemplo nuevo para las nuevas rutas */
+
     }
 ?>
