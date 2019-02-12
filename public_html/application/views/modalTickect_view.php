@@ -1,15 +1,9 @@
 <?php
-
-echo '<div id="mensaje" style="display:none;"></div>';
-
-echo '<div id="ticketAnswer" style="display:none;"></div>';
-
+    echo '<div id="mensaje" style="display:none;"></div>';
+    echo '<div id="ticketAnswer" style="display:none;"></div>';
     if ($ticketHistory){
-
         $id = "";
-
         foreach ($ticketHistory as $row){
-
             echo '<div class="card">
                 <div class="card-header text-center">
                     <strong>Ticket: '.$row['IdTicket'].'</strong>
@@ -25,9 +19,7 @@ echo '<div id="ticketAnswer" style="display:none;"></div>';
                 echo '</div>
             </div>
             </br>';
-
         }
-
     }else{
         echo '<h1>Este ticket no tiene historial</h1>';
     }
