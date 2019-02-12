@@ -39,9 +39,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/mantenimiento/cancelarCanje">Cancelar Canje</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/mantenimiento/trasferirPuntos">Transferir puntos</a>
-                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <div class="btn-group dropleft">

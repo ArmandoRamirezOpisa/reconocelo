@@ -278,13 +278,6 @@
         }
         /* Fin cancelar un canje */
 
-        /* transferir puntos */
-        public function trasferirPuntos(){
-            $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
-            $this->load->view('mantenimiento_transferenciaPuntos_view',$PrimerNombre);
-        }
-        /* Fin transferir puntos */
-
         //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');
