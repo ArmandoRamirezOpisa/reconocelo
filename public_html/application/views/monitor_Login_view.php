@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-            <div  class="row fixed-bottom mt-4 sizetopbottom">
+            <div  class="row mt-4 sizetopbottom">
                 <div class="col bg-ligh">
                     <p class="text-center bg-ligh"><a href="<?php echo site_url('monitor/AvisoPrivacidad') ?>" class="selectElementMonitor" target="_blank">Aviso de privacidad</a> </p> 
                 </div>                
