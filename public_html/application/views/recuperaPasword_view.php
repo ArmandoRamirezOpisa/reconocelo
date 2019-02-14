@@ -20,13 +20,7 @@
   </head>
   <body>
     <div class="container">
-      <!--<center><h2>&#161;Gracias por tu participaci&oacute;n&#33;</h2></center>
-	    <div style="text-align:left;float:left;width:50%;">
-	  	  <img style="width:100%;height:auto;" src="assets/images/logo.png">
-	    </div>
-      <div style="float:left;width:50%;height:100%">
-        <label style="margin-top:20%;font-size:20px;"></label><b>Puntos Heinz termin&oacute; el 15 de Enero del 2015, muchas gracias por tu participaci&oacute;n y apoyo a nuestro programa.</b></label>
-      </div>-->
+      <div id="MessageRecuperaReconocelo mt-5"></div>
       <div class="row justify-content-center mt-4 mb-4">
         <div class="col-12 col-md-4 mt-4">
           <img src="https://www.reconocelo.com.mx/assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
@@ -37,10 +31,10 @@
           <form class="form-signin" role="form">
             <div class="form-group">
               <label class="lblText mt-4" for="usuario"><b>Ingresa tu correo electr&ograve;nico</b></label>
-              <input class="form-control" placeholder="Ingresa tu correo electr&ograve;nico de registro" required="" autofocus="" type="email" name="usuario" id="usuario">
+              <input class="form-control" placeholder="Ingresa tu correo electr&ograve;nico de registro" required="" autofocus="" type="email" name="usuario" id="usuarioEmailReconocelo">
             </div>
           </form>
-          <a href="javascript:void(0)" onClick="alert('envio');" class="btn btn-primary text-center btn-block">Enviar contraseña</a>
+          <a href="javascript:void(0)" onClick="sendRecuperaPasswordReconocelo()" class="btn btn-primary text-center btn-block">Enviar correo</a>
           <small class="form-text text-muted text-center">  
             Para una correcta visualizaci&ograve;n del sitio se recomienda el uso de
             Chrome, Firefox, Internet Explorer 11 o superio

@@ -680,3 +680,108 @@ function salirTicket() {
     location.href = "https://" + location.hostname + "/ticketsAdmin/exit_ticket";
 }
 /* Fin ticket administrador */
+
+/* Recuperar password Reconocelo */
+function sendRecuperaPasswordReconocelo() {
+    var usuarioEmailReconocelo = $('#usuarioEmailReconocelo').val();
+    if (usuarioEmailReconocelo == "") {
+        $('#MessageRecuperaReconocelo').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> debes de escribir un correo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $('#MessageRecuperaReconocelo').show();
+        throw new Error("Correo imcompleto");
+    } else {
+        $.ajax({
+            url: '/recuperar_usuario/sendMailRecuperaReconocelo',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "usuarioEmailReconocelo": usuarioEmailReconocelo },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result == "0") {
+                    console.log("Expiro");
+                    $('#MessageRecuperaReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal al mandar el correo, o intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessageRecuperaReconocelo').show();
+                } else {
+                    console.log('Correcto');
+                    console.log(result);
+                    $('#MessageRecuperaReconocelo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se mando a tu correo, para que puedas recuperar tu cuenta.En caso de no aparecer, favor de revisar la carpeta de spam.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessageRecuperaReconocelo').show();
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+    }
+}
+
+function configNewPasswordReconocelo(id) {
+    var passwordNewReconocelo = $('#passwordNewReconocelo').val();
+    var passwordConfirmNewReconocelo = $('#passwordConfirmNewReconocelo').val();
+    if (passwordNewReconocelo == "" || passwordConfirmNewReconocelo == "") {
+        $('#MessageRecuperarReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algun campo se encuentra vacio.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>')
+        $('#MessageRecuperarReconocelo').show();
+        throw new Error("Campo vacio");
+    } else if (passwordNewReconocelo != passwordConfirmNewReconocelo) {
+        $('#MessageRecuperarReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Las contraseñas no coindicen.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>')
+        $('#MessageRecuperarReconocelo').show();
+        throw new Error("Campo vacio");
+    } else {
+        var idReconoceloUser = id.id;
+        var userConfigToal = idReconoceloUser.split("-");
+        var loginWeb = userConfigToal[0];
+        var codPrograma = userConfigToal[1];
+        var codEmpresa = userConfigToal[2];
+        var idParticipante = userConfigToal[3];
+        $.ajax({
+            url: '/recuperar_usuario/cambiarUserPasswordNewReconocelo',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: {
+                "loginWeb": loginWeb,
+                "codPrograma": codPrograma,
+                "codEmpresa": codEmpresa,
+                "idParticipante": idParticipante,
+                "passwordNewReconocelo": passwordNewReconocelo
+            },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result == "0") {
+                    console.log("Expiro");
+                    $('#MessageRecuperarReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessageRecuperarReconocelo').show();
+                } else {
+                    console.log('Correcto');
+                    console.log(result);
+                    $('#MessageRecuperarReconocelo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessageRecuperarReconocelo').show();
+                    $('#IniciarSesionReconocelo').show();
+                    $('#PAsswordNewReconocelo1').hide();
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+    }
+}
+/* Fin recuperar password Reconocelo */

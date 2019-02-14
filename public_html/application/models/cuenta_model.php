@@ -19,5 +19,34 @@
                         return false;
     		      }
             }
+
+            public function checkMailExitsReconocelo($usuarioEmailReconocelo){
+                  $query = $this->db->query("
+                        SELECT loginWeb, CodPrograma, codEmpresa, idParticipante, PrimerNombre
+                        FROM  `Participante` 
+                        WHERE codPrograma =41
+                        AND eMail =  '".$usuarioEmailReconocelo['usuarioEmailReconocelo']."'
+                  ");
+                  if ($query->num_rows() > 0){
+                  return $query->result_array(); 
+                  }else{
+                  return false;
+                  }
+            }
+
+            public function cambiarPasswordNewReconocelo($passwordConfigReconocelo){
+                  $query = $this->db->query("
+                        UPDATE `Participante` SET `pwd`=".$passwordConfigReconocelo['passwordNewReconocelo']." 
+                        WHERE loginWeb = ".$passwordConfigReconocelo['loginWeb']."
+                        AND codPrograma = '".$passwordConfigReconocelo['codPrograma']."'
+                        AND codEmpresa = '".$passwordConfigReconocelo['codEmpresa']."'
+                        AND idParticipante = '".$passwordConfigReconocelo['idParticipante']."'
+                  ");
+			if ($query){
+			        return true;
+			}else{
+				return false;
+			}
+            }
       }
 ?>
