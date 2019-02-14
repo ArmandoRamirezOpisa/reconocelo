@@ -38,9 +38,7 @@
                   $query = $this->db->query("
                         UPDATE `Participante` SET `pwd`=".$passwordConfigReconocelo['passwordNewReconocelo']." 
                         WHERE loginWeb = ".$passwordConfigReconocelo['loginWeb']."
-                        AND codPrograma = '".$passwordConfigReconocelo['codPrograma']."'
-                        AND codEmpresa = '".$passwordConfigReconocelo['codEmpresa']."'
-                        AND idParticipante = '".$passwordConfigReconocelo['idParticipante']."'
+                        and idParticipante = ".$passwordConfigReconocelo['idParticipante']."
                   ");
 			if ($query){
 			        return true;

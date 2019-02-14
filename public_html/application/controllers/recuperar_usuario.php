@@ -271,9 +271,8 @@
 
         public function cambiarUserPasswordNewReconocelo(){
             $this->load->model("cuenta_model");
+
             $passwordConfigReconocelo = array("loginWeb"=>$_POST['loginWeb'],
-                "codPrograma"=>$_POST['codPrograma'],
-                "codEmpresa"=>$_POST['codEmpresa'],
                 "idParticipante"=>$_POST['idParticipante'],
                 "passwordNewReconocelo"=>$_POST['passwordNewReconocelo']
             );

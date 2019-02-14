@@ -739,9 +739,7 @@ function configNewPasswordReconocelo(id) {
         var idReconoceloUser = id.id;
         var userConfigToal = idReconoceloUser.split("-");
         var loginWeb = userConfigToal[0];
-        var codPrograma = userConfigToal[1];
-        var codEmpresa = userConfigToal[2];
-        var idParticipante = userConfigToal[3];
+        var idParticipante = userConfigToal[1];
         $.ajax({
             url: '/recuperar_usuario/cambiarUserPasswordNewReconocelo',
             async: 'true',
@@ -752,8 +750,6 @@ function configNewPasswordReconocelo(id) {
             processData: true,
             data: {
                 "loginWeb": loginWeb,
-                "codPrograma": codPrograma,
-                "codEmpresa": codEmpresa,
                 "idParticipante": idParticipante,
                 "passwordNewReconocelo": passwordNewReconocelo
             },
