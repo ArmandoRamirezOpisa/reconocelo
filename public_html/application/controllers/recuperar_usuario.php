@@ -16,8 +16,8 @@
 
                 //Configuracion de SMTP
                 $config['smtp_host'] = 'm176.neubox.net';
-                $config['smtp_user'] = 'armando.ramirez@opisa.com';//envios@opisa.com
-                $config['smtp_pass'] = 'arm941008';//3hf89w
+                $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
+                $config['smtp_pass'] = '3hf89w';//3hf89w
                 $config['smtp_port'] = 465;
                 $config['mailtype'] = 'html';
 
