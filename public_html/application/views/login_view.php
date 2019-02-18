@@ -73,12 +73,12 @@
                                                 <i class="fas fa-spinner fa-pulse"></i>
                                             </div>
                                         </span>
-                                        <small class="form-text text-muted text-center">  
-                                            Para una correcta visualizaci&ograve;n del sitio se recomienda el uso de
-                                            Chrome, Firefox, Internet Explorer 11 o superio
+                                        <small class="form-text text-center">  
+                                            <strong>Para una correcta visualizaci&ograve;n del sitio se recomienda el uso de
+                                            Chrome, Mozilla Firefox y Safari</strong>
                                         </small>
                                         <small class="form-text text-muted text-center">  
-                                            <a href="<?php echo site_url('recuperar_usuario') ?>"><h5>Olvidaste tu contraseña?</h5></a> 
+                                            <a href="<?php echo site_url('recuperar_usuario') ?>"><h5>Problemas para accesar?</h5></a> 
                                         </small>
                                     </form> 
                                 </div>
