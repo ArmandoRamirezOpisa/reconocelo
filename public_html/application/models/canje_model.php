@@ -3,6 +3,31 @@
                 
     	        public function __construct(){}
         
+
+                public function checkAddCanje(){
+                        $address = $this->input->post("address");
+                        $query=$this->db->query("
+                                SELECT codPrograma, idParticipante, noTipoEntrega, CalleNumero, Colonia, CP, 
+                                Ciudad, Estado, Telefono, referencias
+                                FROM  `PreCanje` 
+                                WHERE codPrograma = ".$this->session->userdata('programa')."
+                                AND idParticipante = ".$this->session->userdata('idPart')."
+                                AND noTipoEntrega = 1
+                                AND CalleNumero = '".$_POST["address"][3]["value"]."'
+                                AND Colonia = '".$_POST["address"][2]["value"]."'
+                                AND CP = '".$_POST["address"][4]["value"]."'
+                                AND Ciudad = '".$_POST["address"][1]["value"]."'
+                                AND Estado = '".$_POST["address"][0]["value"]."'
+                                AND Telefono = '".$_POST["address"][5]["value"]."'
+                                AND referencias = '".$_POST["address"][6]["value"]."'
+                        ");
+                        if ($query->num_rows() > 0){
+                                return $query->result_array(); 
+                        }else{
+                                return false;
+                        }
+                }
+
                 public function addCanje(){
                         $address = $this->input->post("address");
     		        $query = $this->db->query("
@@ -88,7 +113,21 @@
                                 SELECT idCanje 
                                 FROM PreCanje 
                                 where idParticipante =  " .$this->session->userdata('idPart')." 
-                                and codPrograma = ".$this->session->userdata('programa')."                                          
+                                and codPrograma = ".$this->session->userdata('programa')."
+                        ");
+                        if ($query->num_rows() > 0){
+                                return $query->result_array(); 
+                        }else{
+                                return false;
+                        }
+                }
+
+                public function saldoActualParticipante(){
+                        $query=$this->db->query("
+                                SELECT SaldoActual
+                                FROM  `Participante` 
+                                WHERE codPrograma =".$this->session->userdata('programa')."
+                                AND idParticipante = " .$this->session->userdata('idPart')."                                       
                         ");
                         if ($query->num_rows() > 0){
                                 return $query->result_array(); 

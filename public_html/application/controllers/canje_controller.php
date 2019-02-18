@@ -13,29 +13,38 @@
         {
             $data = json_decode(stripslashes($_POST['data']));//Decodifica JSON
             //var_dump($data);
-			
-   	        $idCanje = $this->canje_model->addCanje();//
             
-            if ($idCanje)
-            {
-                $detCanje = $this->canje_model->addDetCanje($data,$idCanje);
-                $updateSaldo = $this->canje_model->updSaldo($_POST["ptsCanje"]);
+            $saldoACtualParticipante = $this->canje_model->saldoActualParticipante();
+
+            if($saldoACtualParticipante >= $this->session->userdata('puntos')){
+                $idCanjeExits = $this->canje_model->checkAddCanje();
+                if($idCanjeExits){
+                    $this->output->set_output(json_encode(false));
+                }else{
+                    $idCanje = $this->canje_model->addCanje();
+            
+                if ($idCanje){
+                    $detCanje = $this->canje_model->addDetCanje($data,$idCanje);
+                    $updateSaldo = $this->canje_model->updSaldo($_POST["ptsCanje"]);
                 
-                if ($updateSaldo)
-                {
-                    $sdoAct = $this->session->userdata('puntos') - $_POST["ptsCanje"];
-                    $this->session->set_userdata('puntos', $sdoAct);
+                    if ($updateSaldo){
+                        $sdoAct = $this->session->userdata('puntos') - $_POST["ptsCanje"];
+                        $this->session->set_userdata('puntos', $sdoAct);
+                    }
+                
+                    if ($detCanje){
+                        //Envía mail de confirmación de canje
+                        $this->sendCanjeMail($idCanje,$data);
+                        $this->output->set_output(json_encode($idCanje));    
+                    }
+                }else{
+                    $this->output->set_output(json_encode(false));
                 }
-                
-                if ($detCanje)
-                {
-                    //Envía mail de confirmación de canje
-                    $this->sendCanjeMail($idCanje,$data);
-                    $this->output->set_output(json_encode($idCanje));    
                 }
             }else{
                 $this->output->set_output(json_encode(false));
             }
+
         }
         
         function getCanjes()

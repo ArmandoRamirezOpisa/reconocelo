@@ -488,7 +488,8 @@ function confirmCloseTicket(id) {
 /* Fin funcion prueba del historial del ticket */
 
 function sendCanje($ptsUser, $ptsCanje) {
-    $('#btnGenCanje').attr('disabled', false);
+    document.getElementById('btnGenCanje').style.display = "none";
+    //$('#btnGenCanje').attr('disabled', false);
 
     periodoCanjes = 1;
     if (validaCampos()) {
