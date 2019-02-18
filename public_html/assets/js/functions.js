@@ -488,14 +488,12 @@ function confirmCloseTicket(id) {
 /* Fin funcion prueba del historial del ticket */
 
 function sendCanje($ptsUser, $ptsCanje) {
-    document.getElementById('btnGenCanje').style.display = "none";
-    //$('#btnGenCanje').attr('disabled', false);
-
     periodoCanjes = 1;
     if (validaCampos()) {
         if (periodoCanjes == 1) {
 
             if ($ptsUser >= $ptsCanje) {
+                document.getElementById('btnGenCanje').style.display = "none";
                 if (contOrder.length > 0) {
 
                     var jsonString = JSON.stringify(contOrder); //Pasa array a formato JSON
