@@ -536,49 +536,6 @@ function premioUpdate() {
 }
 /* Fin update premios */
 
-/* cancelar canje funcion */
-function searchCanje(){
-    var canjeCancelarText = $('#canjeCancelarText').val();
-    if(canjeCancelarText == ""){
-        $('#MessageCancelarCanje').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de escribir un caje para poder realizar la busqueda.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        $('#MessageCancelarCanje').show();
-        throw new Error("Busqueda del canje incompleta");
-    }else{
-        $.ajax({
-            url: '/mantenimiento/searchCanjeCancelar',
-            async: 'true',
-            cache: false,
-            contentType: "application/x-www-form-urlencoded",
-            global: true,
-            ifModified: false,
-            processData: true,
-            data: {"canjeCancelarText": canjeCancelarText},
-            beforeSend: function() {
-                $('#MessageCancelarCanje').html('<div class="alert alert-light" role="alert"><i class="fas fa-spinner fa-spin"></i> Buscando canje...</div>');
-                $('#MessageCancelarCanje').show();
-            },
-            success: function(result) {
-
-                if (result) {
-                    console.log(result);
-                    $('#MessageCancelarCanje').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Excelente!</strong> Busqueda realizada con exito.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    $('#MessageCancelarCanje').show();
-                } else {
-                    $('#MessageCancelarCanje').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No encontro ninguna coincidencia, favor de intentarlo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    $('#MessageCancelarCanje').show();
-                }
-
-            },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
-            timeout: 30000,
-            type: "POST"
-        });
-    }
-}
-/* Fin cancelar canje funcion*/
-
 /*Fin premios funcion */
 
 //Exit mantenimiento
