@@ -38,9 +38,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/mantenimiento/premios">Premios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/mantenimiento/cancelarCanje">Cancelar Canje</a>
-                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <div class="btn-group dropleft">

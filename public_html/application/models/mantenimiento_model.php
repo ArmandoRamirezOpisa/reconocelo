@@ -273,21 +273,6 @@
             }
         }
         /* Fin update premios */
-        
-        /* cancelar canje */
-        public function updateCancelarCanjeBusqueda($canjeCancelarData){
-            $query = $this->db->query("
-                SELECT * 
-                FROM  `PreCanje` 
-                WHERE idCanje = ".$canjeCancelarData['canjeCancelarText']."
-            ");
-            if ($query->num_rows() > 0)
-    		{
-                return $query->result_array(); 
-    		}else{
-                return false;
-    		}
-        }
 
 	}
 ?>

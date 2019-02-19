@@ -258,26 +258,6 @@
         }
         /* Fin update premios */
 
-        /* Cancelar un canje */
-        public function cancelarCanje(){
-            $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
-            $this->load->view('mantenimiento_cancelarCanje_view',$PrimerNombre);
-        }
-
-        public function searchCanjeCancelar(){
-            $this->load->model("mantenimiento_model");
-            $canjeCancelarData = array(
-                "canjeCancelarText"=>$_POST['canjeCancelarText']
-            );
-            $PremioDataInfo = $this->mantenimiento_model->updateCancelarCanjeBusqueda($canjeCancelarData);
-            if($PremioDataInfo){
-                $this->output->set_output(json_encode($PremioDataInfo));
-            }else{
-                $this->output->set_output(json_encode(false));
-            }
-        }
-        /* Fin cancelar un canje */
-
         //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');
