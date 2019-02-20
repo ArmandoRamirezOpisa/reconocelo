@@ -5,25 +5,50 @@ include 'home_monitor_view_header.php';
 ?>
         <div class="container">
 
-            <div class="row">
-                <div class="col-4">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
-                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-                    </div>
-                </div>
+            <div class="accordion" id="acordeonReglasReconocelo">
+                <?php
+                    if($reglasMonitor){
+                        $contador = 0;
+                        foreach($reglasMonitor as $row){
+                            echo '<div class="card">
+                            <div class="card-header" id="heading'.$row['idReglaNombre'].'">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#'.$row['idReglaNombre'].'"';
+                                    if($contador == 0){
+                                        echo ' aria-expanded="false"';
+                                    }else{
+                                        echo ' aria-expanded="true"';
+                                    }
+                                    echo' aria-controls="'.$row['idReglaNombre'].'">
+                                        '.$row['regla'].'
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="'.$row['idReglaNombre'].'" class="collapse" aria-labelledby="heading'.$row['idReglaNombre'].'" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <input type="text" class="form-control" value="'.$row['descripcionRegla'].'">
+                                </div>
+                            </div>
+                        </div>';
+                        $contador = $contador + 1;
+                        }
+                    }
+                ?>
             </div>
-            
+
+            <div class="mt-5">
+                <form class="form-inline">
+                    <div class="form-group mb-5">
+                        <label for="staticText" class="sr-only">Agregar nueva regla</label>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-5">
+                        <label for="staticText1" class="sr-only">Ocultar</label>
+                        <i class="fas fa-minus-circle"></i>
+                    </div>
+                </form>
+            </div>
+
         </div>
 
 <?php

@@ -1205,7 +1205,16 @@
 ///////////////////////Fin recuperar contrasena////////////////////////
 /////////////////////Reglas monitor reconocelo/////////////////////////
         public function reglasMonitor(){
-            $this->load->view('reglas_monitor_view');
+            $this->load->model("reglas_model");
+            $codEmpresa = $this->session->userdata('CodEmpresa');
+            $CodPrograma = $this->session->userdata('CodPrograma');
+            $reglasMonitor = $this->reglas_model->reglasReconocelo($codEmpresa,$CodPrograma);
+            if($reglasMonitor){
+                $data['reglasMonitor'] = $reglasMonitor;
+            }else{
+                $data['reglasMonitor'] = false;
+            }
+            $this->load->view('reglas_monitor_view',$data);
         }
 /////////////////////Fin reglas monitor reconocelo/////////////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
