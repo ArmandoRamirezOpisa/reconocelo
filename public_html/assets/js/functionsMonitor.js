@@ -703,6 +703,17 @@ function configNew(id) {
 }
 /* Fin funcion recuperar password */
 
+/* Funcion cambiar regla */
+function cambiarRegla(id) {
+
+    var idReglaNombre = id.id;
+    var textoRegla = $('#regla-'+idReglaNombre).val();
+    console.log(textoRegla);
+
+}
+/* Fin funcion cambiar regla*/
+
+
 //Funcion salir de reconocelo monitor
 function exit() {
 
