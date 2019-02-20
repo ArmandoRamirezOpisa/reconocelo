@@ -33,6 +33,9 @@ function MonitorNav(id) {
         case 'olvidoPassword':
             location.href = "https://" + location.hostname + "/monitor/recuperarPassword";
             break;
+        case 'reglasMonitor':
+            location.href = "https://" + location.hostname + "/monitor/reglasMonitor";
+            break;
     }
 
 }
