@@ -708,7 +708,38 @@ function cambiarRegla(id) {
 
     var idReglaNombre = id.id;
     var textoRegla = $('#regla-'+idReglaNombre).val();
-    console.log(textoRegla);
+    if(textoRegla == ""){
+        throw new Error("Rule void");
+    }else{
+        $.ajax({
+            url: '/monitor/cambiarReglaReconocelo',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "idReglaNombre": idReglaNombre, "textoRegla": textoRegla },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                    if (result == "0") {
+                        console.log("Expiro");
+                    } else {
+                        console.log(result);
+                        location.reload();
+                    }
+
+                },
+                error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                },
+                timeout: 30000,
+                type: "POST"
+            });   
+    }
 
 }
 /* Fin funcion cambiar regla*/

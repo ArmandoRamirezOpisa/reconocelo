@@ -1216,6 +1216,19 @@
             }
             $this->load->view('reglas_monitor_view',$data);
         }
+
+        public function cambiarReglaReconocelo(){
+            $this->load->model("reglas_model");
+            $dataReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
+                "textoRegla"=>$_POST['textoRegla']
+            );
+            $reglasMonitorData = $this->reglas_model->reglasReconoceloUpdate($dataReglaReconocelo);
+            if($reglasMonitorData){
+                $this->output->set_output(json_encode($reglasMonitorData));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
 /////////////////////Fin reglas monitor reconocelo/////////////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
     }
