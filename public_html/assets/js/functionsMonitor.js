@@ -744,6 +744,16 @@ function cambiarRegla(id) {
 }
 /* Fin funcion cambiar regla*/
 
+/* Funcion cambiar nombre regla */
+function  cambiarNombreRegla(id) {
+    
+    var idBtn = id.id
+    var idBtnArray = idBtn.split("-");
+    var activeInput = "nombre-"+idBtnArray[1];
+    $('#'+activeInput).show();
+}
+/* Fin funcion cambiar nombre regla */
+
 
 //Funcion salir de reconocelo monitor
 function exit() {

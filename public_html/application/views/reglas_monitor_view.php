@@ -14,7 +14,7 @@ include 'home_monitor_view_header.php';
                             echo '<div class="card">
                             <div class="card-header" id="heading'.$row['idReglaNombre'].'">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#'.$row['idReglaNombre'].'"';
+                                    <button class="btn btn-link mr-5" type="button" data-toggle="collapse" data-target="#'.$row['idReglaNombre'].'"';
                                     if($contador == 0){
                                         echo ' aria-expanded="false"';
                                     }else{
@@ -23,6 +23,13 @@ include 'home_monitor_view_header.php';
                                     echo' aria-controls="'.$row['idReglaNombre'].'">
                                         '.$row['regla'].'
                                     </button>
+                                    <a id="cambiar-'.$row['idReglaNombre'].'" href="#" class="btn btn-link badge-light mr-5" onclick="cambiarNombreRegla(this)">Cambiar nombre</a>
+                                    <form id ="nombre-'.$row['idReglaNombre'].'" class="form-inline" style="display:none;">
+                                        <div class="form-group mb-2">
+                                            <input type="text" class="form-control-plaintext" id="'.$row['idReglaNombre'].'" placeholder="Escribe el nombre que deseas">
+                                        </div>
+                                        <button id="btn-'.$row['idReglaNombre'].'" type="button" class="btn btn-primary mb-2">Cambiar nombre</button>
+                                    </form>
                                 </h2>
                             </div>
                             <div id="'.$row['idReglaNombre'].'" class="collapse" aria-labelledby="heading'.$row['idReglaNombre'].'" data-parent="#accordionExample">

@@ -46,7 +46,7 @@
                         <a id="monitorPrograma" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-chart-pie mr-2"></i>Monitor de programa</a>
                     </li>
                     <li class="nav-item">
-                    <a id="reglasMonitor" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-clipboard-check"></i>Reglas</a>
+                    <a id="reglasMonitor" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-clipboard-check mr-2"></i>Reglas</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
