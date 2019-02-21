@@ -26,9 +26,9 @@ include 'home_monitor_view_header.php';
                                     <a id="cambiar-'.$row['idReglaNombre'].'" href="#" class="btn btn-link badge-light mr-5" onclick="cambiarNombreRegla(this)">Cambiar nombre</a>
                                     <form id ="nombre-'.$row['idReglaNombre'].'" class="form-inline" style="display:none;">
                                         <div class="form-group mb-2">
-                                            <input type="text" class="form-control-plaintext" id="'.$row['idReglaNombre'].'" placeholder="Escribe el nombre que deseas">
+                                            <input type="text" class="form-control-plaintext" id="text-'.$row['idReglaNombre'].'" placeholder="Escribe el nombre que deseas">
                                         </div>
-                                        <button id="btn-'.$row['idReglaNombre'].'" type="button" class="btn btn-primary mb-2">Cambiar nombre</button>
+                                        <button id="btn-'.$row['idReglaNombre'].'" type="button" class="btn btn-primary mb-2" onclick="cambiarNombreReglaBtn(this)">Cambiar nombre</button>
                                     </form>
                                 </h2>
                             </div>

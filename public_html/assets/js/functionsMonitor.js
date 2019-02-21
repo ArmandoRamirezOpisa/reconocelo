@@ -738,7 +738,7 @@ function cambiarRegla(id) {
                 },
                 timeout: 30000,
                 type: "POST"
-            });   
+            });
     }
 
 }
@@ -751,6 +751,19 @@ function  cambiarNombreRegla(id) {
     var idBtnArray = idBtn.split("-");
     var activeInput = "nombre-"+idBtnArray[1];
     $('#'+activeInput).show();
+}
+
+function cambiarNombreReglaBtn(id){
+    
+    var idBtnCambiar = id.id;
+    var idBtnCambiarArray = idBtnCambiar.split("-");
+    var textCambiar = $('#text-'+idBtnCambiarArray[1]).val();
+    if(textCambiar == ""){
+        throw new Error("Caja de texto vacio");
+    }else{
+        alert("Entro");
+    }
+
 }
 /* Fin funcion cambiar nombre regla */
 
