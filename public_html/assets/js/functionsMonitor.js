@@ -757,11 +757,39 @@ function cambiarNombreReglaBtn(id){
     
     var idBtnCambiar = id.id;
     var idBtnCambiarArray = idBtnCambiar.split("-");
-    var textCambiar = $('#text-'+idBtnCambiarArray[1]).val();
+    var idReglaNombre = idBtnCambiarArray[1];
+    var textCambiar = $('#text-'+idReglaNombre).val();
     if(textCambiar == ""){
         throw new Error("Caja de texto vacio");
     }else{
-        alert("Entro");
+        $.ajax({
+            url: '/monitor/cambiarNombreReglaReconocelo',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "idReglaNombre": idReglaNombre, "textCambiar": textCambiar },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                    if (result == "0") {
+                        console.log("Expiro");
+                    } else {
+                        console.log(result);
+                        location.reload();
+                    }
+
+                },
+                error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                },
+                timeout: 30000,
+                type: "POST"
+            });
     }
 
 }

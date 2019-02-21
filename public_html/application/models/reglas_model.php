@@ -45,5 +45,20 @@
 				return false;
 			}
             }
+
+            public function nombreReglasReconoceloUpdate($dataNombreReglaReconocelo){
+                  $query = $this->db->query("
+                        UPDATE `reglas` 
+                        SET `regla`='".$dataNombreReglaReconocelo['textCambiar']."' 
+                        WHERE `codEmpresa`= '".$this->session->userdata('CodEmpresa')."'
+                        AND `codPrograma`= '".$this->session->userdata('CodPrograma')."'
+                        AND `idReglaNombre` = '".$dataNombreReglaReconocelo['idReglaNombre']."'
+                  ");
+			if ($query){
+			      return true;
+			}else{
+				return false;
+			}     
+            }
       }
 ?>
