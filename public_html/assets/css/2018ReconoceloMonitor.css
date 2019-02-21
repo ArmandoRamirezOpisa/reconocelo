@@ -49,3 +49,14 @@ a:hover {
 .selectElementMonitor:hover {
     color: #034889;
 }
+
+.colorSeleccion:hover{
+    cursor:pointer;
+    background-color:#EAEAEA;
+    border-radius: 4px;
+}
+
+.colorSeleccion:active{
+    background-color:#CCCCCC;
+    border-radius: 4px;
+}

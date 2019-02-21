@@ -1242,6 +1242,19 @@
                 $this->output->set_output(json_encode(false));
             }
         }
+
+        public function addNuevaRegla(){
+            $this->load->model("reglas_model");
+            $dataNuevaRegla = array("regla"=>$_POST['regla'],
+                "descripcionRegla"=>$_POST['descripcionRegla']
+            );
+            $nuevaReglasData = $this->reglas_model->nuevaReglaReconocelo($dataNuevaRegla);
+            if($nuevaReglasData){
+                $this->output->set_output(json_encode($nuevaReglasData));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
 /////////////////////Fin reglas monitor reconocelo/////////////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
     }

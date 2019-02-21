@@ -47,20 +47,39 @@ include 'home_monitor_view_header.php';
                 ?>
             </div>
 
-            <div class="mt-5">
-                <form class="form-inline">
-                    <div class="form-group mb-5">
-                        <label for="staticText" class="sr-only">Agregar nueva regla</label>
-                        <i class="fas fa-plus-circle"></i>
-                    </div>
-                    <div class="form-group mx-sm-3 mb-5">
-                        <label for="staticText1" class="sr-only">Ocultar</label>
-                        <i class="fas fa-minus-circle"></i>
-                    </div>
-                </form>
-            </div>
-
         </div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <label id="agregarNuevaRegla" for="staticText" class="colorSeleccion" onclick="addNuevaRegla(this)">Agregar Nueva regla <i class="fas fa-plus-circle"></i></label>
+                </div>
+                <div class="col"></div>
+                <div class="col">
+                    <label id="ocultarNuevaRegla" for="staticText1" style="display:none;" class="colorSeleccion" onclick="addNuevaRegla(this)">Ocultar <i class="fas fa-minus-circle"></i></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div id="MessageNuevaRegla"></div>
+        </div>
+
+        <div id="nuevaReglaData" class="container mt-5" style="display:none;">
+            <form>
+                <div class="form-group">
+                    <label for="nombreRegla">Nombre regla</label>
+                    <input type="text" class="form-control" id="nuevoNombreRegla" aria-describedby="emailHelp" placeholder="Escribe el nombre de la regla">
+                </div>
+                <div class="form-group">
+                    <label for="descripcionNuevaRegla">Descripcion de la regla</label>
+                    <textarea class="form-control" id="DecripcionNuevaRegla" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="addNuevaReglaData()"><i class="fas fa-save"></i> Crear nueva regla</button>
+            </form>
+        </div>
+
+        <div class="mt-5"></div>
 
 <?php
 include 'home_monitor_view_footer.php';

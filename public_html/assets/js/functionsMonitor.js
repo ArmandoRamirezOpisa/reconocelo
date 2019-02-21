@@ -795,6 +795,73 @@ function cambiarNombreReglaBtn(id){
 }
 /* Fin funcion cambiar nombre regla */
 
+/* Funcion agregar y ocultar regla */
+function  addNuevaRegla(id) {
+    var idRegla = id.id;
+    if (idRegla == "agregarNuevaRegla"){
+        $('#ocultarNuevaRegla').show();
+        $('#agregarNuevaRegla').hide();
+        $('#nuevaReglaData').show();
+    }else if(idRegla == "ocultarNuevaRegla"){
+        $('#nuevaReglaData').hide();
+        $('#ocultarNuevaRegla').hide();
+        $('#agregarNuevaRegla').show();
+    }
+}
+
+function addNuevaReglaData(){
+    var textoRegla = $('#nuevoNombreRegla').val();
+    var descripcionRegla = $('#DecripcionNuevaRegla').val();
+    if(textoRegla == "" || descripcionRegla == ""){
+        $('#MessageNuevaRegla').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algunos de los campos se encuentran vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
+        $('#MessageNuevaRegla').show();
+        throw new Error("Cajas de texto vacio");
+    }else{
+        $.ajax({
+            url: '/monitor/addNuevaRegla',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "regla": textoRegla, "descripcionRegla": descripcionRegla },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                    if (result == "0") {
+                        console.log("Expiro");
+                    } else {
+                        console.log(result);
+                        $('#nuevoNombreRegla').val("");
+                        $('#DecripcionNuevaRegla').val("");
+                        $('#nuevaReglaData').hide();
+                        $('#ocultarNuevaRegla').hide();
+                        $('#agregarNuevaRegla').show();
+                        $('#MessageNuevaRegla').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se ha creado una nueva regla.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
+                        $('#MessageNuevaRegla').show();
+                    }
+
+                },
+                error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                    $('#nuevoNombreRegla').val("");
+                    $('#DecripcionNuevaRegla').val("");
+                    $('#nuevaReglaData').hide();
+                    $('#ocultarNuevaRegla').hide();
+                    $('#agregarNuevaRegla').show();
+                    $('#MessageNuevaRegla').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Algo ocurrio mal intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
+                    $('#MessageNuevaRegla').show();
+                },
+                timeout: 30000,
+                type: "POST"
+            });
+    }
+}
+/* Fin funcion agregar y ocultar regla */
+
 
 //Funcion salir de reconocelo monitor
 function exit() {

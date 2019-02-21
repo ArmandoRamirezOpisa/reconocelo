@@ -60,5 +60,18 @@
 				return false;
 			}     
             }
+
+            public function nuevaReglaReconocelo($dataNuevaRegla){
+                  $query = $this->db->query("
+                        INSERT INTO `opisa_opisa`.`reglas`(`idReglaNombre`, `regla`, `descripcionRegla`, `codEmpresa`, `codPrograma`) 
+                        VALUES (NOW(),'".$dataNuevaRegla['regla']."','".$dataNuevaRegla['descripcionRegla']."',
+                        '".$this->session->userdata('CodEmpresa')."','".$this->session->userdata('CodPrograma')."');
+                  ");
+                  if ($query){
+                        return $this->db->insert_id();
+    	            }else{
+                        return false;
+    	            }
+            }
       }
 ?>
