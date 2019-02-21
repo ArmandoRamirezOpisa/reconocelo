@@ -1,3 +1,17 @@
+/* Funcion login Reconocelo */
+function loginReconocelo(){
+
+    $('#loading').show();
+    var usuarioReconocelo = $('#usuarioReconocelo').val();
+    var passwordReconocelo = $('#passwordReconocelo').val();
+    if(usuarioReconocelo == "" || passwordReconocelo == ""){
+        $('#error').show();
+        $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
+    }
+}
+/* Fin funcion login reconocelo*/
+
+
 //Globales
 var contOrder = new Array();
 
