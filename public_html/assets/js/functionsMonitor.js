@@ -1,5 +1,3 @@
-//Archivo de javaScript donde tiene las funciones de reconocelo/monitor
-
 //Funcion para controlar el div, cuando se esta navegando
 function MonitorNav(id) {
 
@@ -59,10 +57,8 @@ function Todosparticipantes() {
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                //console.log(result);
                 $('#ParticipanteSaldo').html(result);
             }
 
@@ -91,10 +87,8 @@ function participantesSaldo() {
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                //console.log(result);
                 $('#ParticipanteSaldo').html(result);
             }
 
@@ -128,10 +122,8 @@ function filtroParticipantes(id) {
             success: function(result) {
 
                 if (result == "0") {
-                    console.log("Expiro");
                     window.location.reload();
                 } else {
-                    //console.log(result);
                     $('#ParticipanteSaldo').html(result);
                 }
 
@@ -203,10 +195,8 @@ function estadoParticipantes(estadoFiltro) {
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                //console.log(result);
                 $('#ParticipanteSaldo').html(result);
             }
 
@@ -231,16 +221,12 @@ function infoParticipante(id) {
         processData: true,
         data: { "codParticipante": codParticipante },
         beforeSend: function() {
-            console.log('Procesando, espere por favor...');
         },
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                console.log('Correcto');
-                console.log(result);
                 $('#participanteInfoBody').html(result);
             }
 
@@ -283,16 +269,12 @@ function catalogoIMG(id) {
         processData: true,
         data: { "codPremio": codPremi },
         beforeSend: function() {
-            console.log('Procesando, espere por favor...');
         },
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                console.log('Correcto');
-                console.log(result);
                 $('#imgCatalogo').html(result);
             }
 
@@ -326,10 +308,8 @@ function depositos() {
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                //console.log(result);
                 $('#depositoInformacion').html(result);
             }
 
@@ -357,9 +337,6 @@ function fechaInicioFinSelect() {
             $('#alertFiltroDeposito').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Atención!</strong> La primer fecha que seleccionastes es mayor.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             throw new Error("La fecha de inicio es mayor");
         } else if (fechaInicio <= fechaFin) {
-
-            console.log('fechaInicio ' + fechaInicio);
-            console.log('fechaFin ' + fechaFin);
             $.ajax({
                 url: '/monitor/depositosInforma',
                 async: 'true',
@@ -370,15 +347,12 @@ function fechaInicioFinSelect() {
                 processData: true,
                 data: { "fechaInicio": fechaInicio, "fechaFin": fechaFin },
                 beforeSend: function() {
-                    console.log('Procesando, espere por favor...');
                 },
                 success: function(result) {
 
                     if (result == "0") {
                         $('#alertFiltroDeposito').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Atención!</strong> No se encontraron datos con las fechas seleccionadas.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
-                        console.log('Correcto');
-                        console.log(result);
                         $('#depositoInformacion').html(result);
                     }
 
@@ -411,14 +385,12 @@ function uploadPuntosDepo() {
             processData: true,
             data: { "numTransaccion": numTransaccion },
             beforeSend: function() {
-                console.log('Procesando, espere por favor...');
             },
             success: function(result) {
 
                 if (result == "0") {
                     $('#MessageInsertarDepositos').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se activaron todos los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 } else {
-                    console.log(result);
                     $('#parsed_csv_list').hide();
                     $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se activaron los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 
@@ -453,10 +425,8 @@ function canjes() {
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                //console.log(result);
                 $('#CanjeInformacion').html(result);
             }
 
@@ -493,16 +463,12 @@ function fechaInicioFinSelectCanje() {
                 processData: true,
                 data: { "fechaInicio": fechaInicio, "fechaFin": fechaFin },
                 beforeSend: function() {
-                    console.log('Procesando, espere por favor...');
                 },
                 success: function(result) {
 
                     if (result == "0") {
-                        console.log("Expiro");
                         $('#messageCanjeAlert').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
-                        console.log('Correcto');
-                        console.log(result);
                         $('#depositoInformacion').html(result);
                     }
 
@@ -530,7 +496,6 @@ function config(id) {
             $('#messageUser').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de escribir un nombre, para poder cambiar el nombre.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             throw new Error("Datos de formulario incompleto");
         } else {
-            console.log("Cambiar nombre de usuario");
             $.ajax({
                 url: '/monitor/cambiarUserName',
                 async: 'true',
@@ -541,16 +506,12 @@ function config(id) {
                 processData: true,
                 data: { "usuario": usuario },
                 beforeSend: function() {
-                    console.log('Procesando, espere por favor...');
                 },
                 success: function(result) {
 
                     if (result == "0") {
-                        console.log("Expiro");
                         $('#messageUser').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio el nombre correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
-                        console.log('Correcto');
-                        console.log(result);
                         $('#messageUser').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio el nombre correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     }
 
@@ -574,7 +535,6 @@ function config(id) {
             $('#messagePassword').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Las contraseñas, no coinciden.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             throw new Error("Datos de formulario incompleto");
         } else if (password == passwordConfirm) {
-            console.log("cambiar contrasenas");
             $.ajax({
                 url: '/monitor/cambiarUserPassword',
                 async: 'true',
@@ -585,16 +545,12 @@ function config(id) {
                 processData: true,
                 data: { "password": password },
                 beforeSend: function() {
-                    console.log('Procesando, espere por favor...');
                 },
                 success: function(result) {
 
                     if (result == "0") {
-                        console.log("Expiro");
                         $('#messagePassword').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
-                        console.log('Correcto');
-                        console.log(result);
                         $('#messagePassword').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     }
 
@@ -628,16 +584,12 @@ function sendRecuperaPassword() {
             processData: true,
             data: { "email": email },
             beforeSend: function() {
-                console.log('Procesando, espere por favor...');
             },
             success: function(result) {
 
                 if (result == "0") {
-                    console.log("Expiro");
                     $('#MessageRecupera').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal al mandar el correo, verifica si lo escribiste correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 } else {
-                    console.log('Correcto');
-                    console.log(result);
                     $('#MessageRecupera').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se mando a tu correo, para que puedas recuperar tu cuenta.En caso de no aparecer, favor de revisar la carpeta de spam.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 }
 
@@ -656,8 +608,6 @@ function configNew(id) {
     var userConfigToal = userConfig.split("-");
     var usuario = userConfigToal[0];
     var codEmpresa = userConfigToal[1];
-    console.log(usuario);
-    console.log(codEmpresa);
     var password = $('#passwordNew').val();
     var passwordConfirm = $('#passwordConfirmNew').val();
     if (password == "" || passwordConfirm == "") {
@@ -678,16 +628,12 @@ function configNew(id) {
                 processData: true,
                 data: { "password": password, "usuario": usuario, "codEmpresa": codEmpresa },
                 beforeSend: function() {
-                    console.log('Procesando, espere por favor...');
                 },
                 success: function(result) {
 
                     if (result == "0") {
-                        console.log("Expiro");
                         $('#MessageRecuperar').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
-                        console.log('Correcto');
-                        console.log(result);
                         $('#MessageRecuperar').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     }
 
@@ -721,14 +667,11 @@ function cambiarRegla(id) {
             processData: true,
             data: { "idReglaNombre": idReglaNombre, "textoRegla": textoRegla },
             beforeSend: function() {
-                console.log('Procesando, espere por favor...');
             },
             success: function(result) {
 
                     if (result == "0") {
-                        console.log("Expiro");
                     } else {
-                        console.log(result);
                         location.reload();
                     }
 
@@ -772,14 +715,11 @@ function cambiarNombreReglaBtn(id){
             processData: true,
             data: { "idReglaNombre": idReglaNombre, "textCambiar": textCambiar },
             beforeSend: function() {
-                console.log('Procesando, espere por favor...');
             },
             success: function(result) {
 
                     if (result == "0") {
-                        console.log("Expiro");
                     } else {
-                        console.log(result);
                         location.reload();
                     }
 
@@ -827,14 +767,12 @@ function addNuevaReglaData(){
             processData: true,
             data: { "regla": textoRegla, "descripcionRegla": descripcionRegla },
             beforeSend: function() {
-                console.log('Procesando, espere por favor...');
+                
             },
             success: function(result) {
 
                     if (result == "0") {
-                        console.log("Expiro");
                     } else {
-                        console.log(result);
                         $('#nuevoNombreRegla').val("");
                         $('#DecripcionNuevaRegla').val("");
                         $('#nuevaReglaData').hide();
