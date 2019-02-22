@@ -7,6 +7,36 @@ function loginReconocelo(){
     if(usuarioReconocelo == "" || passwordReconocelo == ""){
         $('#error').show();
         $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
+    }else{
+        $.ajax({
+        url: '/home/loginReconocelo',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
+        beforeSend: function() {
+            console.log('Procesando, espere por favor...');
+        },
+        success: function(result) {
+
+            if (result == "0") {
+                console.log("Expiro");
+                $('#error').show();
+                $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
+            } else {
+                location.href = "https://" + location.hostname + "/home";
+            }
+
+        },
+        error: function(object, error, anotherObject) {
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+        },
+        timeout: 30000,
+        type: "POST"
+    });
     }
 }
 /* Fin funcion login reconocelo*/

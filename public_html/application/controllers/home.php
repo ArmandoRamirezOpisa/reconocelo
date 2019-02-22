@@ -6,6 +6,46 @@
     		$this->load->view('home_view');
 		}
 
+        public function loginReconocelo(){
+            $this->load->model("login_model");
+            $loginReconoceloData = array(
+                "usuarioReconocelo"=>$_POST['usuarioReconocelo'],
+                "passwordReconocelo"=>$_POST['passwordReconocelo']
+            );
+            $login = $this->login_model->loginReconocelo($loginReconoceloData);
+            if ($login){
+                if (strlen($login[0]["eMail"])>0){
+                	$email_s = $login[0]["eMail"];
+                }else{
+                	$email_s = "-";
+                }    
+				$userData = array(
+                    'logged_in'      => TRUE,
+                    'nombre'      	  => $login[0]["PrimerNombre"],
+                    'programa'   	  => $login[0]["codPrograma"],
+                    'participante'	  => $login[0]["codParticipante"],
+                    'empresa'        => $login[0]["codEmpresa"],
+                    'status'         => $login[0]["Status"],
+                    'puntos'         => $login[0]["SaldoActual"],
+                    'idPart'         => $login[0]["idParticipante"],
+                    'calle'          => $login[0]["CalleNumero"],
+                    'colonia'        => $login[0]["Colonia"],
+                    'cp'             => $login[0]["CP"],
+                    'ciudad'         => $login[0]["Ciudad"],
+                    'estado'         => $login[0]["Estado"],
+                    'iniOrden'       => $login[0]["fhInicioOrden"],
+                    'finOrden'       => $login[0]["fhFinOrden"],
+                    'email'          => $email_s,
+                    'Visibilidad'       => $login[0]["Visibilidad"],
+                    'pwd' => $login[0]['pwd']                                                               
+                );
+            	$this->session->set_userdata($userData);
+				$this->output->set_output(json_encode(true));
+            }else{
+                $this->output->set_output(json_encode(false));//si no encuentra al usuario regresa false
+            }
+        }
+
         /* Router ejemplo para hacer un ticket */
 		public function ticketsExam(){
 			$this->load->model("Ayuda_model");
