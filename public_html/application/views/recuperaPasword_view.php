@@ -37,7 +37,7 @@
           <a href="javascript:void(0)" onClick="sendRecuperaPasswordReconocelo()" class="btn btn-primary text-center btn-block">Enviar correo</a>
           <small class="form-text text-muted text-center">  
             Para una correcta visualizaci&ograve;n del sitio se recomienda el uso de
-            Chrome, Firefox, Internet Explorer 11 o superio
+            Chrome, Firefox
           </small>
           <small class="form-text text-muted text-center">  
             <a href="https://www.reconocelo.com.mx"><h5>Iniciar sesion</h5></a> 
