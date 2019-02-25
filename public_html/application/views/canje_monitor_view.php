@@ -3,9 +3,9 @@
 <?php
 include 'home_monitor_view_header.php';
 ?>
-        <div id="messageCanjeAlert" class="container"></div>
+        <div id="messageCanjeAlert mt-5" class="container"></div>
 
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">

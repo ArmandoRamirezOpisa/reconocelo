@@ -4,7 +4,7 @@
 include 'home_monitor_view_header.php';
 ?>
 
-        <div class="container">
+        <div class="container mt-5">
 
             <table id="infoCatologoActual" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>

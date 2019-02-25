@@ -4,7 +4,7 @@
 include 'home_monitor_view_header.php';
 ?>
 
-        <div class="container">
+        <div class="container mt-5">
 
             <div class="accordion" id="acordeonReglasReconocelo">
                 <?php

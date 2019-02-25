@@ -4,7 +4,7 @@
 include 'home_monitor_view_header.php';
 ?>
 
-        <div class="container">
+        <div class="container mt-5">
 
             <div id="Depositos">
                 <table id="infoMonitorPrograma" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
