@@ -37,9 +37,9 @@
     <label for="Password" class="font-weight-bold">Contraseña Actual</label>
     <input type="password" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Contraseña actual"  name="Password">
     <label for="NuevoPassword" class="font-weight-bold mt-4">Nueva Contraseña</label>
-    <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Nueva contraseña"  name="NuevoPassword">
+    <input type="password" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Nueva contraseña"  name="NuevoPassword">
      <label for="NuevoPassword2" class="font-weight-bold mt-4">Nueva Contraseña</label>
-    <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Repita la nueva contraseña"  name="NuevoPassword2">
+    <input type="password" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Repita la nueva contraseña"  name="NuevoPassword2">
     <small id="emailHelp" class="form-text text-muted">Por seguridad no compartas tu correo electronico.</small>
    
   
