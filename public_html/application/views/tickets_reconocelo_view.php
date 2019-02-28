@@ -4,10 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Last-Modified" content="0">
+        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+        <meta http-equiv="Pragma" content="no-cache">
         <title>Reconocelo</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="../../assets/css/2018Reconocelo.css" rel="stylesheet">
+        <link href="../../assets/css/2018Reconocelo.css?a" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <script src="https://use.fontawesome.com/1f2183b84e.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -19,7 +23,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link rel="shortcut icon" href="../../assets/images/reconocelo.ico" type="image/x-icon" />
     </head>
-    <body ng-controller="Reconocelo" data-ng-init="init()">
+    <body ng-controller="Reconocelo" data-ng-init="init()" onLoad="if ('Navigator'== navigator.appName)document.forms[0].reset();">
         <div id="navbar"></div>
         <div class="row justify-content-center mt-4 mb-4">
             <div class="col-12 col-md-4 mt-4">
@@ -140,11 +144,11 @@ $( "#tipoBusqueda" )
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="../../assets/js/notify.js"></script>
-        <script src="../../assets/js/functions.js"></script>
+        <script src="../../assets/js/notify.js?a"></script>
+        <script src="../../assets/js/functions.js?a"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="../../assets/js/controller.js"></script>
+        <script src="../../assets/js/controller.js?a"></script>
         <script>
                             loadSection("cart_controller/getCategory", "dvSecc");
                             loadSection("cart_controller/getCategoryNavbar", "navbar");

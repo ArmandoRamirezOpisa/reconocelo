@@ -4,14 +4,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Last-Modified" content="0">
+        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+        <meta http-equiv="Pragma" content="no-cache">
         <title>Mantenimiento Reconocelo</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="../assets/css/ReconoceloLogin_Monitor.css" rel="stylesheet">
+        <link href="../assets/css/ReconoceloLogin_Monitor.css?a" rel="stylesheet">
          <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
          <link rel="shortcut icon" href="assets/images/monitorLogLink.png" type="image/x-icon" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
         <div id="MessageError" class="container mt-5" style="display:none;"></div>
         <div class="container">          
             <div class="row justify-content-center mb-4 mt-3">
@@ -38,7 +42,7 @@
             </div>
         </div>
         <script src="../assets/js/angular.min.js" type="text/javascript"></script>
-        <script src="../assets/js/functionsMantenimiento.js"></script>
+        <script src="../assets/js/functionsMantenimiento.js?a"></script>
         <script src="../assets/js/angular-sanitize.js" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
