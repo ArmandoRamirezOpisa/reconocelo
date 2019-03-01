@@ -93,5 +93,18 @@
                         return false;
                   }
             }
+
+            public function updatePassword($loginMantenimientoData){
+                  $query = $this->db->query("
+                        UPDATE `Participante` SET `pwd`='".$loginMantenimientoData['passwordNew']."'
+                        WHERE codPrograma = 41 
+                        and idParticipante = '".$this->session->userdata('idPart')."'
+                  ");
+                  if ($query){
+                        return $this->db->insert_id();
+                  }else{
+                        return false;
+                  }
+            }
 	}
 ?>

@@ -637,9 +637,47 @@ function up() {
     return false;
 }
 
-function CambiarCorreo() {
-    var correo = document.getElementsByName("nuevoCorreo")[0].value;
-    if (validateEmailLogIn(correo)) {
+function CambiarContraseña() {
+    var passwordOld = $('#passwordOld').val();
+    var passwordNew = $('#passwordNew').val();
+    var passwordNewConfirmar = $('#passwordNewConfirmar').val();
+    if(passwordOld == "" || passwordNew = "" || passwordNewConfirmar == ""){
+        swal("Campo vacio", "Algun campo se encuentra vacio");
+        throw new error("Campo de password vacio");
+    }else{
+        if(passwordNew != passwordNewConfirmar){
+            swal("No coinciden","Las contraseñas no coinciden");
+            throw new error("No match");
+        }else{
+            $.ajax({
+                url: '/cofInfo_controller/cambiarPassword',
+                async: 'true',
+                cache: false,
+                contentType: "application/x-www-form-urlencoded",
+                global: true,
+                ifModified: false,
+                processData: true,
+                data: { "passwordNew": passwordNew },
+                beforeSend: function() {
+                    console.log('Procesando, espere por favor...');
+                },
+                success: function(response) {
+                    if (response) {
+                        swal("Cambio de email", "Cambio de correo exitosamente", "success");
+                } else {
+                    swal("Cambio de email", "Ha ocurrido un error al cambiar el email.", "warning");
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                swal("Cambio de email", "Ha ocurrido un error al cambiar el email." + object.statusText + object.status, "warning");
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+        }
+    }
+    /*if (validateEmailLogIn(correo)) {
 
         $.ajax({
             type: 'POST',
@@ -671,7 +709,7 @@ function CambiarCorreo() {
 
     }
 
-    return true;
+    return true;*/
 }
 
 function validateEmailLogIn(correo) {
