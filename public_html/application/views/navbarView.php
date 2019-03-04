@@ -45,7 +45,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <div class="dropdown">
-                        <img src="<?= base_url() ?>/assets/images/<?=   $data = $this->session->userdata('empresa'); ?>.png"  alt="logo"  width="90" class="mr-2">
+                        <img src="<?= base_url() ?>/assets/images/<?=   $data = $this->session->userdata('empresa'); ?>.png"  alt="logo"  width="100" class="mr-2">
                         <button class=" btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="far fa-user-circle mr-1" aria-hidden="true"></i><?php echo $this->session->userdata('nombre'); ?>
                         </button>
