@@ -1,42 +1,42 @@
 /* Funcion login Reconocelo */
-function loginReconocelo(){
+function loginReconocelo() {
 
     $('#loading').show();
     var usuarioReconocelo = $('#usuarioReconocelo').val();
     var passwordReconocelo = $('#passwordReconocelo').val();
-    if(usuarioReconocelo == "" || passwordReconocelo == ""){
+    if (usuarioReconocelo == "" || passwordReconocelo == "") {
         $('#error').show();
         $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
-    }else{
+    } else {
         $.ajax({
-        url: '/home/loginReconocelo',
-        async: 'true',
-        cache: false,
-        contentType: "application/x-www-form-urlencoded",
-        global: true,
-        ifModified: false,
-        processData: true,
-        data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
-        success: function(result) {
+            url: '/home/loginReconocelo',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
 
-            if (result == "0") {
-                console.log("Expiro");
-                $('#error').show();
-                $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
-            } else {
-                location.href = "https://" + location.hostname + "/home";
-            }
+                if (result == "0") {
+                    console.log("Expiro");
+                    $('#error').show();
+                    $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
+                } else {
+                    location.href = "https://" + location.hostname + "/home";
+                }
 
-        },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
-        timeout: 30000,
-        type: "POST"
-    });
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
     }
 }
 /* Fin funcion login reconocelo*/
@@ -824,3 +824,18 @@ function configNewPasswordReconocelo(id) {
     }
 }
 /* Fin recuperar password Reconocelo */
+
+/* funcion cambiar password */
+function CambiarContraseña() {
+    var passwordOld = $('#passwordOld').val();
+    var passwordNew = $('#passwordNew').val();
+    var passwordNewConfirmar = $('#passwordNewConfirmar').val();
+    if (passwordOld == "" || passwordNew == "" || passwordNewConfirmar == "") {
+        $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Alguno de los campos se encuentran vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        throw new Error("Campos vacio");
+    } else if (passwordNew != passwordNewConfirmar) {
+        $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Las contraseñas no coinciden.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        throw new Error("Password no match");
+    }
+}
+/* fin funcion cambiar password */
