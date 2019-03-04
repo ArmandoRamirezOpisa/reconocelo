@@ -28,10 +28,10 @@
                 if($updatePasswordReconocelo){
                     $this->output->set_output(json_encode($updatePasswordReconocelo));
                 }else{
-                    $this->output->set_output(json_encode(false));
+                    $this->output->set_output(json_encode(0));
                 }
             }else{
-                $this->output->set_output(json_encode(false));
+                $this->output->set_output(json_encode(0));
             }
         }
     }
