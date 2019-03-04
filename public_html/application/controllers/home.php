@@ -42,7 +42,7 @@
             	$this->session->set_userdata($userData);
 				$this->output->set_output(json_encode(true));
             }else{
-                $this->output->set_output(json_encode(false));//si no encuentra al usuario regresa false
+                $this->output->set_output(json_encode(0));//si no encuentra al usuario regresa false
             }
         }
 
