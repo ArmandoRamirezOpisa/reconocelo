@@ -857,7 +857,7 @@ function CambiarContraseña() {
             success: function(result) {
 
                 if (result == "0") {
-                    $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente <a href="https://www.reconocelo.com.mx/recuperar_usuario" class="alert-link">si no la recuerdas da click para resstablecerla</a>.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#messageUpdatePasswordReconocelo').show();
                 } else {
                     $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
