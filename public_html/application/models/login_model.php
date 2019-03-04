@@ -106,5 +106,35 @@
                         return false;
                   }
             }
+
+            public function checkPasswordReconocelo(){
+                  $query = $this->db->query("
+                        SELECT pwd
+                        FROM `Participante` 
+                        WHERE codPrograma = '".$this->session->userdata('programa')."'
+                        AND codEmpresa = '".$this->session->userdata('empresa')."'
+                        AND idParticipante = '".$this->session->userdata('idPart')."'
+                  ");
+                  if ($query->num_rows() == 1){
+                        return $query->result_array(); 
+                  }else{
+                        return false;
+                  }
+            }
+
+            public function updatePasswordReconocelo($updatePasswordReconoceloData){
+                  $query = $this->db->query("
+                        UPDATE `Participante` 
+                        SET `pwd`='".$updatePasswordReconoceloData['passwordNew']."' 
+                        WHERE codPrograma ='".$this->session->userdata('programa')."'
+                        AND codEmpresa ='".$this->session->userdata('empresa')."'
+                        AND  `idParticipante` ='".$this->session->userdata('idPart')."'
+                  ");
+                  if ($query){
+                        return $this->db->insert_id();
+                  }else{
+                        return false;
+                  }
+            }
 	}
 ?>

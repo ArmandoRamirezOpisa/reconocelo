@@ -827,6 +827,8 @@ function configNewPasswordReconocelo(id) {
 
 /* funcion cambiar password */
 function CambiarContraseña() {
+    $('#messageUpdatePasswordReconocelo').html('<i class="fas fa-sync fa-spin"></i>');
+    $('#messageUpdatePasswordReconocelo').show();
     var passwordOld = $('#passwordOld').val();
     var passwordNew = $('#passwordNew').val();
     var passwordNewConfirmar = $('#passwordNewConfirmar').val();
@@ -836,6 +838,42 @@ function CambiarContraseña() {
     } else if (passwordNew != passwordNewConfirmar) {
         $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Las contraseñas no coinciden.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         throw new Error("Password no match");
+    } else {
+        $.ajax({
+            url: '/cofInfo_controller/updatePasswordReconocelo',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: {
+                "passwordOld": passwordOld,
+                "passwordNew": passwordNew
+            },
+            beforeSend: function() {
+                console.log('Procesando, espere por favor...');
+            },
+            success: function(result) {
+
+                if (result == "0") {
+                    $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#messageUpdatePasswordReconocelo').show();
+                } else {
+                    $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#messageUpdatePasswordReconocelo').show();
+                    $('#passwordOld').val('');
+                    $('#passwordNew').val('');
+                    $('#passwordNewConfirmar').val('');
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
     }
 }
 /* fin funcion cambiar password */

@@ -15,5 +15,24 @@
             }else{
                 $this->output->set_output(json_encode(false));
             }
-        }  
+        }
+        
+        public function updatePasswordReconocelo(){
+            $this->load->model("login_model");
+            $updatePasswordReconoceloData = array(
+                "passwordOld"=>$_POST['passwordOld'],
+                "passwordNew"=>$_POST['passwordNew']
+            );
+            $checkPasswordReconocelo = $this->login_model->checkPasswordReconocelo();
+            if($checkPasswordReconocelo[0]['pwd'] == $updatePasswordReconoceloData['passwordOld']){
+                $updatePasswordReconocelo = $this->login_model->updatePasswordReconocelo($updatePasswordReconoceloData);
+                if($updatePasswordReconocelo){
+                    $this->output->set_output(json_encode($updatePasswordReconocelo));
+                }else{
+                    $this->output->set_output(json_encode(false));
+                }
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
     }
