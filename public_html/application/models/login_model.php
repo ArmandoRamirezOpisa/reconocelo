@@ -22,7 +22,6 @@
                         return false;
                   }
             }
-
             public function login($datos){
                   $emp=substr($datos["usuario"],0,5);
                   $part=intval(substr($datos["usuario"],5,3));
@@ -69,9 +68,7 @@
                         return false;
                   }
             }
-
             public function loginMantenimiento($datos){
-
                   $emp=substr($datos["usuario"],0,5);
                   $part=intval(substr($datos["usuario"],5,3));
                         
@@ -93,7 +90,6 @@
                         return false;
                   }
             }
-
             public function updatePassword($loginMantenimientoData){
                   $query = $this->db->query("
                         UPDATE `Participante` SET `pwd`='".$loginMantenimientoData['passwordNew']."'
@@ -106,7 +102,6 @@
                         return false;
                   }
             }
-
             public function checkPasswordReconocelo(){
                   $query = $this->db->query("
                         SELECT pwd
@@ -121,7 +116,6 @@
                         return false;
                   }
             }
-
             public function updatePasswordReconocelo($updatePasswordReconoceloData){
                   $query = $this->db->query("
                         UPDATE `Participante` 

@@ -1,12 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
     class Cart_controller extends CI_Controller {
     	   
         public function __construct()
         {
             parent::__construct();
             $this->load->model("cart_model");
-
             if (!$this->session->userdata('logged_in')){
                 $this->load->view('login_view');
             }
@@ -36,7 +34,6 @@
             }
     		$this->load->view('navbarView',$data);
         }
-
         public function getAwards($idCat){
     	    $aw = $this->cart_model->getAwards($idCat);
             if ($aw){
