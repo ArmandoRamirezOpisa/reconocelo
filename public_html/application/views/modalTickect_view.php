@@ -21,6 +21,13 @@
             </br>';
         }
     }else{
-        echo '<h1>Este ticket no tiene historial</h1>';
+        echo '<div class="card">
+            <div class="card-header text-center"></div>
+            <div class="card-body">
+                <h5 class="card-title">No hay historial</h5>
+                <p class="card-text">En estos momentos no hay ningun historial de tickets.</p>
+            </div>
+        </div>
+        </br>';
     }
 ?>
