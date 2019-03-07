@@ -1,3 +1,6 @@
+/* Variables globales */
+var click = 0;
+
 /* Funcion login Reconocelo */
 function loginReconocelo() {
 
@@ -538,39 +541,49 @@ function sendCanje($ptsUser, $ptsCanje) {
         if (periodoCanjes == 1) {
 
             if ($ptsUser >= $ptsCanje) {
-                document.getElementById('btnGenCanje').style.display = "none";
-                if (contOrder.length > 0) {
 
-                    var jsonString = JSON.stringify(contOrder); //Pasa array a formato JSON
-                    var address = $("#frmCanjeDir").serializeArray();
-                    $.ajax({
-                        type: 'POST',
-                        url: "canje_controller/addCanje",
-                        dataType: "json",
-                        data: { "data": jsonString, "ptsCanje": $ptsCanje, "address": address },
-                        beforeSend: function() {
-                            console.log('Procesando, espere por favor...');
-                        },
-                        success: function(response) {
-                            if (response) {
-                                swal("Solicitud de canje", "Tu orden ha sido realizada correctamente", "success");
-                                //setTimeout(function() { location.href = "https://www.reconocelo.com.mx"; }, 3000);
-                            } else {
-                                swal("Error de comunicación", "Ha ocurrido un error de comunicación. Intente nuevamente", "warning");
+                click++;
+
+                if(click == 1){
+                    document.getElementById('btnGenCanje').style.display = "none";
+                    if (contOrder.length > 0) {
+                        var jsonString = JSON.stringify(contOrder); //Pasa array a formato JSON
+                        var address = $("#frmCanjeDir").serializeArray();
+                        $.ajax({
+                            type: 'POST',
+                            url: "canje_controller/addCanje",
+                            dataType: "json",
+                            data: { "data": jsonString, "ptsCanje": $ptsCanje, "address": address },
+                            beforeSend: function() {
+                                console.log('Procesando, espere por favor...');
+                            },
+                            success: function(response) {
+                                if (response) {
+                                    swal("Solicitud de canje", "Tu orden ha sido realizada correctamente", "success");
+                                    sleep(2000);
+                                    location.reload();
+                                } else {
+                                    swal("Error de comunicación", "Ha ocurrido un error de comunicación. Intente nuevamente", "warning");
+                                    $("#btnGenCanje").show();
+                                    $("#lblProc").hide();
+                                }
+                            },
+                            error: function(x, e) {
+                                swal("Error al realizar el canje", "Ocurrio un error al realizar el canje:" + e.messager, "warning");
                                 $("#btnGenCanje").show();
                                 $("#lblProc").hide();
                             }
-                        },
-                        error: function(x, e) {
-                            swal("Error al realizar el canje", "Ocurrio un error al realizar el canje:" + e.messager, "warning");
-                            $("#btnGenCanje").show();
-                            $("#lblProc").hide();
-                        }
-                    });
-
-                } else {
-                    swal("Operacion no permitida", "No tienes ningun articulo en tu carrito", "warning");
+                        });
+                    } else {
+                        swal("Operacion no permitida", "No tienes ningun articulo en tu carrito", "warning");
+                    }
+                }else{
+                    swal("Solo debes de realizar un click para poder relizar tu canje","Warning");
+                    location.reload();
                 }
+
+
+
 
             } else {
                 swal("Operacion no permitida", "Su saldo es insuficiente para realizar este canje.", "warning");

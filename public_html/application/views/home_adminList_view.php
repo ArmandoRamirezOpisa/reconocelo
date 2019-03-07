@@ -38,7 +38,7 @@
             </div>
         </div>
         <script src="../assets/js/angular.min.js" type="text/javascript"></script>
-        <script src="assets/js/functions.js?a"></script>
+        <script src="assets/js/functions.js?ab"></script>
         <script src="../assets/js/angular-sanitize.js" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
