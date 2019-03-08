@@ -34,9 +34,7 @@ include 'home_monitor_view_header.php';
                             </div>
                             <div id="'.$row['idReglaNombre'].'" class="collapse" aria-labelledby="heading'.$row['idReglaNombre'].'" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <textarea class="form-control" id="regla-'.$row['idReglaNombre'].'" rows="3">
-                                        '.$row['descripcionRegla'].'
-                                    </textarea>
+                                    <textarea class="form-control" id="regla-'.$row['idReglaNombre'].'" rows="3">'.$row['descripcionRegla'].'</textarea>
                                     <button id="'.$row['idReglaNombre'].'" type="button" class="btn btn-primary mt-2" onclick="cambiarRegla(this)""><i class="fas fa-edit"></i> Editar regla</button>
                                 </div>
                             </div>
