@@ -483,7 +483,7 @@
             $this->email->initialize($config);
             //Envío de alerta de canje.
             $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
-            $this->email->to('operaciones@opisa.com');
+            $this->email->to('operaciones@opisa.com');//operaciones@opisa.com
             $this->email->cc($this->session->userdata('email'));
 
             $this->email->subject('Canje');

@@ -13,11 +13,11 @@
                                 WHERE codPrograma = ".$this->session->userdata('programa')."
                                 AND idParticipante = ".$this->session->userdata('idPart')."
                                 AND noTipoEntrega = 1
-                                AND CalleNumero = '".$_POST["address"][3]["value"]."'
-                                AND Colonia = '".$_POST["address"][2]["value"]."'
+                                AND CalleNumero = '".$_POST["address"][0]["value"]."'
+                                AND Colonia = '".$_POST["address"][1]["value"]."'
                                 AND CP = '".$_POST["address"][4]["value"]."'
-                                AND Ciudad = '".$_POST["address"][1]["value"]."'
-                                AND Estado = '".$_POST["address"][0]["value"]."'
+                                AND Ciudad = '".$_POST["address"][2]["value"]."'
+                                AND Estado = '".$_POST["address"][3]["value"]."'
                                 AND Telefono = '".$_POST["address"][5]["value"]."'
                                 AND referencias = '".$_POST["address"][6]["value"]."'
                         ");
@@ -34,10 +34,10 @@
                                 INSERT INTO PreCanje (codPrograma,idParticipante,noTipoEntrega,CalleNumero,Colonia,
                                 CP,Ciudad,Estado,Telefono,referencias)
                                 VALUES (".$this->session->userdata('programa').",
-                                ".$this->session->userdata('idPart').",1,'".$_POST["address"][3]["value"]."',
-                                '".$_POST["address"][2]["value"]."','".$_POST["address"][4]["value"]."'
-                                ,'".$_POST["address"][1]["value"]."','".$_POST["address"][0]["value"]."'
-                                ,'".$_POST["address"][5]["value"]."','".$_POST["address"][6]["value"]."')   
+                                ".$this->session->userdata('idPart').",1,'".$_POST["address"][0]["value"]."',
+                                '".$_POST["address"][1]["value"]."','".$_POST["address"][4]["value"]."'
+                                ,'".$_POST["address"][2]["value"]."','".$_POST["address"][3]["value"]."'
+                                ,'".$_POST["address"][5]["value"]."','".$_POST["address"][6]["value"]."') 
                         ");
     		        if ($query)
     		        {
