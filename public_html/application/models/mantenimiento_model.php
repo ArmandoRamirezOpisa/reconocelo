@@ -10,7 +10,7 @@
                 SELECT * 
                 FROM  Participante
                 WHERE  loginWeb = '".$usuario."'
-                AND  pwd = '".$password."'
+                AND  pwd = md5('".$password."')
             ");
             if ($query->num_rows() == 1){
 
