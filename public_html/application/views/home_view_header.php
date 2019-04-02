@@ -19,7 +19,7 @@
     </head>
     <body ng-controller="Reconocelo" data-ng-init="init()" onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
         <div id="navbar"></div>
-        <div class="row justify-content-center mt-4 mb-4">
+        <div class="row justify-content-center mt-4 mb-4 animated apareciendo">
             <div class="col-12 col-md-4 mt-4">
                 <img src="assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
             </div>

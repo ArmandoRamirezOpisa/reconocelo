@@ -1,4 +1,4 @@
-<div class="container-fluid mt-4 animated fadeIn">
+<div class="container-fluid mt-4 animated apareciendo">
 <!-- 
    <select id="selProd" class="form-control">
     

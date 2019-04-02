@@ -347,11 +347,8 @@ function historiaTicket(id) {
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                console.log('Correcto');
-                console.log(result);
                 $('#historialTicket').html(result);
             }
 

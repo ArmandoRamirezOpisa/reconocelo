@@ -1,5 +1,5 @@
-<div class="col-md-12 animated fadeIn">
-<div class="table-responsive animated fadeIn">
+<div class="col-md-12 animated apareciendo">
+<div class="table-responsive animated apareciendo">
 <table class="table ">
     <thead class="thead navcolor text-white">
         <th class="thTP">Folio</th>

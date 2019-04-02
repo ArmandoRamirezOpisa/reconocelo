@@ -1,17 +1,17 @@
-<div class="row animated fadeIn">
+<div class="row animated apareciendo">
     <div class="col-12">
         <h1 class="text-center"><i class="far fa-life-ring  mr-2"></i>Bienvenido al Centro de Respuestas Reconócelo</h1>
         <p class="text-center lead">Aqui podras visualizar las respuestas a tus preguntas realizadas</p>
     </div>
 </div>
 
-<div class="row justify-content-center mt-4 animated fadeIn">
+<div class="row justify-content-center mt-4 animated apareciendo">
     <div class="col-8">
         <?php
             if ($ticketHistory){
                 foreach ($ticketHistory as $row){
                     echo '
-                    <div class="card text-center animated fadeIn">
+                    <div class="card text-center animated">
                         <div class="card-header">
                             <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>';
                             if ($row['idCanje'] == 0){
@@ -67,7 +67,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg animated apareciendo" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

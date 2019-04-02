@@ -22,15 +22,15 @@
     <![endif]-->
     <link rel="shortcut icon" href="https://www.reconocelo.com.mx/assets/images/reconocelo.ico" type="image/x-icon" />
   </head>
-  <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated fadeIn">
-    <div class="container animated fadeIn">
+  <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
+    <div class="container animated apareciendo">
       <div id="MessageRecuperaReconocelo mt-5"></div>
       <div class="row justify-content-center mt-4 mb-4">
         <div class="col-12 col-md-4 mt-4">
           <img src="https://www.reconocelo.com.mx/assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
         </div>
       </div>
-      <div class="row justify-content-center animated fadeIn">
+      <div class="row justify-content-center animated apareciendo">
         <div class="col-12 col-md-4">    
           <form class="form-signin" role="form">
             <div class="form-group">

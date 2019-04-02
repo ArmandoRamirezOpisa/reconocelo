@@ -287,8 +287,8 @@ input[type=password] {
 /* Animaciones */
 
 .animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -300,7 +300,7 @@ input[type=password] {
   animation-fill-mode: both;
 }
 
-@keyframes fadeIn {
+@keyframes apareciendo {
   from {
     opacity: 0;
   }
@@ -310,8 +310,8 @@ input[type=password] {
   }
 }
 
-.fadeIn {
-  animation-name: fadeIn;
+.apareciendo {
+  animation-name: apareciendo;
 }
 
 /* Fin animaciones */

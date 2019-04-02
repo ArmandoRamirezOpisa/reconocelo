@@ -1,6 +1,6 @@
-<div class="col-md-12 animated fadeIn">
+<div class="col-md-12 animated apareciendo">
 	<h2>Contenido de la orden</h2>
-	<div class="table-responsive animated fadeIn">
+	<div class="table-responsive animated apareciendo">
 		<table class="table ">  
   		<thead class="thead navcolor text-white">
     		<tr>
@@ -19,9 +19,9 @@
 </div>
 <br>
 </div>
-<div class="row justify-content-center animated fadeIn">
+<div class="row justify-content-center animated apareciendo">
 	<div class="col-6">
-		<div class="card card-column bg-light mb-3 animated fadeIn">
+		<div class="card card-column bg-light mb-3 animated apareciendo">
   			<div class="card-header">
 				<h2 class= "text-center">
 					<i class="fas fa-map-marker-alt mr-2"></i>Direcci&oacute;n de entrega
