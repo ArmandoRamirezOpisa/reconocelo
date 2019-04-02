@@ -1,17 +1,17 @@
 <div class="row fixed-top mb-4 animated apareciendo">
     <div class="col-12 mb-4">
-        <nav class="navbar navbar-expand-lg navbar-light navcolor animated apareciendo">
+        <nav class="navbar navbar-expand-lg navbar-light navcolor">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-th text-white" aria-hidden="true"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01 animated apareciendo">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <a class="navbar-brand   text-white font-weight-bold" href="#">Saldo <span class="badge badge-warning ml-2" id="saldo"><?php echo number_format($this->session->userdata('puntos')); ?> puntos</span></a>
                 <form class="form-inline my-2 my-lg-0">
                     <div class="dropdown" data-toggle="tooltip" title="Categorias">
                         <button class=" btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-archive mr-1" aria-hidden="true"></i>Categorias
                         </button>
-                        <div class="dropdown-menu scrollable-menu animated apareciendo" aria-labelledby="dropdownMenuButton">            
+                        <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">            
                             <?php
                                 if($cat){
                                     foreach($cat as $row){
