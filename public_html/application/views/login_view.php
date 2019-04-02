@@ -11,18 +11,18 @@
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     </head>
-    <body>
-        <div class="container-fluid  pxy-0 mxy-0" >
+    <body class="animated fadeIn">
+        <div class="container-fluid  pxy-0 mxy-0 animated fadeIn" >
             <div class="row justify-content-center mt-2 mb-4">
                 <div class="col align-self-start">
-                    <div class="row  justify-content-start">
+                    <div class="row  justify-content-start animated fadeIn">
                         <div class="col-10 col-md-7">
                             <img class="card-img-top px-4 py-4" src="../assets/images/reconocelo.png" alt="Card image cap">
                         </div>          
                     </div>
-                    <div class="row">
+                    <div class="row animated fadeIn">
                         <div class="col">
-                            <div class="jumbotron">
+                            <div class="jumbotron animated fadeIn">
                                 <h3 class="lead mt-4 mb-3 titleReconocelo font-weight-bold"><i class="far fa-question-circle mr-1"></i> ¿Qué es Reconócelo.com.mx?</h3>
                                 <ul class="lead">
                                     <li>Es un portal mexicano dedicado a programas de reconocimiento a empleados así como de lealtad a empresas distribuidoras por parte de nuestros clientes.</li>
@@ -39,8 +39,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 mt-6 mb-4  align-self-end">
-                    <div class="card mb-3">
+                <div class="col-12 col-md-4 mt-6 mb-4  align-self-end animated fadeIn">
+                    <div class="card mb-3 animated fadeIn">
                         <div class="card-header text-center"><h5 class="text-muted"> Iniciar sesión</h5></div>
                         <p class="text-center pb-4 pt-4 iconoColorSession"> <i class="fas fa-user fa-10x"></i></p>
                         <div class="card-body pxy-4">
@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center footer">
+            <div class="row justify-content-center footer animated fadeIn">
                 <div class="col-auto align-self-center">
                     <span> &#174; Derechos reservados. Reconócelo 2018</span>
                 </div>
