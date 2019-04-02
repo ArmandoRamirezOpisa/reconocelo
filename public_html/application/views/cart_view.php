@@ -12,7 +12,7 @@
           }else{
             $pp = "";
           }         
-        echo '<div class="col-sm-6 col-md-3 card-group mb-2 ">     
+        echo '<div class="col-sm-6 col-md-3 card-group mb-2 animated fadeIn">     
           <div class="card bg-light">
             <img class="card-img-top" src="http://www.opisa.com/incentivos/'.$codPremio.'.jpg" alt="...">
             <div class="card-body">

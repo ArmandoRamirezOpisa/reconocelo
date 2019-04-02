@@ -1,17 +1,17 @@
-<div class="row fixed-top mb-4">
+<div class="row fixed-top mb-4 animated fadeIn">
     <div class="col-12 mb-4">
-        <nav class="navbar navbar-expand-lg navbar-light navcolor ">
+        <nav class="navbar navbar-expand-lg navbar-light navcolor animated fadeIn">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-th text-white" aria-hidden="true"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01 animated fadeIn">
                 <a class="navbar-brand   text-white font-weight-bold" href="#">Saldo <span class="badge badge-warning ml-2" id="saldo"><?php echo number_format($this->session->userdata('puntos')); ?> puntos</span></a>
                 <form class="form-inline my-2 my-lg-0">
                     <div class="dropdown" data-toggle="tooltip" title="Categorias">
                         <button class=" btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-archive mr-1" aria-hidden="true"></i>Categorias
                         </button>
-                        <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">            
+                        <div class="dropdown-menu scrollable-menu animated fadeIn" aria-labelledby="dropdownMenuButton">            
                             <?php
                                 if($cat){
                                     foreach($cat as $row){
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </form>
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5 animated fadeIn">
                     <li class="nav-item">
                         <button data-toggle="tooltip" title="Reglas" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('reglas_controller','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
                     </li>
@@ -43,7 +43,7 @@
                         <button data-toggle="tooltip" title="Ayuda" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('ayuda_Controller','dvSecc')"><i class="fas fa-question-circle  mr-1" aria-hidden="true"></i>Ayuda</button>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0 animated fadeIn">
                     <div class="dropdown">
                         <img src="<?= base_url() ?>/assets/images/<?=   $data = $this->session->userdata('empresa'); ?>.png"  alt="logo"  width="100" class="mr-2">
                         <button class=" btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

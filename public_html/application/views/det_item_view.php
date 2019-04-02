@@ -7,7 +7,7 @@
                     $codPremio=$row['codPremio'];
                     while(!(strlen($codPremio)>4))
                         $codPremio='0'.$codPremio;
-                        echo '<div class="col-md-5">
+                        echo '<div class="col-md-5 animated fadeIn">
                             <img style="background:#fcf6b9;width:100%;height:auto;" src="http://www.opisa.com/incentivos/'.$codPremio.'.jpg" alt="...">
                         </div>
                         <div class="col-md-5">

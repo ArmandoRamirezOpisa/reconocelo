@@ -23,9 +23,9 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link rel="shortcut icon" href="../../assets/images/reconocelo.ico" type="image/x-icon" />
     </head>
-    <body ng-controller="Reconocelo" data-ng-init="init()" onLoad="if ('Navigator'== navigator.appName)document.forms[0].reset();">
+    <body ng-controller="Reconocelo" data-ng-init="init()" onLoad="if ('Navigator'== navigator.appName)document.forms[0].reset();" class="animated fadeIn">
         <div id="navbar"></div>
-        <div class="row justify-content-center mt-4 mb-4">
+        <div class="row justify-content-center mt-4 mb-4 animated fadeIn">
             <div class="col-12 col-md-4 mt-4">
                 <img src="../../assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
             </div>
@@ -35,7 +35,7 @@
 
 
         <form>
-            <div class="form-group">
+            <div class="form-group animated fadeIn">
                 <label for="exampleFormControlSelect1" class="font-weight-bold lblText"> * Selecciona tu tipo de pregunta</label>
                 <div id="tipoBusqueda">
                     <select class="form-control" id="exampleFormControlSelect1" name="preguntas" onchange="selectOptionTicket(this)">

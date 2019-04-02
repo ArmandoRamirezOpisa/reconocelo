@@ -1,4 +1,4 @@
-<div style="text-align:justify;" class="span8">
+<div style="text-align:justify;" class="span8 animated fadeIn">
     
     <div class="page-header" style="color:#ea3611;">
       <h1>Aviso de Privacidad</h1>

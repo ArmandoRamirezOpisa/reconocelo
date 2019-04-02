@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row animated fadeIn">
     <div class="col-12">
         <h1 class="text-center">
             <i class="fas fa-question-circle mr-4"></i>Bienvenido al Centro de Ayuda Reconócelo
@@ -6,10 +6,10 @@
     </div>
 </div>
 
-<div class="row mt-4">
+<div class="row mt-4 animated fadeIn">
     <div class="col-12 col-md-6">
-       <div class="card-group">
-            <div class="card cardAyuda">
+       <div class="card-group animated fadeIn">
+            <div class="card cardAyuda animated fadeIn">
                 <span class="text-center mt-2 mb-2">
                     <i class="fa fa-truck fa-5x iconsAyuda" aria-hidden="true"></i>
                 </span>

@@ -1,17 +1,17 @@
-<div class="row">
+<div class="row animated fadeIn">
     <div class="col-12">
         <h1 class="text-center"><i class="far fa-life-ring  mr-2"></i>Bienvenido al Centro de Respuestas Reconócelo</h1>
         <p class="text-center lead">Aqui podras visualizar las respuestas a tus preguntas realizadas</p>
     </div>
 </div>
 
-<div class="row justify-content-center mt-4">
+<div class="row justify-content-center mt-4 animated fadeIn">
     <div class="col-8">
         <?php
             if ($ticketHistory){
                 foreach ($ticketHistory as $row){
                     echo '
-                    <div class="card text-center">
+                    <div class="card text-center animated fadeIn">
                         <div class="card-header">
                             <strong class="space-ticket"><i class="fas fa-ticket-alt"></i> Ticket: '.$row['IdTicket'].'</strong>';
                             if ($row['idCanje'] == 0){

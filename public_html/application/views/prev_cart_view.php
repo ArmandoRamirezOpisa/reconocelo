@@ -1,6 +1,6 @@
-<div class="col-md-12">
+<div class="col-md-12 animated fadeIn">
 	<h2>Contenido de la orden</h2>
-	<div class="table-responsive">
+	<div class="table-responsive animated fadeIn">
 		<table class="table ">  
   		<thead class="thead navcolor text-white">
     		<tr>
@@ -19,16 +19,16 @@
 </div>
 <br>
 </div>
-<div class="row justify-content-center">
+<div class="row justify-content-center animated fadeIn">
 	<div class="col-6">
-		<div class="card card-column bg-light mb-3">
-  		<div class="card-header">
+		<div class="card card-column bg-light mb-3 animated fadeIn">
+  			<div class="card-header">
 				<h2 class= "text-center">
 					<i class="fas fa-map-marker-alt mr-2"></i>Direcci&oacute;n de entrega
 				</h2>
 			</div>
-  		<div class="card-body">
-    		<h5 class="card-title">
+  			<div class="card-body">
+    			<h5 class="card-title">
 					Ingrese o actualice la direcci&oacute;n a la que ser&aacute;n enviados los productos.
 				</h5>
 				<form id="frmCanjeDir">
@@ -47,7 +47,7 @@
 			  	<div class="form-group" id="gcp">
 			    	<input type="text" class="form-control" id="cp"  maxlength="5" name="cp" placeholder="C.P." required>
 			  	</div>
-          <div class="form-group" id="telefono">
+          		<div class="form-group" id="telefono">
 				    <input type="tel" class="form-control" onkeypress="return isNumberKey(event)" id="tel" name="tel" placeholder="telefono" required>
 			  	</div>
   				<div class="form-group" id="ref">
