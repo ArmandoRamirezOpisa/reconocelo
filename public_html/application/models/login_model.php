@@ -102,13 +102,14 @@
                         return false;
                   }
             }
-            public function checkPasswordReconocelo(){
+            public function checkPasswordReconocelo($updatePasswordReconoceloData){
                   $query = $this->db->query("
                         SELECT pwd
                         FROM `Participante` 
                         WHERE codPrograma = '".$this->session->userdata('programa')."'
                         AND codEmpresa = '".$this->session->userdata('empresa')."'
                         AND idParticipante = '".$this->session->userdata('idPart')."'
+                        AND pwd = md5('".$updatePasswordReconoceloData['passwordOld']."')
                   ");
                   if ($query->num_rows() == 1){
                         return $query->result_array(); 
@@ -119,7 +120,7 @@
             public function updatePasswordReconocelo($updatePasswordReconoceloData){
                   $query = $this->db->query("
                         UPDATE `Participante` 
-                        SET `pwd`='".$updatePasswordReconoceloData['passwordNew']."' 
+                        SET `pwd`=md5('".$updatePasswordReconoceloData['passwordNew']."' )
                         WHERE codPrograma ='".$this->session->userdata('programa')."'
                         AND codEmpresa ='".$this->session->userdata('empresa')."'
                         AND  `idParticipante` ='".$this->session->userdata('idPart')."'

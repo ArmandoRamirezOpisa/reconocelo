@@ -838,8 +838,6 @@ function configNewPasswordReconocelo(id) {
 
 /* funcion cambiar password */
 function CambiarContraseña() {
-    $('#messageUpdatePasswordReconocelo').html('<i class="fas fa-sync fa-spin"></i>');
-    $('#messageUpdatePasswordReconocelo').show();
     var passwordOld = $('#passwordOld').val();
     var passwordNew = $('#passwordNew').val();
     var passwordNewConfirmar = $('#passwordNewConfirmar').val();

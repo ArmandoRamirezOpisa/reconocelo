@@ -22,8 +22,8 @@
                 "passwordOld"=>$_POST['passwordOld'],
                 "passwordNew"=>$_POST['passwordNew']
             );
-            $checkPasswordReconocelo = $this->login_model->checkPasswordReconocelo();
-            if($checkPasswordReconocelo[0]['pwd'] == $updatePasswordReconoceloData['passwordOld']){
+            $checkPasswordReconocelo = $this->login_model->checkPasswordReconocelo($updatePasswordReconoceloData);
+            if($checkPasswordReconocelo){
                 $updatePasswordReconocelo = $this->login_model->updatePasswordReconocelo($updatePasswordReconoceloData);
                 if($updatePasswordReconocelo){
                     $this->output->set_output(json_encode($updatePasswordReconocelo));
