@@ -36,7 +36,7 @@
 
             public function cambiarPasswordNewReconocelo($passwordConfigReconocelo){
                   $query = $this->db->query("
-                        UPDATE `Participante` SET `pwd`=".$passwordConfigReconocelo['passwordNewReconocelo']." 
+                        UPDATE `Participante` SET `pwd`=md5(".$passwordConfigReconocelo['passwordNewReconocelo'].")
                         WHERE loginWeb = ".$passwordConfigReconocelo['loginWeb']."
                         and idParticipante = ".$passwordConfigReconocelo['idParticipante']."
                   ");
