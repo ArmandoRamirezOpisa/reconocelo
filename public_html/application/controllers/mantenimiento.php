@@ -18,7 +18,7 @@
             $this->load->model("mantenimiento_model");
             $loginMantenimientoData = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
             $userMantenimientoExist = $this->mantenimiento_model->loginUserMantenimiento($loginMantenimientoData);
-            if ($userMantenimientoExist['loginWeb'] == '41160001' && $userMantenimientoExist['pwd'] == 5674){
+            if ($userMantenimientoExist['loginWeb'] == '41160001' && $userMantenimientoExist['pwd']){
 
                 $InformacionLogin = $this->mantenimiento_model->login($loginMantenimientoData);
                 if ($InformacionLogin){

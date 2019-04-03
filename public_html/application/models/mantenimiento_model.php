@@ -7,7 +7,7 @@
             $usuario =$loginMantenimientoData['usuario'];
             $password = $loginMantenimientoData['password'];
             $query = $this->db->query("
-                SELECT * 
+                SELECT *
                 FROM  Participante
                 WHERE  loginWeb = '".$usuario."'
                 AND  pwd = md5('".$password."')
@@ -37,7 +37,7 @@
                 INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
                 WHERE pp.codPrograma = 41 
                 AND pp.loginWeb = '".$usuario."' 
-                AND pwd = '".$password."'
+                AND pwd = md5('".$password."')
                 AND pp.Status = 1
             ");
             if ($query->num_rows() == 1){

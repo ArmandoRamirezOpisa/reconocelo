@@ -15,14 +15,14 @@
          <link rel="shortcut icon" href="assets/images/monitorLogLink.png" type="image/x-icon" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     </head>
-    <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
-        <div id="MessageError" class="container mt-5" style="display:none;"></div>
-        <div class="container">          
-            <div class="row justify-content-center mb-4 mt-3">
+    <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
+        <div id="MessageError" class="container mt-5 animated apareciendo" style="display:none;"></div>
+        <div class="container animated apareciendo">
+            <div class="row justify-content-center mb-4 mt-3 animated apareciendo">
                 <div class="col-12 col-md-6 mt-4 ">
-                    <div class="card-deck mt-3">
+                    <div class="card-deck mt-3 animated apareciendo">
                         <div class="card bg-ligh">
-                            <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
+                            <img src="../assets/images/reconocelo.png" class="img-fluid animated apareciendo" alt="Responsive image">
                             <div class="card-body">
                                 <form>
                                     <div class="form-group">

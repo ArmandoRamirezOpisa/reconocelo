@@ -8,6 +8,7 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="../assets/css/ReconoceloLogin_Monitor.css?ab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="shortcut icon" href="../../assets/images/monitorLogLink.png" type="image/x-icon" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
@@ -15,9 +16,9 @@
         <script src="../assets/js/papaparse.min.js"></script>
         <title>Mantenimiento Reconocelo</title>
     </head>
-    <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
+    <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
 
-        <nav id="menu-mantenimiento" class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <nav id="menu-mantenimiento" class="navbar navbar-expand-lg fixed-top navbar-light bg-light animated apareciendo">
 
             <!-- Image and text -->
             <nav class="navbar navbar-light bg-light">
@@ -66,11 +67,11 @@
             </div>
         </nav>
 
-        <div class="container" style="margin-top: 100px;">
+        <div class="container animated apareciendo" style="margin-top: 100px;">
             
-        <div id="alertMessage" class="container mt-5" style="display:none;"></div>
+        <div id="alertMessage" class="container mt-5 animated apareciendo" style="display:none;"></div>
 
-            <div class="row">
+            <div class="row animated apareciendo">
                 <div class="col-sm"></div>
                 <div class="col-sm">
                     <h1>Participantes</h1>
@@ -78,7 +79,7 @@
                 <div class="col-sm"></div>
             </div>
             
-            <div class="form-group">
+            <div class="form-group animated apareciendo">
                     <label for="functionsPremio">Selecciona alguna opcion:</label>
                     <select class="form-control" id="functionsPremio" onchange="optionsParticipante(this)">
                         <option value="selecciona">Selecciona</option>
@@ -87,12 +88,12 @@
                     </select>
                 </div>
 
-            <div id="opcionesParticipantes"></div>
+            <div id="opcionesParticipantes" class="animated apareciendo"></div>
 
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade animated apareciendo" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
