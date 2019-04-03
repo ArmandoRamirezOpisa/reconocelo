@@ -14,25 +14,20 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../assets/js/papaparse.min.js"></script>
     </head>
-    <body ng-controller="validarLogin">
+    <body ng-controller="validarLogin" class="animated apareciendo">
 
-        <nav class="navbar navbar-expand-lg">
-            <a id="inicioMonitor" class="navbar-brand" href="https://www.reconocelo.com.mx/monitor/">
+        <nav class="navbar navbar-expand-lg animated apareciendo">
+            <a id="inicioMonitor" class="navbar-brand animated apareciendo" href="https://www.reconocelo.com.mx/monitor/">
                 <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
             </a>
         </nav>
-        <!--<div class="container-fluid">
-            <div  class="row mb-4 sizetopbottom">
-                <div class="col" style="background: #034889;color: white;"></div> 
-            </div>
-        </div>-->
 
-        <div class="container">  
-            <div class="row justify-content-center mb-4 mt-3">
-                <div class="col-12 col-md-6 mt-4 ">
-                    <div class="card border-light mt-3">
+        <div class="container animated apareciendo">  
+            <div class="row justify-content-center mb-4 mt-3 animated apareciendo">
+                <div class="col-12 col-md-6 mt-4 animated apareciendo">
+                    <div class="card mt-3 animated apareciendo">
                         <div class="card bg-ligh">
-                            <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
+                            <img src="../assets/images/reconocelo.png" class="img-fluid animated apareciendo" alt="Responsive image">
                             <div class="card-body">
                                 <form ng-submit="validarUsuario()"  autocomplete="off">
                                     <p class="card-title text-center mt-4 h2">Iniciar sesión</p>

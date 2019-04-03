@@ -55,11 +55,6 @@ include 'home_monitor_view_header.php';
                         <label class="form-check-label" for="inlineCheckbox2"><strong>Saldo total: </strong><span id="saldoTotalNum"></span></label>
                     </div>
                 </div>
-                <!--<div class="col">
-                    <div class="form-check form-check-inline">
-                        <button id="btnExport" type="submit" class="btn btn-primary mb-2" onclick="exportToExcel()"><i class="fas fa-file-excel"></i> Exportar participantes</button>
-                    </div>
-                </div>-->
             </div>
 
         </div>

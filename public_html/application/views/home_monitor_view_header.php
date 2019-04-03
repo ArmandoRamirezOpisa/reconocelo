@@ -16,7 +16,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../assets/js/papaparse.min.js"></script>
     </head>
-    <body ng-controller="monitor_controller" onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
+    <body ng-controller="monitor_controller" onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg">
             <a id="inicioMonitor" class="navbar-brand" href="javascript:void(0)" onClick = "MonitorNav(this)">
@@ -53,7 +53,7 @@
                     <a id="reglasMonitor" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-clipboard-check mr-2"></i>Reglas</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0 animated apareciendo">
                     <?php 
                         echo '<img src="../assets/images/'.$this->session->userdata('CodEmpresa').'.png" width="100" height="30" alt="">';
                     ?>
@@ -75,9 +75,9 @@
             </div>
         </nav>
         <!-- Navigation --> 
-        <div class="container">
+        <div class="container animated apareciendo">
             <div class="row justify-content-center mb-4 mt-3">
-                <div id="navegacionMonitor" class="card-deck mt-3">
+                <div id="navegacionMonitor" class="card-deck mt-3 animated apareciendo">
                     <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
                 </div>
             </div>

@@ -49,11 +49,11 @@ include 'home_monitor_view_header.php';
 
         <div class="container mt-5">
             <div class="row">
-                <div class="col">
+                <div class="col animated apareciendo">
                     <label id="agregarNuevaRegla" for="staticText" class="colorSeleccion" onclick="addNuevaRegla(this)">Agregar Nueva regla <i class="fas fa-plus-circle"></i></label>
                 </div>
                 <div class="col"></div>
-                <div class="col">
+                <div class="col animated apareciendo">
                     <label id="ocultarNuevaRegla" for="staticText1" style="display:none;" class="colorSeleccion" onclick="addNuevaRegla(this)">Ocultar <i class="fas fa-minus-circle"></i></label>
                 </div>
             </div>
@@ -63,7 +63,7 @@ include 'home_monitor_view_header.php';
             <div id="MessageNuevaRegla"></div>
         </div>
 
-        <div id="nuevaReglaData" class="container mt-5" style="display:none;">
+        <div id="nuevaReglaData" class="container mt-5 animated apareciendo" style="display:none;">
             <form>
                 <div class="form-group">
                     <label for="nombreRegla">Nombre regla</label>

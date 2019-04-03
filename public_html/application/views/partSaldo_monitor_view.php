@@ -73,7 +73,7 @@
                 </table>
 
                 <!-- Modal -->
-                <div class="modal fade bd-example-modal-lg" id="modalParticipante" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal fade bd-example-modal-lg animated apareciendo" id="modalParticipante" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
