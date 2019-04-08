@@ -69,7 +69,7 @@
 
             public function insertDepositoMasivo($usuario){
                   $query = $this->db->query("                            
-                        INSERT INTO `opisa_opisa`.`despositos_dev`(`fhDeposito`, `idParticipante`, `standBy`) 
+                        INSERT INTO `opisa_opisa`.`despositos_dev`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
                         VALUES (NOW(),'".$this->session->userdata('CodEmpresa')."',0)
                   ");
     	            if ($query)
@@ -91,7 +91,7 @@
                                           $valoresDefinidosDepositos[1] = null;
                                           $valoresDefinidosDepositos[2] = null;
                                     }else{
-                                          if($valoresDefinidosDepositos[0] == "idParticipanteCliente" || $valoresDefinidosDepositos[1] == "Puntos" || $valoresDefinidosDepositos[2] == "Concepto"){}
+                                          if($valoresDefinidosDepositos[0] == "Cliente" || $valoresDefinidosDepositos[1] == "Puntos" || $valoresDefinidosDepositos[2] == "Concepto"){}
                                           else{
                                                 $query = $this->db->query("
                                                       INSERT INTO `opisa_opisa`.`depositosDet_dev`(`idDeposito`, 
@@ -147,7 +147,7 @@
                   $query = $this->db->query("
                         SELECT idDeposito
                         FROM  `despositos_dev` 
-                        WHERE idParticipante ='".$this->session->userdata('CodEmpresa')."'
+                        WHERE idParticipanteCliente ='".$this->session->userdata('CodEmpresa')."'
                         AND standBy = 0
                   ");
     		      if ($query->num_rows() > 0)
@@ -176,8 +176,10 @@
                   $query = $this->db->query("
                         UPDATE `Participante`
                         SET SaldoActual = SaldoActual + ".$Puntos."
-                        WHERE idParticipante =".$idParticipanteCliente
-                        );
+                        WHERE idParticipanteCliente =".$idParticipanteCliente."
+                        AND codPrograma = 41
+                        AND codEmpresa = ".$this->session->userdata('CodEmpresa')."
+                  ");
 			if ($query){
 			        return true;
 			}else{
@@ -197,6 +199,22 @@
 			}else{
 				return false;
 			}
+            }
+
+            public function idParticipanteGet($IdParticipanteCliente){
+                  $query = $this->db->query("
+                        SELECT idParticipante
+                        FROM  `Participante` 
+                        WHERE codPrograma =41
+                        AND codEmpresa =".$this->session->userdata('CodEmpresa')."
+                        AND idParticipanteCliente =".$IdParticipanteCliente."
+                  ");
+    		      if ($query->num_rows() > 0)
+    		      {
+                        return $query->result_array(); 
+    		      }else{
+                        return false;
+    		      }
             }
 
             public function insertPartMovsRealiza($idParticipanteCliente,$Concepto,$Puntos){

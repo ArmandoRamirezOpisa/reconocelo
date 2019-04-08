@@ -736,7 +736,7 @@
                     $this->email->to($this->session->userdata('email'));
                     //$this->email->cc($this->session->userdata('email'));
 
-                    $this->email->subject('Nuevos depositos');
+                    $this->email->subject('Nuevos depositos subidos');
                     $this->email->message($message);
 
                     $this->email->send();
@@ -782,9 +782,11 @@
                         
                         $updateDepositosDet = $this->deposito_monitor_model->UpdateDepositosDet($numTransaccion,$row['idParticipanteCliente']);
                         if($updateDepositosDet){
-
-                            $insertPartMovsRealiza = $this->deposito_monitor_model->insertPartMovsRealiza($row['idParticipanteCliente'],$row['Concepto'],$row['Puntos']);
-                            $saldoTotalParticipante = $saldoTotalParticipante + 1;
+                            $idParticipanteData = $this->deposito_monitor_model->idParticipanteGet($row['idParticipanteCliente']);
+                            if($idParticipanteData){
+                                $insertPartMovsRealiza = $this->deposito_monitor_model->insertPartMovsRealiza($idParticipanteData[0]['idParticipante'],$row['Concepto'],$row['Puntos']);
+                                $saldoTotalParticipante = $saldoTotalParticipante + 1;
+                            }
 
                         }
                     }
