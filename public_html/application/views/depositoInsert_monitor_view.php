@@ -11,6 +11,7 @@ include 'home_monitor_view_header.php';
             <div class="alert alert-warning" role="alert">
                 <h4 class="alert-heading">Advertencia!</h4>
                 <p>Para subir el archivo es necesario que tenga la extensión CSV</p>
+                <p>Descargar el formato para subir los depositos <a href="https://www.reconocelo.com.mx/assets/images/SubirDepositos.csv" class="text-info">Descargar</a></p>
             </div>
 
             <form>
