@@ -538,6 +538,42 @@ function premioUpdate() {
 
 /*Fin premios funcion */
 
+/* Funcion insertar puntos */
+function uploadPuntosDepoMantenimiento() {
+    var numTransaccionMantenimiento = $('#numTransaccionMantenimiento').val()
+
+    if (numTransaccionMantenimiento != "Selecciona") {
+        $.ajax({
+            url: '/mantenimiento/uploadPuntosDepositoMantenimiento',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "numTransaccionMantenimiento": numTransaccionMantenimiento },
+            beforeSend: function() {},
+            success: function(result) {
+
+                if (result == "0") {
+                    $('#MessageDepositoMantenimiento').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se activaron todos los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                } else {
+                    $('#parsed_csv_list').hide();
+                    $('#MessageDepositoMantenimiento').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se activaron los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+    }
+}
+/* Fin funcion insertar puntos */
+
 //Exit mantenimiento
 function salirMantenimiento() {
     location.href = "https://" + location.hostname + "/mantenimiento/exit_mantenimiento";

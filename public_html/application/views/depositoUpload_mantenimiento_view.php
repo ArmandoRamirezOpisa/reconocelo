@@ -4,7 +4,7 @@
 <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Numero de transaccion</label>
-    <select class="form-control" id="numTransaccion">
+    <select class="form-control" id="numTransaccionMantenimiento">
         <option value="Selecciona">Selecciona:</option>
         <?php
                 foreach($depositover as $row){

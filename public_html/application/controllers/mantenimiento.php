@@ -296,6 +296,49 @@
             $this->load->view('depositoUpload_mantenimiento_view',$data);
 
         }
+
+        public function uploadPuntosDepositoMantenimiento(){
+
+            $numTransaccionMantenimiento = array("numTransaccionMantenimiento"=>$_POST['numTransaccionMantenimiento']);
+            $this->load->model("mantenimiento_model");
+            $depositoverUpload = $this->mantenimiento_model->getDepositosDetMantenimiento($numTransaccionMantenimiento);
+            $saldoTotalParticipante = 0;
+            $totalRegistros = 0;
+            if($depositoverUpload){
+
+                foreach($depositoverUpload as $row){
+
+                    $saldoParticipantes = $this->mantenimiento_model->UpdateSaldoParticipanteMantenimiento($row['idParticipanteCliente'],$row['Puntos']);
+                    if($saldoParticipantes){
+                        
+                        $updateDepositosDet = $this->mantenimiento_model->UpdateDepositosDetMantenimiento($numTransaccion,$row['idParticipanteCliente']);
+                        if($updateDepositosDet){
+                            $idParticipanteData = $this->mantenimiento_model->idParticipanteGetMantenimiento($row['idParticipanteCliente']);
+                            if($idParticipanteData){
+                                $insertPartMovsRealiza = $this->mantenimiento_model->insertPartMovsRealizaMantenimiento($idParticipanteData[0]['idParticipante'],$row['Concepto'],$row['Puntos']);
+                                $saldoTotalParticipante = $saldoTotalParticipante + 1;
+                            }
+
+                        }
+                    }
+
+                    $totalRegistros = $totalRegistros + 1;
+                }
+
+                if($totalRegistros == $saldoTotalParticipante){
+
+                    $UpdateMasterDeposito = $this->mantenimiento_model->UpdateMasterDepositoMantenimiento($numTransaccion);
+                    $this->output->set_output(json_encode("Todo se hizo correcto"));
+
+                }else{
+                    $this->output->set_output(json_encode($saldoTotalParticipante));    
+                }
+
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+
+        }
         /* Fin pantalla para subir depositos */
 
         //salir del mantenimiento

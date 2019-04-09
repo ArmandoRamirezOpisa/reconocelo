@@ -325,7 +325,7 @@
             $query = $this->db->query("
                 SELECT idDeposito
                 FROM  `despositos_dev` 
-                WHERE idParticipanteCliente ='89526'
+                WHERE idParticipanteCliente ='41160001'
                 AND standBy = 0
             ");
     		if ($query->num_rows() > 0){
@@ -333,6 +333,86 @@
     		}else{
                 return false;
     		}
+        }
+
+        public function getDepositosDetMantenimiento($numTransaccionMantenimiento){
+            $query = $this->db->query("
+                SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS 
+                FROM depositosDet_dev
+                WHERE idDeposito =".$numTransaccion['numTransaccion']."
+            ");
+    		if ($query->num_rows() > 0){
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
+
+        public function UpdateSaldoParticipanteMantenimiento($idParticipanteCliente,$Puntos){
+            $query = $this->db->query("
+                UPDATE `Participante`
+                SET SaldoActual = SaldoActual + ".$Puntos."
+                WHERE idParticipanteCliente =".$idParticipanteCliente."
+            ");
+            if ($query){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function UpdateDepositosDetMantenimiento($numTransaccion,$idParticipanteCliente){
+            $query = $this->db->query("
+                UPDATE `depositosDet_dev` 
+                SET `status`= 1 
+                WHERE `idDeposito` = ".$numTransaccion['numTransaccion']." 
+                and `idParticipanteCliente` = ".$idParticipanteCliente
+            );
+            if ($query){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function idParticipanteGetMantenimiento($IdParticipanteCliente){
+            $query = $this->db->query("
+                SELECT idParticipante
+                FROM  `Participante` 
+                WHERE codPrograma =41
+                AND idParticipanteCliente =".$IdParticipanteCliente."
+            ");
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array(); 
+            }else{
+                return false;
+            }
+        }
+
+        public function insertPartMovsRealizaMantenimiento($idParticipanteCliente,$Concepto,$Puntos){
+            $query = $this->db->query("
+                INSERT INTO `opisa_opisa`.`PartMovsRealizados`(`idParticipante`, `feMov`, `dsMov`, 
+                `noPuntos`) VALUES (".$idParticipanteCliente.",NOW(),'".$Concepto."',".$Puntos.")
+            ");
+            if ($query){
+                $valorReturn = $this->db->insert_id();
+            }else{
+                $valorReturn = false;
+            }
+        }
+
+        public function UpdateMasterDepositoMantenimiento($numTransaccion){
+            $query = $this->db->query("
+                UPDATE  `opisa_opisa`.`despositos_dev` 
+                SET  `standBy` =  '1' 
+                WHERE  `despositos_dev`.`idDeposito` = ".$numTransaccion['numTransaccion'].";
+            ");//Este no quiere actualizar
+            if ($query){
+                return true;
+            }else{
+                return false;
+            }
         }
         /* fin subir depositos mantenimiento */ 
 
