@@ -269,12 +269,31 @@
             $this->load->model("mantenimiento_model");
             $infoNewsDepositosMantenimiento = $_POST['infoNewsDepositosMantenimiento'];
 
-            $depositoMasivo = $this->mantenimiento_model->insertDepositoMasivo();
-            if($infoNewsDepositosMantenimiento){
-                $this->output->set_output(json_encode($infoNewsDepositosMantenimiento));
+            $depositoMasivo = $this->mantenimiento_model->insertDepositoMasivoMantenimiento();
+            if($depositoMasivo){
+                $depositoDetalleMasivo = $this->mantenimiento_model->insertDepositoDetalleMasivoMantenimiento($infoNewsDepositosMantenimiento,$depositoMasivo);
+                if($depositoDetalleMasivo){
+                    $this->output->set_output(json_encode($infoNewsDepositosMantenimiento));
+                }else{
+                    $this->output->set_output(json_encode(false));
+                }
             }else{
                 $this->output->set_output(json_encode(false));
             }
+
+        }
+
+        public function depositosSubidosMantenimiento(){
+
+            $idDepositoParticipante = "";
+            $this->load->model("mantenimiento_model");
+            $depositover = $this->mantenimiento_model->verDepositosUsuarioMantenimiento();
+            if ($depositover){
+                $data["depositover"] = $depositover;
+            }else{
+                $data["depositover"] = false;
+            }
+            $this->load->view('depositoUpload_mantenimiento_view',$data);
 
         }
         /* Fin pantalla para subir depositos */

@@ -274,5 +274,67 @@
         }
         /* Fin update premios */
 
+        /* Subir depositos mantenimiento */
+        public function insertDepositoMasivoMantenimiento(){
+            $query = $this->db->query("                            
+                INSERT INTO `opisa_opisa`.`despositos_dev`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
+                VALUES (NOW(),'41160001',0)
+            ");
+    	    if ($query){
+                return $this->db->insert_id();
+    	    }else{
+                return false;
+    	    }
+        }
+        
+        public function insertDepositoDetalleMasivoMantenimiento($infoNewsDepositosMantenimiento,$depositoMasivo){
+            $valorReturn = 0;
+            if($infoNewsDepositosMantenimiento){
+                foreach($infoNewsDepositosMantenimiento as $row){
+                    foreach($row as $row1){
+                        $valoresDefinidosDepositos = explode(",",$row1);
+                        if(! isset($valoresDefinidosDepositos[0]) || ! isset($valoresDefinidosDepositos[1]) || ! isset($valoresDefinidosDepositos[2]) ){
+                            $valoresDefinidosDepositos[0] = null;
+                            $valoresDefinidosDepositos[1] = null;
+                            $valoresDefinidosDepositos[2] = null;
+                        }else{
+                            if($valoresDefinidosDepositos[0] == "idParticipante" || $valoresDefinidosDepositos[1] == "Puntos" || $valoresDefinidosDepositos[2] == "Concepto"){}
+                            else{
+                                $query = $this->db->query("
+                                    INSERT INTO `opisa_opisa`.`depositosDet_dev`(`idDeposito`, 
+                                    `idParticipanteCliente`, `Puntos`, `Concepto`, 
+                                    `fechaRegistro`, `status`) 
+                                    VALUES ('".$depositoMasivo."','".$valoresDefinidosDepositos[0]."',
+                                    '".$valoresDefinidosDepositos[1]."','".$valoresDefinidosDepositos[2]."',
+                                    NOW(),0)
+                                ");
+                                if ($query){
+                                    $valorReturn = $this->db->insert_id();
+    	                        }else{
+                                    $valorReturn = false;
+    	                        }
+                            }                                           
+                        }
+                    }
+                }
+            }
+            return $valorReturn;
+        }
+
+        public function verDepositosUsuarioMantenimiento(){
+            $query = $this->db->query("
+                SELECT idDeposito
+                FROM  `despositos_dev` 
+                WHERE idParticipanteCliente ='89526'
+                AND standBy = 0
+            ");
+    		if ($query->num_rows() > 0){
+                return $query->result_array(); 
+    		}else{
+                return false;
+    		}
+        }
+        /* fin subir depositos mantenimiento */ 
+
 	}
 ?>

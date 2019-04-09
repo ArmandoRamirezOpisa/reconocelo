@@ -69,7 +69,7 @@
             </div>
         </nav>
         
-        <div id="MessageDepositoMantenimiento" class="container animated apareciendo" style="display:none;" style="margin-top: 50px;"></div>
+        <div id="MessageDepositoMantenimiento" class="container animated apareciendo margin-botton:150px;" style="display:none;" style="margin-top: 50px;"></div>
 
         <div class="container animated apareciendo" style="margin-top: 100px;">
 
@@ -179,8 +179,10 @@
                     success: function(result) {
                         if (result == "0") {
                             $('#MessageDepositoMantenimiento').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                            $('#MessageDepositoMantenimiento').show();
                         } else {
                             $('#MessageDepositoMantenimiento').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente, se ha enviado una notificación al tu corrreo electrónico.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                            $('#MessageDepositoMantenimiento').show();
                             $("#file-CSV-mantenimiento").val("");
                             activarDepositosSubidosMantenimiento();
                         }
@@ -195,9 +197,8 @@
             }
 
             function activarDepositosSubidosMantenimiento(){
-                console.log("numero de trasanccion")
-                /*$.ajax({
-                    url: '/monitor/depositosSubidos',
+                $.ajax({
+                    url: '/mantenimiento/depositosSubidosMantenimiento',
                     async: 'true',
                     cache: false,
                     contentType: "application/x-www-form-urlencoded",
@@ -213,11 +214,12 @@
                             console.log("Expiro");
                         } else {
                             $('#parsed_csv_list').html(result);
+                            $('#parsed_csv_list').show();
                         }
                     },
                     timeout: 30000,
                     type: "GET"
-                });*/
+                });
             }
         </script>
 

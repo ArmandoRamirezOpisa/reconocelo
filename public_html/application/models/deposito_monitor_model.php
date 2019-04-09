@@ -77,7 +77,7 @@
                         return $this->db->insert_id();
     	            }else{
                         return false;
-    	            }  
+    	            }
             }
 
             public function insertDepositoDetalleMasivo($infoDepositosNews,$depositoMasivo){
