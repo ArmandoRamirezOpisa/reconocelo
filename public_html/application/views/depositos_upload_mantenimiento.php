@@ -73,24 +73,31 @@
         <div class="container animated apareciendo" style="margin-top: 100px;">
 
             <div class="row animated apareciendo">
-                <div class="col-sm"></div>
-                <div class="col-sm">
-                    <h1>Premios</h1>
+                <div class="col-md-12">
+                    <h1>Subir depositos</h1>
                 </div>
-                <div class="col-sm"></div>
             </div>
 
-            <div class="form-group animated apareciendo">
-                <label for="functionsPremio">Selecciona alguna opcion:</label>
-                <select class="form-control" id="functionsPremio" onchange="optionsPremio(this)">
-                    <option value="selecciona">Selecciona</option>
-                    <option value="A">Alta</option>
-                    <option value="B">Baja</option>
-                    <option value="U">Actualizar</option>
-                </select>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Advertencia!</strong> 
+                <p>Debes de subir un archivo con la extencion csv.</p>
+                <p>Descarga el siguiente formato para que subas los depositos <a href="https://www.reconocelo.com.mx/assets/images/SubirDepositosMantenimiento.csv" class="text-info">Descargar</a> </p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
 
-            <div id="premioFunctions" class="animated apareciendo" style="display:none;"></div>
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Sube tu archivo CSV</label>
+                    <input type="file" class="form-control-file" id="file-CSV-mantenimiento" accept=".csv" required>
+                </div>
+                <div class="form-group">
+				    <button type="button" id="subirArchivoDepositosMantenimiento" class="btn btn-primary"><i class="fas fa-upload"></i> Subir archivo</button>
+			    </div>
+            </form>
+
+            <div id="parsed_csv_list"></div>
 
         </div>
 
@@ -120,6 +127,102 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+        <script>
+
+            $(document).ready(function () {
+                activarDepositosSubidosMantenimiento();
+            });
+
+            //boton para leer un archivo csv
+            $('#subirArchivoDepositosMantenimiento').on("click",function(e){
+				e.preventDefault();
+				$('#file-CSV-mantenimiento').parse({
+					config: {
+						delimiter: "auto",
+						complete: ProcesarInfoDepositosMantenimiento,
+					},
+					before: function(file, inputElem)
+					{
+						console.log("Cargando archivo...", file);
+					},
+					error: function(err, file)
+					{
+                        //
+					},
+					complete: function()
+					{
+                        console.log("Todo salio de maravill");
+					}
+				});
+			});
+            
+            //funcion que pasa a la base de datos
+			function ProcesarInfoDepositosMantenimiento(results){
+
+                var data = results.data;
+                console.log(data);
+
+                /*$.ajax({
+                    url: '/monitor/uploadDepositosNews',
+                    async: 'true',
+                    cache: false,
+                    contentType: "application/x-www-form-urlencoded",
+                    global: true,
+                    ifModified: false,
+                    processData: true,
+                    data: { "infoNewsDepositos": data },
+                    beforeSend: function() {
+                        console.log('Procesando, espere por favor...');
+                    },
+                    success: function(result) {
+                        if (result == "0") {
+                            console.log("Expiro");
+                            $('#MessageInsertarDepositos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+						    console.log("ERROR:", err, file);
+                        } else {
+                            console.log('Correcto');
+                            $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente, se ha enviado una notificación al tu corrreo electrónico.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                            console.log("Se cargo exitosamente");
+                            $("#file-CSV").val("");
+                            activarDepositosSubidosMantenimiento();
+                        }
+                    },
+                    error: function(object, error, anotherObject) {
+                        console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                    },
+                    timeout: 30000,
+                    type: "POST"
+                });*/
+                
+            }
+
+            function activarDepositosSubidosMantenimiento(){
+                console.log("numero de trasanccion")
+                /*$.ajax({
+                    url: '/monitor/depositosSubidos',
+                    async: 'true',
+                    cache: false,
+                    contentType: "application/x-www-form-urlencoded",
+                    dataType: "html",
+                    error: function(object, error, anotherObject) {
+                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                    },
+                    global: true,
+                    ifModified: false,
+                    processData: true,
+                    success: function(result) {
+                        if (result == "0") {
+                            console.log("Expiro");
+                        } else {
+                            $('#parsed_csv_list').html(result);
+                        }
+                    },
+                    timeout: 30000,
+                    type: "GET"
+                });*/
+            }
+        </script>
 
     </body>
 </html>

@@ -178,7 +178,7 @@
             
         }
 
-        //Baja del premio--
+        //Baja del premio
         public function premiosBaja(){
 
             $this->load->model("mantenimiento_model");
@@ -257,6 +257,13 @@
 
         }
         /* Fin update premios */
+
+        /* Pantalla para subir depositos */
+        public function uploadDepositos(){
+            $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
+            $this->load->view('depositos_upload_mantenimiento',$PrimerNombre);
+        }
+        /* Fin pantalla para subir depositos */
 
         //salir del mantenimiento
         public function exit_mantenimiento(){
