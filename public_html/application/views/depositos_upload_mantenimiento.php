@@ -12,6 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="shortcut icon" href="../../assets/images/monitorLogLink.png" type="image/x-icon" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+        <script src="../assets/js/papaparse.min.js"></script>
         <title>Mantenimiento Reconocelo</title>
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
@@ -68,7 +69,7 @@
             </div>
         </nav>
         
-        <div id="MessagePremio" class="container animated apareciendo" style="display:none;" style="margin-top: 50px;"></div>
+        <div id="MessageDepositoMantenimiento" class="container animated apareciendo" style="display:none;" style="margin-top: 50px;"></div>
 
         <div class="container animated apareciendo" style="margin-top: 100px;">
 
@@ -127,6 +128,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="../assets/js/papaparse.min.js"></script>
 
         <script>
 
@@ -161,39 +163,34 @@
 			function ProcesarInfoDepositosMantenimiento(results){
 
                 var data = results.data;
-                console.log(data);
 
-                /*$.ajax({
-                    url: '/monitor/uploadDepositosNews',
+                $.ajax({
+                    url: '/mantenimiento/uploadDepositosNewsMantenimiento',
                     async: 'true',
                     cache: false,
                     contentType: "application/x-www-form-urlencoded",
                     global: true,
                     ifModified: false,
                     processData: true,
-                    data: { "infoNewsDepositos": data },
+                    data: { "infoNewsDepositosMantenimiento": data },
                     beforeSend: function() {
                         console.log('Procesando, espere por favor...');
                     },
                     success: function(result) {
                         if (result == "0") {
-                            console.log("Expiro");
-                            $('#MessageInsertarDepositos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-						    console.log("ERROR:", err, file);
+                            $('#MessageDepositoMantenimiento').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                         } else {
-                            console.log('Correcto');
-                            $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente, se ha enviado una notificación al tu corrreo electrónico.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                            console.log("Se cargo exitosamente");
-                            $("#file-CSV").val("");
+                            $('#MessageDepositoMantenimiento').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente, se ha enviado una notificación al tu corrreo electrónico.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                            $("#file-CSV-mantenimiento").val("");
                             activarDepositosSubidosMantenimiento();
                         }
                     },
                     error: function(object, error, anotherObject) {
-                        console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                        $('#MessageDepositoMantenimiento').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong>Error: ' + object.statusText + 'Status: ' + object.status + '.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     },
                     timeout: 30000,
                     type: "POST"
-                });*/
+                });
                 
             }
 

@@ -263,6 +263,20 @@
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('depositos_upload_mantenimiento',$PrimerNombre);
         }
+
+        public function uploadDepositosNewsMantenimiento(){
+
+            $this->load->model("mantenimiento_model");
+            $infoNewsDepositosMantenimiento = $_POST['infoNewsDepositosMantenimiento'];
+
+            $depositoMasivo = $this->mantenimiento_model->insertDepositoMasivo();
+            if($infoNewsDepositosMantenimiento){
+                $this->output->set_output(json_encode($infoNewsDepositosMantenimiento));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+
+        }
         /* Fin pantalla para subir depositos */
 
         //salir del mantenimiento
