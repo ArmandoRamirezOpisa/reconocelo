@@ -339,7 +339,7 @@
             $query = $this->db->query("
                 SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS 
                 FROM depositosDet_dev
-                WHERE idDeposito =".$numTransaccion['numTransaccion']."
+                WHERE idDeposito =".$numTransaccionMantenimiento['numTransaccionMantenimiento']."
             ");
     		if ($query->num_rows() > 0){
                 return $query->result_array(); 
@@ -361,11 +361,11 @@
             }
         }
 
-        public function UpdateDepositosDetMantenimiento($numTransaccion,$idParticipanteCliente){
+        public function UpdateDepositosDetMantenimiento($numTransaccionMantenimiento,$idParticipanteCliente){
             $query = $this->db->query("
                 UPDATE `depositosDet_dev` 
                 SET `status`= 1 
-                WHERE `idDeposito` = ".$numTransaccion['numTransaccion']." 
+                WHERE `idDeposito` = ".$numTransaccionMantenimiento['numTransaccionMantenimiento']." 
                 and `idParticipanteCliente` = ".$idParticipanteCliente
             );
             if ($query){
@@ -402,11 +402,11 @@
             }
         }
 
-        public function UpdateMasterDepositoMantenimiento($numTransaccion){
+        public function UpdateMasterDepositoMantenimiento($numTransaccionMantenimiento){
             $query = $this->db->query("
                 UPDATE  `opisa_opisa`.`despositos_dev` 
                 SET  `standBy` =  '1' 
-                WHERE  `despositos_dev`.`idDeposito` = ".$numTransaccion['numTransaccion'].";
+                WHERE  `despositos_dev`.`idDeposito` = ".$numTransaccionMantenimiento['numTransaccionMantenimiento'].";
             ");//Este no quiere actualizar
             if ($query){
                 return true;

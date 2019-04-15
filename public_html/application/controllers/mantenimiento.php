@@ -311,7 +311,7 @@
                     $saldoParticipantes = $this->mantenimiento_model->UpdateSaldoParticipanteMantenimiento($row['idParticipanteCliente'],$row['Puntos']);
                     if($saldoParticipantes){
                         
-                        $updateDepositosDet = $this->mantenimiento_model->UpdateDepositosDetMantenimiento($numTransaccion,$row['idParticipanteCliente']);
+                        $updateDepositosDet = $this->mantenimiento_model->UpdateDepositosDetMantenimiento($numTransaccionMantenimiento,$row['idParticipanteCliente']);
                         if($updateDepositosDet){
                             $idParticipanteData = $this->mantenimiento_model->idParticipanteGetMantenimiento($row['idParticipanteCliente']);
                             if($idParticipanteData){
@@ -325,13 +325,13 @@
                     $totalRegistros = $totalRegistros + 1;
                 }
 
-                if($totalRegistros == $saldoTotalParticipante){
+                if($saldoTotalParticipante > 0){
 
-                    $UpdateMasterDeposito = $this->mantenimiento_model->UpdateMasterDepositoMantenimiento($numTransaccion);
-                    $this->output->set_output(json_encode("Todo se hizo correcto"));
+                    $UpdateMasterDeposito = $this->mantenimiento_model->UpdateMasterDepositoMantenimiento($numTransaccionMantenimiento);
+                    $this->output->set_output(json_encode($saldoTotalParticipante));
 
                 }else{
-                    $this->output->set_output(json_encode($saldoTotalParticipante));    
+                    $this->output->set_output(json_encode(false));    
                 }
 
             }else{
