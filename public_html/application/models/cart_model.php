@@ -60,10 +60,9 @@
                         SELECT distinct(cp.nbCategoria) as nbCategoria,cp.CodCategoria                                          
                         FROM t213kpCategoriaPremio cp 
                         JOIN PremioPrograma pp ON pp.codCategoria = cp.codCategoria                                 
-                        WHERE cp.esBaja=0 
-                        AND  pp.CodEmpresa = ".$this->session->userdata('empresa')."
+                        WHERE pp.CodEmpresa = ".$this->session->userdata('empresa')."
                         AND pp.codPrograma = ".$this->session->userdata('programa')." 
-                        ORDER BY cp.nbCategoria                              
+                        ORDER BY cp.nbCategoria
                   ");
                   if ($query->num_rows() > 0)
                   {
