@@ -45,6 +45,7 @@
 
         }
 
+        /* Inicio pantalla participantes */
         //pantalla participantes
         public function participantes(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
@@ -86,25 +87,16 @@
             $participanteDataExits = $this->mantenimiento_model->participanteMantenimientoExits($saveParticipantesData);
 
             if ($participanteDataExits){
-
                 $this->output->set_output(json_encode(false));
-                
             }else{
-
                 $participanteData = $this->mantenimiento_model->participanteMantenimiento($saveParticipantesData);
 
                 if($participanteData){
-
                     $this->output->set_output(json_encode(true));
-
                 }else{
-
                     $this->output->set_output(json_encode(false));
-
                 }
-
             }
-
         }
 
         public function uploadParticipantesNews(){
@@ -118,7 +110,9 @@
                     
             }
         }
+        /* Fin pantalla participantes */
 
+        /* Inicio pantalla premios */
         //pantalla premios
         public function premios(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));

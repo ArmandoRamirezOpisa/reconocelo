@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
     <meta charset="utf-8">
@@ -17,19 +18,15 @@
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
 
         <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-
-            <!-- Image and text -->
             <nav class="navbar navbar-light bg-light animated apareciendo">
                 <a class="navbar-brand" href="/mantenimiento/home">
                     <img src="../../assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Reconocelo
                 </a>
             </nav>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse animated apareciendo" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -50,13 +47,9 @@
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php
                                 if ($PrimerNombre){
-
                                     echo '<i class="fas fa-user"></i> '.$PrimerNombre;
-
                                 }else{
-
                                     echo '<i class="fas fa-user"></i> Usuario Mantenimiento';
-
                                 }
                             ?>
                         </button>
@@ -69,9 +62,7 @@
         </nav>
         
         <div id="MessagePremio" class="container animated apareciendo" style="display:none;" style="margin-top: 50px;"></div>
-
         <div class="container animated apareciendo" style="margin-top: 100px;">
-
             <div class="row animated apareciendo">
                 <div class="col-sm"></div>
                 <div class="col-sm">
@@ -91,7 +82,6 @@
             </div>
 
             <div id="premioFunctions" class="animated apareciendo" style="display:none;"></div>
-
         </div>
 
         <!-- Modal Salir -->
@@ -120,6 +110,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
     </body>
 </html>

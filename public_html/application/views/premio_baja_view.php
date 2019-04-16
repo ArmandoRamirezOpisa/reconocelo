@@ -9,7 +9,7 @@
             <form>
                 <div class="form-group">
                     <label for="codPremio">Codigo de premio</label>
-                    <input type="number" class="form-control" id="codPremioBaja">
+                    <input type="number" class="form-control" id="codPremioBaja" required>
                 </div>
                 <button id="PremioBaja" type="button" class="btn btn-primary" onclick="premioBaja()"><i class="fas fa-trash"></i>  Eliminar</button>
             </form>

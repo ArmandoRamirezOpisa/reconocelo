@@ -28,24 +28,17 @@
 						        complete: ProcesarInfoParticipantes,
 					        },
 					        before: function(file, inputElem)
-					        {
-						        console.log("Cargando archivo...", file);
-					        },
+					        {},
 					        error: function(err, file)
-					        {
-                                console.log("Algo saio mal");
-					        },
+					        {},
 					        complete: function()
-					        {
-                                console.log("Todo salio de maravill");
-					        }
+					        {}
 				        });
                     });
                     
                     //funcion que pasa a la base de datos
 			        function ProcesarInfoParticipantes(results){
                         var dataParticipantes = results.data;
-                        console.log(dataParticipantes);
 
                         $.ajax({
                             url: '/mantenimiento/uploadParticipantesNews',
@@ -56,31 +49,22 @@
                             ifModified: false,
                             processData: true,
                             data: { "infoNewsParticipantes": dataParticipantes },
-                            beforeSend: function() {
-                                console.log('Procesando, espere por favor...');
-                            },
+                            beforeSend: function() {},
                             success: function(result) {
                                 if (result == "0") {
-                                    console.log("Expiro");
                                     $('#alertMessage').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                                     $('#alertMessage').show();
-                                    console.log("ERROR:", err, file);
                                 } else {
-                                    console.log(result);
-                                    console.log('Correcto');
                                     $('#alertMessage').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                                     $('#alertMessage').show();
-                                    console.log("Se cargo exitosamente");
                                     $("#archivoParticipantes").val("");
                                     //activarDepositosSubidos();
                                 }
                             },
-                            error: function(object, error, anotherObject) {
-                                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                            },
+                            error: function(object, error, anotherObject) {},
                             timeout: 30000,
                             type: "POST"
                         });
 
-}
+                    }
                 </script>
