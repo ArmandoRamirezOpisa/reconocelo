@@ -12,7 +12,6 @@
         function addCanje()
         {
             $data = json_decode(stripslashes($_POST['data']));//Decodifica JSON
-            //var_dump($data);
             
             $saldoACtualParticipante = $this->canje_model->saldoActualParticipante();
 
@@ -50,8 +49,6 @@
         function getCanjes()
         {
             $misPreCanjes = $this->canje_model->misPreCanjes();
-           
-       //$misCanjes = $this->canje_model->misCanjes();
 
             if ($misPreCanjes)
             {
@@ -60,13 +57,6 @@
                 $data["precanjes"] = false;
             }
 
-       
-   //  if ($misCanjes)
-           // {
-            //    $data["canjes"] = $misCanjes;
-          // }else{
-         //      $data["canjes"] = false;
-         //  }
             $this->load->view('canjes_view',$data);
        }
 
