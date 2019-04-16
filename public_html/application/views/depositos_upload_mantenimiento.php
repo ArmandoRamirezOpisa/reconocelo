@@ -39,10 +39,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/mantenimiento/participantes">Participantes</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/mantenimiento/premios">Premios</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="/mantenimiento/uploadDepositos">Depositos</a>
                     </li>
                 </ul>
