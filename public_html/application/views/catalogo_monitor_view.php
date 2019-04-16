@@ -39,12 +39,12 @@ include 'home_monitor_view_header.php';
                         foreach($catalogo as $row){
 
                             echo '<tr>
-                                <td>'.$row["categoria"].'</td>
+                                <td>'.$row["Categoria"].'</td>
                                 <td>'.$row["codPremio"].'</td>
-                                <td>'.$row["nombrePremio"].'</td>
+                                <td>'.$row["Premio"].'</td>
                                 <td>'.$row["Marca"].'</td>
                                 <td>'.$row["Modelo"].'</td>
-                                <td>'.number_format($row["Puntos"]).'</td>
+                                <td>'.number_format($row["ValorPuntos"]).'</td>
                                 <td>
                                     <button id='.$row["codPremio"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#catalogoImgModal" onclick="catalogoIMG(this)">
                                         Premio

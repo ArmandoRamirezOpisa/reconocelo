@@ -4,15 +4,14 @@
     	      public function __construct(){}
         
             public function getCatalogo(){
-    		      $query = $this->db->query("
-                        SELECT categoria.nbCategoria AS categoria, pre.codPremio, 
-                        pre.Nombre_Esp AS nombrePremio, pre.Marca, pre.Modelo, 
-                        prePro.ValorPuntos AS Puntos
-                        FROM PremioPrograma prePro, t213kpCategoriaPremio categoria, Premio pre
-                        WHERE prePro.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                        AND prePro.codPrograma =41
-                        AND categoria.CodCategoria = prePro.codCategoria
-                        AND pre.codPremio = prePro.codPremio
+                  $query = $this->db->query("
+                        SELECT pp.codPrograma, pp.codEmpresa, c.codCategoria, c.nbCategoria as Categoria, 
+                        pr.codPremio, pr.Nombre_Esp as Premio, Caracts_Esp, Marca, Modelo, pp.ValorPuntos 
+                        FROM Premio pr 
+                        JOIN PremioPrograma pp on pr.codPremio=pp.codPremio
+                        JOIN t213kpCategoriaPremio c on c.codCategoria=pr.codCategoria
+                        WHERE pp.codPrograma='41' and pp.codEmpresa='".$this->session->userdata('CodEmpresa')."'
+                        ORDER BY 10,5
                   ");
     		      if ($query->num_rows() > 0){
                         return $query->result_array(); 
