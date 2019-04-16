@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
     <meta charset="utf-8">
@@ -19,19 +20,15 @@
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
 
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light animated apareciendo">
-
-            <!-- Image and text -->
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="/mantenimiento/home">
                     <img src="../../assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Reconocelo
                 </a>
             </nav>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
