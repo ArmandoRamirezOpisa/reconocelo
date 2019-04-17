@@ -724,6 +724,59 @@
 
             $this->load->view('programa_monitor_view',$data);
         }
+/////////////////////Reglas monitor reconocelo/////////////////////////
+public function reglasMonitor(){
+    $this->load->model("reglas_model");
+    $codEmpresa = $this->session->userdata('CodEmpresa');
+    $CodPrograma = $this->session->userdata('CodPrograma');
+    $reglasMonitor = $this->reglas_model->reglasReconocelo($codEmpresa,$CodPrograma);
+    if($reglasMonitor){
+        $data['reglasMonitor'] = $reglasMonitor;
+    }else{
+        $data['reglasMonitor'] = false;
+    }
+    $this->load->view('reglas_monitor_view',$data);
+}
+
+public function cambiarReglaReconocelo(){
+    $this->load->model("reglas_model");
+    $dataReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
+        "textoRegla"=>$_POST['textoRegla']
+    );
+    $reglasMonitorData = $this->reglas_model->reglasReconoceloUpdate($dataReglaReconocelo);
+    if($reglasMonitorData){
+        $this->output->set_output(json_encode($reglasMonitorData));
+    }else{
+        $this->output->set_output(json_encode(false));
+    }
+}
+
+public function cambiarNombreReglaReconocelo(){
+    $this->load->model("reglas_model");
+    $dataNombreReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
+        "textCambiar"=>$_POST['textCambiar']
+    );
+    $nombreReglasMonitorData = $this->reglas_model->nombreReglasReconoceloUpdate($dataNombreReglaReconocelo);
+    if($nombreReglasMonitorData){
+        $this->output->set_output(json_encode($reglasMonitorData));
+    }else{
+        $this->output->set_output(json_encode(false));
+    }
+}
+
+public function addNuevaRegla(){
+    $this->load->model("reglas_model");
+    $dataNuevaRegla = array("regla"=>$_POST['regla'],
+        "descripcionRegla"=>$_POST['descripcionRegla']
+    );
+    $nuevaReglasData = $this->reglas_model->nuevaReglaReconocelo($dataNuevaRegla);
+    if($nuevaReglasData){
+        $this->output->set_output(json_encode($nuevaReglasData));
+    }else{
+        $this->output->set_output(json_encode(false));
+    }
+}
+/////////////////////Fin reglas monitor reconocelo/////////////////////
 ///////////////////////Configuracion usuario reconocelo monitor///////////////
         public function configuracion(){
             $this->load->view('configuracionUser_monitor_view');
@@ -1029,58 +1082,5 @@
             }
         }
 ///////////////////////Fin recuperar contrasena////////////////////////
-/////////////////////Reglas monitor reconocelo/////////////////////////
-        public function reglasMonitor(){
-            $this->load->model("reglas_model");
-            $codEmpresa = $this->session->userdata('CodEmpresa');
-            $CodPrograma = $this->session->userdata('CodPrograma');
-            $reglasMonitor = $this->reglas_model->reglasReconocelo($codEmpresa,$CodPrograma);
-            if($reglasMonitor){
-                $data['reglasMonitor'] = $reglasMonitor;
-            }else{
-                $data['reglasMonitor'] = false;
-            }
-            $this->load->view('reglas_monitor_view',$data);
-        }
-
-        public function cambiarReglaReconocelo(){
-            $this->load->model("reglas_model");
-            $dataReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
-                "textoRegla"=>$_POST['textoRegla']
-            );
-            $reglasMonitorData = $this->reglas_model->reglasReconoceloUpdate($dataReglaReconocelo);
-            if($reglasMonitorData){
-                $this->output->set_output(json_encode($reglasMonitorData));
-            }else{
-                $this->output->set_output(json_encode(false));
-            }
-        }
-
-        public function cambiarNombreReglaReconocelo(){
-            $this->load->model("reglas_model");
-            $dataNombreReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
-                "textCambiar"=>$_POST['textCambiar']
-            );
-            $nombreReglasMonitorData = $this->reglas_model->nombreReglasReconoceloUpdate($dataNombreReglaReconocelo);
-            if($nombreReglasMonitorData){
-                $this->output->set_output(json_encode($reglasMonitorData));
-            }else{
-                $this->output->set_output(json_encode(false));
-            }
-        }
-
-        public function addNuevaRegla(){
-            $this->load->model("reglas_model");
-            $dataNuevaRegla = array("regla"=>$_POST['regla'],
-                "descripcionRegla"=>$_POST['descripcionRegla']
-            );
-            $nuevaReglasData = $this->reglas_model->nuevaReglaReconocelo($dataNuevaRegla);
-            if($nuevaReglasData){
-                $this->output->set_output(json_encode($nuevaReglasData));
-            }else{
-                $this->output->set_output(json_encode(false));
-            }
-        }
-/////////////////////Fin reglas monitor reconocelo/////////////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
     }
