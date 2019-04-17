@@ -194,8 +194,8 @@
 ////////////////////////////FinParticipantes///////////////////////////////////
 ////////////////////////////InicioDepositos///////////////////////////////////
         public function depositos(){
-            $this->load->model("deposito_monitor_model");
-            $deposito = $this->deposito_monitor_model->getFechaDeposito();
+            $this->load->model("monitor_model");
+            $deposito = $this->monitor_model->getFechaDeposito();
             if ($deposito){
                 $data["deposito"] = $deposito;
             }else{
@@ -206,8 +206,8 @@
         }
 
         public function depositosInfo(){
-            $this->load->model("deposito_monitor_model");
-            $deposito = $this->deposito_monitor_model->getDeposito();
+            $this->load->model("monitor_model");
+            $deposito = $this->monitor_model->getDeposito();
             if ($deposito){
                 $data["deposito"] = $deposito;
             }else{
@@ -217,13 +217,13 @@
         }
 
         public function depositosInforma(){
-            $this->load->model("deposito_monitor_model");
+            $this->load->model("monitor_model");
 
             $infoFechas = array("fechaInicio"=>$_POST['fechaInicio'],
                 "fechaFin"=>$_POST['fechaFin']
                 );
 
-            $deposito = $this->deposito_monitor_model->getDepositoFechas($infoFechas);
+            $deposito = $this->monitor_model->getDepositoFechas($infoFechas);
             if ($deposito){
                 $data["deposito"] = $deposito;
             }else{
@@ -237,21 +237,21 @@
         }
 
         public function uploadDepositosNews(){
-            $this->load->model("deposito_monitor_model");
+            $this->load->model("monitor_model");
 
             $infoDepositosNews = $_POST['infoNewsDepositos'];
 
-            $depositoMasivo = $this->deposito_monitor_model->insertDepositoMasivo();
+            $depositoMasivo = $this->monitor_model->insertDepositoMasivo();
 
             if($depositoMasivo){
-                $depositoDetalleMasivo = $this->deposito_monitor_model->insertDepositoDetalleMasivo($infoDepositosNews,$depositoMasivo);
+                $depositoDetalleMasivo = $this->monitor_model->insertDepositoDetalleMasivo($infoDepositosNews,$depositoMasivo);
                 if($depositoDetalleMasivo){
 
                     //Total de puntos
-                    $totalPuntos = $this->deposito_monitor_model->totalPuntos($depositoMasivo);
+                    $totalPuntos = $this->monitor_model->totalPuntos($depositoMasivo);
 
                     //TotalParticipantes
-                    $totalParticipantesSubidos = $this->deposito_monitor_model->totalParticipantesSubidos($depositoMasivo);
+                    $totalParticipantesSubidos = $this->monitor_model->totalParticipantesSubidos($depositoMasivo);
 
                     /* Notificacion por correo */
 
@@ -564,7 +564,6 @@
                     //Envío de alerta.
                     $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
                     $this->email->to($this->session->userdata('email'));
-                    //$this->email->cc($this->session->userdata('email'));
 
                     $this->email->subject('Nuevos depositos subidos');
                     $this->email->message($message);
@@ -585,8 +584,8 @@
         public function depositosSubidos(){
 
             $idDepositoParticipante = "";
-            $this->load->model("deposito_monitor_model");
-            $depositover = $this->deposito_monitor_model->verDepositosUsuario();
+            $this->load->model("monitor_model");
+            $depositover = $this->monitor_model->verDepositosUsuario();
             if ($depositover){
                 $data["depositover"] = $depositover;
             }else{
@@ -599,22 +598,22 @@
         public function uploadPuntosDeposito(){
 
             $numTransaccion = array("numTransaccion"=>$_POST['numTransaccion']);
-            $this->load->model("deposito_monitor_model");
-            $depositoverUpload = $this->deposito_monitor_model->getDepositosDet($numTransaccion);
+            $this->load->model("monitor_model");
+            $depositoverUpload = $this->monitor_model->getDepositosDet($numTransaccion);
             $saldoTotalParticipante = 0;
             $totalRegistros = 0;
             if($depositoverUpload){
 
                 foreach($depositoverUpload as $row){
 
-                    $saldoParticipantes = $this->deposito_monitor_model->UpdateSaldoParticipante($row['idParticipanteCliente'],$row['Puntos']);
+                    $saldoParticipantes = $this->monitor_model->UpdateSaldoParticipante($row['idParticipanteCliente'],$row['Puntos']);
                     if($saldoParticipantes){
                         
-                        $updateDepositosDet = $this->deposito_monitor_model->UpdateDepositosDet($numTransaccion,$row['idParticipanteCliente']);
+                        $updateDepositosDet = $this->monitor_model->UpdateDepositosDet($numTransaccion,$row['idParticipanteCliente']);
                         if($updateDepositosDet){
-                            $idParticipanteData = $this->deposito_monitor_model->idParticipanteGet($row['idParticipanteCliente']);
+                            $idParticipanteData = $this->monitor_model->idParticipanteGet($row['idParticipanteCliente']);
                             if($idParticipanteData){
-                                $insertPartMovsRealiza = $this->deposito_monitor_model->insertPartMovsRealiza($idParticipanteData[0]['idParticipante'],$row['Concepto'],$row['Puntos']);
+                                $insertPartMovsRealiza = $this->monitor_model->insertPartMovsRealiza($idParticipanteData[0]['idParticipante'],$row['Concepto'],$row['Puntos']);
                                 $saldoTotalParticipante = $saldoTotalParticipante + 1;
                             }
 
@@ -626,7 +625,7 @@
 
                 if($totalRegistros == $saldoTotalParticipante){
 
-                    $UpdateMasterDeposito = $this->deposito_monitor_model->UpdateMasterDeposito($numTransaccion);
+                    $UpdateMasterDeposito = $this->monitor_model->UpdateMasterDeposito($numTransaccion);
                     $this->output->set_output(json_encode("Todo se hizo correcto"));
 
                 }else{
