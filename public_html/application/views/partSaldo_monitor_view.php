@@ -94,16 +94,10 @@
 
             <script>
                 $(document).ready(function() {
-
                     $('#infoParticipante').DataTable();
-
                     var totalParticipantes = '<?php echo $totalParticipantes; ?>';
-
                     $('#totalParticipantesNum').html(totalParticipantes);
-
                     var saldoTotalNumero = '<?php echo number_format($saldoTotal); ?>';
-
                     $('#saldoTotalNum').html(saldoTotalNumero);
-
                 } );
             </script>

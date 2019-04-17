@@ -60,9 +60,7 @@ include 'home_monitor_view_header.php';
         </div>
 
         <div class="container">
-            <div id="ParticipanteSaldo" class="table-responsive-sm">
-                <!-- Aqui va la tabla --->
-            </div>
+            <div id="ParticipanteSaldo" class="table-responsive-sm"></div>
 
         </div>
 
