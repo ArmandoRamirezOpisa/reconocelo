@@ -783,9 +783,9 @@ public function addNuevaRegla(){
         }
 
         public function cambiarUserName(){
-            $this->load->model("configuracion_monitor_model");
+            $this->load->model("monitor_model");
             $usuario = array("usuario"=>$_POST['usuario']);
-            $usuarioCambiado = $this->configuracion_monitor_model->cambiarNombre($usuario);
+            $usuarioCambiado = $this->monitor_model->cambiarNombre($usuario);
             if($usuarioCambiado){
                 $this->output->set_output(json_encode($usuarioCambiado));
             }else{
@@ -794,9 +794,9 @@ public function addNuevaRegla(){
         }
 
         public function cambiarUserPassword(){
-            $this->load->model("configuracion_monitor_model");
+            $this->load->model("monitor_model");
             $password = array("password"=>$_POST['password']);
-            $passwordCambiado = $this->configuracion_monitor_model->cambiarPassword($password);
+            $passwordCambiado = $this->monitor_model->cambiarPassword($password);
             if($passwordCambiado){
                 $this->output->set_output(json_encode($passwordCambiado));
             }else{
@@ -810,9 +810,9 @@ public function addNuevaRegla(){
         }
 
         public function sendMailRecupera(){
-            $this->load->model("configuracion_monitor_model");
+            $this->load->model("monitor_model");
             $email = array("email"=>$_POST['email']);
-            $emailTrue = $this->configuracion_monitor_model->checkMailExits($email);
+            $emailTrue = $this->monitor_model->checkMailExits($email);
             if($emailTrue){
                 /* Notificacion por correo */
 
@@ -1069,12 +1069,12 @@ public function addNuevaRegla(){
         }
 
         public function cambiarUserPasswordNew(){
-            $this->load->model("configuracion_monitor_model");
+            $this->load->model("monitor_model");
             $passwordConfig = array("password"=>$_POST['password'],
                 "usuario"=>$_POST['usuario'],
                 "codEmpresa"=>$_POST['codEmpresa']
             );
-            $passwordCambiado = $this->configuracion_monitor_model->cambiarPasswordNew($passwordConfig);
+            $passwordCambiado = $this->monitor_model->cambiarPasswordNew($passwordConfig);
             if($passwordCambiado){
                 $this->output->set_output(json_encode($passwordCambiado));
             }else{
@@ -1083,4 +1083,4 @@ public function addNuevaRegla(){
         }
 ///////////////////////Fin recuperar contrasena////////////////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
-    }
+}
