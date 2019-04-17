@@ -1,5 +1,5 @@
 <?php
-    class Login_monitor_model  extends CI_Model{
+    class Monitor_model  extends CI_Model{
    
         public function loadData($datos){
             $usuario =$datos['usuario'];

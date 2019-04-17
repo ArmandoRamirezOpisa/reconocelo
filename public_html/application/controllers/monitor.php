@@ -37,11 +37,10 @@
                     'email' => $InformacionLogin[0]["email"]
                 );
                 $this->session->set_userdata($InformacionLoginUsuario);
-                $result = 1;
+                $this->output->set_output(json_encode($InformacionLogin));
             } else {
-                $result = 0;
+                $this->output->set_output(json_encode(false));
             }
-            echo $result;
         }
 
         public function AvisoPrivacidad(){   
