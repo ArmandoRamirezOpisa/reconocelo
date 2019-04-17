@@ -679,8 +679,8 @@
 ////////////////////////FinCanjes////////////////////////////////////////////
 ///////////////////////////InicioCatalogo//////////////////////////////////////
         public function catalogo(){
-            $this->load->model("catalogo_monitor_model");
-            $catalogo = $this->catalogo_monitor_model->getCatalogo();
+            $this->load->model("monitor_model");
+            $catalogo = $this->monitor_model->getCatalogo();
             if ($catalogo)
                 {
                     $data["catalogo"] = $catalogo;
@@ -694,8 +694,8 @@
 
             $codPremio = array("codPremio"=>$_POST['codPremio']);
 
-            $this->load->model("catalogo_monitor_model");
-            $descripcionImg = $this->catalogo_monitor_model->getDescripcionIMG($codPremio);
+            $this->load->model("monitor_model");
+            $descripcionImg = $this->monitor_model->getDescripcionIMG($codPremio);
 
             if($descripcionImg){
                 $data = array('codPremio'=>$codPremio,
