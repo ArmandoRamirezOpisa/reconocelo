@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="login">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +10,11 @@
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
-        <link href="../assets/css/2018ReconoceloMonitor.css?a" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/ReconoceloMonitor.css?a" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../assets/js/papaparse.min.js"></script>
     </head>
-    <body ng-controller="validarLogin" class="animated apareciendo">
+    <body class="animated apareciendo">
 
         <nav class="navbar navbar-expand-lg animated apareciendo">
             <a id="inicioMonitor" class="navbar-brand animated apareciendo" href="https://www.reconocelo.com.mx/monitor/">
@@ -29,7 +29,7 @@
                         <div class="card bg-ligh">
                             <img src="../assets/images/reconocelo.png" class="img-fluid animated apareciendo" alt="Responsive image">
                             <div class="card-body">
-                                <form ng-submit="validarUsuario()"  autocomplete="off">
+                                <form autocomplete="off">
                                     <p class="card-title text-center mt-4 h2">Iniciar sesión</p>
                                     <div class="row">
                                         <div class="col-12">
@@ -37,27 +37,27 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="" ><i class="fas fa-user"></i> <span style="margin-left: 10px;">Usuario</span></span>
                                                 </div>
-                                                <input type="text" class="form-control" type="number" ng-model="usuario" id="user" oninput="this.value = this.value.toUpperCase()">
+                                                <input type="text" class="form-control upperCase" id="user" placeholder="Escribe el usuario">
                                             </div>
                                             <div class="input-group  mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" ><i class="fas fa-key"></i> <span style="margin-left: 10px;">Contraseña</span></span>
                                                 </div>
-                                                <input type="password" class="form-control" ng-model="password" id="password">
+                                                <input type="password" class="form-control upperCase" id="password" placeholder="Escribe tu Contraseña">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row justify-content-end">
                                         <div class="col-12 col-md-12">
                                             <div class="form-group mb-0">
-                                                <button id="entrarMonitorLogin" type="submit" class="btn btn-primary btn-block  font-weight-bold"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>
+                                                <button id="entrarMonitorLogin" type="button" class="btn btn-primary btn-block font-weight-bold" onclick="loginMonitorReconocelo()"><i class="fas fa-sign-in-alt mr-2"></i>Entrar</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
-                                <div class="row" ng-show="message.length > 0">
+                                <div class="row">
                                     <div class="col-12 mt-4">
-                                        <p class=" errormessage"><i class="fas fa-exclamation-triangle mr-2"></i>{{message}}</p>
+                                        <p id="errorMessage" class="errormessage"><i class="fas fa-exclamation-triangle mr-2"></i></p>
                                     </div>
                                 </div>
                             </div>

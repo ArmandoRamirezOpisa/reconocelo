@@ -23,13 +23,9 @@
         }
 
         public function login() {
-            $postdata = file_get_contents("php://input");
-            $request = json_decode($postdata);
-            $usuario = $request->usuario;
-            $pasword = $request->password;
-            $data = array('usuario' => $usuario, 'password' => $pasword);
-            $this->load->model("login_monitor_model");
-            $InformacionLogin = $this->login_monitor_model->loadData($data);
+            $data = array('usuario' => $_POST['user'], 'password' => $_POST['password']);
+            $this->load->model("monitor_model");
+            $InformacionLogin = $this->monitor_model->loadData($data);
             $result = 0;
             if ($InformacionLogin) {
                 $InformacionLoginUsuario = array(
@@ -41,7 +37,6 @@
                     'email' => $InformacionLogin[0]["email"]
                 );
                 $this->session->set_userdata($InformacionLoginUsuario);
-                // var_dump($InformacionLoginUsuario);
                 $result = 1;
             } else {
                 $result = 0;
@@ -53,7 +48,7 @@
             $this->load->view('aviso_view_monitor');   
         }
 
-        public function ObtenerParticipantes() {
+        /*public function ObtenerParticipantes() {
 
             $this->load->model("login_monitor_model");
 
@@ -72,13 +67,9 @@
             //var_dump($info);
 
             $this->load->view('participante_detalle_monitor', $info);
-        }
-
-////////////////////////////////////API RECONOCELO //////////////////////////////////
-
-////////////////////////////////////GETS //////////////////////////////////   
+        }*/
     
-        public function ObtenerPrticipantes($idCodPrograma, $codEmpresa) {
+        /*public function ObtenerPrticipantes($idCodPrograma, $codEmpresa) {
             $this->load->model("api_model_monitor");
             $data = $this->api_model_monitor->obtenerParticipantes($idCodPrograma, $codEmpresa);
             if ($data) {
@@ -91,10 +82,10 @@
                     ->set_content_type('application/json')
                     ->set_output(json_encode($error));
             }
-        }
+        }*/
     
 
-        public function ObtenerCanjesPrticipante($idParticipante,$codPrograma) {
+        /*public function ObtenerCanjesPrticipante($idParticipante,$codPrograma) {
             $this->load->model("api_model_monitor");
             $data = $this->api_model_monitor->ObtenerCanjesParticipante($idParticipante,$codPrograma);
             if ($data) {
@@ -122,8 +113,7 @@
                     ->set_content_type('application/json')
                     ->set_output(json_encode($error));
             }
-        } 
-    //////////////////////////////////// END GETS //////////////////////////////////   
+        }*/
 
     /////////////////////////Menu navegacion reconocelo monitor/////////////////////
     ///////////////////////////////Participantes///////////////////////////////////

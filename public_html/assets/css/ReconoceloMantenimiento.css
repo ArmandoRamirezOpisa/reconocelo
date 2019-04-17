@@ -1,0 +1,11 @@
+.upperCase {
+    text-transform: uppercase;
+}
+
+.errormessage {
+    color: red;
+}
+
+#errorMessage {
+    display: none;
+}

@@ -1,3 +1,44 @@
+/* Login Reconocelo Monitor */
+function loginMonitorReconocelo() {
+
+    var user = $('#user').val();
+    var password = $('#password').val();
+    if (user == "" || password == "") {
+        $('#errorMessage').html('Verifica que los campos esten llenados correctamente');
+        $('#errorMessage').show();
+    } else {
+        $.ajax({
+            url: '/monitor/login',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "user": user, "password": password },
+            beforeSend: function() {},
+            success: function(result) {
+
+                if (result) {
+                    location.href = "https://" + location.hostname + "/monitor/home";
+                } else {
+                    $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    $('#MessageError').show();
+                    $('#user').val("");
+                    $('#password').val("");
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
+    }
+}
+/* Fin login Reconocelo Monitor*/
+
 //Funcion para controlar el div, cuando se esta navegando
 function MonitorNav(id) {
 
@@ -220,8 +261,7 @@ function infoParticipante(id) {
         ifModified: false,
         processData: true,
         data: { "codParticipante": codParticipante },
-        beforeSend: function() {
-        },
+        beforeSend: function() {},
         success: function(result) {
 
             if (result == "0") {
@@ -268,8 +308,7 @@ function catalogoIMG(id) {
         ifModified: false,
         processData: true,
         data: { "codPremio": codPremi },
-        beforeSend: function() {
-        },
+        beforeSend: function() {},
         success: function(result) {
 
             if (result == "0") {
@@ -346,8 +385,7 @@ function fechaInicioFinSelect() {
                 ifModified: false,
                 processData: true,
                 data: { "fechaInicio": fechaInicio, "fechaFin": fechaFin },
-                beforeSend: function() {
-                },
+                beforeSend: function() {},
                 success: function(result) {
 
                     if (result == "0") {
@@ -384,8 +422,7 @@ function uploadPuntosDepo() {
             ifModified: false,
             processData: true,
             data: { "numTransaccion": numTransaccion },
-            beforeSend: function() {
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result == "0") {
@@ -462,8 +499,7 @@ function fechaInicioFinSelectCanje() {
                 ifModified: false,
                 processData: true,
                 data: { "fechaInicio": fechaInicio, "fechaFin": fechaFin },
-                beforeSend: function() {
-                },
+                beforeSend: function() {},
                 success: function(result) {
 
                     if (result == "0") {
@@ -505,8 +541,7 @@ function config(id) {
                 ifModified: false,
                 processData: true,
                 data: { "usuario": usuario },
-                beforeSend: function() {
-                },
+                beforeSend: function() {},
                 success: function(result) {
 
                     if (result == "0") {
@@ -544,8 +579,7 @@ function config(id) {
                 ifModified: false,
                 processData: true,
                 data: { "password": password },
-                beforeSend: function() {
-                },
+                beforeSend: function() {},
                 success: function(result) {
 
                     if (result == "0") {
@@ -583,8 +617,7 @@ function sendRecuperaPassword() {
             ifModified: false,
             processData: true,
             data: { "email": email },
-            beforeSend: function() {
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result == "0") {
@@ -627,8 +660,7 @@ function configNew(id) {
                 ifModified: false,
                 processData: true,
                 data: { "password": password, "usuario": usuario, "codEmpresa": codEmpresa },
-                beforeSend: function() {
-                },
+                beforeSend: function() {},
                 success: function(result) {
 
                     if (result == "0") {
@@ -653,10 +685,10 @@ function configNew(id) {
 function cambiarRegla(id) {
 
     var idReglaNombre = id.id;
-    var textoRegla = $('#regla-'+idReglaNombre).val();
-    if(textoRegla == ""){
+    var textoRegla = $('#regla-' + idReglaNombre).val();
+    if (textoRegla == "") {
         throw new Error("Rule void");
-    }else{
+    } else {
         $.ajax({
             url: '/monitor/cambiarReglaReconocelo',
             async: 'true',
@@ -666,45 +698,43 @@ function cambiarRegla(id) {
             ifModified: false,
             processData: true,
             data: { "idReglaNombre": idReglaNombre, "textoRegla": textoRegla },
-            beforeSend: function() {
-            },
+            beforeSend: function() {},
             success: function(result) {
 
-                    if (result == "0") {
-                    } else {
-                        location.reload();
-                    }
+                if (result == "0") {} else {
+                    location.reload();
+                }
 
-                },
-                error: function(object, error, anotherObject) {
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                },
-                timeout: 30000,
-                type: "POST"
-            });
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
     }
 
 }
 /* Fin funcion cambiar regla*/
 
 /* Funcion cambiar nombre regla */
-function  cambiarNombreRegla(id) {
-    
+function cambiarNombreRegla(id) {
+
     var idBtn = id.id
     var idBtnArray = idBtn.split("-");
-    var activeInput = "nombre-"+idBtnArray[1];
-    $('#'+activeInput).show();
+    var activeInput = "nombre-" + idBtnArray[1];
+    $('#' + activeInput).show();
 }
 
-function cambiarNombreReglaBtn(id){
-    
+function cambiarNombreReglaBtn(id) {
+
     var idBtnCambiar = id.id;
     var idBtnCambiarArray = idBtnCambiar.split("-");
     var idReglaNombre = idBtnCambiarArray[1];
-    var textCambiar = $('#text-'+idReglaNombre).val();
-    if(textCambiar == ""){
+    var textCambiar = $('#text-' + idReglaNombre).val();
+    if (textCambiar == "") {
         throw new Error("Caja de texto vacio");
-    }else{
+    } else {
         $.ajax({
             url: '/monitor/cambiarNombreReglaReconocelo',
             async: 'true',
@@ -714,49 +744,47 @@ function cambiarNombreReglaBtn(id){
             ifModified: false,
             processData: true,
             data: { "idReglaNombre": idReglaNombre, "textCambiar": textCambiar },
-            beforeSend: function() {
-            },
+            beforeSend: function() {},
             success: function(result) {
 
-                    if (result == "0") {
-                    } else {
-                        location.reload();
-                    }
+                if (result == "0") {} else {
+                    location.reload();
+                }
 
-                },
-                error: function(object, error, anotherObject) {
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                },
-                timeout: 30000,
-                type: "POST"
-            });
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            },
+            timeout: 30000,
+            type: "POST"
+        });
     }
 
 }
 /* Fin funcion cambiar nombre regla */
 
 /* Funcion agregar y ocultar regla */
-function  addNuevaRegla(id) {
+function addNuevaRegla(id) {
     var idRegla = id.id;
-    if (idRegla == "agregarNuevaRegla"){
+    if (idRegla == "agregarNuevaRegla") {
         $('#ocultarNuevaRegla').show();
         $('#agregarNuevaRegla').hide();
         $('#nuevaReglaData').show();
-    }else if(idRegla == "ocultarNuevaRegla"){
+    } else if (idRegla == "ocultarNuevaRegla") {
         $('#nuevaReglaData').hide();
         $('#ocultarNuevaRegla').hide();
         $('#agregarNuevaRegla').show();
     }
 }
 
-function addNuevaReglaData(){
+function addNuevaReglaData() {
     var textoRegla = $('#nuevoNombreRegla').val();
     var descripcionRegla = $('#DecripcionNuevaRegla').val();
-    if(textoRegla == "" || descripcionRegla == ""){
+    if (textoRegla == "" || descripcionRegla == "") {
         $('#MessageNuevaRegla').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algunos de los campos se encuentran vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
         $('#MessageNuevaRegla').show();
         throw new Error("Cajas de texto vacio");
-    }else{
+    } else {
         $.ajax({
             url: '/monitor/addNuevaRegla',
             async: 'true',
@@ -767,35 +795,34 @@ function addNuevaReglaData(){
             processData: true,
             data: { "regla": textoRegla, "descripcionRegla": descripcionRegla },
             beforeSend: function() {
-                
+
             },
             success: function(result) {
 
-                    if (result == "0") {
-                    } else {
-                        $('#nuevoNombreRegla').val("");
-                        $('#DecripcionNuevaRegla').val("");
-                        $('#nuevaReglaData').hide();
-                        $('#ocultarNuevaRegla').hide();
-                        $('#agregarNuevaRegla').show();
-                        $('#MessageNuevaRegla').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se ha creado una nueva regla.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
-                        $('#MessageNuevaRegla').show();
-                    }
-
-                },
-                error: function(object, error, anotherObject) {
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                if (result == "0") {} else {
                     $('#nuevoNombreRegla').val("");
                     $('#DecripcionNuevaRegla').val("");
                     $('#nuevaReglaData').hide();
                     $('#ocultarNuevaRegla').hide();
                     $('#agregarNuevaRegla').show();
-                    $('#MessageNuevaRegla').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Algo ocurrio mal intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
+                    $('#MessageNuevaRegla').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se ha creado una nueva regla.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
                     $('#MessageNuevaRegla').show();
-                },
-                timeout: 30000,
-                type: "POST"
-            });
+                }
+
+            },
+            error: function(object, error, anotherObject) {
+                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+                $('#nuevoNombreRegla').val("");
+                $('#DecripcionNuevaRegla').val("");
+                $('#nuevaReglaData').hide();
+                $('#ocultarNuevaRegla').hide();
+                $('#agregarNuevaRegla').show();
+                $('#MessageNuevaRegla').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Algo ocurrio mal intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
+                $('#MessageNuevaRegla').show();
+            },
+            timeout: 30000,
+            type: "POST"
+        });
     }
 }
 /* Fin funcion agregar y ocultar regla */
