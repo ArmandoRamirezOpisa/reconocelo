@@ -639,8 +639,8 @@
 ////////////////////////////FinDepositos///////////////////////////////////////
 /////////////////////////InicioCanjes/////////////////////////////////////////
         public function canjes(){
-            $this->load->model("canje_monitor_model");
-            $canje = $this->canje_monitor_model->getFechaCanje();
+            $this->load->model("monitor_model");
+            $canje = $this->monitor_model->getFechaCanje();
             if ($canje){
                 $data["canje"] = $canje;
             }else{
@@ -651,8 +651,8 @@
         }
 
         public function canjesInfo(){
-            $this->load->model("canje_monitor_model");
-            $canje = $this->canje_monitor_model->getCanje();
+            $this->load->model("monitor_model");
+            $canje = $this->monitor_model->getCanje();
             if ($canje){
                 $data["canje"] = $canje;
             }else{
@@ -662,13 +662,13 @@
         }
 
         public function canjesInforma(){
-            $this->load->model("canje_monitor_model");
+            $this->load->model("monitor_model");
 
             $infoFechas = array("fechaInicio"=>$_POST['fechaInicio'],
                 "fechaFin"=>$_POST['fechaFin']
                 );
 
-            $canje = $this->canje_monitor_model->getCanjeFechas($infoFechas);
+            $canje = $this->monitor_model->getCanjeFechas($infoFechas);
             if ($canje){
                 $data["canje"] = $canje;
             }else{

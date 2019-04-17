@@ -3,7 +3,7 @@
     	
     	public function __construct(){}
         
-        public function getFechaCanje(){
+        /*public function getFechaCanje(){
             $query = $this->db->query("
                 SELECT DISTINCT DATE_FORMAT( pc.feSolicitud,  '%Y %m' ) AS Fecha
                 FROM PreCanje pc
@@ -19,9 +19,9 @@
             }else{
                 return false;
             }
-        }
+        }*/
 
-        public function getCanje()
+        /*public function getCanje()
         {
             $query = $this->db->query("
                 SELECT idCanje, p.idParticipante, 
@@ -40,9 +40,9 @@
             }else{
                 return false;
             }
-        }
+        }*/
 
-        public function getCanjeFechas($infoFechas)
+        /*public function getCanjeFechas($infoFechas)
         {
             $query = $this->db->query("
                 SELECT idCanje, p.idParticipante, 
@@ -63,6 +63,6 @@
             }else{
                 return false;
             }
-        }
+        }*/
     }
 ?>

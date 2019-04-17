@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  ng-app="monitor" >
+<html>
 <?php
 include 'home_monitor_view_header.php';
 ?>
@@ -46,9 +46,7 @@ include 'home_monitor_view_header.php';
         </div>
 
         <div class="container">
-            <div id="CanjeInformacion">
-                <!-- Aqui va la tabla -->
-            </div>
+            <div id="CanjeInformacion"></div>
 
         </div>
 
