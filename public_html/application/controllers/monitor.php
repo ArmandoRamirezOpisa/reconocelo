@@ -711,9 +711,9 @@
         }
 ///////////////////////////FinCatalogo//////////////////////////////////////
         public function programa(){
-            $this->load->model("programa_monitor_model");
-            $programa= $this->programa_monitor_model->getPrograma();
-            $programaCanje= $this->programa_monitor_model->getProgramaCanje();
+            $this->load->model("monitor_model");
+            $programa= $this->monitor_model->getPrograma();
+            $programaCanje= $this->monitor_model->getProgramaCanje();
             if ($programa){
                 $data = array( 'programa' => $programa,
                     'programaCanje' => $programaCanje
