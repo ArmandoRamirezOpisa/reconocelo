@@ -1,8 +1,8 @@
-        <script src="assets/js/notify.js?ab"></script>
-        <script src="../assets/js/angular.min.js" type="text/javascript"></script>
+        <!--<script src="assets/js/notify.js?ab"></script>-->
+        <!--<script src="../assets/js/angular.min.js" type="text/javascript"></script>
         <script src="../assets/js/angular-sanitize.js" type="text/javascript"></script>
         <script src="../assets/js/angular-route.min.js" type="text/javascript"></script>
-        <script src="../assets/js/_01_Controller_Routing.js" type="text/javascript"></script>
+        <script src="../assets/js/_01_Controller_Routing.js" type="text/javascript"></script>-->
         <script src="../assets/js/functionsMonitor.js?ab"></script>
         <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -13,7 +13,4 @@
         <!--<script src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-        <script src="assets/js/controller.js?ab"></script> 
-        <script>
-            //loadSection("nav_monitor_controller/getNavegacionParticipante", "navegacion");
-        </script>
+        <!--<script src="assets/js/controller.js?ab"></script>-->

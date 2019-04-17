@@ -4,7 +4,7 @@
     	      public function __construct(){}
         
             //Todos los participantes
-            public function getTodosParticipantes(){
+            /*public function getTodosParticipantes(){
     		      $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante ,pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status, pr.idParticipante
@@ -19,10 +19,10 @@
     		      }else{
                         return false;
     		      }
-            }
+            }*/
 
             //Participantes con saldo
-            public function geTParticipantesSaldo(){
+            /*public function geTParticipantesSaldo(){
     		      $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status, pr.idParticipante
@@ -38,10 +38,10 @@
     		      }else{
                         return false;
     		      }
-            }
+            }*/
 
             //Participantes sin saldo
-            public function geTParticipantesSinSaldo(){
+            /*public function geTParticipantesSinSaldo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
@@ -57,10 +57,10 @@
     		      }else{
                         return false;
     		      }
-            }
+            }*/
 
             //Participantes todos activos
-            public function geTodoSaldoActivo(){
+            /*public function geTodoSaldoActivo(){
     		      $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
@@ -76,10 +76,10 @@
     		      }else{
                         return false;
     		      }
-            }
+            }*/
 
             //Participantes todos inactivos
-            public function geTodoInactivo(){
+            /*public function geTodoInactivo(){
     		      $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
@@ -95,10 +95,10 @@
     		      }else{
                         return false;
     		      }
-            }
+            }*/
 
             //Participantes activos con saldo
-            public function getSaldoActivo(){
+            /*public function getSaldoActivo(){
     		      $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
@@ -115,10 +115,10 @@
     		      }else{
                         return false;
     		      }
-            }
+            }*/
 
             //Participantes con saldo inactivos
-            public function geTSaldoInactivo(){
+            /*public function geTSaldoInactivo(){
     		      $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
@@ -135,10 +135,10 @@
     		      }else{
                         return false;
     		      }
-            }
+            }*/
 
             //Participantes sin saldo activos
-            public function geTSinSaldoActivo(){
+            /*public function geTSinSaldoActivo(){
     		      $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
@@ -155,10 +155,10 @@
     		      }else{
                         return false;
     		      }
-            }
+            }*/
 
             //Participantes sin saldo inactivos
-            public function geTSinSaldoInactivo(){
+            /*public function geTSinSaldoInactivo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
                         pr.SaldoActual, pr.Status,pr.idParticipante
@@ -175,9 +175,9 @@
                   }else{
                         return false;
                   }
-            }
+            }*/
 
-            public function participanteInfoData($infoParticipante){
+            /*public function participanteInfoData($infoParticipante){
                   $query = $this->db->query("
                         SELECT codPrograma, codEmpresa, codParticipante
                         FROM Participante
@@ -188,9 +188,9 @@
                   }else{
                         return false;
                   }
-            }
+            }*/
 
-            public function movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante){
+            /*public function movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante){
                   $query = $this->db->query("
                         select c.idCanje as Folio, c.feSolicitud as Fecha, d.cantidad,d.codPremio, 
                         pr.Nombre_Esp as Descripcion,d.PuntosXUnidad*d.cantidad*-1 as Puntos
@@ -215,9 +215,9 @@
                   }else{
                         return false;
                   }
-            }
+            }*/
 
-            public function participanteInfoDataCanje($infoParticipante){
+            /*public function participanteInfoDataCanje($infoParticipante){
                   $query = $this->db->query("
                         SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha, 
                         SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
@@ -236,7 +236,7 @@
                   }else{
                         return false;
                   }
-            }
+            }*/
 
       }
 ?>

@@ -1,4 +1,4 @@
-<head>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../assets/js/papaparse.min.js"></script>
     </head>
-    <body ng-controller="monitor_controller" onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
+    <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg">
             <a id="inicioMonitor" class="navbar-brand" href="javascript:void(0)" onClick = "MonitorNav(this)">
@@ -65,10 +65,10 @@
                         <button type="button" id="dropdownMenuButton" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a id="configuracionUsuarioMonitor" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-cog"></i>Configuracion</a>
+                        <div class="dropdown-menu dataUserRecononoceloMonitor" aria-labelledby="dropdownMenuButton">
+                            <a id="configuracionUsuarioMonitor" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-cog"></i>Configuracion</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="javascript:void(0)" onClick = "exit()"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar session</a>
+                            <a id="salirReconoceloMonitor" class="dropdown-item" href="javascript:void(0)" onClick = "exit()"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar session</a>
                         </div>
                     </div>
                 </form>

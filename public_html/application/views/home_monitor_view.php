@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  ng-app="monitor" >
+<html>
 <?php
 include 'home_monitor_view_header.php';
 ?>

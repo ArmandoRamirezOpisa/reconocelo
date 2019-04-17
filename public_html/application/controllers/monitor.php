@@ -123,8 +123,8 @@
         //Todos los participantes
         public function ParticipantesTodos(){
 
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->getTodosParticipantes();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->getTodosParticipantes();
             $codEmpresa = $this->session->userdata('CodEmpresa');
             if ($participante){
                 $data["participante"] = $participante;
@@ -137,8 +137,8 @@
 
         //Participantes con saldo
         public function conSaldoParticipantes(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->geTParticipantesSaldo();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->geTParticipantesSaldo();
             if ($participante){
                 $data["participante"] = $participante;
             }else{
@@ -149,8 +149,8 @@
 
         //Participantes sin saldo
         public function sinSaldoParticipantes(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->geTParticipantesSinSaldo();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->geTParticipantesSinSaldo();
             if ($participante){
                 $data["participante"] = $participante;
             }else{
@@ -161,8 +161,8 @@
 
         //Participantes todos activos
         public function saldoTodoActivo(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->geTodoSaldoActivo();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->geTodoSaldoActivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -174,8 +174,8 @@
 
         //Participantes todos inactivos
         public function saldoTodoInactivo(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->geTodoInactivo();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->geTodoInactivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -187,8 +187,8 @@
 
         //Participantes Activos con saldo
         public function saldoActivo(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->getSaldoActivo();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->getSaldoActivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -200,8 +200,8 @@
 
         //Participantes inactivos con saldo
         public function saldoInactivo(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->geTSaldoInactivo();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->geTSaldoInactivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -213,8 +213,8 @@
 
         //Participantes activos sin saldo
         public function sinSaldoActivo(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->geTSinSaldoActivo();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->geTSinSaldoActivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -226,8 +226,8 @@
 
         //Pariticipantes inactivos sin saldo
         public function sinSaldoInactivo(){
-            $this->load->model("participante_monitor_model");
-            $participante = $this->participante_monitor_model->geTSinSaldoInactivo();
+            $this->load->model("monitor_model");
+            $participante = $this->monitor_model->geTSinSaldoInactivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -239,17 +239,17 @@
 
         //Informacion de los participantes
         public function participanteInfo(){
-            $this->load->model("participante_monitor_model");
+            $this->load->model("monitor_model");
 
             $infoParticipante = array("codParticipante"=>$_POST['codParticipante']);
 
-            $movimientosDeParticipante = $this->participante_monitor_model->participanteInfoData($infoParticipante);
+            $movimientosDeParticipante = $this->monitor_model->participanteInfoData($infoParticipante);
 
             $codPrograma = $movimientosDeParticipante[0]["codPrograma"];
             $codEmpresa = $movimientosDeParticipante[0]["codEmpresa"];
             $codParticipante = $movimientosDeParticipante[0]["codParticipante"];
 
-            $participanteData = $this->participante_monitor_model->movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante);
+            $participanteData = $this->monitor_model->movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante);
 
             if ($participanteData){
                 $data = array( 'participanteData' => $participanteData);
@@ -257,98 +257,6 @@
                 $data = array( 'participanteData' => false);
             }
             $this->load->view('modalPartici_monitor_view',$data);
-        }
-
-        //Exportando participantes a excel
-        public function exportParticipantesExcel(){
-
-            $this->load->model("participante_monitor_model");
-            $optionExportData = array("numberExportDB"=>$_POST['numberExportDB']);
-            $number = $optionExportData['numberExportDB'];
-
-            switch ($optionExportData['numberExportDB']){
-                case 1:
-                    $participante = $this->participante_monitor_model->getTodosParticipantes();
-                    if ($participante){
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-                case 2:
-                    $participante = $this->participante_monitor_model->geTodoSaldoActivo();
-                    if ($participante)
-                    {
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-                case 3:
-                    $participante = $this->participante_monitor_model->geTodoInactivo();
-                    if ($participante)
-                    {
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-                case 4:
-                    $participante = $this->participante_monitor_model->geTParticipantesSaldo();
-                    if ($participante){
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-                case 5:
-                    $participante = $this->participante_monitor_model->getSaldoActivo();
-                    if ($participante)
-                    {
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-                case 6:
-                    $participante = $this->participante_monitor_model->geTSaldoInactivo();
-                    if ($participante)
-                    {
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-                case 7:
-                    $participante = $this->participante_monitor_model->geTParticipantesSinSaldo();
-                    if ($participante){
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-                case 8:
-                    $participante = $this->participante_monitor_model->geTSinSaldoActivo();
-                    if ($participante)
-                    {
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-                case 9:
-                    $participante = $this->participante_monitor_model->geTSinSaldoInactivo();
-                    if ($participante)
-                    {
-                        $data["participante"] = $participante;
-                    }else{
-                        $data["participante"] = false;
-                    }
-                    break;
-            }
-
-            $this->load->view('participanteExcel_monitor_view',$data);
-
         }
 ////////////////////////////FinParticipantes///////////////////////////////////
 ////////////////////////////InicioDepositos///////////////////////////////////
