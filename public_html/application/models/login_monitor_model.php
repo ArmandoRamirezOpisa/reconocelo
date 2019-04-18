@@ -1,7 +1,7 @@
 <?php
     class Login_monitor_model  extends CI_Model{
    
-        public function loadData($datos){
+        /*public function loadData($datos){
             $usuario =$datos['usuario'];
             $password = $datos['password'];
             $query = $this->db->query("          
@@ -18,9 +18,9 @@
                 $query=array();
                 return $query;
             }
-        }
+        }*/
  
-        public function loadParticipantes(){
+        /*public function loadParticipantes(){
 
             $query = $this->db->query("
                 select codParticipante,Cargo,PrimerNombre,idParticipante,SaldoActual,
@@ -34,9 +34,9 @@
                 $query=array("Peter" => "35", "Ben" => "37", "Joe" => "43");
                 return $query;
             }
-        }
+        }*/
 
-        public function misPreCanjes($idParticipante){
+        /*public function misPreCanjes($idParticipante){
             $query=$this->db->query("
                 SELECT p.idCanje,p.feSolicitud,d.Cantidad,pr.Nombre_Esp,d.Status,d.Mensajeria,d.NumeroGuia,
                 d.Cantidad*d.PuntosXUnidad *-1 as puntos
@@ -56,6 +56,6 @@
             }else{
                 return false;
             }
-        }
+        }*/
     }
 ?>

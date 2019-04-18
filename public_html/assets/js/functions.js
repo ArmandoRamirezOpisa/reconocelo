@@ -20,13 +20,10 @@ function loginReconocelo() {
             ifModified: false,
             processData: true,
             data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result == "0") {
-                    console.log("Expiro");
                     $('#error').show();
                     $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
                 } else {

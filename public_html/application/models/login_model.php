@@ -3,7 +3,7 @@
     	
             public function __construct(){}
         
-            public function loginReconocelo($loginReconoceloData){
+            /*public function loginReconocelo($loginReconoceloData){
                   $query = $this->db->query("
                         SELECT pp.codPrograma,pp.codEmpresa,pp.codParticipante,pp.Status,pp.Cargo,
                         pp.PrimerNombre,pp.SegundoNombre,pp.ApellidoPaterno,pp.ApellidoMaterno,pp.eMail,
@@ -21,7 +21,7 @@
                   }else{
                         return false;
                   }
-            }
+            }*/
             public function login($datos){
                   $emp=substr($datos["usuario"],0,5);
                   $part=intval(substr($datos["usuario"],5,3));

@@ -63,7 +63,7 @@
                                                 <input type="password" class="form-control" placeholder="Contrase&ntilde;a" name="password" id="passwordReconocelo">
                                             </div>
                                         </div>
-                                        <a href="javascript:void(0)" class="btn btn-primary text-center btn-block" onclick="loginReconocelo()">Entrar</a>
+                                        <a href="javascript:void(0)" class="btn btn-primary text-center btn-block" onclick="loginReconocelo()"><i class="fas fa-sign-in-alt"></i> Entrar</a>
                                         <span id="error" display="style:none;">
                                             <p id="mensajeErrorReconocelo" class="mt-4 text-center errorMessage"></p>
                                         </span>

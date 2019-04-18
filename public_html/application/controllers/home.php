@@ -7,12 +7,12 @@
 		}
 
         public function loginReconocelo(){
-            $this->load->model("login_model");
+            $this->load->model("reconocelo_model");
             $loginReconoceloData = array(
                 "usuarioReconocelo"=>$_POST['usuarioReconocelo'],
                 "passwordReconocelo"=>$_POST['passwordReconocelo']
             );
-            $login = $this->login_model->loginReconocelo($loginReconoceloData);
+            $login = $this->reconocelo_model->loginReconocelo($loginReconoceloData);
             if ($login){
                 if (strlen($login[0]["eMail"])>0){
                 	$email_s = $login[0]["eMail"];
