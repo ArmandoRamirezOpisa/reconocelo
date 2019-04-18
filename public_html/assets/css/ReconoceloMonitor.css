@@ -9,7 +9,7 @@
     --colorBlanco2:#f2f2f2;
     --colorAzulMorado:#6C7DAC;
     /* */
-    --textAling:uppercase;
+    --textTransform:uppercase;
     --cursor:pointer;
     --borderRadius:4px;
 }
@@ -66,7 +66,7 @@ a:link {
 
 input[type=password] {
     border-radius: calc( var(--borderRadius) - 4px);
-    text-transform: var(--textAling);
+    text-transform: var(--textTransform);
 }
 
 #olvidoPassword:hover {
@@ -74,7 +74,7 @@ input[type=password] {
 }
 
 .upperCase {
-    text-transform: var(--textAling);
+    text-transform: var(--textTransform);
 }
 
 #errorMessage {
