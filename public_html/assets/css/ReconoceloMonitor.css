@@ -1,64 +1,80 @@
+:root{
+    --colorBlanco: #FFFFFF;
+    --colorAzul: #034889;
+    --colorMorado: #8EB4E0;
+    --colorRojo:#FF0000;
+    --colorNegro:#000000;
+    --colorGris:#CCCCCC;
+    --colorGris2:#EAEAEA;
+    --colorBlanco2:#f2f2f2;
+    --colorAzulMorado:#6C7DAC;
+    /* */
+    --textAling:uppercase;
+    --cursor:pointer;
+    --borderRadius:4px;
+}
+
 body {
-    background: #FFFFFF;
+    background: var(--colorBlanco);
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 .bg-ligh {
-    background: #FFFFFF;
-    border-color: #FFFFFF;
+    background: var(--colorBlanco);
+    border-color: var(--colorBlanco);
 }
 
 .input-group-text {
-    background: #034889;
-    color: white;
+    background: var(--colorAzul);
+    color: var(--colorBlanco);
 }
 
 .btn-primary {
-    background: #034889;
-    border-color: #034889;
-    color: #f2f2f2;
+    background: var(--colorAzul);
+    border-color: var(--colorAzul);
+    color: var(--colorBlanco2);
 }
 
 .btn-primary:hover {
-    background: #8EB4E0;
-    border-color: #8EB4E0;
-    color: #034889;
+    background: var(--colorMorado);
+    border-color: var(--colorMorado);
+    color: var(--colorAzul);
 }
 
 a:link {
-    color: #034889;
+    color: var(--colorAzul);
 }
 
 .errormessage {
-    color: red;
+    color: var(--colorRojo);
     text-align: center;
 }
 
 .headerColor {
-    background: black;
+    background: var(--colorNegro);
 }
 
 .sizetopbottom {
     height: 40px;
-    color: white;
+    color: var(--colorBlanco);
 }
 
 .colorhead {
-    background: #034889;
-    color: white;
+    background: var(--colorAzul);
+    color: var(--colorBlanco);
 }
 
 input[type=password] {
-    border-radius: 0;
-    text-transform: uppercase;
+    border-radius: calc( var(--borderRadius) - 4px);
+    text-transform: var(--textAling);
 }
 
 #olvidoPassword:hover {
-    color: #cccccc;
+    color: var(--colorGris);
 }
 
 .upperCase {
-    text-transform: uppercase;
+    text-transform: var(--textAling);
 }
 
 #errorMessage {
@@ -66,51 +82,51 @@ input[type=password] {
 }
 
 .navbar {
-    background: #034889;
+    background: var(--colorAzul);
 }
 
 a {
-    color: #fff;
+    color: var(--colorBlanco);
 }
 
 a:hover {
-    color: #6C7DAC;
+    color: var(--colorAzulMorado);
 }
 
 .navbar-toggler {
-    color: #fff;
-    background-color: #6C7DAC;
+    color: var(--colorBlanco);
+    background-color: var(--colorAzulMorado);
 }
 
 .nav-item a {
-    color: #FFFFFF;
+    color: var(--colorBlanco);
 }
 
 .nav-item a:hover {
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    color: #034889;
+    background-color: var(--colorBlanco);
+    border-radius: calc(var(--borderRadius) + 6 px);
+    color: var(--colorAzul);
 }
 
 .dropdown-menu {
-    background-color: #034889;
+    background-color: var(--colorAzul);
 }
 
 .dropdown-menu .dropdown-item {
-    background-color: #034889;
-    color: #FFFFFF;
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
 }
 
 .dropdown-menu .dropdown-item:hover {
-    color: #034889;
+    color: var(--colorAzul);
 }
 
 #depositosPuntos:hover {
-    background-color: #FFFFFF;
+    background-color: var(--colorBlanco);
 }
 
 #depositosPuntosInsertar:hover {
-    background-color: #FFFFFF;
+    background-color: var(--colorBlanco);
 }
 
 #Depositos {
@@ -124,47 +140,47 @@ a:hover {
 }
 
 .input-group-text {
-    background: #034889;
-    color: white;
+    background: var(--colorAzul);
+    color: var(--colorBlanco);
 }
 
 #entrarMonitorLogin {
-    background: #034889;
-    border-color: #034889;
-    color: #f2f2f2;
+    background: var(--colorAzul);
+    border-color: var(--colorAzul);
+    color: var(--colorBlanco2);
 }
 
 #entrarMonitorLogin:hover {
-    background: #8EB4E0;
-    border-color: #8EB4E0;
-    color: #034889;
+    background: var(--colorMorado);
+    border-color: var(--colorMorado);
+    color: var(--colorAzul);
 }
 
 .selectElementMonitor {
-    color: #000000;
+    color: var(--colorNegro);
 }
 
 .selectElementMonitor:hover {
-    color: #034889;
+    color: var(--colorAzul);
 }
 
 .colorSeleccion:hover {
-    cursor: pointer;
-    background-color: #EAEAEA;
-    border-radius: 4px;
+    cursor: var(--cursor);
+    background-color: var(--colorGris2);
+    border-radius: var(--borderRadius);
 }
 
 .colorSeleccion:active {
-    background-color: #CCCCCC;
-    border-radius: 4px;
+    background-color: var(--colorGris);
+    border-radius: var(--borderRadius);
 }
 
 .dataUserRecononoceloMonitor #configuracionUsuarioMonitor:hover {
-    background-color: #FFFFFF;
+    background-color: var(--colorBlanco);
 }
 
 .dataUserRecononoceloMonitor #salirReconoceloMonitor:hover {
-    background-color: #FFFFFF;
+    background-color: var(--colorBlanco);
 }
 
 
