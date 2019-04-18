@@ -32,27 +32,6 @@
     		$this->load->view('ayuda_View',$data);
     	}
         
-        /*public function crearComentario(){
-
-            $this->load->model("Ayuda_model");
-            $this->load->library('email');
-         
-            $data = array("idcanje"=>$_POST['idcanje'],
-                "nombre"=>$_POST['nombre'],
-                "mensaje"=>$_POST['mensaje'],
-                "tipo"=>$_POST['tipo']
-             );
-
-            $duda = $this->Ayuda_model-> addDuda($data);
-            if ($duda){
-                $this->sendEmailTicket($data);
-                $this->output->set_output(json_encode('ok')); 
-            }else{
-                $this->output->set_output(json_encode(false));
-            }
-        
-        }*/
-        
         /* Funcion crearTicketReconocelo */
         public function crearTicketReconocelo(){
             
@@ -84,7 +63,7 @@
             }
         
         }
-        /* Fin funcion crearComentario prueba */
+        /* Fin Funcion crearTicketReconocelo */
 
         function sendEmailTicket($data){
             //Configuracion de SMTP
@@ -119,16 +98,13 @@
                 <p><b>Mensaje: </b><br/>".$data['mensaje']."</p>
                 </tr>
             ";
-                            
-           // $message .= "</table>";
                        
             //Inicializa
             $this->email->initialize($config);
             //Envío de alerta de canje.
             $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
-            $this->email->to('operaciones@opisa.com');//operaciones@opisa.com
+            $this->email->to('operaciones@opisa.com');
             $this->email->cc($this->session->userdata('email'));
-            //$this->email->cc('armando.ramirez@opisa.com');
             $this->email->subject('Nuevo Ticket Generado Reconócelo');
             $this->email->message($message);
             $this->email->send();

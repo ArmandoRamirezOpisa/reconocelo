@@ -3,7 +3,11 @@
     class Home extends CI_Controller {
     
     	public function index(){
-    		$this->load->view('home_view');
+            if($this->session->userdata('logged_in')){
+                $this->load->view('home_view');
+            }else{
+                header('Location:'.base_url());
+            }
 		}
 
         public function loginReconocelo(){
