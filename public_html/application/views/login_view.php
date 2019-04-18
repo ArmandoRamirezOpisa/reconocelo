@@ -77,7 +77,7 @@
                                             Chrome, Firefox, Internet Explorer 11 o superio
                                         </small>
                                         <small class="form-text text-muted text-center">  
-                                            <a href="<?php echo site_url('recuperar_usuario') ?>"><h5>Olvidaste tu contraseña?</h5></a>
+                                            <a href="<?php echo site_url('recuperar_usuario') ?>" target="_blank"><h5>Olvidaste tu contraseña?</h5></a>
                                         </small>
                                     </form> 
                                 </div>

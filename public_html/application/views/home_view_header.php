@@ -1,5 +1,5 @@
 <!DOCTYPE html >
-<html ng-app="ControllerWorks">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />
     </head>
-    <body ng-controller="Reconocelo" data-ng-init="init()" onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
+    <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
         <div id="navbar"></div>
         <div class="row justify-content-center mt-4 mb-4 animated apareciendo">
             <div class="col-12 col-md-4 mt-4">
