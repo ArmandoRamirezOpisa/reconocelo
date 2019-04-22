@@ -65,17 +65,15 @@
             }
         }
 
-        public function getCategory(){
-
+        public function getAwards($idCat){
             $this->load->model("reconocelo_model");
-    	    $cat = $this->reconocelo_model->getCategory();
-            if ($cat){
-                $data["cat"] = $cat;
+    	    $aw = $this->reconocelo_model->getAwards($idCat);
+            if ($aw){
+                $data["awards"] = $aw;
             }else{
-                $data["cat"] = false;
+                $data["awards"] = false;
             }
-            $this->load->view('cat_view',$data);
-            
+            $this->load->view('premios_view',$data);
         }
 
 

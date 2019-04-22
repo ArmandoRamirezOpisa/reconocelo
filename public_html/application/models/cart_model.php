@@ -3,25 +3,7 @@
     	
             public function __construct(){}
             
-            public function getAwards($idCat){
-                  /*if(($this->session->userdata('idPart') == 89526) || ($this->session->userdata('Visibilidad')== 1)) {
-                        $query = $this->db->query("
-                              SELECT DISTINCT(p.codPremio) as codPremio,p.Nombre_Esp,p.Caracts_Esp,pp.ValorPuntos
-                              FROM Premio p 
-                              INNER JOIN PremioPrograma pp ON pp.codPremio = p.codPremio 
-                              WHERE pp.codPrograma = ". $this->session->userdata('programa')." 
-                              AND p.CodCategoria = ".$idCat." and pp.CodEmpresa = ".$this->session->userdata('empresa')."
-                              ORDER BY pp.ValorPuntos DESC,p.codPremio                
-                        ");
-                        if ($query->num_rows() > 0)
-                        {
-                              return $query->result_array(); 
-                        }else{
-                              return false;
-                        }
-                  
-                  }*/
-                  
+            /*public function getAwards($idCat){
                   $query = $this->db->query("
                         SELECT DISTINCT (p.codPremio) AS codPremio, p.Nombre_Esp, p.Caracts_Esp, pp.ValorPuntos
                         FROM Premio p
@@ -48,7 +30,7 @@
                   return false;
                   }
                   
-            }
+            }*/
             
             /*public function getCategory(){
                   $query = $this->db->query("

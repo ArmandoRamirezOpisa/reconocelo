@@ -10,10 +10,10 @@
             }
         }
 		
-    	public function index(){
-    	    /*$pr = $this->cart_model->getAwards();
-    		$this->load->view('cart_view');*/
-    	}
+    	/*public function index(){
+    	    $pr = $this->cart_model->getAwards();
+    		$this->load->view('cart_view');
+        }*/
         
         /*public function getCategory(){
     	    $cat = $this->cart_model->getCategory();
@@ -35,7 +35,7 @@
     		$this->load->view('navbarView',$data);
         }*/
 
-        public function getAwards($idCat){
+        /*public function getAwards($idCat){
     	    $aw = $this->cart_model->getAwards($idCat);
             if ($aw){
                 $data["awards"] = $aw;
@@ -44,7 +44,7 @@
             }
               // $this->load->view('cat_view',$data);
     		$this->load->view('cart_view',$data);
-        }
+        }*/
         
         public function showItem($id){
     	    $item = $this->cart_model->getDataItem($id);

@@ -51,7 +51,7 @@
                                 <button data-toggle="tooltip" title="Reglas" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('reglas_controller','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
                             </li>
                             <li class="nav-item">
-                                <button data-toggle="tooltip" title="Premios" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('cart_controller/getCategory','dvSecc')"><i class="fa fa-gift mr-1" aria-hidden="true"  ></i>Premios</button>
+                                <button data-toggle="tooltip" title="Premios" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('home/getAwards/1','dvSecc')"><i class="fa fa-gift mr-1" aria-hidden="true"  ></i>Premios</button>
                             </li>
                             <li class="nav-item">
                                 <button data-toggle="tooltip" title="Canjes" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('canje_controller/getCanjes','dvSecc')"><i class=" fas fa-archive  mr-1" aria-hidden="true"></i>Canjes</button>
