@@ -57,7 +57,7 @@
                                 <button data-toggle="tooltip" title="Canjes" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('canje_controller/getCanjes','dvSecc')"><i class=" fas fa-archive  mr-1" aria-hidden="true"></i>Canjes</button>
                             </li>
                             <li class="nav-item">
-                                <button data-toggle="tooltip" title="Carritos" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('cart_controller/showContentCart','dvSecc')"><i class="fa fa-shopping-cart  mr-1" aria-hidden="true"></i>Carrito</button>
+                                <button data-toggle="tooltip" title="Carritos" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('home/showContentCart','dvSecc')"><i class="fa fa-shopping-cart  mr-1" aria-hidden="true"></i>Carrito</button>
                             </li>
                             <li class="nav-item">
                                 <button data-toggle="tooltip" title="Ayuda" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('ayuda_Controller','dvSecc')"><i class="fas fa-question-circle  mr-1" aria-hidden="true"></i>Ayuda</button>

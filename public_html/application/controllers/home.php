@@ -87,6 +87,10 @@
     		$this->load->view('det_item_view',$data);
         }
 
+        public function showContentCart(){
+			$this->load->view('prev_cart_view');
+		}
+
 
 
 

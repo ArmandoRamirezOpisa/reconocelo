@@ -128,8 +128,8 @@ function addItemOrder(idProduct, name, puntos) {
             });
         }
     }
-    loadSection("cart_controller/showContentCart/", "dvContAw");
-    $.notify("Se ha agregado el producto a su orden", "success");
+    loadSection("home/showContentCart/", "dvContAw");
+    //$.notify("Se ha agregado el producto a su orden", "success");
 }
 
 function refreshCar() {
@@ -159,7 +159,7 @@ function deleteItem(item) {
             $.each(contOrder, function(k, v) {
                 if (item == v.id) {
                     contOrder.splice(k, 1);
-                    loadSection("cart_controller/showContentCart/", "dvContAw");
+                    loadSection("home/showContentCart/", "dvContAw");
                     $.notify("Se ha eliminado el producto de su orden", "success");
                     return false;
                 }

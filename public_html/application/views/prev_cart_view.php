@@ -79,23 +79,15 @@
 		$("#bodyContentCart").html(str);
 	});
 	str = "<tr><td colspan = 3 style ='text-align:right;'><h2>Total:</h2></td><td><h2>"+formatNumber.new(totPuntos)+"</h2></td></tr>";
-	str += "<tr><td border=0><button id=\"addGenCanje\" onclick=\"loadSection('cart_controller/getCategory','dvSecc')\" type=\"button\" class=\"btn btn-outline-secondary\"><i class=\"fas fa-shopping-basket mr-2\"></i>Continuar comprando</button></td></tr>";
+	str += "<tr><td border=0><button id=\"addGenCanje\" onclick=\"loadSection('home/getAwards/1','dvSecc')\" type=\"button\" class=\"btn btn-outline-secondary\"><i class=\"fas fa-shopping-basket mr-2\"></i>Continuar comprando</button></td></tr>";
 	$("#bodyContentCart").append(str);
 </script>
-
-
 <script>
-
 $(document).ready(function () {
-  //called when key is pressed in textbox
   $("#cp").keypress(function (e) {
-     //if the letter is not digit then display error and don't type anything
      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-        //display error message
-       // $("#errmsg").html("Digits Only").show().fadeOut("slow");
-               return false;
+        return false;
     }
    });
 });
-
 </script>
