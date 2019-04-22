@@ -85,7 +85,7 @@
 			}
                 }
 
-                public function misPreCanjes(){
+                /*public function misPreCanjes(){
                         $query=$this->db->query("
                                 SELECT p.idCanje,p.feSolicitud,d.Cantidad,pr.Nombre_Esp,d.Status,d.Mensajeria,
                                 d.NumeroGuia,d.Cantidad*d.PuntosXUnidad *-1 as puntos
@@ -106,7 +106,7 @@
                         }else{
                                 return false;
                         }
-                }
+                }*/
       
                 public function misOrdenesFolio(){
                         $query=$this->db->query("

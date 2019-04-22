@@ -113,7 +113,24 @@
     	}
         /* Fin funcion Reglas Reconocelo */
 
+        /* Funcion Canjes Reconocelo */
 
+        function getCanjes()
+        {
+            $this->load->model("reconocelo_model");
+            $misPreCanjes = $this->reconocelo_model->misPreCanjes();
+
+            if ($misPreCanjes)
+            {
+                $data["precanjes"] = $misPreCanjes;
+            }else{
+                $data["precanjes"] = false;
+            }
+
+            $this->load->view('canjes_view',$data);
+        }
+
+        /* Fin Funcion Canjes Reconocelo */
 
 
 

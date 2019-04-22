@@ -46,7 +46,7 @@
 
         }
         
-        function getCanjes()
+        /*function getCanjes()
         {
             $misPreCanjes = $this->canje_model->misPreCanjes();
 
@@ -58,7 +58,7 @@
             }
 
             $this->load->view('canjes_view',$data);
-       }
+        }*/
 
         function sendCanjeMail($idCanje = 0,$datos)
         {
