@@ -9,7 +9,7 @@
                 $this->load->model("canje_model");
         }
         
-        function addCanje()
+        /*function addCanje()
         {
             $data = json_decode(stripslashes($_POST['data']));//Decodifica JSON
             
@@ -44,7 +44,7 @@
                 $this->output->set_output(json_encode(false));
             }
 
-        }
+        }*/
         
         /*function getCanjes()
         {
@@ -60,7 +60,7 @@
             $this->load->view('canjes_view',$data);
         }*/
 
-        function sendCanjeMail($idCanje = 0,$datos)
+        /*function sendCanjeMail($idCanje = 0,$datos)
         {
             //Configuracion de SMTP
             $config['smtp_host'] = 'm176.neubox.net';
@@ -69,7 +69,6 @@
             $config['smtp_port'] = 465;
             $config['mailtype'] = 'html';
             
-            /* Estructura del correo de reconocelo */
             $message = '<!DOCTYPE html>
                         <html xmlns="http://www.w3.org/1999/xhtml">
                             <head>
@@ -466,7 +465,7 @@
                                 </table>
                             </body>
                         </html>';
-            /* Fin de la Estructura del correo de reconocelo */
+
 
                        
             //Inicializa
@@ -480,6 +479,6 @@
             $this->email->message($message);
 
             $this->email->send();
-        }
+        }*/
     }
 ?>

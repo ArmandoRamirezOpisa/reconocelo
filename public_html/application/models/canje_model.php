@@ -4,7 +4,7 @@
     	        public function __construct(){}
         
 
-                public function checkAddCanje(){
+                /*public function checkAddCanje(){
                         $address = $this->input->post("address");
                         $query=$this->db->query("
                                 SELECT codPrograma, idParticipante, noTipoEntrega, CalleNumero, Colonia, CP, 
@@ -26,9 +26,9 @@
                         }else{
                                 return false;
                         }
-                }
+                }*/
 
-                public function addCanje(){
+                /*public function addCanje(){
                         $address = $this->input->post("address");
     		        $query = $this->db->query("
                                 INSERT INTO PreCanje (codPrograma,idParticipante,noTipoEntrega,CalleNumero,Colonia,
@@ -45,9 +45,9 @@
     		        }else{
                                 return false;
     		        }  
-                }
+                }*/
         
-                public function addDetCanje($datos,$noFolio){
+                /*public function addDetCanje($datos,$noFolio){
                         $err = 0;
                         $nItem = 1;
 		        foreach($datos as $d){
@@ -69,9 +69,9 @@
 			        return false;
 		        }
 		        return true;
-                }
+                }*/
         
-                public function updSaldo($ptsCanje){
+                /*public function updSaldo($ptsCanje){
         
     		        $query = $this->db->query("
                                 UPDATE Participante 
@@ -83,7 +83,7 @@
 			}else{
 				return false;
 			}
-                }
+                }*/
 
                 /*public function misPreCanjes(){
                         $query=$this->db->query("
@@ -122,7 +122,7 @@
                         }
                 }
 
-                public function saldoActualParticipante(){
+                /*public function saldoActualParticipante(){
                         $query=$this->db->query("
                                 SELECT SaldoActual
                                 FROM  `Participante` 
@@ -134,6 +134,6 @@
                         }else{
                                 return false;
                         }
-                }
+                }*/
         }
 ?>

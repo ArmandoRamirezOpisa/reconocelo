@@ -66,9 +66,16 @@
 	var c = 0;
 	var ctd;
 	var totPuntos = 0;
+
+	if(contOrder.length == 0){
+		document.getElementById("btnGenCanje").disabled = true;
+	}else{
+		document.getElementById("btnGenCanje").disabled = false;
+	}
+
 	$.each(contOrder, function(k,v){
 		totPuntos = totPuntos + v.puntos;
-		if (c == 0){
+		if (totPuntos == 0){
 			ctd = "class = 'warning'"; 
 			c = 1;
 		}else{

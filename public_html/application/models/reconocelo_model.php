@@ -115,6 +115,100 @@
                 return false;
             }
         }
+
+        public function saldoActualParticipante(){
+            $query=$this->db->query("
+                SELECT SaldoActual
+                FROM  `Participante` 
+                WHERE codPrograma =".$this->session->userdata('programa')."
+                AND idParticipante = " .$this->session->userdata('idPart')."                                     
+            ");
+            if ($query->num_rows() > 0){
+                return $query->result_array();
+            }else{
+                return false;
+            }
+        }
+
+        public function checkAddCanje(){
+            $address = $this->input->post("address");
+            $query=$this->db->query("
+                SELECT codPrograma, idParticipante, noTipoEntrega, CalleNumero, Colonia, CP, 
+                Ciudad, Estado, Telefono, referencias
+                FROM  `PreCanje` 
+                WHERE codPrograma = ".$this->session->userdata('programa')."
+                AND idParticipante = ".$this->session->userdata('idPart')."
+                AND noTipoEntrega = 1
+                AND CalleNumero = '".$_POST["address"][0]["value"]."'
+                AND Colonia = '".$_POST["address"][1]["value"]."'
+                AND CP = '".$_POST["address"][4]["value"]."'
+                AND Ciudad = '".$_POST["address"][2]["value"]."'
+                AND Estado = '".$_POST["address"][3]["value"]."'
+                AND Telefono = '".$_POST["address"][5]["value"]."'
+                AND referencias = '".$_POST["address"][6]["value"]."'
+            ");
+            if ($query->num_rows() > 0){
+                return $query->result_array(); 
+            }else{
+                return false;
+            }
+        }
+
+        public function addCanje(){
+            $address = $this->input->post("address");
+            $query = $this->db->query("
+                INSERT INTO `opisa_opisa`.PreCanje (codPrograma,idParticipante,noTipoEntrega,CalleNumero,Colonia,
+                CP,Ciudad,Estado,Telefono,referencias)
+                VALUES (".$this->session->userdata('programa').",
+                ".$this->session->userdata('idPart').",1,'".$_POST["address"][0]["value"]."',
+                '".$_POST["address"][1]["value"]."','".$_POST["address"][4]["value"]."'
+                ,'".$_POST["address"][2]["value"]."','".$_POST["address"][3]["value"]."'
+                ,'".$_POST["address"][5]["value"]."','".$_POST["address"][6]["value"]."')
+            ");
+            if ($query)
+            {
+                return $this->db->insert_id();
+            }else{
+                return false;
+            }  
+        }
+
+        public function addDetCanje($datos,$noFolio){
+            $err = 0;
+            $nItem = 1;
+            foreach($datos as $d){
+                $query = $this->db->query("
+                    INSERT INTO `opisa_opisa`.PreCanjeDet (idParticipante,noFolio,idPreCanjeDet,CodPremio,
+                    cantidad,PuntosXUnidad)
+                    VALUES (".$this->session->userdata('idPart').",".$noFolio.",".$nItem.",
+                    ".$d->id.",".$d->cantidad.",".$d->puntos.")
+                ");
+                if (!$query)
+                {
+                    $err ++;
+                }else{
+                    $nItem++;
+                }
+            }
+            if ($err > 0){
+                return false;
+            }
+                return true;
+        }
+
+        public function updSaldo($ptsCanje){
+            $query = $this->db->query("
+                UPDATE Participante 
+                SET SaldoActual = SaldoActual - ".$ptsCanje."
+                WHERE idParticipante = ".$this->session->userdata('idPart')
+            );
+            if ($query){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         /* Fin Funciones Canjes Reconocelo */
 
 	}

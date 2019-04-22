@@ -1,5 +1,6 @@
 /* Variables globales */
 var click = 0;
+var contOrder = new Array();
 
 /* Funcion login Reconocelo */
 function loginReconocelo() {
@@ -41,10 +42,6 @@ function loginReconocelo() {
     }
 }
 /* Fin funcion login reconocelo*/
-
-
-//Globales
-var contOrder = new Array();
 
 function loadSection(controller, divSel) //Controlador,Div en el que se despliega la vista
 {
@@ -545,7 +542,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                         var address = $("#frmCanjeDir").serializeArray();
                         $.ajax({
                             type: 'POST',
-                            url: "canje_controller/addCanje",
+                            url: "home/addCanje",
                             dataType: "json",
                             data: { "data": jsonString, "ptsCanje": $ptsCanje, "address": address },
                             beforeSend: function() {
@@ -563,7 +560,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                                 }
                             },
                             error: function(x, e) {
-                                swal("Error al realizar el canje", "Ocurrio un error al realizar el canje:" + e.messager, "warning");
+                                swal("Error al realizar el canje", "Ocurrio un error al realizar el canje", "warning");
                                 $("#btnGenCanje").show();
                                 $("#lblProc").hide();
                             }
