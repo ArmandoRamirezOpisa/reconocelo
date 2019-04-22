@@ -269,7 +269,7 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 
     $.ajax({
         type: 'POST',
-        url: "/ayuda_Controller/crearTicketReconocelo",
+        url: "/home/crearTicketReconocelo",
         dataType: "json",
         data: { "idcanje": idCanjeArticulo, "nombre": NombreCanjeArticulo, "mensaje": mensaje, "tipo": tipo },
         beforeSend: function() {
