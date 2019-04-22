@@ -209,6 +209,20 @@
             }
         }
 
+        public function misOrdenesFolio(){
+            $query=$this->db->query("
+                SELECT idCanje 
+                FROM PreCanje 
+                where idParticipante =  " .$this->session->userdata('idPart')." 
+                and codPrograma = ".$this->session->userdata('programa')."
+            ");
+            if ($query->num_rows() > 0){
+                return $query->result_array(); 
+            }else{
+                return false;
+            }
+        }
+
         /* Fin Funciones Canjes Reconocelo */
 
 	}
