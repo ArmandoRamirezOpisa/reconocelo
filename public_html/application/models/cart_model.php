@@ -51,11 +51,6 @@
             }
             
             public function getCategory(){
-                  if (($this->session->userdata('idPart') == 89526) || ($this->session->userdata('Visibilidad')== 1)){
-                        $w = "";
-                  }else{
-                        $w = "AND pp.ValorPuntos <= ".$this->session->userdata('puntos');
-                  }
                   $query = $this->db->query("
                         SELECT distinct(cp.nbCategoria) as nbCategoria,cp.CodCategoria                                          
                         FROM t213kpCategoriaPremio cp 
@@ -66,9 +61,9 @@
                   ");
                   if ($query->num_rows() > 0)
                   {
-                  return $query->result_array(); 
+                        return $query->result_array(); 
                   }else{
-                  return false;
+                        return false;
                   }
             }
             

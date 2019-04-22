@@ -4,7 +4,20 @@
     
     	public function index(){
             if($this->session->userdata('logged_in')){
+
+                $this->load->model("reconocelo_model");
+                $cat = $this->reconocelo_model->getCategory();
+                if ($cat){
+                    $data["cat"] = $cat;
+                }else{
+                    $data["cat"] = false;
+                }
+                $this->load->view('home_view_header',$data);
+
                 $this->load->view('home_view');
+
+                $this->load->view('home_view_footer');
+
             }else{
                 header('Location:'.base_url());
             }

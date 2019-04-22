@@ -25,7 +25,7 @@
     		$this->load->view('cat_view',$data);
         }
         
-        public function getCategoryNavbar(){
+        /*public function getCategoryNavbar(){
     	    $cat = $this->cart_model->getCategory();
             if ($cat){
                 $data["cat"] = $cat;
@@ -33,7 +33,8 @@
                 $data["cat"] = false;
             }
     		$this->load->view('navbarView',$data);
-        }
+        }*/
+
         public function getAwards($idCat){
     	    $aw = $this->cart_model->getAwards($idCat);
             if ($aw){

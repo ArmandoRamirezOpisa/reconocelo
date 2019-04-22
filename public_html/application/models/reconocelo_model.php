@@ -24,5 +24,23 @@
             }
         }
 
+        //Barra navbar (Menu de opciones)
+        public function getCategory(){
+            $query = $this->db->query("
+                SELECT distinct(cp.nbCategoria) as nbCategoria,cp.CodCategoria                                          
+                FROM t213kpCategoriaPremio cp 
+                JOIN PremioPrograma pp ON pp.codCategoria = cp.codCategoria                                 
+                WHERE pp.CodEmpresa = ".$this->session->userdata('empresa')."
+                AND pp.codPrograma = ".$this->session->userdata('programa')." 
+                ORDER BY cp.nbCategoria
+            ");
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array(); 
+            }else{
+                return false;
+            }
+        }
+
 	}
 ?>
