@@ -48,7 +48,7 @@
                         </form>
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5 animated apareciendo">
                             <li class="nav-item">
-                                <button data-toggle="tooltip" title="Reglas" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('reglas_controller','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
+                                <button data-toggle="tooltip" title="Reglas" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('home/reglas','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
                             </li>
                             <li class="nav-item">
                                 <button data-toggle="tooltip" title="Premios" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('home/getAwards/1','dvSecc')"><i class="fa fa-gift mr-1" aria-hidden="true"  ></i>Premios</button>

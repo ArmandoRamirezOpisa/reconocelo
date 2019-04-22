@@ -42,6 +42,9 @@
             }
         }
 
+        /* Funciones premios */
+
+        //Obtiene los premios
         public function getAwards($idCat){
             $query = $this->db->query("
                 SELECT DISTINCT (p.codPremio) AS codPremio, p.Nombre_Esp, p.Caracts_Esp, pp.ValorPuntos
@@ -70,6 +73,7 @@
             }     
         }
 
+        //Obtiene el premio
         public function getDataItem($idItem){
             $query = $this->db->query("
                 SELECT p.codPremio,p.Nombre_Esp,p.Caracts_Esp,pp.ValorPuntos
@@ -84,7 +88,9 @@
             }else{
                 return false;
             }
-      }
+        }
+
+        /* Fin funciones premios */
 
 	}
 ?>

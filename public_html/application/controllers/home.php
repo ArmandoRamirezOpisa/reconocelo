@@ -65,6 +65,9 @@
             }
         }
 
+        /* Funciones premios */
+
+        //Obtiene todos los premios
         public function getAwards($idCat){
             $this->load->model("reconocelo_model");
     	    $aw = $this->reconocelo_model->getAwards($idCat);
@@ -76,6 +79,7 @@
             $this->load->view('premios_view',$data);
         }
 
+        //Muestra el premio seleccionado
         public function showItem($id){
             $this->load->model("reconocelo_model");
     	    $item = $this->reconocelo_model->getDataItem($id);
@@ -87,11 +91,27 @@
     		$this->load->view('det_item_view',$data);
         }
 
+        //Muestra los premios que se van a canjear
         public function showContentCart(){
 			$this->load->view('prev_cart_view');
 		}
 
+        /* Fin funciones premios */
 
+        /* Funcion Reglas Reconocelo */
+        public function reglas(){
+    		$this->load->model("reglas_model");
+			if ($this->session->userdata('logged_in')){
+                $cat = $this->reglas_model->getRules();
+                if ($cat){
+                    $data["cat"] = $cat;
+                }else{
+                    $data["cat"] = false;
+                }
+                $this->load->view('reglas_view',$data);
+			}
+    	}
+        /* Fin funcion Reglas Reconocelo */
 
 
 
