@@ -76,6 +76,17 @@
             $this->load->view('premios_view',$data);
         }
 
+        public function showItem($id){
+            $this->load->model("reconocelo_model");
+    	    $item = $this->reconocelo_model->getDataItem($id);
+            if ($item){
+                $data["item"] = $item;
+            }else{
+                $data["item"] = false;
+            }
+    		$this->load->view('det_item_view',$data);
+        }
+
 
 
 

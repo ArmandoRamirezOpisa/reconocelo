@@ -185,7 +185,7 @@ function delArray() {
 }
 
 function showDet(id) {
-    loadSection("cart_controller/showItem/" + id, "dvContAw");
+    loadSection("home/showItem/" + id, "dvContAw");
 }
 
 function sendDataAjaxDuda(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
@@ -538,7 +538,7 @@ function sendCanje($ptsUser, $ptsCanje) {
 
                 click++;
 
-                if(click == 1){
+                if (click == 1) {
                     document.getElementById('btnGenCanje').style.display = "none";
                     if (contOrder.length > 0) {
                         var jsonString = JSON.stringify(contOrder); //Pasa array a formato JSON
@@ -571,8 +571,8 @@ function sendCanje($ptsUser, $ptsCanje) {
                     } else {
                         swal("Operacion no permitida", "No tienes ningun articulo en tu carrito", "warning");
                     }
-                }else{
-                    swal("Solo debes de realizar un click para poder relizar tu canje","Warning");
+                } else {
+                    swal("Solo debes de realizar un click para poder relizar tu canje", "Warning");
                     location.reload();
                 }
 

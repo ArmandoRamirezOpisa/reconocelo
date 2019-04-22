@@ -46,7 +46,7 @@
     		$this->load->view('cart_view',$data);
         }*/
         
-        public function showItem($id){
+        /*public function showItem($id){
     	    $item = $this->cart_model->getDataItem($id);
             if ($item){
                 $data["item"] = $item;
@@ -54,7 +54,7 @@
                 $data["item"] = false;
             }
     		$this->load->view('det_item_view',$data);
-        }
+        }*/
 		
 		public function showContentCart(){
 			$this->load->view('prev_cart_view');

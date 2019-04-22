@@ -67,8 +67,23 @@
                 return $query->result_array(); 
             }else{
                 return false;
+            }     
+        }
+
+        public function getDataItem($idItem){
+            $query = $this->db->query("
+                SELECT p.codPremio,p.Nombre_Esp,p.Caracts_Esp,pp.ValorPuntos
+                FROM Premio p 
+                INNER JOIN PremioPrograma pp ON pp.codPremio = p.codPremio 
+                WHERE pp.codPrograma = ". $this->session->userdata('programa')." 
+                AND p.codPremio = ".$idItem
+            );
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array(); 
+            }else{
+                return false;
             }
-            
       }
 
 	}
