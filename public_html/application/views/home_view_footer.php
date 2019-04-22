@@ -12,7 +12,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script>
-            loadSection("cart_controller/getCategory", "dvSecc");
+            loadSection("home/getCategory","dvSecc");
+            //loadSection("cart_controller/getCategory", "dvSecc");
         </script>
     </body>
 </html>

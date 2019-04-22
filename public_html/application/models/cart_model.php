@@ -50,7 +50,7 @@
                   
             }
             
-            public function getCategory(){
+            /*public function getCategory(){
                   $query = $this->db->query("
                         SELECT distinct(cp.nbCategoria) as nbCategoria,cp.CodCategoria                                          
                         FROM t213kpCategoriaPremio cp 
@@ -65,7 +65,7 @@
                   }else{
                         return false;
                   }
-            }
+            }*/
             
             public function getDataItem($idItem){
                   $query = $this->db->query("

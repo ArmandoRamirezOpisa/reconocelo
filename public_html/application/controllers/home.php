@@ -1,7 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
     class Home extends CI_Controller {
-    
+        
+        //Pagina principal que carga todo
     	public function index(){
             if($this->session->userdata('logged_in')){
 
@@ -23,6 +24,7 @@
             }
 		}
 
+        //funcion para logearse
         public function loginReconocelo(){
             $this->load->model("reconocelo_model");
             $loginReconoceloData = array(
@@ -62,6 +64,25 @@
                 $this->output->set_output(json_encode(0));//si no encuentra al usuario regresa false
             }
         }
+
+        public function getCategory(){
+
+            $this->load->model("reconocelo_model");
+    	    $cat = $this->reconocelo_model->getCategory();
+            if ($cat){
+                $data["cat"] = $cat;
+            }else{
+                $data["cat"] = false;
+            }
+            $this->load->view('cat_view',$data);
+            
+        }
+
+
+
+
+
+
 
         /* Router ejemplo para hacer un ticket */
 		public function ticketsExam(){

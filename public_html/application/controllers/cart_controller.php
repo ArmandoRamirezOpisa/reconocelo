@@ -15,7 +15,7 @@
     		$this->load->view('cart_view');*/
     	}
         
-        public function getCategory(){
+        /*public function getCategory(){
     	    $cat = $this->cart_model->getCategory();
             if ($cat){
                 $data["cat"] = $cat;
@@ -23,7 +23,7 @@
                 $data["cat"] = false;
             }
     		$this->load->view('cat_view',$data);
-        }
+        }*/
         
         /*public function getCategoryNavbar(){
     	    $cat = $this->cart_model->getCategory();
