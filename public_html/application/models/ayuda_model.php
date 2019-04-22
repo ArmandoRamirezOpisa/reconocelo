@@ -4,7 +4,7 @@
 
         public function __construct() {}
 
-        public function tipos_preguntas() {
+        /*public function tipos_preguntas() {
             $query = $this->db->query("
                 SELECT TipoPregunta FROM Preguntas "
             );
@@ -13,7 +13,7 @@
             } else {
                 return false;
             }
-        }
+        }*/
 
         public function addDuda($data){
     	    $query = $this->db->query("                            

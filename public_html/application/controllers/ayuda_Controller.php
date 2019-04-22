@@ -2,7 +2,7 @@
 
     class Ayuda_Controller extends CI_Controller {
     
-    	public function index()
+    	/*public function index()
     	{
             $this->load->model("Ayuda_model");
             $this->load->model("reconocelo_model");   
@@ -30,7 +30,7 @@
             }
             
     		$this->load->view('ayuda_View',$data);
-    	}
+        }*/
         
         /* Funcion crearTicketReconocelo */
         public function crearTicketReconocelo(){

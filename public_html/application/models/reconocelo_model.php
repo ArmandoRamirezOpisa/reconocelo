@@ -225,5 +225,18 @@
 
         /* Fin Funciones Canjes Reconocelo */
 
+        /* Funcion Ayuda Model */
+        public function tipos_preguntas() {
+            $query = $this->db->query("
+                SELECT TipoPregunta FROM Preguntas "
+            );
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            } else {
+                return false;
+            }
+        }
+        /* Fin Funcion Ayuda Model */
+
 	}
 ?>

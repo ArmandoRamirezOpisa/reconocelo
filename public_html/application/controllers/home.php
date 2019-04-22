@@ -585,7 +585,38 @@
 
         /* Fin Funcion Canjes Reconocelo */
 
+        /* Funcion Ayuda Reconocelo */
 
+        public function ayuda()
+    	{
+            $this->load->model("reconocelo_model");   
+                  
+            $preguntas = $this->reconocelo_model->tipos_preguntas();
+            $ordenes= $this->reconocelo_model->misPreCanjes();
+            $ordenesFolio = $this->reconocelo_model->misOrdenesFolio();
+           
+           if ($ordenesFolio){
+                $data["ordenesFolio"] = $ordenesFolio;
+            }else{
+                $data["ordenesFolio"] = false;
+            }
+           
+            if ($ordenes){
+                $data["ordenes"] = $ordenes;
+            }else{
+                $data["ordenes"] = false;
+            }
+            
+            if ($preguntas){
+                $data["preguntas"] = $preguntas;
+            }else{
+                $data["preguntas"] = false;
+            }
+            
+    		$this->load->view('ayuda_View',$data);
+        }
+        
+        /* Fin Funcion Ayuda Reconocelo */
 
 
 
