@@ -29,9 +29,7 @@ function loginMonitorReconocelo() {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -89,9 +87,7 @@ function Todosparticipantes() {
         cache: false,
         contentType: "application/x-www-form-urlencoded",
         dataType: "html",
-        error: function(object, error, anotherObject) {
-            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         global: true,
         ifModified: false,
         processData: true,
@@ -119,9 +115,7 @@ function participantesSaldo() {
         cache: false,
         contentType: "application/x-www-form-urlencoded",
         dataType: "html",
-        error: function(object, error, anotherObject) {
-            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         global: true,
         ifModified: false,
         processData: true,
@@ -154,9 +148,7 @@ function filtroParticipantes(id) {
             cache: false,
             contentType: "application/x-www-form-urlencoded",
             dataType: "html",
-            error: function(object, error, anotherObject) {
-                alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             global: true,
             ifModified: false,
             processData: true,
@@ -227,9 +219,7 @@ function estadoParticipantes(estadoFiltro) {
         cache: false,
         contentType: "application/x-www-form-urlencoded",
         dataType: "html",
-        error: function(object, error, anotherObject) {
-            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         global: true,
         ifModified: false,
         processData: true,
@@ -271,9 +261,7 @@ function infoParticipante(id) {
             }
 
         },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
@@ -318,9 +306,7 @@ function catalogoIMG(id) {
             }
 
         },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
@@ -338,9 +324,7 @@ function depositos() {
         cache: false,
         contentType: "application/x-www-form-urlencoded",
         dataType: "html",
-        error: function(object, error, anotherObject) {
-            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         global: true,
         ifModified: false,
         processData: true,
@@ -397,7 +381,6 @@ function fechaInicioFinSelect() {
                 },
                 error: function(object, error, anotherObject) {
                     $('#alertFiltroDeposito').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Atención!</strong> Ocurrio un error intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
                 },
                 timeout: 30000,
                 type: "POST"
@@ -434,9 +417,7 @@ function uploadPuntosDepo() {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -453,9 +434,7 @@ function canjes() {
         cache: false,
         contentType: "application/x-www-form-urlencoded",
         dataType: "html",
-        error: function(object, error, anotherObject) {
-            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         global: true,
         ifModified: false,
         processData: true,
@@ -509,9 +488,7 @@ function fechaInicioFinSelectCanje() {
                     }
 
                 },
-                error: function(object, error, anotherObject) {
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                },
+                error: function(object, error, anotherObject) {},
                 timeout: 30000,
                 type: "POST"
             });
@@ -551,9 +528,7 @@ function config(id) {
                     }
 
                 },
-                error: function(object, error, anotherObject) {
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                },
+                error: function(object, error, anotherObject) {},
                 timeout: 30000,
                 type: "POST"
             });
@@ -589,9 +564,7 @@ function config(id) {
                     }
 
                 },
-                error: function(object, error, anotherObject) {
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                },
+                error: function(object, error, anotherObject) {},
                 timeout: 30000,
                 type: "POST"
             });
@@ -627,9 +600,7 @@ function sendRecuperaPassword() {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -670,9 +641,7 @@ function configNew(id) {
                     }
 
                 },
-                error: function(object, error, anotherObject) {
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                },
+                error: function(object, error, anotherObject) {},
                 timeout: 30000,
                 type: "POST"
             });
@@ -706,9 +675,7 @@ function cambiarRegla(id) {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -752,9 +719,7 @@ function cambiarNombreReglaBtn(id) {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -811,7 +776,6 @@ function addNuevaReglaData() {
 
             },
             error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
                 $('#nuevoNombreRegla').val("");
                 $('#DecripcionNuevaRegla').val("");
                 $('#nuevaReglaData').hide();
@@ -843,9 +807,7 @@ function exit() {
     }).then(function(isConfirm) {
         if (isConfirm) {
             location.href = "https://" + location.hostname + "/monitor/salirMonitor";
-        } else {
-            //  swal("Cancelled", "Your imaginary file is safe :)", "error");
-        }
+        } else {}
     });
 
 }

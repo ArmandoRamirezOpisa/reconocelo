@@ -2,6 +2,12 @@
 
     class Mantenimiento extends CI_Controller {
     
+        public function __construct() {
+            parent::__construct();
+            $this->load->library('email');
+            $this->load->model("mantenimiento_model");
+        }
+
     	public function index(){
 			
             if ($this->session->userdata('administrador')) {
@@ -14,8 +20,6 @@
         
         //Login mantenimiento
         public function login(){
-
-            $this->load->model("mantenimiento_model");
             $loginMantenimientoData = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
             $userMantenimientoExist = $this->mantenimiento_model->loginUserMantenimiento($loginMantenimientoData);
             if ($userMantenimientoExist['loginWeb'] == '41160001' && $userMantenimientoExist['pwd']){
@@ -64,7 +68,6 @@
 
         //guardando participantes
         public function participanteSave(){
-            $this->load->model("mantenimiento_model");
             $saveParticipantesData = array(
                 "idParticipanteMantenimiento"=>$_POST['idParticipanteMantenimiento'],
                 "codProgramaMantenimiento"=>$_POST['codProgramaMantenimiento'],
@@ -100,7 +103,6 @@
         }
 
         public function uploadParticipantesNews(){
-            $this->load->model("mantenimiento_model");
             $infoNewsParticipantes = $_POST['infoNewsParticipantes'];
             $participanteMasivo = $this->mantenimiento_model->insertParticipantesMasivo($infoNewsParticipantes);
             if($participanteMasivo){
@@ -128,7 +130,6 @@
 
         //save alta premios
         public function premiosAlta(){
-            $this->load->model("mantenimiento_model");
             $savePremioData = array(
                 "codPremio"=>$_POST['codPremio'],
                 "codCategoria"=>$_POST['codCategoria'],
@@ -174,8 +175,6 @@
 
         //Baja del premio
         public function premiosBaja(){
-
-            $this->load->model("mantenimiento_model");
             $savePremioData = array("codPremio"=>$_POST['codPremio']);
             $PremioDataExits = $this->mantenimiento_model->premioMantenimientoExits($savePremioData);
             if($PremioDataExits){
@@ -191,8 +190,6 @@
 
         /* Update premios */
         public function updatePremio(){
-
-            $this->load->model("mantenimiento_model");
             $PremioData = $this->mantenimiento_model->premioData();
 
             if($PremioData){
@@ -206,8 +203,6 @@
         }
 
         public function premiosUpdateInfo(){
-
-            $this->load->model("mantenimiento_model");
             $savePremioData = array("codPremio"=>$_POST['codPremio']);
             $PremioDataInfo = $this->mantenimiento_model->premioMantenimientoExits($savePremioData);
             $PremioProgramaDataInfo = $this->mantenimiento_model->premioProgramaMantenimientoExits($savePremioData);
@@ -227,7 +222,6 @@
         }
 
         public function premiosUpdateInfoData(){
-            $this->load->model("mantenimiento_model");
             $savePremioData = array(
                 "codPremioUpdate"=>$_POST['codPremioUpdate'],
                 "codCategoriaUpdate"=>$_POST['codCategoriaUpdate'],
@@ -259,8 +253,6 @@
         }
 
         public function uploadDepositosNewsMantenimiento(){
-
-            $this->load->model("mantenimiento_model");
             $infoNewsDepositosMantenimiento = $_POST['infoNewsDepositosMantenimiento'];
 
             $depositoMasivo = $this->mantenimiento_model->insertDepositoMasivoMantenimiento();
@@ -294,7 +286,6 @@
         public function uploadPuntosDepositoMantenimiento(){
 
             $numTransaccionMantenimiento = array("numTransaccionMantenimiento"=>$_POST['numTransaccionMantenimiento']);
-            $this->load->model("mantenimiento_model");
             $depositoverUpload = $this->mantenimiento_model->getDepositosDetMantenimiento($numTransaccionMantenimiento);
             $saldoTotalParticipante = 0;
             $totalRegistros = 0;

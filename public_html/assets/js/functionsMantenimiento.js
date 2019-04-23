@@ -20,9 +20,7 @@ function loginMantenimiento() {
             ifModified: false,
             processData: true,
             data: { "usuario": usuario, "password": password },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result) {
@@ -35,9 +33,7 @@ function loginMantenimiento() {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -56,9 +52,7 @@ function optionsParticipante(id) {
         changeOptionParticipante('/mantenimiento/unParticipante');
     } else if (optionParticipante == "moreParticipantes") {
         changeOptionParticipante('/mantenimiento/variosParticipantes');
-    } else if (optionParticipante == "selecciona") {
-        console.log("no hace ninguna accion");
-    }
+    } else if (optionParticipante == "selecciona") {}
 
 }
 
@@ -72,20 +66,14 @@ function changeOptionParticipante(rutaParticipante) {
         ifModified: false,
         processData: true,
         data: {},
-        beforeSend: function() {
-            console.log('Cargando seccion, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(result) {
             if (result) {
                 $('#opcionesParticipantes').html(result);
                 $('#opcionesParticipantes').show();
-            } else {
-                console.log("Expiro");
-            }
+            } else {}
         },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
@@ -156,9 +144,7 @@ function saveParticipante() {
                 "emailMantenimiento": emailMantenimiento,
                 "loginwebMantenimiento": loginwebMantenimiento
             },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result) {
@@ -196,7 +182,6 @@ function saveParticipante() {
 
             },
             error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
                 $('#alertMessage').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se guardo correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             },
             timeout: 30000,
@@ -243,20 +228,14 @@ function chanceOpcionPremio(ruta) {
         ifModified: false,
         processData: true,
         data: {},
-        beforeSend: function() {
-            console.log('Cargando seccion, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(result) {
             if (result) {
                 $('#premioFunctions').html(result);
                 $('#premioFunctions').show();
-            } else {
-                console.log("Expiro");
-            }
+            } else {}
         },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
@@ -305,9 +284,7 @@ function altaPremio() {
                 "codEmpresa": codEmpresa,
                 "valorPuntos": valorPuntos
             },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result) {
@@ -334,7 +311,6 @@ function altaPremio() {
 
             },
             error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
                 $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se guardo correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 $('#MessagePremio').show();
             },
@@ -397,9 +373,7 @@ function premioBajaOk() {
         data: {
             "codPremio": codPremioBaja
         },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(result) {
 
             if (result == "Bien") {
@@ -415,7 +389,6 @@ function premioBajaOk() {
 
         },
         error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
             $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se elimino correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             $('#MessagePremio').show();
         },
@@ -445,17 +418,13 @@ function UpdatePremio(id) {
             data: {
                 "codPremio": premio
             },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 $('#InfoPremioUpdate').html(result);
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -508,9 +477,7 @@ function premioUpdate() {
                 "codEmpresaUpdate": codEmpresaUpdate,
                 "valorPuntosUpdate": valorPuntosUpdate
             },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result == "Bien") {
@@ -524,7 +491,6 @@ function premioUpdate() {
 
             },
             error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
                 $('#MessagePremio').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se elimino correctamente, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 $('#MessagePremio').show();
             },
@@ -558,16 +524,13 @@ function uploadPuntosDepoMantenimiento() {
                 if (result == "0") {
                     $('#MessageDepositoMantenimiento').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se activaron todos los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 } else {
-                    console.log(result)
                     $('#parsed_csv_list').hide();
                     $('#MessageDepositoMantenimiento').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se activaron los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });

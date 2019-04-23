@@ -2,13 +2,17 @@
 
     class Recuperar_usuario extends CI_Controller {
             
+        public function __construct() {
+            parent::__construct();
+            $this->load->library('email');
+            $this->load->model("reconocelo_model");
+        }
+
         public function index(){   
             $this->load->view('recuperaPasword_view');
         }
         
         public function sendMailRecuperaReconocelo(){
-            $this->load->library('email');
-            $this->load->model("reconocelo_model");
             $usuarioEmailReconocelo = array("usuarioEmailReconocelo"=>$_POST['usuarioEmailReconocelo']);
             $emailTrueReconocelo = $this->reconocelo_model->checkMailExitsReconocelo($usuarioEmailReconocelo);
             if($emailTrueReconocelo){
@@ -270,7 +274,6 @@
         }
 
         public function cambiarUserPasswordNewReconocelo(){
-            $this->load->model("reconocelo_model");
 
             $passwordConfigReconocelo = array("loginWeb"=>$_POST['loginWeb'],
                 "idParticipante"=>$_POST['idParticipante'],

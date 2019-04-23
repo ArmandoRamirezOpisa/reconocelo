@@ -33,9 +33,7 @@ function loginReconocelo() {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -43,8 +41,7 @@ function loginReconocelo() {
 }
 /* Fin funcion login reconocelo*/
 
-function loadSection(controller, divSel) //Controlador,Div en el que se despliega la vista
-{
+function loadSection(controller, divSel) {
     $.ajax({
         url: controller,
         async: 'true',
@@ -59,7 +56,6 @@ function loadSection(controller, divSel) //Controlador,Div en el que se desplieg
         processData: true,
         success: function(result) {
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
                 $('#' + divSel).html(result);
@@ -71,8 +67,8 @@ function loadSection(controller, divSel) //Controlador,Div en el que se desplieg
 }
 
 var formatNumber = {
-    separador: ",", // separador para los miles
-    sepDecimal: '.', // separador para los decimales
+    separador: ",",
+    sepDecimal: '.',
     formatear: function(num) {
         num += '';
         var splitStr = num.split('.');
@@ -92,12 +88,9 @@ var formatNumber = {
 
 function addItemOrder(idProduct, name, puntos) {
     var exist = 0;
-    //Arma array de productos seleccionados, 
-    //si el id seleccionado ya se encuentra en el array lo elimina del mismo.
     numE = contOrder.length;
 
     if (numE == 0) {
-        //Si el array esta vacío agrega el id en la posicion 0
         contOrder = [{
             "id": idProduct,
             "cantidad": "1",
@@ -106,7 +99,6 @@ function addItemOrder(idProduct, name, puntos) {
         }];
 
     } else {
-        //A partir del segundo elemento se verifica si existe en el array, si existe se le suma 1 a la cantidad.
         $.each(contOrder, function(k, v) {
             if (v.id == idProduct) {
                 v.cantidad = parseInt(v.cantidad) + 1;
@@ -115,7 +107,6 @@ function addItemOrder(idProduct, name, puntos) {
             }
         });
 
-        //Si no existe en el array se agrega un nuevo elemento con cantidad 1
         if (exist == 0) {
             contOrder.push({
                 "id": idProduct,
@@ -126,11 +117,9 @@ function addItemOrder(idProduct, name, puntos) {
         }
     }
     loadSection("home/showContentCart/", "dvContAw");
-    //$.notify("Se ha agregado el producto a su orden", "success");
 }
 
 function refreshCar() {
-    //Actualiza las cantidades de los productos en el array
     $.each(contOrder, function(k, v) {
         if ($("#in" + v.id).val() == 0) {
             alert("La cantidad indicada debe ser mayor a cero");
@@ -168,14 +157,11 @@ function deleteItem(item) {
             } else {
                 showOrderContent(0);
             }
-        } else {
-            //  swal("Cancelled", "Your imaginary file is safe :)", "error");
-        }
+        } else {}
     });
 }
 
 function delArray() {
-    //Elimina todo el contenido del carrito//
     $.each(contOrder, function(k, v) {
         contOrder.splice(k, 1);
     });
@@ -192,9 +178,7 @@ function sendDataAjaxDuda(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
         url: "ayuda_Controller/crearComentario",
         dataType: "json",
         data: { "idcanje": idCanjeArticulo, "nombre": NombreCanjeArticulo, "mensaje": mensaje, "tipo": tipo },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(response) {
             if (response) {
                 swal("Mensaje enviado", "Envio de tu mensaje finalizado correctamente.", "success");
@@ -225,7 +209,6 @@ function enviarPregunta(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 }
 
 /* Funcion para guardar tickets */
-/* */
 function enviar_pregunta() {
 
     if ($('#mensaje').val().trim() == "") {
@@ -255,9 +238,6 @@ function enviar_pregunta() {
             if (temaOrden == "") {
                 $.notify("Debe de escribir el tema", "error");
             } else {
-                console.log('orden vacio');
-                console.log(temaOrden);
-                console.log(mensaje);
                 orden = 0;
                 enviarPregunta1(orden, temaOrden, mensaje, 3);
             }
@@ -272,21 +252,17 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
         url: "/home/crearTicketReconocelo",
         dataType: "json",
         data: { "idcanje": idCanjeArticulo, "nombre": NombreCanjeArticulo, "mensaje": mensaje, "tipo": tipo },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(response) {
             if (response) {
                 swal("Mensaje enviado", "Envio de tu mensaje finalizado correctamente.", "success");
                 document.getElementById("mensaje").value = "";
-                console.log(response);
             } else {
                 swal("Envio de Mensaje", "Ha ocurrido un error al enviar tu mensaje.", "warning");
             }
         },
         error: function(response) {
             swal("Envio de Mensaje", "Ocurrio un error al enviar su mensaje", "warning");
-            console.log(response);
         }
     });
 
@@ -335,9 +311,7 @@ function historiaTicket(id) {
         ifModified: false,
         processData: true,
         data: { "idTicket": idTicket, "status": status },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(result) {
 
             if (result == "0") {
@@ -347,9 +321,7 @@ function historiaTicket(id) {
             }
 
         },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
@@ -369,24 +341,17 @@ function answerTicket(id) {
         ifModified: false,
         processData: true,
         data: { "idTicketHistory": idTicketHistory },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                console.log('Correcto');
-                console.log(result);
                 $('#ticketAnswer').html(result);
             }
 
         },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
@@ -418,19 +383,14 @@ function sendTicket(id) {
             ifModified: false,
             processData: true,
             data: { "ticketId": ticketId, "respuestaTicket": respuestaTicket },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result == "0") {
-                    console.log("Expiro");
                     $('#mensaje').html('<div class = "alert alert-danger alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> No se puedo enviar la respuesta, intentalo mas tarde.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
                     $('#mensaje').show();
                     $('#ticketAnswer').hide();
                 } else {
-                    console.log('Correcto');
-                    console.log(result);
                     $('#mensaje').html('<div class = "alert alert-success alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> Se envio la respuesta correctamente.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
                     $('#mensaje').show();
                     $('#ticketAnswer').hide();
@@ -441,7 +401,6 @@ function sendTicket(id) {
                 $('#mensaje').html('<div class = "alert alert-danger alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> No se puedo enviar la respuesta, intentalo mas tarde.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
                 $('#mensaje').show();
                 $('#ticketAnswer').hide();
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
             },
             timeout: 30000,
             type: "POST"
@@ -464,23 +423,15 @@ function closeTicket(id) {
         ifModified: false,
         processData: true,
         data: { "ticketId": ticketId },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(result) {
 
-            if (result == "0") {
-                console.log("Expiro");
-            } else {
-                console.log('Correcto');
-                console.log(result);
+            if (result == "0") {} else {
                 window.location.reload();
             }
 
         },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
@@ -500,24 +451,17 @@ function confirmCloseTicket(id) {
         ifModified: false,
         processData: true,
         data: { "idTicket": idTicket },
-        beforeSend: function() {
-            console.log('Procesando, espere por favor...');
-        },
+        beforeSend: function() {},
         success: function(result) {
 
             if (result == "0") {
-                console.log("Expiro");
                 window.location.reload();
             } else {
-                console.log('Correcto');
-                console.log(result);
                 $('#closeTicketConfirm').html(result);
             }
 
         },
-        error: function(object, error, anotherObject) {
-            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-        },
+        error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
@@ -545,9 +489,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                             url: "home/addCanje",
                             dataType: "json",
                             data: { "data": jsonString, "ptsCanje": $ptsCanje, "address": address },
-                            beforeSend: function() {
-                                console.log('Procesando, espere por favor...');
-                            },
+                            beforeSend: function() {},
                             success: function(response) {
                                 if (response) {
                                     swal("Solicitud de canje", "Tu orden ha sido realizada correctamente", "success");
@@ -601,9 +543,7 @@ function exit() {
     }).then(function(isConfirm) {
         if (isConfirm) {
             location.href = "https://" + location.hostname + "/home/salirReconocelo";
-        } else {
-            //  swal("Cancelled", "Your imaginary file is safe :)", "error");
-        }
+        } else {}
     });
 
 }
@@ -643,22 +583,17 @@ function CambiarCorreo() {
             url: "cofInfo_controller/cambiarCorreo",
             dataType: "json",
             data: { "correo": correo },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(response) {
                 if (response) {
                     swal("Cambio de email", "Cambio de correo exitosamente", "success");
-                    //  setTimeout(function(){location.href="https://www.reconocelo.com.mx";}, 3000);
                 } else {
 
                     swal("Cambio de email", "Ha ocurrido un error al cambiar el email.", "warning");
-                    // $.notify("Ha ocurrido un error al enviar tu mensaje.", "error");
                 }
             },
             error: function(x, e) {
                 swal("Cambio de email", "Ha ocurrido un error al cambiar el email." + e + x, "warning");
-                // alert("Ocurrio un error al enviar su duda" + e.messager);
             }
         });
 
@@ -698,12 +633,8 @@ function loginTicketAdmin() {
             ifModified: false,
             processData: true,
             data: { "usuario": usuario, "password": password },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
-
-                console.log(result);
                 if (result == "false") {
                     $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageError').show();
@@ -714,9 +645,7 @@ function loginTicketAdmin() {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -746,26 +675,19 @@ function sendRecuperaPasswordReconocelo() {
             ifModified: false,
             processData: true,
             data: { "usuarioEmailReconocelo": usuarioEmailReconocelo },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result == "0") {
-                    console.log("Expiro");
                     $('#MessageRecuperaReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal al mandar el correo, o intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageRecuperaReconocelo').show();
                 } else {
-                    console.log('Correcto');
-                    console.log(result);
                     $('#MessageRecuperaReconocelo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se mando a tu correo, para que puedas recuperar tu cuenta.En caso de no aparecer, favor de revisar la carpeta de spam.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageRecuperaReconocelo').show();
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -801,18 +723,13 @@ function configNewPasswordReconocelo(id) {
                 "idParticipante": idParticipante,
                 "passwordNewReconocelo": passwordNewReconocelo
             },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result == "0") {
-                    console.log("Expiro");
                     $('#MessageRecuperarReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageRecuperarReconocelo').show();
                 } else {
-                    console.log('Correcto');
-                    console.log(result);
                     $('#MessageRecuperarReconocelo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageRecuperarReconocelo').show();
                     $('#IniciarSesionReconocelo').show();
@@ -820,9 +737,7 @@ function configNewPasswordReconocelo(id) {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
@@ -854,9 +769,7 @@ function CambiarContraseña() {
                 "passwordOld": passwordOld,
                 "passwordNew": passwordNew
             },
-            beforeSend: function() {
-                console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
 
                 if (result == "0") {
@@ -871,9 +784,7 @@ function CambiarContraseña() {
                 }
 
             },
-            error: function(object, error, anotherObject) {
-                console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-            },
+            error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });

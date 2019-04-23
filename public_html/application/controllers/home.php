@@ -2,11 +2,17 @@
 
     class Home extends CI_Controller {
         
+        public function __construct() {
+            parent::__construct();
+            $this->load->library('email');
+            $this->load->model("reconocelo_model");
+            $this->load->model("reglas_model");
+        }
+
         //Pagina principal que carga todo
     	public function index(){
             if($this->session->userdata('logged_in')){
 
-                $this->load->model("reconocelo_model");
                 $cat = $this->reconocelo_model->getCategory();
                 if ($cat){
                     $data["cat"] = $cat;
@@ -26,7 +32,6 @@
 
         //funcion para logearse
         public function loginReconocelo(){
-            $this->load->model("reconocelo_model");
             $loginReconoceloData = array(
                 "usuarioReconocelo"=>$_POST['usuarioReconocelo'],
                 "passwordReconocelo"=>$_POST['passwordReconocelo']
@@ -69,7 +74,6 @@
 
         //Obtiene todos los premios
         public function getAwards($idCat){
-            $this->load->model("reconocelo_model");
     	    $aw = $this->reconocelo_model->getAwards($idCat);
             if ($aw){
                 $data["awards"] = $aw;
@@ -81,7 +85,6 @@
 
         //Muestra el premio seleccionado
         public function showItem($id){
-            $this->load->model("reconocelo_model");
     	    $item = $this->reconocelo_model->getDataItem($id);
             if ($item){
                 $data["item"] = $item;
@@ -100,7 +103,6 @@
 
         /* Funcion Reglas Reconocelo */
         public function reglas(){
-    		$this->load->model("reglas_model");
 			if ($this->session->userdata('logged_in')){
                 $cat = $this->reglas_model->getRules();
                 if ($cat){
@@ -117,7 +119,6 @@
 
         function getCanjes()
         {
-            $this->load->model("reconocelo_model");
             $misPreCanjes = $this->reconocelo_model->misPreCanjes();
 
             if ($misPreCanjes)
@@ -132,8 +133,6 @@
 
         function addCanje()
         {
-            $this->load->library('email');
-            $this->load->model("reconocelo_model");
 
             $data = json_decode(stripslashes($_POST['data']));//Decodifica JSON
             
@@ -589,7 +588,6 @@
 
         public function ayuda()
     	{
-            $this->load->model("reconocelo_model"); 
                   
             $preguntas = $this->reconocelo_model->tipos_preguntas();
             $ordenes= $this->reconocelo_model->misPreCanjes();
@@ -617,9 +615,6 @@
         }
 
         public function crearTicketReconocelo(){
-            
-            $this->load->model("reconocelo_model");
-            $this->load->library('email');
          
             $data = array("idcanje"=>$_POST['idcanje'],
                 "nombre"=>$_POST['nombre'],
@@ -697,7 +692,6 @@
         /* Funcion Ticket Reconocelo */
 
         public function ticket(){
-            $this->load->model("reconocelo_model");
             $ticketHistory = $this->reconocelo_model->Get_TicketsReconocelo();
             
             if ($ticketHistory){
@@ -709,7 +703,6 @@
         }
 
         public function historiaTicket(){
-            $this->load->model("reconocelo_model");
             
             $ticketData = array("idTicket"=>$_POST['idTicket']);
             $ticketStatus = array("status"=>$_POST['status']);
@@ -737,7 +730,6 @@
 
 
         public function closeTicket(){
-            $this->load->model("reconocelo_model");
             $ticketDataClose = array("ticketId"=>$_POST['ticketId']);
             $ticketCloseData = $this->reconocelo_model->closeTicket($ticketDataClose);
 
@@ -749,8 +741,6 @@
         }
 
         public function sendTicketAnswer(){
-
-            $this->load->model("reconocelo_model");
             $ticketAnswer = array(
                 "ticketId"=>$_POST['ticketId'],
                 "respuestaTicket"=>$_POST['respuestaTicket']
@@ -778,7 +768,6 @@
         }
 
         public function updatePasswordReconocelo(){
-            $this->load->model("reconocelo_model");
             $updatePasswordReconoceloData = array(
                 "passwordOld"=>$_POST['passwordOld'],
                 "passwordNew"=>$_POST['passwordNew']

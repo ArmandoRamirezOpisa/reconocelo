@@ -2,6 +2,12 @@
 
     class TicketsAdmin extends CI_Controller {
     
+        public function __construct() {
+            parent::__construct();
+            $this->load->library('email');
+            $this->load->model("reconocelo_model");
+        }
+
     	public function index(){
 			
             if ($this->session->userdata('administardor')) {
@@ -12,7 +18,6 @@
         }
 
         public function login(){
-            $this->load->model("reconocelo_model");
             $loginTicketAdmin = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
             $userTicketExist = $this->reconocelo_model->loginUserTicket($loginTicketAdmin);
             if ($userTicketExist){
@@ -31,7 +36,6 @@
         }
 
         public function home(){
-            $this->load->model("reconocelo_model");
             $ticketListAdmin = $this->reconocelo_model->ticketsAdmin();
             if ($ticketListAdmin){
                 $data['ticketListAdmin'] = $ticketListAdmin;
@@ -43,8 +47,6 @@
         }
 
         public function sendTicketAnswer(){
-
-            $this->load->model("reconocelo_model");
             $ticketAnswerAdmin = array(
                 "ticketId"=>$_POST['ticketId'],
                 "respuestaTicket"=>$_POST['respuestaTicket']
@@ -68,7 +70,6 @@
 
                 $datosParticipante = $this->reconocelo_model->datosParticipante($ParticipanteId);
 
-                $this->load->library('email');
                 //Configuracion de SMTP
                 $config['smtp_host'] = 'm176.neubox.net';
                 $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
