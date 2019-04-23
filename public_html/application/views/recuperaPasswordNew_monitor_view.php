@@ -18,7 +18,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../../assets/js/papaparse.min.js"></script>
     </head>
-    <body ng-controller="monitor_controller" onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
+    <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg">
             <a id="inicioMonitor" class="navbar-brand" href="https://www.reconocelo.com.mx/monitor/">
