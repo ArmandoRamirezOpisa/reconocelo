@@ -19,11 +19,11 @@
                 }else{
                     $data["cat"] = false;
                 }
-                $this->load->view('home_view_header',$data);
+                $this->load->view('includes/home_view_header',$data);
 
                 $this->load->view('home_view');
 
-                $this->load->view('home_view_footer');
+                $this->load->view('includes/home_view_footer');
 
             }else{
                 header('Location:'.base_url());
