@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'home_monitor_view_header.php';
-?>
-
         <div class="container">
             <div class="row">
                 <div class="col-4">
@@ -48,13 +42,6 @@ include 'home_monitor_view_header.php';
 
         </div>
 
-            
-<?php
-include 'home_monitor_view_footer.php';
-?>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Restablecer contraseña</h1>";
         </script>
-    </body>
-</html>

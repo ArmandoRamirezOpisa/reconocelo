@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'home_monitor_view_header.php';
-?>
-
         <div class="container mt-5">
 
             <div id="MessageInsertarDepositos"></div>
@@ -27,10 +21,6 @@ include 'home_monitor_view_header.php';
             <div id="parsed_csv_list"></div>
 
         </div>
-
-<?php
-include 'home_monitor_view_footer.php';
-?>
 
         <script>
             //titulo
@@ -110,5 +100,3 @@ include 'home_monitor_view_footer.php';
                 });
             }
         </script>
-</body>
-</html>

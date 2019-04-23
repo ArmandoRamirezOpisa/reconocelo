@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'home_monitor_view_header.php';
-?>
-
         <div class="container mt-5">
 
             <div class="accordion" id="acordeonReglasReconocelo">
@@ -79,12 +73,6 @@ include 'home_monitor_view_header.php';
 
         <div class="mt-5"></div>
 
-<?php
-include 'home_monitor_view_footer.php';
-?>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Reglas</h1>";
         </script>
-</body>
-</html>

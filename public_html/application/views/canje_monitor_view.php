@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'home_monitor_view_header.php';
-?>
         <div id="messageCanjeAlert mt-5" class="container"></div>
 
         <div class="container mt-5">
@@ -50,14 +45,9 @@ include 'home_monitor_view_header.php';
 
         </div>
 
-<?php
-include 'home_monitor_view_footer.php';
-?>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de los canjes</h1>";
-            canjes();
-
-        </script>-
-</body>
-</html>
+            $( document ).ready(function() {
+                canjes();
+            });
+        </script>

@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'home_monitor_view_header.php';
-?>
-
         <div class="container">
 
             <table id="infoCatologoActual" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
@@ -102,11 +96,6 @@ include 'home_monitor_view_header.php';
         </div>
     </div>
 
-
-<?php
-include 'home_monitor_view_footer.php';
-?>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información del catalogo actual</h1>";
 
@@ -114,6 +103,4 @@ include 'home_monitor_view_footer.php';
                 $('#infoCatologoActual').DataTable();
             } );
 
-        </script>-
-</body>
-</html>
+        </script>

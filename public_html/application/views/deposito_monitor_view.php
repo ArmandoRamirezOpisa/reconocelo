@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'home_monitor_view_header.php';
-?>
         <div class="container mt-5" id="alertFiltroDeposito"></div>
 
         <div class="container mt-5">
@@ -47,12 +42,10 @@ include 'home_monitor_view_header.php';
         <div class="container">
             <div id="depositoInformacion"></div>
         </div>
-<?php
-include 'home_monitor_view_footer.php';
-?>
+
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de los depósitos</h1>";
-            depositos();
+            $( document ).ready(function() {
+                depositos();
+            });
         </script>
-</body>
-</html>

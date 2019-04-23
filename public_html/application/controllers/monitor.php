@@ -21,7 +21,12 @@
         }
 
         public function home(){
+
+            $this->load->view('includes/home_monitor_view_header');
+
             $this->load->view("home_monitor_view");
+
+            $this->load->view('includes/home_monitor_view_footer');
         }
 
         public function login() {
@@ -51,7 +56,10 @@
     /////////////////////////Menu navegacion reconocelo monitor/////////////////////
     ///////////////////////////////Participantes///////////////////////////////////
         public function participantes(){
+            $this->load->view('includes/home_monitor_view_header');
             $this->load->view('participante_monitor_view');
+            $this->load->view('includes/home_monitor_view_footer');
+
         }
 
         //Todos los participantes
@@ -192,7 +200,9 @@
                 $data["deposito"] = false;
             }
 
+            $this->load->view('includes/home_monitor_view_header');
             $this->load->view('deposito_monitor_view',$data);
+            $this->load->view('includes/home_monitor_view_footer');
         }
 
         public function depositosInfo(){
@@ -221,7 +231,9 @@
         }
 
         public function insertarDepositos(){
+            $this->load->view('includes/home_monitor_view_header');
             $this->load->view('depositoInsert_monitor_view');
+            $this->load->view('includes/home_monitor_view_footer');
         }
 
         public function uploadDepositosNews(){
@@ -631,7 +643,9 @@
                 $data["canje"] = false;
             }
 
+            $this->load->view('includes/home_monitor_view_header');
             $this->load->view('canje_monitor_view',$data);
+            $this->load->view('includes/home_monitor_view_footer');
         }
 
         public function canjesInfo(){
@@ -663,12 +677,15 @@
         public function catalogo(){
             $catalogo = $this->monitor_model->getCatalogo();
             if ($catalogo)
-                {
-                    $data["catalogo"] = $catalogo;
-                }else{
-                    $data["catalogo"] = false;
-                }
+            {
+                $data["catalogo"] = $catalogo;
+            }else{
+                $data["catalogo"] = false;
+            }
+
+            $this->load->view('includes/home_monitor_view_header');
             $this->load->view('catalogo_monitor_view',$data);
+            $this->load->view('includes/home_monitor_view_footer');
         }
 
         public function catalogoImg(){
@@ -701,60 +718,66 @@
                 $data = array( 'programa' => false,'programaCanje' => false);
             }
 
+            $this->load->view('includes/home_monitor_view_header');
             $this->load->view('programa_monitor_view',$data);
+            $this->load->view('includes/home_monitor_view_footer');
         }
 /////////////////////Reglas monitor reconocelo/////////////////////////
-public function reglasMonitor(){
-    $codEmpresa = $this->session->userdata('CodEmpresa');
-    $CodPrograma = $this->session->userdata('CodPrograma');
-    $reglasMonitor = $this->reglas_model->reglasReconocelo($codEmpresa,$CodPrograma);
-    if($reglasMonitor){
-        $data['reglasMonitor'] = $reglasMonitor;
-    }else{
-        $data['reglasMonitor'] = false;
-    }
-    $this->load->view('reglas_monitor_view',$data);
-}
+        public function reglasMonitor(){
+            $codEmpresa = $this->session->userdata('CodEmpresa');
+            $CodPrograma = $this->session->userdata('CodPrograma');
+            $reglasMonitor = $this->reglas_model->reglasReconocelo($codEmpresa,$CodPrograma);
+            if($reglasMonitor){
+                $data['reglasMonitor'] = $reglasMonitor;
+            }else{
+                $data['reglasMonitor'] = false;
+            }
+            $this->load->view('includes/home_monitor_view_header');
+            $this->load->view('reglas_monitor_view',$data);
+            $this->load->view('includes/home_monitor_view_footer');
+        }
 
-public function cambiarReglaReconocelo(){
-    $dataReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
-        "textoRegla"=>$_POST['textoRegla']
-    );
-    $reglasMonitorData = $this->reglas_model->reglasReconoceloUpdate($dataReglaReconocelo);
-    if($reglasMonitorData){
-        $this->output->set_output(json_encode($reglasMonitorData));
-    }else{
-        $this->output->set_output(json_encode(false));
-    }
-}
+        public function cambiarReglaReconocelo(){
+            $dataReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
+                "textoRegla"=>$_POST['textoRegla']
+            );
+            $reglasMonitorData = $this->reglas_model->reglasReconoceloUpdate($dataReglaReconocelo);
+            if($reglasMonitorData){
+                $this->output->set_output(json_encode($reglasMonitorData));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
 
-public function cambiarNombreReglaReconocelo(){
-    $dataNombreReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
-        "textCambiar"=>$_POST['textCambiar']
-    );
-    $nombreReglasMonitorData = $this->reglas_model->nombreReglasReconoceloUpdate($dataNombreReglaReconocelo);
-    if($nombreReglasMonitorData){
-        $this->output->set_output(json_encode($reglasMonitorData));
-    }else{
-        $this->output->set_output(json_encode(false));
-    }
-}
+        public function cambiarNombreReglaReconocelo(){
+            $dataNombreReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
+                "textCambiar"=>$_POST['textCambiar']
+            );
+            $nombreReglasMonitorData = $this->reglas_model->nombreReglasReconoceloUpdate($dataNombreReglaReconocelo);
+            if($nombreReglasMonitorData){
+                $this->output->set_output(json_encode($reglasMonitorData));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
 
-public function addNuevaRegla(){
-    $dataNuevaRegla = array("regla"=>$_POST['regla'],
-        "descripcionRegla"=>$_POST['descripcionRegla']
-    );
-    $nuevaReglasData = $this->reglas_model->nuevaReglaReconocelo($dataNuevaRegla);
-    if($nuevaReglasData){
-        $this->output->set_output(json_encode($nuevaReglasData));
-    }else{
-        $this->output->set_output(json_encode(false));
-    }
-}
+        public function addNuevaRegla(){
+            $dataNuevaRegla = array("regla"=>$_POST['regla'],
+                "descripcionRegla"=>$_POST['descripcionRegla']
+            );
+            $nuevaReglasData = $this->reglas_model->nuevaReglaReconocelo($dataNuevaRegla);
+            if($nuevaReglasData){
+                $this->output->set_output(json_encode($nuevaReglasData));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
 /////////////////////Fin reglas monitor reconocelo/////////////////////
 ///////////////////////Configuracion usuario reconocelo monitor///////////////
         public function configuracion(){
+            $this->load->view('includes/home_monitor_view_header');
             $this->load->view('configuracionUser_monitor_view');
+            $this->load->view('includes/home_monitor_view_footer');
         }
 
         public function cambiarUserName(){

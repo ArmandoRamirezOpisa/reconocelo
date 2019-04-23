@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'home_monitor_view_header.php';
-?>
-
         <div class="container mt-5">
 
             <div id="Depositos">
@@ -94,12 +88,6 @@ include 'home_monitor_view_header.php';
 
         </div>
 
-<?php
-include 'home_monitor_view_footer.php';
-?>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>información del monitor programa</h1>";
         </script>
-</body>
-</html>

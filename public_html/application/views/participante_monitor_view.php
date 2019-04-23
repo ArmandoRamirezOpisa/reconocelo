@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'home_monitor_view_header.php';
-?>
-        
         <div class="container mt-5">
             <div id="alertFiltro" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
                 <strong>Atención!</strong> Debes tener seleccionado uno.
@@ -64,14 +58,10 @@ include 'home_monitor_view_header.php';
 
         </div>
 
-<?php
-include 'home_monitor_view_footer.php';
-?>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de participantes</h1>";
-            Todosparticipantes();
+            $( document ).ready(function() {
+                Todosparticipantes();
+            });
 
         </script>
-</body>
-</html>
