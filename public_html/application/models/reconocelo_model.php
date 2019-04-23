@@ -405,5 +405,38 @@
 
         /* Fin funcion historial del ticket Reconocelo */
 
+        /* Funcion configuracion personal */
+        public function checkPasswordReconocelo($updatePasswordReconoceloData){
+            $query = $this->db->query("
+                  SELECT pwd
+                  FROM `Participante` 
+                  WHERE codPrograma = '".$this->session->userdata('programa')."'
+                  AND codEmpresa = '".$this->session->userdata('empresa')."'
+                  AND idParticipante = '".$this->session->userdata('idPart')."'
+                  AND pwd = md5('".$updatePasswordReconoceloData['passwordOld']."')
+            ");
+            if ($query->num_rows() == 1){
+                  return $query->result_array(); 
+            }else{
+                  return false;
+            }
+      }
+
+      public function updatePasswordReconocelo($updatePasswordReconoceloData){
+        $query = $this->db->query("
+              UPDATE `Participante` 
+              SET `pwd`=md5('".$updatePasswordReconoceloData['passwordNew']."' )
+              WHERE codPrograma ='".$this->session->userdata('programa')."'
+              AND codEmpresa ='".$this->session->userdata('empresa')."'
+              AND  `idParticipante` ='".$this->session->userdata('idPart')."'
+        ");
+        if ($query){
+              return $this->db->insert_id();
+        }else{
+              return false;
+        }
+  }
+        /* Fin funcion configuracion personal */
+
 	}
 ?>

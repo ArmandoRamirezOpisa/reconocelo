@@ -102,7 +102,7 @@
                         return false;
                   }
             }
-            public function checkPasswordReconocelo($updatePasswordReconoceloData){
+            /*public function checkPasswordReconocelo($updatePasswordReconoceloData){
                   $query = $this->db->query("
                         SELECT pwd
                         FROM `Participante` 
@@ -116,8 +116,8 @@
                   }else{
                         return false;
                   }
-            }
-            public function updatePasswordReconocelo($updatePasswordReconoceloData){
+            }*/
+            /*public function updatePasswordReconocelo($updatePasswordReconoceloData){
                   $query = $this->db->query("
                         UPDATE `Participante` 
                         SET `pwd`=md5('".$updatePasswordReconoceloData['passwordNew']."' )
@@ -130,6 +130,6 @@
                   }else{
                         return false;
                   }
-            }
+            }*/
 	}
 ?>

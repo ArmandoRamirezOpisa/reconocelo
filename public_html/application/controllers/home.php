@@ -770,5 +770,32 @@
         }
 
         /* Fin Funcion ticket Reconocelo */
+
+        /* Funcion Configuracion personal */
+
+        public function info() {
+            $this->load->view('confInfo_View');
+        }
+
+        public function updatePasswordReconocelo(){
+            $this->load->model("reconocelo_model");
+            $updatePasswordReconoceloData = array(
+                "passwordOld"=>$_POST['passwordOld'],
+                "passwordNew"=>$_POST['passwordNew']
+            );
+            $checkPasswordReconocelo = $this->reconocelo_model->checkPasswordReconocelo($updatePasswordReconoceloData);
+            if($checkPasswordReconocelo){
+                $updatePasswordReconocelo = $this->reconocelo_model->updatePasswordReconocelo($updatePasswordReconoceloData);
+                if($updatePasswordReconocelo){
+                    $this->output->set_output(json_encode($updatePasswordReconocelo));
+                }else{
+                    $this->output->set_output(json_encode(0));
+                }
+            }else{
+                $this->output->set_output(json_encode(0));
+            }
+        }
+
+        /* Fin funcion configuracion personal */
     }
 ?>

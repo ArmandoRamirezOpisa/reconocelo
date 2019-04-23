@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
     class CofInfo_controller extends CI_Controller {
     
-        public function info() {
+        /*public function info() {
             $this->load->view('confInfo_View');
-        }
+        }*/
           
         public function cambiarPassword(){
             $this->load->model("login_model");
@@ -16,7 +16,7 @@
             }
         }
         
-        public function updatePasswordReconocelo(){
+        /*public function updatePasswordReconocelo(){
             $this->load->model("login_model");
             $updatePasswordReconoceloData = array(
                 "passwordOld"=>$_POST['passwordOld'],
@@ -33,5 +33,5 @@
             }else{
                 $this->output->set_output(json_encode(0));
             }
-        }
+        }*/
     }

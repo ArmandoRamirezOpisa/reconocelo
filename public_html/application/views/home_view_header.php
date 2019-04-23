@@ -70,7 +70,7 @@
                                     <i class="far fa-user-circle mr-1" aria-hidden="true"></i><?php echo $this->session->userdata('nombre'); ?>
                                 </button>
                                 <div class="dropdown-menu text-white " aria-labelledby="dropdownMenuButton2">
-                                    <a class="dropdown-item text-white" href="javascript:void(0)" onclick="loadSection('cofInfo_controller/info','dvSecc')"><i class="fas fa-sun mr-1" aria-hidden="true"></i>Conf.Personal</a>  
+                                    <a class="dropdown-item text-white" href="javascript:void(0)" onclick="loadSection('home/info','dvSecc')"><i class="fas fa-sun mr-1" aria-hidden="true"></i>Conf.Personal</a>  
                                     <a class="dropdown-item text-white" href="javascript:void(0)" onClick = "exit()"><i class="fas fa-sign-out-alt mr-1" aria-hidden="true"></i>Salir</a>
                                 </div>
                             </div>
