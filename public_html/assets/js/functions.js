@@ -600,7 +600,7 @@ function exit() {
         dangerMode: true,
     }).then(function(isConfirm) {
         if (isConfirm) {
-            location.href = "https://" + location.hostname + "/exit_controller";
+            location.href = "https://" + location.hostname + "/home/salirReconocelo";
         } else {
             //  swal("Cancelled", "Your imaginary file is safe :)", "error");
         }

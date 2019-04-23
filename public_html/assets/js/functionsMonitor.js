@@ -842,7 +842,7 @@ function exit() {
         dangerMode: true,
     }).then(function(isConfirm) {
         if (isConfirm) {
-            location.href = "https://" + location.hostname + "/exit_controller_monitor";
+            location.href = "https://" + location.hostname + "/monitor/salirMonitor";
         } else {
             //  swal("Cancelled", "Your imaginary file is safe :)", "error");
         }

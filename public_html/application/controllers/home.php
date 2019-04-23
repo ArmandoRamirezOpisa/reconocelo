@@ -797,5 +797,14 @@
         }
 
         /* Fin funcion configuracion personal */
+
+        /* Funcion salir Reconocelo */
+        public function salirReconocelo(){
+            $array_items = array('nombre' => '', 'programa' => '', 'participante' => '', 'empresa' => '', 'status' => '', 'puntos' => '', 'idPart' => '','logged_in' => '');
+            $this->session->unset_userdata($array_items);
+            //Manda al inicio de la página, si no hay session se va al login.
+            header( 'Location: '.base_url());
+         }
+        /* Fin funcion Reconocelo*/
     }
 ?>

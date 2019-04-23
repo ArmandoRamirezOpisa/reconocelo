@@ -1083,4 +1083,13 @@ public function addNuevaRegla(){
         }
 /////////////////////////Fin recuperar contrasena////////////////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
+///////////////////////////Salir del Monitor Reconocelo/////////////////////////
+public function salirMonitor(){
+    $array_items = array('administrador' => '', 'empresa' => '');
+    $this->session->unset_userdata($array_items);
+    header( 'Location: '.base_url().'/monitor');
+}
+
+
+
 }
