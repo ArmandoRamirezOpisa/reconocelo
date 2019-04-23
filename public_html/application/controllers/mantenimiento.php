@@ -45,7 +45,9 @@
         public function home(){
 
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
-            $this->load->view('mantenimiento_view',$PrimerNombre);
+            $this->load->view('includes/mantenimiento_header',$PrimerNombre);
+            $this->load->view('mantenimiento_view');
+            $this->load->view('includes/mantenimiento_footer');
 
         }
 
@@ -53,7 +55,9 @@
         //pantalla participantes
         public function participantes(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
-            $this->load->view('mantenimiento_participante_view',$PrimerNombre);
+            $this->load->view('includes/mantenimiento_header',$PrimerNombre);
+            $this->load->view('mantenimiento_participante_view');
+            $this->load->view('includes/mantenimiento_footer');
         }
 
         public function unParticipante(){
@@ -118,7 +122,9 @@
         //pantalla premios
         public function premios(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
-            $this->load->view('mantenimiento_premio_view',$PrimerNombre);
+            $this->load->view('includes/mantenimiento_header',$PrimerNombre);
+            $this->load->view('mantenimiento_premio_view');
+            $this->load->view('includes/mantenimiento_footer');
         }
 
         //Alta de premios
@@ -249,7 +255,9 @@
         /* Pantalla para subir depositos */
         public function uploadDepositos(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
-            $this->load->view('depositos_upload_mantenimiento',$PrimerNombre);
+            $this->load->view('includes/mantenimiento_header',$PrimerNombre);
+            $this->load->view('depositos_upload_mantenimiento');
+            $this->load->view('includes/mantenimiento_footer');
         }
 
         public function uploadDepositosNewsMantenimiento(){
