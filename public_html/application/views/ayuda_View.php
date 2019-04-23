@@ -126,7 +126,7 @@
                     fuera así descríbala lo mejor posible. Estaremos respondiendo en un lapso de 1 a 2 días 
                     hábiles. Recibirá copia del mismo en su correo electrónico.
                 </p>
-                <button class="btn btn-primary btn-lg mr-lg-3" onclick="loadSection('ticket_controller','dvSecc')"><i class="far fa-life-ring  mr-1" aria-hidden="true"></i>Ver mi historial de Tickets</button>
+                <button class="btn btn-primary btn-lg mr-lg-3" onclick="loadSection('home/ticket','dvSecc')"><i class="far fa-life-ring  mr-1" aria-hidden="true"></i>Ver mi historial de Tickets</button>
             </div>
         </div>
     </div>

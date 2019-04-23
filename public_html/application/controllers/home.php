@@ -694,6 +694,27 @@
         
         /* Fin Funcion Ayuda Reconocelo */
 
+        /* Funcion Ticket Reconocelo */
+
+        public function ticket(){
+            $this->load->model("reconocelo_model");
+            $ticketHistory = $this->reconocelo_model->Get_TicketsReconocelo();
+            
+            if ($ticketHistory){
+                $data["ticketHistory"] = $ticketHistory;
+            }else{
+                $data["ticketHistory"] = false;
+            }
+            $this->load->view('ticket_view',$data);
+        }
+
+        /* Fin Funcion ticket Reconocelo */
+
+
+
+
+
+
 
 
 

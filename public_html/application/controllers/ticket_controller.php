@@ -2,7 +2,7 @@
 
     class Ticket_controller extends CI_Controller {
     
-    	public function index(){
+    	/*public function index(){
             $this->load->model("Ticket_model");
             $ticketHistory = $this->Ticket_model->Get_TicketsReconocelo();
             
@@ -12,6 +12,6 @@
                 $data["ticketHistory"] = false;
             }
             $this->load->view('ticket_view',$data);
-        }
+        }*/
     }
 ?>

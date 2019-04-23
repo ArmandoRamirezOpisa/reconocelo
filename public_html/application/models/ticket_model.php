@@ -20,7 +20,7 @@
         }
 
         /* funcion para la base de datos del historial */
-        public function Get_TicketsReconocelo() {
+        /*public function Get_TicketsReconocelo() {
             $query = $this->db->query("                  
                 SELECT IdTicket,idCanje,idParticipante,status,FechaCreacion,Subject
                 FROM AtencionTicket 
@@ -31,7 +31,7 @@
             } else {
                 return false;
             }
-        }
+        }*/
 
         public function Get_TicketsHistory($ticketData){
             $query = $this->db->query("                  

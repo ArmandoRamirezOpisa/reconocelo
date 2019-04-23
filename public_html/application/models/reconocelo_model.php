@@ -282,5 +282,22 @@
 
         /* Fin Funcion Ayuda Model */
 
+        /* Funcion historial del ticket Reconocelo*/
+
+        public function Get_TicketsReconocelo() {
+            $query = $this->db->query("                  
+                SELECT IdTicket,idCanje,idParticipante,status,FechaCreacion,Subject
+                FROM AtencionTicket 
+                WHERE idParticipante = '".$this->session->userdata('idPart')."';
+            ");
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            } else {
+                return false;
+            }
+        }
+        
+        /* Fin funcion historial del ticket Reconocelo */
+
 	}
 ?>
