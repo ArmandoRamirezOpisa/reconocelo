@@ -438,5 +438,35 @@
   }
         /* Fin funcion configuracion personal */
 
+
+        /* Funcion Recuperar password */
+        public function checkMailExitsReconocelo($usuarioEmailReconocelo){
+            $query = $this->db->query("
+                  SELECT loginWeb, CodPrograma, codEmpresa, idParticipante, PrimerNombre
+                  FROM  `Participante` 
+                  WHERE codPrograma =41
+                  AND eMail =  '".$usuarioEmailReconocelo['usuarioEmailReconocelo']."'
+            ");
+            if ($query->num_rows() > 0){
+            return $query->result_array(); 
+            }else{
+            return false;
+            }
+      }
+
+      public function cambiarPasswordNewReconocelo($passwordConfigReconocelo){
+        $query = $this->db->query("
+              UPDATE `Participante` SET `pwd`=md5(".$passwordConfigReconocelo['passwordNewReconocelo'].")
+              WHERE loginWeb = ".$passwordConfigReconocelo['loginWeb']."
+              and idParticipante = ".$passwordConfigReconocelo['idParticipante']."
+        ");
+  if ($query){
+          return true;
+  }else{
+      return false;
+  }
+  }
+        /* Fin funcion repuerar password */
+
 	}
 ?>

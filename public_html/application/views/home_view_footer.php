@@ -1,6 +1,6 @@
         <div class="row mt-5 fixed-bottom justify-content-center" style="background: #034889;color: #F25917;">
             <div class="col-auto " id="footer">
-                <a href="javascript:void(0)" onclick="loadSection('aviso_controller', 'dvSecc')" class="linkPrivacy">Aviso de privacidad</a>
+                <a href="javascript:void(0)" onclick="loadSection('home/ayuda', 'dvSecc')" class="linkPrivacy">Aviso de privacidad</a>
             </div>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

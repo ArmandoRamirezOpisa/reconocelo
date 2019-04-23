@@ -35,7 +35,7 @@
           <form class="form-signin" role="form">
             <div class="form-group">
               <label class="lblText mt-4" for="usuario"><b>Ingresa tu correo electr&ograve;nico</b></label>
-              <input class="form-control" placeholder="Ingresa tu correo electr&ograve;nico de registro" required="" autofocus="" type="email" name="usuario" id="usuarioEmailReconocelo">
+              <input class="form-control" placeholder="Ingresa tu correo electr&ograve;nico de registro" required autofocus="" type="email" name="usuario" id="usuarioEmailReconocelo" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
             </div>
           </form>
           <a href="javascript:void(0)" onClick="sendRecuperaPasswordReconocelo()" class="btn btn-primary text-center btn-block">Enviar correo</a>
@@ -53,8 +53,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="assets/js/notify.js?ab"></script>
     <script src="assets/js/functions.js?ab"></script>
-    <script src="assets/js/login.js?ab"></script>
   </body>
 </html>

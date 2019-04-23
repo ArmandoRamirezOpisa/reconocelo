@@ -8,9 +8,9 @@
         
         public function sendMailRecuperaReconocelo(){
             $this->load->library('email');
-            $this->load->model("cuenta_model");
+            $this->load->model("reconocelo_model");
             $usuarioEmailReconocelo = array("usuarioEmailReconocelo"=>$_POST['usuarioEmailReconocelo']);
-            $emailTrueReconocelo = $this->cuenta_model->checkMailExitsReconocelo($usuarioEmailReconocelo);
+            $emailTrueReconocelo = $this->reconocelo_model->checkMailExitsReconocelo($usuarioEmailReconocelo);
             if($emailTrueReconocelo){
                 /* Notificacion por correo */
 
@@ -270,13 +270,13 @@
         }
 
         public function cambiarUserPasswordNewReconocelo(){
-            $this->load->model("cuenta_model");
+            $this->load->model("reconocelo_model");
 
             $passwordConfigReconocelo = array("loginWeb"=>$_POST['loginWeb'],
                 "idParticipante"=>$_POST['idParticipante'],
                 "passwordNewReconocelo"=>$_POST['passwordNewReconocelo']
             );
-            $passwordCambiado = $this->cuenta_model->cambiarPasswordNewReconocelo($passwordConfigReconocelo);
+            $passwordCambiado = $this->reconocelo_model->cambiarPasswordNewReconocelo($passwordConfigReconocelo);
             if($passwordCambiado){
                 $this->output->set_output(json_encode($passwordCambiado));
             }else{
