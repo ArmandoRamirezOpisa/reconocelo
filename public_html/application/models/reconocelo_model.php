@@ -296,7 +296,113 @@
                 return false;
             }
         }
-        
+
+        public function Get_TicketsHistory($ticketData){
+            $query = $this->db->query("                  
+                SELECT IdTicket, mensaje, fecha, loginWeb
+                FROM AtencionTicketDetalle
+                WHERE IdTicket =".$ticketData['idTicket']."
+            ");
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            }else{
+                return false;
+            }
+        }
+
+        public function sendAnswerTicketAdmin($ticketAnswerAdmin){
+            $loginWeb = $this->session->userdata('idPart');
+            if($loginWeb){
+                $loginWeb;
+            }else{
+                $loginWeb = "Administrador";
+            }
+            $query = $this->db->query("                           
+                INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
+                VALUES (".$ticketAnswerAdmin['ticketId'].",'".$ticketAnswerAdmin['respuestaTicket']."',
+                now(),'".$loginWeb."');
+            ");
+    	    if ($query)
+    	    {
+                return $this->db->insert_id();
+    	    }else{
+                return false;
+            }
+        }
+
+        public function loginUserTicket($loginTicketAdmin){
+            $usuario =$loginTicketAdmin['usuario'];
+            $password = $loginTicketAdmin['password'];
+            $query = $this->db->query("
+                SELECT * 
+                FROM  `administrador` 
+                WHERE Usuario =  '".$usuario."'
+                AND Pwd ='".$password."'
+                AND typeTicket = 1
+            ");
+            if ($query->num_rows() > 0){
+
+                return $query->result_array(); 
+
+            }else{
+
+                return false;
+
+            }
+        }
+
+        public function ticketsAdmin(){
+
+            $query = $this->db->query("                              
+                SELECT at.IdTicket, at.idCanje, at.idParticipante, at.STATUS, at.FechaCreacion, at.Subject, 
+                p.PrimerNombre
+                FROM AtencionTicket at, Participante p
+                WHERE at.idParticipante = p.idParticipante
+            ");
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            } else {
+                return false;
+            }
+        }
+
+        public function participanteTicket($ticketId){
+            $query = $this->db->query("                              
+                SELECT idParticipante,FechaCreacion,Subject
+                FROM  `AtencionTicket` 
+                WHERE IdTicket =".$ticketId."
+            ");
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            } else {
+                return false;
+            }
+        }
+
+        public function datosParticipante($ParticipanteId){
+            $query = $this->db->query("                              
+                SELECT PrimerNombre, eMail
+                FROM  `Participante` 
+                WHERE idParticipante =".$ParticipanteId."
+            ");
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            } else {
+                return false;
+            }
+        }
+
+        public function closeTicket($ticketDataClose){
+            $query = $this->db->query("                           
+                UPDATE `AtencionTicket` SET `status`=0 WHERE `IdTicket` = ".$ticketDataClose['ticketId'].";
+            ");
+    	    if ($query){
+                return $this->db->insert_id();
+    	    }else{
+                return false;
+            }
+        }
+
         /* Fin funcion historial del ticket Reconocelo */
 
 	}

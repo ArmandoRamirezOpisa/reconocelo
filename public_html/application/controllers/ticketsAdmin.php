@@ -12,9 +12,9 @@
         }
 
         public function login(){
-            $this->load->model("ticket_model");
+            $this->load->model("reconocelo_model");
             $loginTicketAdmin = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
-            $userTicketExist = $this->ticket_model->loginUserTicket($loginTicketAdmin);
+            $userTicketExist = $this->reconocelo_model->loginUserTicket($loginTicketAdmin);
             if ($userTicketExist){
                 $userTicketExist = array(
                     'administrador' => TRUE,
@@ -31,8 +31,8 @@
         }
 
         public function home(){
-            $this->load->model("ticket_model");
-            $ticketListAdmin = $this->ticket_model->ticketsAdmin();
+            $this->load->model("reconocelo_model");
+            $ticketListAdmin = $this->reconocelo_model->ticketsAdmin();
             if ($ticketListAdmin){
                 $data['ticketListAdmin'] = $ticketListAdmin;
             }else{
@@ -44,13 +44,13 @@
 
         public function sendTicketAnswer(){
 
-            $this->load->model("ticket_model");
+            $this->load->model("reconocelo_model");
             $ticketAnswerAdmin = array(
                 "ticketId"=>$_POST['ticketId'],
                 "respuestaTicket"=>$_POST['respuestaTicket']
             );
 
-            $ticketHistoryData = $this->ticket_model->sendAnswerTicketAdmin($ticketAnswerAdmin);
+            $ticketHistoryData = $this->reconocelo_model->sendAnswerTicketAdmin($ticketAnswerAdmin);
 
             $mailAdministradorTickets = $this->session->userdata('idPart');
             if($mailAdministradorTickets){
@@ -60,13 +60,13 @@
                 $ticketId = $ticketAnswerAdmin['ticketId'];
                 $RespuestaTicket = $ticketAnswerAdmin['respuestaTicket'];
 
-                $participanteTicket = $this->ticket_model->participanteTicket($ticketId);
+                $participanteTicket = $this->reconocelo_model->participanteTicket($ticketId);
 
                 $ParticipanteId = $participanteTicket[0]['idParticipante'];
 
                 $fechaCreacion = $participanteTicket[0]['FechaCreacion'];
 
-                $datosParticipante = $this->ticket_model->datosParticipante($ParticipanteId);
+                $datosParticipante = $this->reconocelo_model->datosParticipante($ParticipanteId);
 
                 $this->load->library('email');
                 //Configuracion de SMTP
@@ -364,30 +364,15 @@
                     </body>
                 </html>';
                        
-            //Inicializa
-            $this->email->initialize($config);
-            //Envío de alerta de ticket.
-            $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
-            $this->email->to($datosParticipante[0]['eMail']);//operaciones@opisa.com
-            //$this->email->cc('operaciones@opisa.com');
-            $this->email->subject('Respuesta del ticket '.$ticketId.'');
-            $this->email->message($message);
-            $this->email->send();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                //Inicializa
+                $this->email->initialize($config);
+                //Envío de alerta de ticket.
+                $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
+                $this->email->to($datosParticipante[0]['eMail']);//operaciones@opisa.com
+                //$this->email->cc('operaciones@opisa.com');
+                $this->email->subject('Respuesta del ticket '.$ticketId.'');
+                $this->email->message($message);
+                $this->email->send();
                 $mailAdministradorTickets = "Administrador";
             }
 

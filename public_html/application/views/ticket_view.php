@@ -44,17 +44,11 @@
                                 }else{
                                     echo 'Fecha de solución: '.$row['FechaCreacion'];
                                 }
-                            echo '</strong>';
-                            if ( $row['status'] == 1){
-                            echo '<div class="float-right">
+                            echo '</strong>
+                            <div class="float-right">
                                 <button id="'.$row['IdTicket'].'-'.$row['status'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket '.$row['IdTicket'].'</button>
-                            </div>';
-                            }else{
-                                echo '<div class="float-right">
-                                <button id="'.$row['IdTicket'].'-'.$row['status'].'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTicketHistorial" onclick="historiaTicket(this)"><i class="fas fa-history"></i>  Historial del ticket '.$row['IdTicket'].'</button>
-                            </div>';
-                            }
-                        echo '</div>
+                            </div>
+                        </div>
                     </div>
                     </br>
                     ';
@@ -62,7 +56,7 @@
             }else{
                 echo "<h1 class=\"text-center\">NO EXISTEN TICKETS</h1>";
             }
-?>
+        ?>
     </div>  
 </div>
 
