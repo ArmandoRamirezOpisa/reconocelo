@@ -1,6 +1,7 @@
 <div class="col-md-12 animated apareciendo">
 	<h2>Contenido de la orden</h2>
 	<div class="table-responsive animated apareciendo">
+		<div id="MessageCarrito"></div>
 		<table class="table ">  
   		<thead class="thead navcolor text-white">
     		<tr>
@@ -66,9 +67,14 @@
 	var c = 0;
 	var ctd;
 	var totPuntos = 0;
-
+	if(contOrder.length == 0){
+    $('#numeroCarrito').html(contOrder.length);
+  }else{
+    $('#numeroCarrito').html('<strong>'+contOrder.length+'</strong>');
+  }
 	if(contOrder.length == 0){
 		document.getElementById("btnGenCanje").disabled = true;
+		$('#MessageCarrito').html('<div class="alert alert-warning" role="warning"><div class="row"><div class="col-5"></div><div class="col">No hay premios agregados</div><div class="col"></div></div></div>')
 	}else{
 		document.getElementById("btnGenCanje").disabled = false;
 	}

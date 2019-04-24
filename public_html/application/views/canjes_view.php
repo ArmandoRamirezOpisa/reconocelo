@@ -38,10 +38,21 @@
                                 <td class='tdTP' style='color:#000;'>-</td>
                                 <td class='tdTP' style='color:#000;'>-</td>
                                 <td class='tdTP' style='color:#000;'>-</td>
-                            </tr>";
+                        </tr>";
                     }
                 ?>
             </tbody>
         </table>
+        <?php
+            if (!$precanjes){
+                echo '<div class="alert alert-warning" role="alert">
+                    <div class="row">
+                        <div class="col-5"></div>
+                        <div class="col"><strong>No hay canjes registrados</strong></div>
+                        <div class="col"></div>
+                    </div>
+                </div>';
+            }
+        ?>
     </div>
 </div>

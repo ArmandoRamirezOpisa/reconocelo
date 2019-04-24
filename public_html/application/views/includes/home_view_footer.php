@@ -13,6 +13,13 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script>
             loadSection("home/getAwards/1","dvSecc");
+            $( document ).ready(function() {
+                if(contOrder.length == 0){
+                    $('#numeroCarrito').html(contOrder.length);
+                }else{
+                    $('#numeroCarrito').html('<strong>'+contOrder.length+'</strong>');
+                }
+            });
         </script>
     </body>
 </html>
