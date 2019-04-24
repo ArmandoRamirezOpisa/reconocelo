@@ -3,6 +3,9 @@
                 <a href="javascript:void(0)" onclick="loadSection('home/ayuda', 'dvSecc')" class="linkPrivacy">Aviso de privacidad</a>
             </div>
         </div>
+        <a id="irHomeReconocelo" href="#homeReconocelo" class="move-top">
+            <i class="fas fa-arrow-circle-up"></i>
+        </a>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -13,12 +16,28 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script>
             loadSection("home/getAwards/1","dvSecc");
+
             $( document ).ready(function() {
+
+                document.getElementById("irHomeReconocelo").style.display = "none";
+
                 if(contOrder.length == 0){
                     $('#numeroCarrito').html(contOrder.length);
                 }else{
                     $('#numeroCarrito').html('<strong>'+contOrder.length+'</strong>');
                 }
+
+            });
+
+            $(window).scroll(function(event){
+
+                var st = $(this).scrollTop();
+                if(st == 1 || st == 0){
+                    document.getElementById("irHomeReconocelo").style.display = "none";
+                }else{
+                    document.getElementById("irHomeReconocelo").style.display = "inline";
+                }
+
             });
         </script>
     </body>

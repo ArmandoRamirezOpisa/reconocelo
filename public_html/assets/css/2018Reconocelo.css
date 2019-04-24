@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #FFF;
     font-family: 'Roboto', sans-serif;
@@ -170,4 +174,16 @@ body {
 .borrarCarritoReconocelo:hover {
     color: #E64C13;
     cursor: pointer;
+}
+
+.move-top {
+    width: 34px;
+    height: 34px;
+    font-size: 40px;
+    display: inline-block;
+    position: fixed;
+    bottom: 10%;
+    right: 2%;
+    z-index: 0;
+    text-align: center !important;
 }
