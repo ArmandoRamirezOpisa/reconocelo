@@ -54,7 +54,7 @@
                     ';
                 }  
             }else{
-                echo "<h1 class=\"text-center\">NO EXISTEN TICKETS</h1>";
+                echo "<div class='alert alert-warning' role='alert'><h1 class=\"text-center\">No cuentas con un historial de tickets</h1></div>";
             }
         ?>
     </div>  

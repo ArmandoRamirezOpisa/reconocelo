@@ -88,7 +88,7 @@
 			ctd = "";
 			c = 0;
 		}
-		str += "<tr "+ctd+"><td>"+v.id+"</td><td>"+v.nombre+"</td><td>"+v.cantidad+"</td><td>"+formatNumber.new(v.puntos)+"</td><td><a style='cursor:pointer' onClick='deleteItem("+v.id+")'><span class='far fa-trash-alt ml-2' aria-hidden='true'></span></a></td></tr>";
+		str += "<tr "+ctd+"><td>"+v.id+"</td><td>"+v.nombre+"</td><td>"+v.cantidad+"</td><td>"+formatNumber.new(v.puntos)+"</td><td><a class='borrarCarritoReconocelo' onClick='deleteItem("+v.id+")'><span class='far fa-trash-alt ml-2' aria-hidden='true'></span></a></td></tr>";
 		$("#bodyContentCart").html(str);
 	});
 	str = "<tr><td colspan = 3 style ='text-align:right;'><h2>Total:</h2></td><td><h2>"+formatNumber.new(totPuntos)+"</h2></td></tr>";
