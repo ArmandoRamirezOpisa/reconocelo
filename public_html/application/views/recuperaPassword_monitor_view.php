@@ -42,12 +42,6 @@
             </form>
         </div>
 
-<?php
-include 'home_monitor_view_footer.php';
-?>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Recuperar contraseña</h1>";
         </script>
-    </body>
-</html>

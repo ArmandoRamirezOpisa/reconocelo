@@ -803,6 +803,8 @@
 /////////////////////// Recuperar contrasena///////////////////////////
         public function recuperarPassword(){
             $this->load->view('recuperaPassword_monitor_view');
+            $this->load->view('includes/home_monitor_view_footer');
+
         }
 
         public function sendMailRecupera(){
@@ -1078,12 +1080,12 @@
 /////////////////////////Fin recuperar contrasena////////////////////////
 /////////////////////////////////////Fin menu/////////////////////////////////////
 ///////////////////////////Salir del Monitor Reconocelo/////////////////////////
-public function salirMonitor(){
-    $array_items = array('administrador' => '', 'empresa' => '');
-    $this->session->unset_userdata($array_items);
-    header( 'Location: '.base_url().'/monitor');
-}
+        public function salirMonitor(){
+            $array_items = array('administrador' => '', 'empresa' => '');
+            $this->session->unset_userdata($array_items);
+            header( 'Location: '.base_url().'/monitor');
+        }
 
 
 
-}
+    }
