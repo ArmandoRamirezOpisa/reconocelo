@@ -787,6 +787,14 @@
 
         /* Fin funcion configuracion personal */
 
+        /* Funcion Aviso de privacidad */
+        public function avisoPrivacidad(){
+
+            $this->load->view('aviso_view');
+            
+        }
+        /* Fin Funcion Aviso de privacidad */
+
         /* Funcion salir Reconocelo */
         public function salirReconocelo(){
             $array_items = array('nombre' => '', 'programa' => '', 'participante' => '', 'empresa' => '', 'status' => '', 'puntos' => '', 'idPart' => '','logged_in' => '');

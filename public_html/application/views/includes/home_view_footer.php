@@ -1,6 +1,6 @@
-        <div class="row mt-5 fixed-bottom justify-content-center" style="background: #034889;color: #F25917;">
+        <div id="footerReconocelo" class="row mt-5 fixed-bottom justify-content-center">
             <div class="col-auto " id="footer">
-                <a href="javascript:void(0)" onclick="loadSection('home/ayuda', 'dvSecc')" class="linkPrivacy">Aviso de privacidad</a>
+                <a href="javascript:void(0)" onclick="loadSection('home/avisoPrivacidad', 'dvSecc')" class="linkPrivacy">Aviso de privacidad</a>
             </div>
         </div>
         <a id="irHomeReconocelo" href="#homeReconocelo" class="move-top">
@@ -16,6 +16,17 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script>
             loadSection("home/getAwards/1","dvSecc");
+
+            /*$(function(){
+                $('#dropdownMenuButton').bind('mouseover', function(){
+                    console.log('abriendo menu');
+                    $('#categoriasReconocelo').addClass('show');
+                }).bind('mouseout', function(){
+                    console.log('Cerrando menu');
+                    $('#categoriasReconocelo').removeClass('show');
+                })
+            });*/
+
 
             $( document ).ready(function() {
 

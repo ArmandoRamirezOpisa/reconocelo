@@ -104,10 +104,6 @@ body {
     color: #F25917;
 }
 
-.linkPrivacy {
-    color: #F25917;
-}
-
 .dropdown-menu {
     background: #4d90dc;
 }
@@ -186,4 +182,17 @@ body {
     right: 2%;
     z-index: 0;
     text-align: center !important;
+}
+
+#footerReconocelo{
+    background: #034889;
+    color: #F25917;
+}
+
+.linkPrivacy {
+    color: #F25917;
+}
+
+.linkPrivacy:hover {
+    color: #FFFFFF !important;
 }

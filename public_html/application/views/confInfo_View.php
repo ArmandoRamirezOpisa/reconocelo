@@ -1,6 +1,6 @@
 <div id="messageUpdatePasswordReconocelo" class="row justify-content-center animated apareciendo"></div>
 <div class="row justify-content-center">
-  <div class="col-12 col-md-4">      
+  <div class="col-12 col-md-4">  
     <h5 class="text-center mb-2">Actualiza tu contraseña.</h5>        
     <form class="mt-0" name="myForm">
       <div class="form-group">
