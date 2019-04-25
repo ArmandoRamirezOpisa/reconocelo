@@ -196,3 +196,33 @@ body {
 .linkPrivacy:hover {
     color: #FFFFFF !important;
 }
+
+.textAvisoDePrivacidad{
+    text-align:justify;
+}
+
+.avisoTitulo{
+    text-align:center;
+    color:#034889;
+}
+
+.avisoTitulo label{
+    font-size:40px;
+}
+
+.avisoSubTitulo{
+    text-align: center;
+    color:#f07b1c;
+}
+
+.avisoSubTitulo label{
+    font-size:30px;
+}
+
+#avisoReconocelo{
+    padding-right: 50px;
+}
+
+#ayudaReconocelo{
+    float:left;
+}
