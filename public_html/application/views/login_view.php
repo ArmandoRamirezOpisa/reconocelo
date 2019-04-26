@@ -74,7 +74,7 @@
                                         </span>
                                         <small class="form-text text-muted text-center">  
                                             Para una correcta visualizaci&ograve;n del sitio se recomienda el uso de
-                                            Chrome, Firefox, Internet Explorer 11 o superio
+                                            Chrome, Firefox
                                         </small>
                                         <small class="form-text text-muted text-center">  
                                             <a href="<?php echo site_url('recuperar_usuario') ?>" target="_blank"><h5>Olvidaste tu contraseña?</h5></a>
