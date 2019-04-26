@@ -1,0 +1,1 @@
+Esta es una pagina para desarrollar pruebas para la nueva plantilla de correo
