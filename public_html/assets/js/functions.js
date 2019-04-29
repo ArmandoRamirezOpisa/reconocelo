@@ -484,9 +484,6 @@ function sendCanje($ptsUser, $ptsCanje) {
                     if (contOrder.length > 0) {
                         var jsonString = JSON.stringify(contOrder); //Pasa array a formato JSON
                         var address = $("#frmCanjeDir").serializeArray();
-                        /* funcion de prueba para los correos */
-                        correosPrueba($ptsCanje, jsonString, address);
-                        /* fin funcion de prueba para los correos */
                         $.ajax({
                             type: 'POST',
                             url: "home/addCanje",
@@ -794,10 +791,3 @@ function CambiarContraseña() {
     }
 }
 /* fin funcion cambiar password */
-
-
-/* Funcion de prueba para mandar correos al nuevo template */
-function correosPrueba($ptsCanje, jsonString, address) {
-    console.log("haciendo algo");
-}
-/* Fin funcion de prueba para mandar correos al nuevo template */

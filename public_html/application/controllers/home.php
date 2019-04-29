@@ -803,5 +803,17 @@
             header( 'Location: '.base_url());
          }
         /* Fin funcion Reconocelo2.0*/
+
+         /* Funcio de prueba del correo de Reconocelo */
+         public function sendMailPrueba(){
+
+            $data = json_decode(stripslashes($_POST['data']));//Decodifica JSON
+            $idCanje = 6388l;
+            redirect("mailReconocelo",$idCanje,$data)
+            $this->sendCanjeMail($idCanje,$data);
+
+         }
+         /* Fin funcion de prueba del correo de Reconocelo */
+
     }
 ?>
