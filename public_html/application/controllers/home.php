@@ -172,8 +172,8 @@
         {
             //Configuracion de SMTP
             $config['smtp_host'] = 'm176.neubox.net';
-            $config['smtp_user'] = 'envios@opisa.com';
-            $config['smtp_pass'] = '3hf89w';
+            $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
+            $config['smtp_pass'] = '3hf89w';//3hf89w
             $config['smtp_port'] = 465;
             $config['mailtype'] = 'html';
             
@@ -803,17 +803,6 @@
             header( 'Location: '.base_url());
          }
         /* Fin funcion Reconocelo2.0*/
-
-         /* Funcio de prueba del correo de Reconocelo */
-         public function sendMailPrueba(){
-
-            $data = json_decode(stripslashes($_POST['data']));//Decodifica JSON
-            $idCanje = 6388l;
-            redirect("mailReconocelo",$idCanje,$data)
-            $this->sendCanjeMail($idCanje,$data);
-
-         }
-         /* Fin funcion de prueba del correo de Reconocelo */
 
     }
 ?>
