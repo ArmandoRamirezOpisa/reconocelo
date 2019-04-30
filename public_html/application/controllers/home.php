@@ -802,7 +802,6 @@
             //Manda al inicio de la página, si no hay session se va al login.
             header( 'Location: '.base_url());
          }
-        /* Fin funcion Reconocelo2.0*/
-
+        /* Fin funcion Reconocelo*/
     }
 ?>

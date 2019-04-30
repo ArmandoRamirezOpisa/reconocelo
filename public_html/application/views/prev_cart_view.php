@@ -49,7 +49,7 @@
 			    	<input type="text" class="form-control" id="cp"  maxlength="5" name="cp" placeholder="C.P." required>
 			  	</div>
           		<div class="form-group" id="telefono">
-				    <input type="tel" class="form-control" onkeypress="return isNumberKey(event)" id="tel" name="tel" placeholder="telefono" required>
+				    <input type="tel" class="form-control" id="tel" name="tel" placeholder="telefono" required>
 			  	</div>
   				<div class="form-group" id="ref">
 			    	<input type="text" class="form-control" id="refer" name="refer" placeholder="Referencia del domicilio" required>
