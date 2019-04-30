@@ -70,6 +70,7 @@
 
                 $datosParticipante = $this->reconocelo_model->datosParticipante($ParticipanteId);
 
+                /* Notificacion por correo */
                 //Configuracion de SMTP
                 $config['smtp_host'] = 'm176.neubox.net';
                 $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
