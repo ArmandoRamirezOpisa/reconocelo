@@ -18,39 +18,7 @@
         <script>
             loadSection("home/getAwards/1","dvSecc");
 
-            /*$(function(){
-                $('#dropdownMenuButton').bind('mouseover', function(){
-                    console.log('abriendo menu');
-                    $('#categoriasReconocelo').addClass('show');
-                }).bind('mouseout', function(){
-                    console.log('Cerrando menu');
-                    $('#categoriasReconocelo').removeClass('show');
-                })
-            });*/
-
-
-            $( document ).ready(function() {
-
-                document.getElementById("irHomeReconocelo").style.display = "none";
-
-                if(contOrder.length == 0){
-                    $('#numeroCarrito').html(contOrder.length);
-                }else{
-                    $('#numeroCarrito').html('<strong>'+contOrder.length+'</strong>');
-                }
-
-            });
-
-            $(window).scroll(function(event){
-
-                var st = $(this).scrollTop();
-                if(st == 1 || st == 0){
-                    document.getElementById("irHomeReconocelo").style.display = "none";
-                }else{
-                    document.getElementById("irHomeReconocelo").style.display = "inline";
-                }
-
-            });
+            
         </script>
     </body>
 </html>

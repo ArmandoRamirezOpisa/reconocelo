@@ -1,3 +1,28 @@
+$(document).ready(function() {
+
+    document.getElementById("irHomeReconocelo").style.display = "none";
+
+    if (contOrder.length == 0) {
+        $('#numeroCarrito').html(contOrder.length);
+    } else {
+        $('#numeroCarrito').html('<strong>' + contOrder.length + '</strong>');
+    }
+
+});
+
+$(window).scroll(function(event) {
+
+    var st = $(this).scrollTop();
+    if (st == 1 || st == 0) {
+        document.getElementById("irHomeReconocelo").style.display = "none";
+    } else {
+        document.getElementById("irHomeReconocelo").style.display = "inline";
+    }
+
+});
+
+
+
 /* Variables globales */
 var click = 0;
 var contOrder = new Array();
