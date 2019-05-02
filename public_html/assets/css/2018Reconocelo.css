@@ -163,12 +163,7 @@ body {
 
 /* Fin animaciones */
 
-.borrarCarritoReconocelo {
-    cursor: pointer;
-}
-
-.borrarCarritoReconocelo:hover {
-    color: #E64C13;
+a.borrarCarritoReconocelo {
     cursor: pointer;
 }
 
@@ -184,7 +179,7 @@ body {
     text-align: center !important;
 }
 
-#footerReconocelo{
+#footerReconocelo {
     background: #034889;
     color: #F25917;
 }
@@ -197,32 +192,32 @@ body {
     color: #FFFFFF !important;
 }
 
-.textAvisoDePrivacidad{
-    text-align:justify;
+.textAvisoDePrivacidad {
+    text-align: justify;
 }
 
-.avisoTitulo{
-    text-align:center;
-    color:#034889;
-}
-
-.avisoTitulo label{
-    font-size:40px;
-}
-
-.avisoSubTitulo{
+.avisoTitulo {
     text-align: center;
-    color:#f07b1c;
+    color: #034889;
 }
 
-.avisoSubTitulo label{
-    font-size:30px;
+.avisoTitulo label {
+    font-size: 40px;
 }
 
-#avisoReconocelo{
+.avisoSubTitulo {
+    text-align: center;
+    color: #f07b1c;
+}
+
+.avisoSubTitulo label {
+    font-size: 30px;
+}
+
+#avisoReconocelo {
     padding-right: 50px;
 }
 
-#ayudaReconocelo{
-    float:left;
+#ayudaReconocelo {
+    float: left;
 }
