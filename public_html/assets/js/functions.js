@@ -1,3 +1,7 @@
+/* Variables globales */
+var click = 0;
+var contOrder = new Array();
+
 /* Constructor */
 
 $(document).ready(function() {
@@ -23,8 +27,6 @@ $(window).scroll(function(event) {
 
 });
 
-
-
 var numeros = {
     contadorUser: 0,
     contadorPwd: 0,
@@ -42,7 +44,6 @@ var userReconocelo = document.getElementById('usuarioReconocelo');
 var passwordReconocelo = document.getElementById('passwordReconocelo');
 
 passwordReconocelo.addEventListener("keyup", teclasPwd);
-
 
 userReconocelo.addEventListener("keyup", teclasUser);
 
@@ -126,18 +127,7 @@ function teclasPwd(evento) {
     numeros.confirmOkPwd = false;
 }
 
-
-
-
-
-
-
-
 /* Fin constructor */
-
-/* Variables globales */
-var click = 0;
-var contOrder = new Array();
 
 /* Funcion login Reconocelo */
 function loginReconocelo() {
