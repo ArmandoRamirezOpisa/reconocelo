@@ -109,5 +109,108 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="../../assets/js/functions.js?a"></script>
+        <script>
+            var numeros = {
+                contadorUser:0,
+                contadorPwd:0,
+                cantidadMin:8,
+                cantidadMax:9,
+                cantidadMinPwd:4,
+                cantidadMaxPwd:6,
+                backSpace:8,
+                confirmOk: false,
+                confirmOkPwd:false
+            }
+
+            var userReconocelo = document.getElementById('usuarioReconocelo');
+
+            var passwordReconocelo = document.getElementById('passwordReconocelo');
+
+            passwordReconocelo.addEventListener("keyup", teclasPwd);
+
+            userReconocelo.addEventListener("keyup", teclasUser);
+
+            function teclasUser (evento){
+                
+                if(evento.keyCode != numeros.backSpace){
+                    
+                    numeros.contadorUser++;
+                    numeros.confirmOk = true;
+                    if(numeros.contadorUser < numeros.cantidadMin && numeros.confirmOk == true && evento.keyCode != numeros.backSpace){
+                        userReconocelo.classList.remove("is-valid");
+                        userReconocelo.classList.add("is-invalid");
+                    }else if(numeros.contadorUser >= numeros.cantidadMin && numeros.contadorUser <= numeros.cantidadMax && numeros.confirmOk == true && evento.keyCode != numeros.backSpace){
+                        userReconocelo.classList.remove("is-invalid");
+                        userReconocelo.classList.add("is-valid");
+                    }else if(numeros.contadorUser >= numeros.cantidadMax && numeros.confirmOk == true && evento.keyCode != numeros.backSpace){
+                        userReconocelo.classList.remove("is-valid");
+                        userReconocelo.classList.add("is-invalid");
+                    }
+                    
+                }			
+                else if(evento.keyCode == numeros.backSpace){
+                    numeros.contadorUser--;
+                    if(numeros.contadorUser < numeros.cantidadMin && evento.keyCode == numeros.backSpace){
+                        userReconocelo.classList.remove("is-valid");
+                        userReconocelo.classList.add("is-invalid");
+                    }else if(numeros.contadorUser >= numeros.cantidadMin && numeros.contadorUser <= numeros.cantidadMax && evento.keyCode == numeros.backSpace){
+                        userReconocelo.classList.remove("is-invalid");
+                        userReconocelo.classList.add("is-valid");
+                    }else if(numeros.contadorUser >= numeros.cantidadMax && evento.keyCode == numeros.backSpace){
+                        userReconocelo.classList.remove("is-valid");
+                        userReconocelo.classList.add("is-invalid");
+                    }
+                        
+                }
+                
+                if(numeros.contadorUser == 0){
+                    userReconocelo.classList.remove("is-valid");
+                    userReconocelo.classList.remove("is-invalid");
+                }
+                
+                numeros.confirmOk = false;
+            }
+
+            function teclasPwd (evento){
+                
+                if(evento.keyCode != numeros.backSpace){
+                    
+                    numeros.contadorPwd++;
+                    numeros.confirmOkPwd = true;
+                    if(numeros.contadorPwd < numeros.cantidadMinPwd && numeros.confirmOkPwd == true && evento.keyCode != numeros.backSpace){
+                        passwordReconocelo.classList.remove("is-valid");
+                        passwordReconocelo.classList.add("is-invalid");
+                    }else if(numeros.contadorPwd >= numeros.cantidadMinPwd && numeros.contadorPwd <= numeros.cantidadMaxPwd && numeros.confirmOkPwd == true && evento.keyCode != numeros.backSpace){
+                        passwordReconocelo.classList.remove("is-invalid");
+                        passwordReconocelo.classList.add("is-valid");
+                    }else if(numeros.contadorPwd >= numeros.cantidadMaxPwd && numeros.confirmOkPwd == true && evento.keyCode != numeros.backSpace){
+                        passwordReconocelo.classList.remove("is-valid");
+                        passwordReconocelo.classList.add("is-invalid");
+                    }
+                    
+                }			
+                else if(evento.keyCode == numeros.backSpace){
+                    numeros.contadorPwd--;
+                    if(numeros.contadorPwd < numeros.cantidadMinPwd && evento.keyCode == numeros.backSpace){
+                        passwordReconocelo.classList.remove("is-valid");
+                        passwordReconocelo.classList.add("is-invalid");
+                    }else if(numeros.contadorPwd >= numeros.cantidadMinPwd && numeros.contadorPwd <= numeros.cantidadMaxPwd && evento.keyCode == numeros.backSpace){
+                        passwordReconocelo.classList.remove("is-invalid");
+                        passwordReconocelo.classList.add("is-valid");
+                    }else if(numeros.contadorPwd >= numeros.cantidadMaxPwd && evento.keyCode == numeros.backSpace){
+                        passwordReconocelo.classList.remove("is-valid");
+                        passwordReconocelo.classList.add("is-invalid");
+                    }
+                        
+                }
+                
+                if(numeros.contadorPwd == 0){
+                    passwordReconocelo.classList.remove("is-valid");
+                    passwordReconocelo.classList.remove("is-invalid");
+                }
+                
+                numeros.confirmOkPwd = false;
+            }
+        </script>
     </body>
 </html>

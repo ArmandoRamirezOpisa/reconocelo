@@ -17,7 +17,30 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script>
             loadSection("home/getAwards/1","dvSecc");
+            /* Constructor */
 
+            $(document).ready(function() {
+
+                document.getElementById("irHomeReconocelo").style.display = "none";
+
+                if (contOrder.length == 0) {
+                    $('#numeroCarrito').html(contOrder.length);
+                } else {
+                    $('#numeroCarrito').html('<strong>' + contOrder.length + '</strong>');
+                }
+
+            });
+
+            $(window).scroll(function(event) {
+
+                var st = $(this).scrollTop();
+                if (st == 1 || st == 0) {
+                    document.getElementById("irHomeReconocelo").style.display = "none";
+                } else {
+                    document.getElementById("irHomeReconocelo").style.display = "inline";
+                }
+
+            });
             
         </script>
     </body>
