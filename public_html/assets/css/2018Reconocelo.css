@@ -1,22 +1,41 @@
+/* Variables globales */
+
+:root {
+    /* Colores */
+    --colorBlanco: #fff;
+    --colorBlanco2: #e6eaed;
+    --colorAzul: #034889;
+    --colorNaranja: #E74B0F;
+    --colorNaranja2: #F25917;
+    --colorNaranja3: #EC4B17;
+    /* fin colores */
+    /* Aliniaciones */
+    --textAlingCenter: center;
+    /* Fin aliniaciones */
+}
+
+
+/* Fin variables globales */
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background: #FFF;
+    background: var(--colorBlanco);
     font-family: 'Roboto', sans-serif;
 }
 
 .cardAyuda {
-    border-color: #FFFFFF;
+    border-color: var(--colorBlanco);
 }
 
 .card-bodyAyuda {
-    border-color: #FFFFFF;
+    border-color: var(--colorBlanco);
 }
 
 .iconsAyuda {
-    color: #034889;
+    color: var(--colorAzul);
 }
 
 .iconsAyuda2 {
@@ -24,8 +43,8 @@ body {
 }
 
 .AyudaFormularioRow {
-    background-color: #e6eaed;
-    border-color: #e6eaed;
+    background-color: var(--colorBlanco2);
+    border-color: var(--colorBlanco2);
 }
 
 .iconsAyuda3 {
@@ -33,11 +52,11 @@ body {
 }
 
 .lblText {
-    color: #E74B0F;
+    color: var(--colorNaranja);
 }
 
 .btn-primary {
-    background: #034889;
+    background: var(--colorAzul);
 }
 
 .advice {
@@ -45,23 +64,23 @@ body {
 }
 
 .navcolor {
-    background: #034889;
+    background: var(--colorAzul);
 }
 
 .btn-navbarcolor {
-    background: #E74B0F;
+    background: var(--colorNaranja);
 }
 
 .btn-outline-secondary {
-    color: white;
-    background: #034889;
-    border-color: #034889;
+    color: var(--colorBlanco);
+    background: var(--colorAzul);
+    border-color: var(--colorAzul);
 }
 
 .btn-outline-secondary:hover {
     /* color: #fff;*/
-    background-color: #F25917;
-    border-color: #E74B0F;
+    background-color: var(--colorNaranja2);
+    border-color: var(--colorNaranja);
 }
 
 .cardsWelcomeBackgroud {
@@ -76,19 +95,19 @@ body {
 
 .btn-outline-dark:hover {
     /* color: #fff;*/
-    background-color: #EC4B17;
-    border-color: #EC4B17;
+    background-color: var(--colorNaranja3);
+    border-color: var(--colorNaranja3);
 }
 
 .btn-warning {
-    background: #EC4B17;
-    border-color: #E74B0F;
+    background: var(--colorNaranja3);
+    border-color: var(--colorNaranja);
 }
 
 .btn-warning:hover {
     /* color: #fff;*/
-    background-color: #F25917;
-    border-color: #E74B0F;
+    background-color: var(--colorNaranja2);
+    border-color: var(--colorNaranja);
 }
 
 .price {
@@ -101,7 +120,7 @@ body {
 
 .headerColor {
     background: #0B0909;
-    color: #F25917;
+    color: var(--colorNaranja2);
 }
 
 .dropdown-menu {
@@ -109,7 +128,7 @@ body {
 }
 
 .dropdown-item:hover {
-    background: #f25917;
+    background: var(--colorNaranja2);
 }
 
 .scrollable-menu {
@@ -123,7 +142,7 @@ body {
 }
 
 .CerrarTicketAdmin {
-    color: #034889;
+    color: var(--colorAzul);
 }
 
 .CerrarTicketAdmin:hover {
@@ -176,20 +195,20 @@ a.borrarCarritoReconocelo {
     bottom: 10%;
     right: 2%;
     z-index: 0;
-    text-align: center !important;
+    text-align: var(--textAlingCenter) !important;
 }
 
 #footerReconocelo {
-    background: #034889;
-    color: #F25917;
+    background: var(--colorAzul);
+    color: var(--colorNaranja2);
 }
 
 .linkPrivacy {
-    color: #F25917;
+    color: var(--colorNaranja2);
 }
 
 .linkPrivacy:hover {
-    color: #FFFFFF !important;
+    color: var(--colorBlanco) !important;
 }
 
 .textAvisoDePrivacidad {
@@ -198,7 +217,7 @@ a.borrarCarritoReconocelo {
 
 .avisoTitulo {
     text-align: center;
-    color: #034889;
+    color: var(--colorAzul);
 }
 
 .avisoTitulo label {
