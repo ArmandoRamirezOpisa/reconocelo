@@ -53,6 +53,12 @@
                                                     <div class="input-group-text"><i class="fas fa-user"></i></div>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Usuario (Ingrese sin el guion (-))" name="usuario" id="usuarioReconocelo">
+                                                <div  id="MessageValidUser" class="invalid-feedback">
+													Usuario incorrecto.
+												</div>
+												<div  id="MessageValidUser" class="valid-feedback">
+													Usuario correcto.
+												</div>
                                             </div>                                      
                                         </div>
                                         <div class="form-group mb-4">
@@ -61,6 +67,12 @@
                                                     <div class="input-group-text"><i class="fas fa-key"></i></div>
                                                 </div>
                                                 <input type="password" class="form-control" placeholder="Contrase&ntilde;a" name="password" id="passwordReconocelo">
+                                                <div  id="MessageValidPassword" class="invalid-feedback">
+													Usuario incorrecto.
+												</div>
+												<div  id="MessageValidPassword" class="valid-feedback">
+													Usuario correcto.
+												</div>
                                             </div>
                                         </div>
                                         <a href="javascript:void(0)" class="btn btn-primary text-center btn-block" onclick="loginReconocelo()"><i class="fas fa-sign-in-alt"></i> Entrar</a>
