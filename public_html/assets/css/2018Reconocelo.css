@@ -54,6 +54,10 @@ body {
     background: var(--colorNaranja);
 }
 
+.nav-item-menuReconocelo{
+    transition: all 5s;
+}
+
 .btn-outline-secondary {
     color: var(--colorBlanco);
     background: var(--colorAzul);

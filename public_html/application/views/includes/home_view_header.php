@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </form>
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5 animated apareciendo">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5">
                             <li class="nav-item nav-item-menuReconocelo">
                                 <button data-toggle="tooltip" title="Reglas" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('home/reglas','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
                             </li>
