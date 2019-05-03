@@ -33,7 +33,7 @@ a:link {
 
 .errormessage {
     color: var(--colorRojo);
-    text-align: center;
+    text-align: var(--textAlingCenter);
 }
 
 .headerColor {
@@ -41,7 +41,7 @@ a:link {
 }
 
 .sizetopbottom {
-    height: 40px;
+    height: calc(var(--borderRadius)*10);
     color: var(--colorBlanco);
 }
 

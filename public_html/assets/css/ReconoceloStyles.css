@@ -17,33 +17,33 @@ body {
 
 .card {
     box-shadow: 0px 1px 0 hsl(174, 5%, 80%), 0 0 5px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .2), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .3);
-    border-radius: 25px;
+    border-radius: calc((var(--borderRadius)*5)+5);
     border: 0px solid transparent;
 }
 
 .card-body {
     background: var(--colorGrisClaro);
     border-color: var(--colorGrisClaro);
-    border-radius: 0px 0px 25px 25px;
+    border-radius: 0px 0px calc((var(--borderRadius)*5)+5) calc((var(--borderRadius)*5)+5);
 }
 
 .input-group-text {
     background: var(--colorAzul);
     color: var(--colorBlacoGris);
-    border-radius: 10px;
+    border-radius: calc(var(--borderRadius)+6);
     border-color: var(--colorAzul);
 }
 
 input[type=text],
 input[type=password] {
-    border-radius: 10px;
+    border-radius: calc(var(--borderRadius)+6);
     border-color: var(--colorBlacoGris);
 }
 
 .footer {
     background: var(--colorBlanco);
     color: var(--colorAzul);
-    height: 80px;
+    height: calc(var(--borderRadius)*20);
 }
 
 .iconoColorSession {
@@ -71,7 +71,7 @@ input[type=password] {
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
-    border-radius: 4px;
+    border-radius: calc(var(--borderRadius)*20);
     padding: 10px 16px;
 }
 
