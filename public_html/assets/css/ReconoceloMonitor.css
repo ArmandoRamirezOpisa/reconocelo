@@ -1,18 +1,4 @@
-:root{
-    --colorBlanco: #FFFFFF;
-    --colorAzul: #034889;
-    --colorMorado: #8EB4E0;
-    --colorRojo:#FF0000;
-    --colorNegro:#000000;
-    --colorGris:#CCCCCC;
-    --colorGris2:#EAEAEA;
-    --colorBlanco2:#f2f2f2;
-    --colorAzulMorado:#6C7DAC;
-    /* */
-    --textTransform:uppercase;
-    --cursor:pointer;
-    --borderRadius:4px;
-}
+@import 'globalStyles.css';
 
 body {
     background: var(--colorBlanco);
@@ -32,7 +18,7 @@ body {
 .btn-primary {
     background: var(--colorAzul);
     border-color: var(--colorAzul);
-    color: var(--colorBlanco2);
+    color: var(--colorBlanco3);
 }
 
 .btn-primary:hover {
@@ -147,7 +133,7 @@ a:hover {
 #entrarMonitorLogin {
     background: var(--colorAzul);
     border-color: var(--colorAzul);
-    color: var(--colorBlanco2);
+    color: var(--colorBlanco3);
 }
 
 #entrarMonitorLogin:hover {

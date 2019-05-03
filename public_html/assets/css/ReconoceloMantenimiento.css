@@ -1,8 +1,4 @@
-:root{
-    --colorRojo:#FF0000;
-    /* */
-    --textTransform:uppercase;
-}
+@import 'globalStyles.css';
 
 .upperCase {
     text-transform: var(--textTransform);

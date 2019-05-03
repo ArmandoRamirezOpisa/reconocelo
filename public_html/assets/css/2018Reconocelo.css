@@ -1,21 +1,4 @@
-/* Variables globales */
-
-:root {
-    /* Colores */
-    --colorBlanco: #fff;
-    --colorBlanco2: #e6eaed;
-    --colorAzul: #034889;
-    --colorNaranja: #E74B0F;
-    --colorNaranja2: #F25917;
-    --colorNaranja3: #EC4B17;
-    /* fin colores */
-    /* Aliniaciones */
-    --textAlingCenter: center;
-    /* Fin aliniaciones */
-}
-
-
-/* Fin variables globales */
+@import 'globalStyles.css';
 
 html {
     scroll-behavior: smooth;

@@ -1,24 +1,4 @@
-/* Variables globales */
-
-:root {
-    /* Colores */
-    --colorAzul: #034889;
-    --colorBlanco: #fff;
-    --colorVioleta: #6C7DAC;
-    --colorGrisClaro: #8EB4E0;
-    --colorBlacoGris: #f2f2f2;
-    --colorRojo: #B00000;
-    --colorNaranja: #E64C13;
-    --colorNaranjaClaro: #f25e26;
-    /* fin colores */
-    /* Aliniaciones */
-    --textAlingCenter: center;
-    /* Fin aliniaciones */
-}
-
-
-/* Fin variables globales */
-
+@import 'globalStyles.css';
 
 /* Estilos Reconocelo login */
 
@@ -71,7 +51,7 @@ input[type=password] {
 }
 
 .errorMessage {
-    color: var(--colorRojo);
+    color: var(--colorRojo1);
 }
 
 .btn {
@@ -117,8 +97,8 @@ input[type=password] {
 
 .btn-primary {
     color: var(--colorBlanco);
-    background-color: var(--colorNaranja);
-    border-color: var(--colorNaranja);
+    background-color: var(--colorNaranja1);
+    border-color: var(--colorNaranja1);
 }
 
 .btn-primary:hover,
@@ -127,8 +107,8 @@ input[type=password] {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
     color: var(--colorBlanco);
-    background-color: var(--colorNaranja);
-    border-color: var(--colorNaranja);
+    background-color: var(--colorNaranja1);
+    border-color: var(--colorNaranja1);
 }
 
 .sharp {
@@ -136,7 +116,7 @@ input[type=password] {
 }
 
 .btn-primary {
-    background: var(--colorNaranja);
+    background: var(--colorNaranja1);
     color: var(--colorBlanco);
 }
 
@@ -168,7 +148,7 @@ input[type=password] {
 }
 
 .iconsAyuda2 {
-    color: var(--colorNaranja);
+    color: var(--colorNaranja1);
 }
 
 .AyudaFormularioRow {
