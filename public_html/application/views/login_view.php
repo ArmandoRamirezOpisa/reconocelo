@@ -54,10 +54,10 @@
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Usuario (Ingrese sin el guion (-))" name="usuario" id="usuarioReconocelo">
                                                 <div  id="MessageValidUser" class="invalid-feedback">
-													Usuario incorrecto.
+                                                    Cantidad de caracteres incorrecto.
 												</div>
 												<div  id="MessageValidUser" class="valid-feedback">
-													Usuario correcto.
+                                                    Cantidad de caracteres correcto.
 												</div>
                                             </div>                                      
                                         </div>
@@ -68,10 +68,10 @@
                                                 </div>
                                                 <input type="password" class="form-control" placeholder="Contrase&ntilde;a" name="password" id="passwordReconocelo">
                                                 <div  id="MessageValidPassword" class="invalid-feedback">
-													Usuario incorrecto.
+													Cantidad de caracteres incorrecto.
 												</div>
 												<div  id="MessageValidPassword" class="valid-feedback">
-													Usuario correcto.
+													Cantidad de caracteres correcto.
 												</div>
                                             </div>
                                         </div>
