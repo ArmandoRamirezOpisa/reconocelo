@@ -31,7 +31,7 @@ body {
 }
 
 .iconsAyuda3 {
-    color: #8EB4E0;
+    color: var(--colorMorado);
 }
 
 .lblText {
@@ -43,7 +43,7 @@ body {
 }
 
 .advice {
-    font-size: 12px;
+    font-size: calc(var(--borderRadius)*3);
 }
 
 .navcolor {
@@ -98,7 +98,7 @@ body {
 }
 
 .giftsArea {
-    background: #f2f2f2;
+    background: var(--colorBlanco3);
 }
 
 .headerColor {
@@ -116,12 +116,12 @@ body {
 
 .scrollable-menu {
     height: auto;
-    max-height: 500px;
+    max-height: calc(var(--borderRadius)+496);
     overflow-x: hidden;
 }
 
 .space-ticket {
-    padding-right: 30px;
+    padding-right: calc((var(--borderRadius)*7)+2);
 }
 
 .CerrarTicketAdmin {
@@ -166,13 +166,13 @@ body {
 /* Fin animaciones */
 
 a.borrarCarritoReconocelo {
-    cursor: pointer;
+    cursor: var(--cursor);
 }
 
 .move-top {
-    width: 34px;
-    height: 34px;
-    font-size: 40px;
+    width: calc((var(--borderRadius)*8)+2);
+    height: calc((var(--borderRadius)*8)+2);
+    font-size: calc(var(--borderRadius)*10);
     display: inline-block;
     position: fixed;
     bottom: 10%;
@@ -195,29 +195,29 @@ a.borrarCarritoReconocelo {
 }
 
 .textAvisoDePrivacidad {
-    text-align: justify;
+    text-align: var(--textAlingJustify);
 }
 
 .avisoTitulo {
-    text-align: center;
+    text-align: var(--textAlingCenter);
     color: var(--colorAzul);
 }
 
 .avisoTitulo label {
-    font-size: 40px;
+    font-size: calc(var(--borderRadius)*10);
 }
 
 .avisoSubTitulo {
-    text-align: center;
+    text-align: var(--textAlingCenter);
     color: #f07b1c;
 }
 
 .avisoSubTitulo label {
-    font-size: 30px;
+    font-size: calc((var(--borderRadius)*10)+10);
 }
 
 #avisoReconocelo {
-    padding-right: 50px;
+    padding-right: calc((var(--borderRadius)*10)+10);
 }
 
 #ayudaReconocelo {
