@@ -58,11 +58,14 @@ body {
     color: var(--colorBlanco);
     background: var(--colorAzul);
     border-color: var(--colorAzul);
+    transition: all 2s;
+    box-shadow: 0 0px var(--colorAzul) inset;
+
 }
 
 .btn-outline-secondary:hover {
-    /* color: #fff;*/
-    background-color: var(--colorNaranja2);
+    /*background-color: var(--colorNaranja2);*/
+    box-shadow: 0 70px var(--colorNaranja2) inset;
     border-color: var(--colorNaranja);
 }
 
