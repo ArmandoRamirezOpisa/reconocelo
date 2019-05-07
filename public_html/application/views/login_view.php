@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="../assets/css/ReconoceloStyles.css?a" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-        <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
+        <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     </head>
     <body class="animated apareciendo">
@@ -89,7 +89,7 @@
                                             Chrome, Firefox
                                         </small>
                                         <small class="form-text text-muted text-center">  
-                                            <a href="<?php echo site_url('recuperar_usuario') ?>" target="_blank"><h5>Olvidaste tu contraseña?</h5></a>
+                                            <a href="<?php /*echo site_url('recuperar_usuario')*/ ?>" target="_blank"><h5>Olvidaste tu contraseña?</h5></a>
                                         </small>
                                     </form> 
                                 </div>
@@ -213,4 +213,48 @@
             }
         </script>
     </body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Reconocelo</title>
+		<meta name="description" content="Demo of A Free Coming Soon Bootstrap 4 Template by TemplateFlip.com."/>
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../assets/css/mainMantenimiento.css" rel="stylesheet">
+        <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />
+	</head>
+	<body id="top"><div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand">Reconocelo</h3>
+					</div>
+				</div>
+				<br>
+				<div class="inner cover">
+					<h1 class="cover-heading">Estamos en mantenimiento</h1>
+					<p class="lead cover-copy">
+						En estos momentos nos encontramos, actualizando la pagina, para que puedas ocuparla de la mejor manera.
+					</p>
+				</div>
+				<div class="mastfoot">
+					<div class="inner">
+						<p>&copy; Reconocelo.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+		<script src="../../assets/js/mainMantenimiento.js"></script>
+	</body>
 </html>
