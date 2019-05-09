@@ -1,12 +1,11 @@
 @import 'globalStyles.css';
-
 html {
     scroll-behavior: smooth;
 }
 
 body {
     background: var(--colorBlanco);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Philosopher', sans-serif;
 }
 
 .cardAyuda {
@@ -54,7 +53,7 @@ body {
     background: var(--colorNaranja);
 }
 
-.nav-item-menuReconocelo{
+.nav-item-menuReconocelo {
     transition: all 5s;
 }
 
@@ -64,7 +63,6 @@ body {
     border-color: var(--colorAzul);
     transition: all 2s;
     box-shadow: 0 0px var(--colorAzul) inset;
-
 }
 
 .btn-outline-secondary:hover {
@@ -123,7 +121,7 @@ body {
 
 .scrollable-menu {
     height: auto;
-    max-height: calc(var(--borderRadius)+496);
+    max-height: 500px;
     overflow-x: hidden;
 }
 

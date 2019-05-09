@@ -18,7 +18,7 @@
 
         <nav class="navbar navbar-expand-lg animated apareciendo">
             <a id="inicioMonitor" class="navbar-brand animated apareciendo" href="https://www.reconocelo.com.mx/monitor/">
-                <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
+                <img src="assets/images/monitorLog.png" width="150" height="30" alt="">
             </a>
         </nav>
 
@@ -33,14 +33,14 @@
                                     <p class="card-title text-center mt-4 h2">Iniciar sesión</p>
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="input-group  mb-3">
-                                                <div class="input-group-prepend">
+                                            <div class="input-group mb-3 bordeCajasMonitor">
+                                                <div class="input-group-prepend bordeCajasMonitor">
                                                     <span class="input-group-text" id="" ><i class="fas fa-user"></i> <span style="margin-left: 10px;">Usuario</span></span>
                                                 </div>
                                                 <input type="text" class="form-control upperCase" id="user" placeholder="Escribe el usuario">
                                             </div>
                                             <div class="input-group  mb-3">
-                                                <div class="input-group-prepend">
+                                                <div class="input-group-prepend bordeCajasMonitor">
                                                     <span class="input-group-text" ><i class="fas fa-key"></i> <span style="margin-left: 10px;">Contraseña</span></span>
                                                 </div>
                                                 <input type="password" class="form-control upperCase" id="password" placeholder="Escribe tu Contraseña">

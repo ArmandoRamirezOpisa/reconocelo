@@ -1,13 +1,16 @@
 @import 'globalStyles.css';
-
 body {
     background: var(--colorBlanco);
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Philosopher', sans-serif;
 }
 
 .bg-ligh {
     background: var(--colorBlanco);
     border-color: var(--colorBlanco);
+}
+
+.bordeCajasMonitor {
+    border-radius: 50px !important;
 }
 
 .input-group-text {
