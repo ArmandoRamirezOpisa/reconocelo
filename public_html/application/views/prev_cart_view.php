@@ -46,7 +46,7 @@
 						<input type="text" class="form-control" id="edo" name="edo" placeholder="Estado" required>
 			  	</div>
 			  	<div class="form-group" id="gcp">
-			    	<input type="text" class="form-control" id="cp"  maxlength="5" name="cp" placeholder="C.P." required>
+			    	<input type="number" class="form-control" id="cp"  maxlength="5" name="cp" placeholder="C.P." required>
 			  	</div>
           		<div class="form-group" id="telefono">
 				    <input type="tel" class="form-control" id="tel" name="tel" placeholder="telefono" required>

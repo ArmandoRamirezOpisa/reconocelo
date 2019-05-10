@@ -33,7 +33,7 @@
                                 </ul>
                                 <hr class="my-4">
                                 <span class="text-center">
-                                    <h2 >Contacte a info@opisa.com para conocer más acerca de nuestro portal.</h2> 
+                                    <h2 >Contacte a <strong>info@opisa.com</strong> para conocer más acerca de nuestro portal.</h2> 
                                 </span>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
             </div>
             <div class="row justify-content-center footer animated apareciendo">
                 <div class="col-auto align-self-center">
-                    <span> &#174; Derechos reservados. Reconócelo 2018</span>
+                    <span> &#174; Derechos reservados. Reconócelo 2019</span>
                 </div>
             </div>
         </div>

@@ -22,6 +22,7 @@ body {
     background: var(--colorAzul);
     border-color: var(--colorAzul);
     color: var(--colorBlanco3);
+    border-radius: calc(var(--borderRadius)*20);
 }
 
 .btn-primary:hover {
@@ -146,11 +147,11 @@ a:hover {
 }
 
 .selectElementMonitor {
-    color: var(--colorNegro);
+    color: var(--colorAzul);
 }
 
 .selectElementMonitor:hover {
-    color: var(--colorAzul);
+    color: var(--colorNaranja);
 }
 
 .colorSeleccion:hover {
