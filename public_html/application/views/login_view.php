@@ -23,12 +23,12 @@
                     <div class="row animated apareciendo">
                         <div class="col">
                             <div class="jumbotron animated apareciendo">
-                                <h3 class="lead mt-4 mb-3 titleReconocelo font-weight-bold"><i class="far fa-question-circle mr-1"></i> ¿Qué es Reconócelo.com.mx?</h3>
+                                <h3 class="lead mt-4 mb-3 titleReconocelo font-weight-bold"><i class="far fa-question-circle mr-1"></i> <!--¿Qué es Reconócelo.com.mx?-->Pagina en Matenimiento</h3>
                                 <ul class="lead">
-                                    <li>Es un portal mexicano dedicado a programas de reconocimiento a empleados así como de lealtad a empresas distribuidoras por parte de nuestros clientes.</li>
-                                    <li>Si usted planea reconocer la antigüedad y el desempeño de sus empleados, Reconócelo es una gran herramienta para hacerlo. </li>
-                                    <li>Reconozca la preferencia de sus distribuidores a través de nuestra plataforma de lealtad.</li>
-                                    <li>En Reconócelo nuestros usuarios pueden redimir los puntos que obtienen por una amplia variedad de premios en nuestro catálogo.</li>
+                                    <li><!--Es un portal mexicano dedicado a programas de reconocimiento a empleados así como de lealtad a empresas distribuidoras por parte de nuestros clientes.-->La pagina se encuentra en mantenimiento y se reanudara en dia 27 de Mayo de 2019 a partir a las 10:00 AM</li>
+                                    <li><!--Si usted planea reconocer la antigüedad y el desempeño de sus empleados, Reconócelo es una gran herramienta para hacerlo.-->El motivo de esto es para poder brindarte un mejor servicio</li>
+                                    <li><!--Reconozca la preferencia de sus distribuidores a través de nuestra plataforma de lealtad.-->Agradecemos tu preferencia y el lunes podremos seguir atentendiendote</li>
+                                    <!--<li>En Reconócelo nuestros usuarios pueden redimir los puntos que obtienen por una amplia variedad de premios en nuestro catálogo.</li>-->
                                     <li>Reconócelo es un portal mexicano operado por OPISA, empresa líder en la industria de la motivación en México por más de 20 años.</li>
                                 </ul>
                                 <hr class="my-4">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 mt-6 mb-4  align-self-end animated apareciendo">
+                <!--<div class="col-12 col-md-4 mt-6 mb-4  align-self-end animated apareciendo">
                     <div class="card mb-3 animated apareciendo">
                         <div class="card-header text-center"><h5 class="text-muted"> Iniciar sesión</h5></div>
                         <p class="text-center pb-4 pt-4 iconoColorSession"> <i class="fas fa-user fa-10x"></i></p>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="row justify-content-center footer animated apareciendo">
                 <div class="col-auto align-self-center">
