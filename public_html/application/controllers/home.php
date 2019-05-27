@@ -10,6 +10,7 @@
         }
 
         //Pagina principal que carga todo
+        //Framework pasado versio 2.1.4
     	public function index(){
             if($this->session->userdata('logged_in')){
 
