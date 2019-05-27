@@ -66,7 +66,7 @@
                 var data = results.data;
 
                 $.ajax({
-                    url: '/mantenimiento/uploadDepositosNewsMantenimiento',
+                    url: '/Mantenimiento/uploadDepositosNewsMantenimiento',
                     async: 'true',
                     cache: false,
                     contentType: "application/x-www-form-urlencoded",
@@ -99,7 +99,7 @@
 
             function activarDepositosSubidosMantenimiento(){
                 $.ajax({
-                    url: '/mantenimiento/depositosSubidosMantenimiento',
+                    url: '/Mantenimiento/depositosSubidosMantenimiento',
                     async: 'true',
                     cache: false,
                     contentType: "application/x-www-form-urlencoded",

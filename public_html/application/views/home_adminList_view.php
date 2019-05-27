@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Mantenimiento Reconocelo</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="../assets/css/ReconoceloLogin_Monitor.css?a" rel="stylesheet">
+        <link href="assets/css/ReconoceloLogin_Monitor.css?a" rel="stylesheet">
          <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
          <link rel="shortcut icon" href="assets/images/monitorLogLink.png" type="image/x-icon" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
@@ -18,7 +18,7 @@
                 <div class="col-12 col-md-6 mt-4 ">
                     <div class="card-deck mt-3">
                         <div class="card bg-ligh">
-                            <img src="../assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
+                            <img src="assets/images/reconocelo.png" class="img-fluid" alt="Responsive image">
                             <div class="card-body">
                                 <form>
                                     <div class="form-group">

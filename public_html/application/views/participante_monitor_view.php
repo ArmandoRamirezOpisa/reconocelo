@@ -60,7 +60,7 @@
 
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de participantes</h1>";
-            $( document ).ready(function() {
+            $(document).ready(function() {
                 Todosparticipantes();
             });
 

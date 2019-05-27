@@ -1,7 +1,4 @@
 @import 'globalStyles.css';
-body {
-    font-family: 'Philosopher', sans-serif;
-}
 
 .upperCase {
     text-transform: var(--textTransform);

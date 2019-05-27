@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="../assets/css/ReconoceloLogin_Monitor.css?ab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="shortcut icon" href="../../assets/images/monitorLogLink.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="assets/images/monitorLogLink.png" type="image/x-icon" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../assets/js/papaparse.min.js"></script>
@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light animated apareciendo">
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="/mantenimiento/home">
-                    <img src="../../assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <img src="../assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Reconocelo
                 </a>
             </nav>
@@ -32,16 +32,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/mantenimiento/home">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/Mantenimiento/home">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/mantenimiento/participantes">Participantes</a>
+                        <a class="nav-link" href="/Mantenimiento/participantes">Participantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/mantenimiento/premios">Premios</a>
+                        <a class="nav-link" href="/Mantenimiento/premios">Premios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/mantenimiento/uploadDepositos">Depositos</a>
+                        <a class="nav-link" href="/Mantenimiento/uploadDepositos">Depositos</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

@@ -1,14 +1,14 @@
-:root {
+:root{
     --colorBlanco: #FFFFFF;
-    --colorBlanco3: #f2f2f2;
+    --colorBlanco3:#f2f2f2;
     --colorBlanco2: #e6eaed;
     --colorAzul: #034889;
     --colorMorado: #8EB4E0;
-    --colorRojo: #FF0000;
-    --colorNegro: #000000;
-    --colorGris: #CCCCCC;
-    --colorGris2: #EAEAEA;
-    --colorAzulMorado: #6C7DAC;
+    --colorRojo:#FF0000;
+    --colorNegro:#000000;
+    --colorGris:#CCCCCC;
+    --colorGris2:#EAEAEA;
+    --colorAzulMorado:#6C7DAC;
     --colorNaranja: #E74B0F;
     --colorNaranja2: #F25917;
     --colorNaranja3: #EC4B17;
@@ -17,11 +17,9 @@
     --colorGrisClaro: #8EB4E0;
     --colorBlacoGris: #f2f2f2;
     /* */
-    --textTransform: uppercase;
-    --cursor: pointer;
-    --borderRadius: 4px;
+    --textTransform:uppercase;
+    --cursor:pointer;
+    --borderRadius:4px;
     --textAlingCenter: center;
-    --textAlingJustify: justify
+    --textAlingJustify:justify
 }
-
-@import url('https://fonts.googleapis.com/css?family=Philosopher');

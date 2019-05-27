@@ -13,7 +13,7 @@ function loginReconocelo() {
         $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
     } else {
         $.ajax({
-            url: '/home/loginReconocelo',
+            url: location.href + 'Home/loginReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -28,7 +28,6 @@ function loginReconocelo() {
                     $('#error').show();
                     $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
                 } else {
-
                     location.href = "https://" + location.hostname + "/home";
                 }
 
@@ -116,7 +115,7 @@ function addItemOrder(idProduct, name, puntos) {
             });
         }
     }
-    loadSection("home/showContentCart/", "dvContAw");
+    loadSection("Home/showContentCart/", "dvContAw");
 }
 
 function refreshCar() {
@@ -145,7 +144,7 @@ function deleteItem(item) {
             $.each(contOrder, function(k, v) {
                 if (item == v.id) {
                     contOrder.splice(k, 1);
-                    loadSection("home/showContentCart/", "dvContAw");
+                    loadSection("Home/showContentCart/", "dvContAw");
                     $.notify("Se ha eliminado el producto de su orden", "success");
                     return false;
                 }
@@ -168,14 +167,14 @@ function delArray() {
 }
 
 function showDet(id) {
-    loadSection("home/showItem/" + id, "dvContAw");
+    loadSection("Home/showItem/" + id, "dvContAw");
 }
 
 function sendDataAjaxDuda(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 
     $.ajax({
         type: 'POST',
-        url: "ayuda_Controller/crearComentario",
+        url: "Ayuda_Controller/crearComentario",
         dataType: "json",
         data: { "idcanje": idCanjeArticulo, "nombre": NombreCanjeArticulo, "mensaje": mensaje, "tipo": tipo },
         beforeSend: function() {},
@@ -212,7 +211,8 @@ function enviarPregunta(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 function enviar_pregunta() {
 
     if ($('#mensaje').val().trim() == "") {
-        $.notify("Debe de agregar una descripcion para poder enviar su duda", "error");
+        $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de agregar una descripcion para poder enviar su duda.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        //$.notify("Debe de agregar una descripcion para poder enviar su duda", "error");
     } else {
         var pregunta = $('select[name=preguntas]').val();
         var orden = $('select[name=orden]').val();
@@ -220,8 +220,9 @@ function enviar_pregunta() {
         var articulo = $('select[name=articulo]').val();
         var temaOrden = $('#mensajeOtro').val();
         if (pregunta == "Articulo de mi orden") {
-            if (orden == "Selecciona" || articulo == "Selecciona") {
-                $.notify("Debe de seleccionar una orden o artículo", "error");
+            if (pregunta == "Selecciona" || articulo == "Selecciona") {
+                $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de seleccionar una orden o artículo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                //$.notify("Debe de seleccionar una orden o artículo", "error");
             } else {
                 var fields = articulo.split('-');
                 var idCanjeArticulo = fields[0];
@@ -230,13 +231,15 @@ function enviar_pregunta() {
             }
         } else if (pregunta == "Sobre mi orden") {
             if (orden == "Selecciona" || temaOrden == "") {
-                $.notify("Debe de seleccionar una orden o escribir el tema", "error");
+                $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de seleccionar una orden o escribir el tema.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                //$.notify("Debe de seleccionar una orden o escribir el tema", "error");
             } else {
                 enviarPregunta1(orden, temaOrden, mensaje, 2);
             }
         } else if (pregunta == "otro") {
             if (temaOrden == "") {
-                $.notify("Debe de escribir el tema", "error");
+                $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de escribir el tema.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                //$.notify("Debe de escribir el tema", "error");
             } else {
                 orden = 0;
                 enviarPregunta1(orden, temaOrden, mensaje, 3);
@@ -249,7 +252,7 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 
     $.ajax({
         type: 'POST',
-        url: "/home/crearTicketReconocelo",
+        url: location.href + "/crearTicketReconocelo",
         dataType: "json",
         data: { "idcanje": idCanjeArticulo, "nombre": NombreCanjeArticulo, "mensaje": mensaje, "tipo": tipo },
         beforeSend: function() {},
@@ -303,7 +306,7 @@ function historiaTicket(id) {
     var status = tickeyArray[1];
 
     $.ajax({
-        url: '/home/historiaTicket',
+        url: '/Home/historiaTicket',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -333,7 +336,7 @@ function answerTicket(id) {
     var idTicketHistory = id.id;
 
     $.ajax({
-        url: '/home/historiaTicketAnswer',
+        url: '/Home/historiaTicketAnswer',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -375,7 +378,7 @@ function sendTicket(id) {
     } else {
 
         $.ajax({
-            url: '/ticketsAdmin/sendTicketAnswer',
+            url: '/TicketsAdmin/sendTicketAnswer',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -415,7 +418,7 @@ function closeTicket(id) {
     var ticketId = id.id;
 
     $.ajax({
-        url: '/home/closeTicket',
+        url: '/Home/closeTicket',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -443,7 +446,7 @@ function confirmCloseTicket(id) {
     var idTicket = id.id;
 
     $.ajax({
-        url: '/home/closeConfirmTicket',
+        url: '/Home/closeConfirmTicket',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -486,7 +489,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                         var address = $("#frmCanjeDir").serializeArray();
                         $.ajax({
                             type: 'POST',
-                            url: "home/addCanje",
+                            url: "Home/addCanje",
                             dataType: "json",
                             data: { "data": jsonString, "ptsCanje": $ptsCanje, "address": address },
                             beforeSend: function() {},
@@ -542,7 +545,7 @@ function exit() {
         dangerMode: true,
     }).then(function(isConfirm) {
         if (isConfirm) {
-            location.href = "https://" + location.hostname + "/home/salirReconocelo";
+            location.href = "https://" + location.hostname + "/Home/salirReconocelo";
         } else {}
     });
 
@@ -580,7 +583,7 @@ function CambiarCorreo() {
 
         $.ajax({
             type: 'POST',
-            url: "cofInfo_controller/cambiarCorreo",
+            url: "CofInfo_controller/cambiarCorreo",
             dataType: "json",
             data: { "correo": correo },
             beforeSend: function() {},
@@ -625,7 +628,7 @@ function loginTicketAdmin() {
     } else {
 
         $.ajax({
-            url: '/ticketsAdmin/login',
+            url: '/TicketsAdmin/login',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -641,7 +644,7 @@ function loginTicketAdmin() {
                     $('#user').val("");
                     $('#password').val("");
                 } else {
-                    location.href = "https://" + location.hostname + "/ticketsAdmin/home";
+                    location.href = "https://" + location.hostname + "/TicketsAdmin/home";
                 }
 
             },
@@ -654,7 +657,7 @@ function loginTicketAdmin() {
 }
 
 function salirTicket() {
-    location.href = "https://" + location.hostname + "/ticketsAdmin/exit_ticket";
+    location.href = "https://" + location.hostname + "/TicketsAdmin/exit_ticket";
 }
 /* Fin ticket administrador */
 
@@ -667,7 +670,7 @@ function sendRecuperaPasswordReconocelo() {
         throw new Error("Correo imcompleto");
     } else {
         $.ajax({
-            url: '/recuperar_usuario/sendMailRecuperaReconocelo',
+            url: '/Recuperar_usuario/sendMailRecuperaReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -711,7 +714,7 @@ function configNewPasswordReconocelo(id) {
         var loginWeb = userConfigToal[0];
         var idParticipante = userConfigToal[1];
         $.ajax({
-            url: '/recuperar_usuario/cambiarUserPasswordNewReconocelo',
+            url: '/Recuperar_usuario/cambiarUserPasswordNewReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -758,7 +761,7 @@ function CambiarContraseña() {
         throw new Error("Password no match");
     } else {
         $.ajax({
-            url: '/cofInfo_controller/updatePasswordReconocelo',
+            url: '/CofInfo_controller/updatePasswordReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",

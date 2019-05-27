@@ -1,4 +1,5 @@
 <?php
+    defined('BASEPATH') OR exit('No direct script access allowed');
     class Reconocelo_model extends CI_Model {
     	
         public function __construct(){}
@@ -13,10 +14,11 @@
                 FROM Participante AS pp 
                 INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
                 WHERE pp.codPrograma = 41 
-                AND pp.loginWeb = '".$loginReconoceloData["usuarioReconocelo"]."' 
-                AND pwd = md5('".$loginReconoceloData["passwordReconocelo"]."')
-                AND pp.Status = 1
             ");
+
+            /*AND pp.loginWeb = '".$loginReconoceloData["usuarioReconocelo"]."' 
+                AND pwd = md5('".$loginReconoceloData["passwordReconocelo"]."')
+                AND pp.Status = 1*/
             if ($query->num_rows() == 1){
                 return $query->result_array(); 
             }else{

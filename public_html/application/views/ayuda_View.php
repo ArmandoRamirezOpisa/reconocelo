@@ -132,6 +132,7 @@
     </div>
     <div class="col-md-6 mt-4">
         <h5 class="card-title AyudaFormularioRow text-left"><b>Descripcion de Ticket</b></h5>
+        <div id="MessageTicket"></div>
         <form>
             <div class="form-group">
             <label for="exampleFormControlSelect1" class="font-weight-bold lblText"> * Selecciona tu tipo de pregunta</label>

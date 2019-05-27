@@ -18,11 +18,11 @@
 
         <nav class="navbar navbar-expand-lg animated apareciendo">
             <a id="inicioMonitor" class="navbar-brand animated apareciendo" href="https://www.reconocelo.com.mx/monitor/">
-                <img src="assets/images/monitorLog.png" width="150" height="30" alt="">
+                <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
             </a>
         </nav>
 
-        <div class="container animated apareciendo">  
+        <div id="pru" class="container animated apareciendo">  
             <div class="row justify-content-center mb-4 mt-3 animated apareciendo">
                 <div class="col-12 col-md-6 mt-4 animated apareciendo">
                     <div class="card mt-3 animated apareciendo">
@@ -33,14 +33,14 @@
                                     <p class="card-title text-center mt-4 h2">Iniciar sesión</p>
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="input-group mb-3 bordeCajasMonitor">
-                                                <div class="input-group-prepend bordeCajasMonitor">
+                                            <div class="input-group  mb-3">
+                                                <div class="input-group-prepend">
                                                     <span class="input-group-text" id="" ><i class="fas fa-user"></i> <span style="margin-left: 10px;">Usuario</span></span>
                                                 </div>
                                                 <input type="text" class="form-control upperCase" id="user" placeholder="Escribe el usuario">
                                             </div>
                                             <div class="input-group  mb-3">
-                                                <div class="input-group-prepend bordeCajasMonitor">
+                                                <div class="input-group-prepend">
                                                     <span class="input-group-text" ><i class="fas fa-key"></i> <span style="margin-left: 10px;">Contraseña</span></span>
                                                 </div>
                                                 <input type="password" class="form-control upperCase" id="password" placeholder="Escribe tu Contraseña">
@@ -79,7 +79,7 @@
                     <p class="text-center bg-ligh"><a href="<?php echo site_url('monitor/AvisoPrivacidad') ?>" class="selectElementMonitor" target="_blank">Aviso de privacidad</a> </p> 
                 </div>                
             </div>
-        <script src="../assets/js/functionsMonitor.js?a"></script>
+        <script src="../assets/js/functionsMonitor.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>

@@ -53,7 +53,7 @@
                 var data = results.data;
 
                 $.ajax({
-                    url: '/monitor/uploadDepositosNews',
+                    url: '/Monitor/uploadDepositosNews',
                     async: 'true',
                     cache: false,
                     contentType: "application/x-www-form-urlencoded",
@@ -81,7 +81,7 @@
 
             function activarDepositosSubidos(){
                 $.ajax({
-                    url: '/monitor/depositosSubidos',
+                    url: '/Monitor/depositosSubidos',
                     async: 'true',
                     cache: false,
                     contentType: "application/x-www-form-urlencoded",

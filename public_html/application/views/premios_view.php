@@ -41,7 +41,7 @@
         $("#"+dAct).removeClass("active");
         dAct = id;
         $("#"+id).addClass("active");
-       loadSection('home/getAwards/'+idCat,'dvSecc');
+       loadSection('Home/getAwards/'+idCat,'dvSecc');
     }
     up();
     

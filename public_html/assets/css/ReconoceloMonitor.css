@@ -1,16 +1,13 @@
 @import 'globalStyles.css';
+
 body {
     background: var(--colorBlanco);
-    font-family: 'Philosopher', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .bg-ligh {
     background: var(--colorBlanco);
     border-color: var(--colorBlanco);
-}
-
-.bordeCajasMonitor {
-    border-radius: 50px !important;
 }
 
 .input-group-text {
@@ -22,7 +19,6 @@ body {
     background: var(--colorAzul);
     border-color: var(--colorAzul);
     color: var(--colorBlanco3);
-    border-radius: calc(var(--borderRadius)*20);
 }
 
 .btn-primary:hover {
@@ -147,11 +143,11 @@ a:hover {
 }
 
 .selectElementMonitor {
-    color: var(--colorAzul);
+    color: var(--colorNegro);
 }
 
 .selectElementMonitor:hover {
-    color: var(--colorNaranja);
+    color: var(--colorAzul);
 }
 
 .colorSeleccion:hover {

@@ -11,17 +11,17 @@
         <title>Reconocelo</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="../../assets/css/2018Reconocelo.css?a" rel="stylesheet">
+        <link href="assets/css/2018Reconocelo.css?a" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <script src="https://use.fontawesome.com/1f2183b84e.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-        <link rel="shortcut icon" href="../../assets/images/reconocelo.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
 
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="../../assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 Reconocelo Tickets
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="https://reconocelo.com.mx/ticketsAdmin/home">Tickets <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="https://reconocelo.com.mx/TicketsAdmin/home">Tickets <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -50,7 +50,7 @@
 
         <div class="row justify-content-center mt-4 mb-4">
             <div class="col-12 col-md-4 mt-4">
-                <img src="../../assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
+                <img src="assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
             </div>
         </div>
 
@@ -206,7 +206,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="../../assets/js/functions.js?a"></script>
+        <script src="assets/js/functions.js?a"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>

@@ -8,13 +8,13 @@
         public function __construct() {
             parent::__construct();
             $this->load->library('email');
-            $this->load->model("monitor_model");
-            $this->load->model("reglas_model");
+            $this->load->model("Monitor_model");
+            $this->load->model("Reglas_model1");
         }
 
         public function index() {
             if ($this->session->userdata('administrador')) {
-                header( 'Location: '.base_url().'monitor/home');
+                header( 'Location: '.base_url().'Monitor/home');
             } else {
                 $this->load->view("monitor_Login_view");
             }
@@ -30,8 +30,11 @@
         }
 
         public function login() {
-            $data = array('usuario' => $_POST['user'], 'password' => $_POST['password']);
-            $InformacionLogin = $this->monitor_model->loadData($data);
+            $data = array(
+                'usuario' => $this->input->post('user'),
+                'password' => $this->input->post('password')
+            );
+            $InformacionLogin = $this->Monitor_model->loadData($data);
             $result = 0;
             if ($InformacionLogin) {
                 $InformacionLoginUsuario = array(
@@ -65,7 +68,7 @@
         //Todos los participantes
         public function ParticipantesTodos(){
 
-            $participante = $this->monitor_model->getTodosParticipantes();
+            $participante = $this->Monitor_model->getTodosParticipantes();
             $codEmpresa = $this->session->userdata('CodEmpresa');
             if ($participante){
                 $data["participante"] = $participante;
@@ -78,7 +81,7 @@
 
         //Participantes con saldo
         public function conSaldoParticipantes(){
-            $participante = $this->monitor_model->geTParticipantesSaldo();
+            $participante = $this->Monitor_model->geTParticipantesSaldo();
             if ($participante){
                 $data["participante"] = $participante;
             }else{
@@ -89,7 +92,7 @@
 
         //Participantes sin saldo
         public function sinSaldoParticipantes(){
-            $participante = $this->monitor_model->geTParticipantesSinSaldo();
+            $participante = $this->Monitor_model->geTParticipantesSinSaldo();
             if ($participante){
                 $data["participante"] = $participante;
             }else{
@@ -100,7 +103,7 @@
 
         //Participantes todos activos
         public function saldoTodoActivo(){
-            $participante = $this->monitor_model->geTodoSaldoActivo();
+            $participante = $this->Monitor_model->geTodoSaldoActivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -112,7 +115,7 @@
 
         //Participantes todos inactivos
         public function saldoTodoInactivo(){
-            $participante = $this->monitor_model->geTodoInactivo();
+            $participante = $this->Monitor_model->geTodoInactivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -124,7 +127,7 @@
 
         //Participantes Activos con saldo
         public function saldoActivo(){
-            $participante = $this->monitor_model->getSaldoActivo();
+            $participante = $this->Monitor_model->getSaldoActivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -136,7 +139,7 @@
 
         //Participantes inactivos con saldo
         public function saldoInactivo(){
-            $participante = $this->monitor_model->geTSaldoInactivo();
+            $participante = $this->Monitor_model->geTSaldoInactivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -148,7 +151,7 @@
 
         //Participantes activos sin saldo
         public function sinSaldoActivo(){
-            $participante = $this->monitor_model->geTSinSaldoActivo();
+            $participante = $this->Monitor_model->geTSinSaldoActivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -160,7 +163,7 @@
 
         //Pariticipantes inactivos sin saldo
         public function sinSaldoInactivo(){
-            $participante = $this->monitor_model->geTSinSaldoInactivo();
+            $participante = $this->Monitor_model->geTSinSaldoInactivo();
             if ($participante)
             {
                 $data["participante"] = $participante;
@@ -173,15 +176,17 @@
         //Informacion de los participantes
         public function participanteInfo(){
 
-            $infoParticipante = array("codParticipante"=>$_POST['codParticipante']);
+            $infoParticipante = array(
+                "codParticipante"=>$this->input->post('codParticipante')
+            );
 
-            $movimientosDeParticipante = $this->monitor_model->participanteInfoData($infoParticipante);
+            $movimientosDeParticipante = $this->Monitor_model->participanteInfoData($infoParticipante);
 
             $codPrograma = $movimientosDeParticipante[0]["codPrograma"];
             $codEmpresa = $movimientosDeParticipante[0]["codEmpresa"];
             $codParticipante = $movimientosDeParticipante[0]["codParticipante"];
 
-            $participanteData = $this->monitor_model->movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante);
+            $participanteData = $this->Monitor_model->movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante);
 
             if ($participanteData){
                 $data = array( 'participanteData' => $participanteData);
@@ -193,7 +198,7 @@
 ////////////////////////////FinParticipantes///////////////////////////////////
 ////////////////////////////InicioDepositos///////////////////////////////////
         public function depositos(){
-            $deposito = $this->monitor_model->getFechaDeposito();
+            $deposito = $this->Monitor_model->getFechaDeposito();
             if ($deposito){
                 $data["deposito"] = $deposito;
             }else{
@@ -206,7 +211,7 @@
         }
 
         public function depositosInfo(){
-            $deposito = $this->monitor_model->getDeposito();
+            $deposito = $this->Monitor_model->getDeposito();
             if ($deposito){
                 $data["deposito"] = $deposito;
             }else{
@@ -217,11 +222,12 @@
 
         public function depositosInforma(){
 
-            $infoFechas = array("fechaInicio"=>$_POST['fechaInicio'],
-                "fechaFin"=>$_POST['fechaFin']
-                );
+            $infoFechas = array(
+                "fechaInicio"=>$this->input->post('fechaInicio'),
+                "fechaFin"=>$this->input->post('fechaFin')
+            );
 
-            $deposito = $this->monitor_model->getDepositoFechas($infoFechas);
+            $deposito = $this->Monitor_model->getDepositoFechas($infoFechas);
             if ($deposito){
                 $data["deposito"] = $deposito;
             }else{
@@ -237,18 +243,17 @@
         }
 
         public function uploadDepositosNews(){
+            $infoDepositosNews = $this->input->post('infoNewsDepositos');
 
-            $infoDepositosNews = $_POST['infoNewsDepositos'];
-
-            $depositoMasivo = $this->monitor_model->insertDepositoMasivo();
+            $depositoMasivo = $this->Monitor_model->insertDepositoMasivo();
 
             if($depositoMasivo){
-                $depositoDetalleMasivo = $this->monitor_model->insertDepositoDetalleMasivo($infoDepositosNews,$depositoMasivo);
+                $depositoDetalleMasivo = $this->Monitor_model->insertDepositoDetalleMasivo($infoDepositosNews,$depositoMasivo);
                 if($depositoDetalleMasivo){
 
-                    $totalPuntos = $this->monitor_model->totalPuntos($depositoMasivo);
+                    $totalPuntos = $this->Monitor_model->totalPuntos($depositoMasivo);
 
-                    $totalParticipantesSubidos = $this->monitor_model->totalParticipantesSubidos($depositoMasivo);
+                    $totalParticipantesSubidos = $this->Monitor_model->totalParticipantesSubidos($depositoMasivo);
 
                     $this->correoDepositoMasivo($depositoMasivo,$totalPuntos[0]['Puntos'],$totalParticipantesSubidos[0]['TotalSubido']);
 
@@ -264,7 +269,7 @@
         public function depositosSubidos(){
 
             $idDepositoParticipante = "";
-            $depositover = $this->monitor_model->verDepositosUsuario();
+            $depositover = $this->Monitor_model->verDepositosUsuario();
             if ($depositover){
                 $data["depositover"] = $depositover;
             }else{
@@ -276,22 +281,24 @@
 
         public function uploadPuntosDeposito(){
 
-            $numTransaccion = array("numTransaccion"=>$_POST['numTransaccion']);
-            $depositoverUpload = $this->monitor_model->getDepositosDet($numTransaccion);
+            $numTransaccion = array(
+                "numTransaccion"=>$this->input->post('numTransaccion')
+            );
+            $depositoverUpload = $this->Monitor_model->getDepositosDet($numTransaccion);
             $saldoTotalParticipante = 0;
             $totalRegistros = 0;
             if($depositoverUpload){
 
                 foreach($depositoverUpload as $row){
 
-                    $saldoParticipantes = $this->monitor_model->UpdateSaldoParticipante($row['idParticipanteCliente'],$row['Puntos']);
+                    $saldoParticipantes = $this->Monitor_model->UpdateSaldoParticipante($row['idParticipanteCliente'],$row['Puntos']);
                     if($saldoParticipantes){
                         
-                        $updateDepositosDet = $this->monitor_model->UpdateDepositosDet($numTransaccion,$row['idParticipanteCliente']);
+                        $updateDepositosDet = $this->Monitor_model->UpdateDepositosDet($numTransaccion,$row['idParticipanteCliente']);
                         if($updateDepositosDet){
-                            $idParticipanteData = $this->monitor_model->idParticipanteGet($row['idParticipanteCliente']);
+                            $idParticipanteData = $this->Monitor_model->idParticipanteGet($row['idParticipanteCliente']);
                             if($idParticipanteData){
-                                $insertPartMovsRealiza = $this->monitor_model->insertPartMovsRealiza($idParticipanteData[0]['idParticipante'],$row['Concepto'],$row['Puntos']);
+                                $insertPartMovsRealiza = $this->Monitor_model->insertPartMovsRealiza($idParticipanteData[0]['idParticipante'],$row['Concepto'],$row['Puntos']);
                                 $saldoTotalParticipante = $saldoTotalParticipante + 1;
                             }
 
@@ -303,7 +310,7 @@
 
                 if($totalRegistros == $saldoTotalParticipante){
 
-                    $UpdateMasterDeposito = $this->monitor_model->UpdateMasterDeposito($numTransaccion);
+                    $UpdateMasterDeposito = $this->Monitor_model->UpdateMasterDeposito($numTransaccion);
                     $this->output->set_output(json_encode("Todo se hizo correcto"));
 
                 }else{
@@ -317,7 +324,7 @@
 ////////////////////////////FinDepositos///////////////////////////////////////
 /////////////////////////InicioCanjes/////////////////////////////////////////
         public function canjes(){
-            $canje = $this->monitor_model->getFechaCanje();
+            $canje = $this->Monitor_model->getFechaCanje();
             if ($canje){
                 $data["canje"] = $canje;
             }else{
@@ -330,7 +337,7 @@
         }
 
         public function canjesInfo(){
-            $canje = $this->monitor_model->getCanje();
+            $canje = $this->Monitor_model->getCanje();
             if ($canje){
                 $data["canje"] = $canje;
             }else{
@@ -341,11 +348,12 @@
 
         public function canjesInforma(){
 
-            $infoFechas = array("fechaInicio"=>$_POST['fechaInicio'],
-                "fechaFin"=>$_POST['fechaFin']
-                );
+            $infoFechas = array(
+                "fechaInicio"=>$this->input->post('fechaInicio'),
+                "fechaFin"=>$this->input->post('fechaFin')
+            );
 
-            $canje = $this->monitor_model->getCanjeFechas($infoFechas);
+            $canje = $this->Monitor_model->getCanjeFechas($infoFechas);
             if ($canje){
                 $data["canje"] = $canje;
             }else{
@@ -356,7 +364,7 @@
 ////////////////////////FinCanjes////////////////////////////////////////////
 ///////////////////////////InicioCatalogo//////////////////////////////////////
         public function catalogo(){
-            $catalogo = $this->monitor_model->getCatalogo();
+            $catalogo = $this->Monitor_model->getCatalogo();
             if ($catalogo)
             {
                 $data["catalogo"] = $catalogo;
@@ -371,9 +379,11 @@
 
         public function catalogoImg(){
 
-            $codPremio = array("codPremio"=>$_POST['codPremio']);
+            $codPremio = array(
+                "codPremio"=>$this->input->post('codPremio')
+            );
 
-            $descripcionImg = $this->monitor_model->getDescripcionIMG($codPremio);
+            $descripcionImg = $this->Monitor_model->getDescripcionIMG($codPremio);
 
             if($descripcionImg){
                 $data = array('codPremio'=>$codPremio,
@@ -389,8 +399,8 @@
         }
 ///////////////////////////FinCatalogo//////////////////////////////////////
         public function programa(){
-            $programa= $this->monitor_model->getPrograma();
-            $programaCanje= $this->monitor_model->getProgramaCanje();
+            $programa= $this->Monitor_model->getPrograma();
+            $programaCanje= $this->Monitor_model->getProgramaCanje();
             if ($programa){
                 $data = array( 'programa' => $programa,
                     'programaCanje' => $programaCanje
@@ -407,7 +417,7 @@
         public function reglasMonitor(){
             $codEmpresa = $this->session->userdata('CodEmpresa');
             $CodPrograma = $this->session->userdata('CodPrograma');
-            $reglasMonitor = $this->reglas_model->reglasReconocelo($codEmpresa,$CodPrograma);
+            $reglasMonitor = $this->Reglas_model1->reglasReconocelo($codEmpresa,$CodPrograma);
             if($reglasMonitor){
                 $data['reglasMonitor'] = $reglasMonitor;
             }else{
@@ -419,10 +429,11 @@
         }
 
         public function cambiarReglaReconocelo(){
-            $dataReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
-                "textoRegla"=>$_POST['textoRegla']
+            $dataReglaReconocelo = array(
+                "idReglaNombre"=>$this->input->post('idReglaNombre'),
+                "textoRegla"=>$this->input->post('textoRegla')
             );
-            $reglasMonitorData = $this->reglas_model->reglasReconoceloUpdate($dataReglaReconocelo);
+            $reglasMonitorData = $this->Reglas_model1->reglasReconoceloUpdate($dataReglaReconocelo);
             if($reglasMonitorData){
                 $this->output->set_output(json_encode($reglasMonitorData));
             }else{
@@ -431,10 +442,11 @@
         }
 
         public function cambiarNombreReglaReconocelo(){
-            $dataNombreReglaReconocelo = array("idReglaNombre"=>$_POST['idReglaNombre'],
-                "textCambiar"=>$_POST['textCambiar']
+            $dataNombreReglaReconocelo = array(
+                "idReglaNombre"=>$this->input->post('idReglaNombre'),
+                "textCambiar"=>$this->input->post('textCambiar')
             );
-            $nombreReglasMonitorData = $this->reglas_model->nombreReglasReconoceloUpdate($dataNombreReglaReconocelo);
+            $nombreReglasMonitorData = $this->Reglas_model1->nombreReglasReconoceloUpdate($dataNombreReglaReconocelo);
             if($nombreReglasMonitorData){
                 $this->output->set_output(json_encode($reglasMonitorData));
             }else{
@@ -443,10 +455,11 @@
         }
 
         public function addNuevaRegla(){
-            $dataNuevaRegla = array("regla"=>$_POST['regla'],
-                "descripcionRegla"=>$_POST['descripcionRegla']
+            $dataNuevaRegla = array(
+                "regla"=>$this->input->post('regla'),
+                "descripcionRegla"=>$this->input->post('descripcionRegla')
             );
-            $nuevaReglasData = $this->reglas_model->nuevaReglaReconocelo($dataNuevaRegla);
+            $nuevaReglasData = $this->Reglas_model1->nuevaReglaReconocelo($dataNuevaRegla);
             if($nuevaReglasData){
                 $this->output->set_output(json_encode($nuevaReglasData));
             }else{
@@ -462,8 +475,10 @@
         }
 
         public function cambiarUserName(){
-            $usuario = array("usuario"=>$_POST['usuario']);
-            $usuarioCambiado = $this->monitor_model->cambiarNombre($usuario);
+            $usuario = array(
+                "usuario"=>$this->input->post('usuario')
+            );
+            $usuarioCambiado = $this->Monitor_model->cambiarNombre($usuario);
             if($usuarioCambiado){
                 $this->output->set_output(json_encode($usuarioCambiado));
             }else{
@@ -472,8 +487,10 @@
         }
 
         public function cambiarUserPassword(){
-            $password = array("password"=>$_POST['password']);
-            $passwordCambiado = $this->monitor_model->cambiarPassword($password);
+            $password = array(
+                "password"=>$this->input->post('password')
+            );
+            $passwordCambiado = $this->Monitor_model->cambiarPassword($password);
             if($passwordCambiado){
                 $this->output->set_output(json_encode($passwordCambiado));
             }else{
@@ -489,8 +506,10 @@
         }
 
         public function sendMailRecupera(){
-            $email = array("email"=>$_POST['email']);
-            $emailTrue = $this->monitor_model->checkMailExits($email);
+            $email = array(
+                "email"=>$this->input->post('email')
+            );
+            $emailTrue = $this->Monitor_model->checkMailExits($email);
             if($emailTrue){
                 /* Notificacion por correo */
 
@@ -742,16 +761,21 @@
         }
 
         public function passwordNuevo(){
-            $email = array("user"=>$_GET["user"],"cod"=>$_GET["cod"]);
+            $email = array(
+                "user"=>$_GET["user"],
+                "cod"=>$_GET["cod"]
+            );
             $this->load->view('recuperaPasswordNew_monitor_view',$email);
         }
 
         public function cambiarUserPasswordNew(){
-            $passwordConfig = array("password"=>$_POST['password'],
-                "usuario"=>$_POST['usuario'],
-                "codEmpresa"=>$_POST['codEmpresa']
+            $passwordConfig = array(
+                
+                "password"=>$this->input->post('password'),
+                "usuario"=>$this->input->post('usuario'),
+                "codEmpresa"=>$this->input->post('codEmpresa')
             );
-            $passwordCambiado = $this->monitor_model->cambiarPasswordNew($passwordConfig);
+            $passwordCambiado = $this->Monitor_model->cambiarPasswordNew($passwordConfig);
             if($passwordCambiado){
                 $this->output->set_output(json_encode($passwordCambiado));
             }else{
@@ -764,7 +788,7 @@
         public function salirMonitor(){
             $array_items = array('administrador' => '', 'empresa' => '');
             $this->session->unset_userdata($array_items);
-            header( 'Location: '.base_url().'/monitor');
+            header( 'Location: '.base_url().'/Monitor');
         }
 
 ////////////////////////Funciones de correo electronico/////////////////////////

@@ -14,14 +14,14 @@
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
-        <link href="../assets/css/ReconoceloMonitor.css?ab" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/ReconoceloMonitor.css" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../assets/js/papaparse.min.js"></script>
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg">
-            <a id="inicioMonitor" class="navbar-brand" href="javascript:void(0)" onClick = "MonitorNav(this)">
+            <a id="inicioMonitor" class="navbar-brand" href="javascript:void(0)" onclick="MonitorNav(this)">
                 <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,29 +30,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a id="participantes" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-users mr-2"></i>Participantes</a>
+                        <a id="participantes" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-users mr-2"></i>Participantes</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-piggy-bank mr-2"></i>Depositos
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a id="depositosPuntos" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-piggy-bank mr-2"></i>Ver Depositos</a>
+                            <a id="depositosPuntos" class="dropdown-item" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-piggy-bank mr-2"></i>Ver Depositos</a>
                             <div class="dropdown-divider"></div>
-                            <a id="depositosPuntosInsertar" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-piggy-bank mr-2"></i>Insertar Depositos</a>
+                            <a id="depositosPuntosInsertar" class="dropdown-item" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-piggy-bank mr-2"></i>Insertar Depositos</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a id="canjesPuntos" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-exchange-alt"></i>Canjes</a>
+                        <a id="canjesPuntos" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-exchange-alt"></i>Canjes</a>
                     </li>
                     <li class="nav-item">
-                        <a id="catologoActual" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
+                        <a id="catologoActual" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
                     </li>
                     <li class="nav-item">
-                        <a id="monitorPrograma" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-chart-pie mr-2"></i>Monitor de programa</a>
+                        <a id="monitorPrograma" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-chart-pie mr-2"></i>Monitor de programa</a>
                     </li>
                     <li class="nav-item">
-                    <a id="reglasMonitor" class="nav-link" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-clipboard-check mr-2"></i>Reglas</a>
+                    <a id="reglasMonitor" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-clipboard-check mr-2"></i>Reglas</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 animated apareciendo">
@@ -68,9 +68,9 @@
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu dataUserRecononoceloMonitor" aria-labelledby="dropdownMenuButton">
-                            <a id="configuracionUsuarioMonitor" class="dropdown-item" href="javascript:void(0)" onClick = "MonitorNav(this)"><i class="fas fa-cog"></i>Configuracion</a>
+                            <a id="configuracionUsuarioMonitor" class="dropdown-item" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-cog"></i>Configuracion</a>
                             <div class="dropdown-divider"></div>
-                            <a id="salirReconoceloMonitor" class="dropdown-item" href="javascript:void(0)" onClick = "exit()"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar session</a>
+                            <a id="salirReconoceloMonitor" class="dropdown-item" href="javascript:void(0)" onclick="exit()"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar session</a>
                         </div>
                     </div>
                 </form>

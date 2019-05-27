@@ -41,7 +41,7 @@
                         var dataParticipantes = results.data;
 
                         $.ajax({
-                            url: '/mantenimiento/uploadParticipantesNews',
+                            url: '/Mantenimiento/uploadParticipantesNews',
                             async: 'true',
                             cache: false,
                             contentType: "application/x-www-form-urlencoded",

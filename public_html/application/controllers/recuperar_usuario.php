@@ -5,7 +5,7 @@
         public function __construct() {
             parent::__construct();
             $this->load->library('email');
-            $this->load->model("reconocelo_model");
+            $this->load->model("Reconocelo_model1");
         }
 
         public function index(){   
@@ -13,8 +13,10 @@
         }
         
         public function sendMailRecuperaReconocelo(){
-            $usuarioEmailReconocelo = array("usuarioEmailReconocelo"=>$_POST['usuarioEmailReconocelo']);
-            $emailTrueReconocelo = $this->reconocelo_model->checkMailExitsReconocelo($usuarioEmailReconocelo);
+            $usuarioEmailReconocelo = array(
+                "usuarioEmailReconocelo"=>$this->input->post('usuarioEmailReconocelo')
+            );
+            $emailTrueReconocelo = $this->Reconocelo_model1->checkMailExitsReconocelo($usuarioEmailReconocelo);
             if($emailTrueReconocelo){
                 $this->correoRecuperaReconocelo($emailTrueReconocelo[0]['loginWeb'],$emailTrueReconocelo[0]['CodPrograma'],$emailTrueReconocelo[0]['codEmpresa'],$emailTrueReconocelo[0]['idParticipante']);
             }
@@ -31,11 +33,12 @@
 
         public function cambiarUserPasswordNewReconocelo(){
 
-            $passwordConfigReconocelo = array("loginWeb"=>$_POST['loginWeb'],
-                "idParticipante"=>$_POST['idParticipante'],
-                "passwordNewReconocelo"=>$_POST['passwordNewReconocelo']
+            $passwordConfigReconocelo = array(
+                "loginWeb"=>$this->input->post('loginWeb'),
+                "idParticipante"=>$this->input->post('idParticipante'),
+                "passwordNewReconocelo"=>$this->input->post('passwordNewReconocelo')
             );
-            $passwordCambiado = $this->reconocelo_model->cambiarPasswordNewReconocelo($passwordConfigReconocelo);
+            $passwordCambiado = $this->Reconocelo_model1->cambiarPasswordNewReconocelo($passwordConfigReconocelo);
             if($passwordCambiado){
                 $this->output->set_output(json_encode($passwordCambiado));
             }else{

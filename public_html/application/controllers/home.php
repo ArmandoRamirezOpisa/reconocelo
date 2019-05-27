@@ -3,18 +3,19 @@
     class Home extends CI_Controller {
         
         public function __construct() {
-            parent::__construct();
+            parent:: __construct();
             $this->load->library('email');
-            $this->load->model("reconocelo_model");
-            $this->load->model("reglas_model");
+            $this->load->library('session');
+            $this->load->model('Reconocelo_model1');
+            $this->load->model("Reglas_model1");
+
         }
 
         //Pagina principal que carga todo
-        //Framework pasado versio 2.1.4
     	public function index(){
             if($this->session->userdata('logged_in')){
 
-                $cat = $this->reconocelo_model->getCategory();
+                $cat = $this->Reconocelo_model1->getCategory();
                 if ($cat){
                     $data["cat"] = $cat;
                 }else{
@@ -34,38 +35,42 @@
         //funcion para logearse
         public function loginReconocelo(){
             $loginReconoceloData = array(
-                "usuarioReconocelo"=>$_POST['usuarioReconocelo'],
-                "passwordReconocelo"=>$_POST['passwordReconocelo']
+                "usuarioReconocelo"=>$this->input->post('usuarioReconocelo'),
+                "passwordReconocelo"=>$this->input->post('passwordReconocelo')
             );
-            $login = $this->reconocelo_model->loginReconocelo($loginReconoceloData);
-            if ($login){
-                if (strlen($login[0]["eMail"])>0){
-                	$email_s = $login[0]["eMail"];
+            $login['result'] = $this->Reconocelo_model1->loginReconocelo($loginReconoceloData);
+
+            //print_r ($data['result'][0]->Estado);
+            print_r ($login['result'][0]);
+
+            if ($login['result'][0]){
+                if (strlen($login['result'][0]->eMail)>0){
+                	$email_s = $login['result'][0]->eMail;
                 }else{
                 	$email_s = "-";
                 }    
 				$userData = array(
                     'logged_in'      => TRUE,
-                    'nombre'      	  => $login[0]["PrimerNombre"],
-                    'programa'   	  => $login[0]["codPrograma"],
-                    'participante'	  => $login[0]["codParticipante"],
-                    'empresa'        => $login[0]["codEmpresa"],
-                    'status'         => $login[0]["Status"],
-                    'puntos'         => $login[0]["SaldoActual"],
-                    'idPart'         => $login[0]["idParticipante"],
-                    'calle'          => $login[0]["CalleNumero"],
-                    'colonia'        => $login[0]["Colonia"],
-                    'cp'             => $login[0]["CP"],
-                    'ciudad'         => $login[0]["Ciudad"],
-                    'estado'         => $login[0]["Estado"],
-                    'iniOrden'       => $login[0]["fhInicioOrden"],
-                    'finOrden'       => $login[0]["fhFinOrden"],
+                    'nombre'      	  => $login['result'][0]->PrimerNombre,
+                    'programa'   	  => $login['result'][0]->codPrograma,
+                    'participante'	  => $login['result'][0]->codParticipante,
+                    'empresa'        => $login['result'][0]->codEmpresa,
+                    'status'         => $login['result'][0]->Status,
+                    'puntos'         => $login['result'][0]->SaldoActual,
+                    'idPart'         => $login['result'][0]->idParticipante,
+                    'calle'          => $login['result'][0]->CalleNumero,
+                    'colonia'        => $login['result'][0]->Colonia,
+                    'cp'             => $login['result'][0]->CP,
+                    'ciudad'         => $login['result'][0]->Ciudad,
+                    'estado'         => $login['result'][0]->Estado,
+                    'iniOrden'       => $login['result'][0]->fhInicioOrden,
+                    'finOrden'       => $login['result'][0]->fhFinOrden,
                     'email'          => $email_s,
-                    'Visibilidad'       => $login[0]["Visibilidad"],
-                    'pwd' => $login[0]['pwd']                                                               
+                    'Visibilidad'       => Visibilidad,
+                    'pwd' => $login['result'][0]->pwd
                 );
-            	$this->session->set_userdata($userData);
-				$this->output->set_output(json_encode(true));
+                $this->session->set_userdata($userData);
+				$this->output->set_output(json_encode($login['result'][0]));
             }else{
                 $this->output->set_output(json_encode(0));//si no encuentra al usuario regresa false
             }
@@ -75,7 +80,7 @@
 
         //Obtiene todos los premios
         public function getAwards($idCat){
-    	    $aw = $this->reconocelo_model->getAwards($idCat);
+    	    $aw = $this->Reconocelo_model1->getAwards($idCat);
             if ($aw){
                 $data["awards"] = $aw;
             }else{
@@ -86,7 +91,7 @@
 
         //Muestra el premio seleccionado
         public function showItem($id){
-    	    $item = $this->reconocelo_model->getDataItem($id);
+    	    $item = $this->Reconocelo_model1->getDataItem($id);
             if ($item){
                 $data["item"] = $item;
             }else{
@@ -105,7 +110,7 @@
         /* Funcion Reglas Reconocelo */
         public function reglas(){
 			if ($this->session->userdata('logged_in')){
-                $cat = $this->reglas_model->getRules();
+                $cat = $this->Reglas_model1->getRules();
                 if ($cat){
                     $data["cat"] = $cat;
                 }else{
@@ -120,7 +125,7 @@
 
         function getCanjes()
         {
-            $misPreCanjes = $this->reconocelo_model->misPreCanjes();
+            $misPreCanjes = $this->Reconocelo_model1->misPreCanjes();
 
             if ($misPreCanjes)
             {
@@ -137,17 +142,17 @@
 
             $data = json_decode(stripslashes($_POST['data']));//Decodifica JSON
             
-            $saldoACtualParticipante = $this->reconocelo_model->saldoActualParticipante();
+            $saldoACtualParticipante = $this->Reconocelo_model1->saldoActualParticipante();
 
             if($saldoACtualParticipante >= $this->session->userdata('puntos')){
-                $idCanjeExits = $this->reconocelo_model->checkAddCanje();
+                $idCanjeExits = $this->Reconocelo_model1->checkAddCanje();
                 if($idCanjeExits){
                     $this->output->set_output(json_encode(false));
                 }else{
-                    $idCanje = $this->reconocelo_model->addCanje();
+                    $idCanje = $this->Reconocelo_model1->addCanje();
                     if ($idCanje){
-                        $detCanje = $this->reconocelo_model->addDetCanje($data,$idCanje);
-                        $updateSaldo = $this->reconocelo_model->updSaldo($_POST["ptsCanje"]);
+                        $detCanje = $this->Reconocelo_model1->addDetCanje($data,$idCanje);
+                        $updateSaldo = $this->Reconocelo_model1->updSaldo($_POST["ptsCanje"]);
                 
                         if ($updateSaldo){
                             $sdoAct = $this->session->userdata('puntos') - $_POST["ptsCanje"];
@@ -590,9 +595,9 @@
         public function ayuda()
     	{
                   
-            $preguntas = $this->reconocelo_model->tipos_preguntas();
-            $ordenes= $this->reconocelo_model->misPreCanjes();
-            $ordenesFolio = $this->reconocelo_model->misOrdenesFolio();
+            $preguntas = $this->Reconocelo_model1->tipos_preguntas();
+            $ordenes= $this->Reconocelo_model1->misPreCanjes();
+            $ordenesFolio = $this->Reconocelo_model1->misOrdenesFolio();
            
            if ($ordenesFolio){
                 $data["ordenesFolio"] = $ordenesFolio;
@@ -617,18 +622,19 @@
 
         public function crearTicketReconocelo(){
          
-            $data = array("idcanje"=>$_POST['idcanje'],
-                "nombre"=>$_POST['nombre'],
-                "mensaje"=>$_POST['mensaje'],
-                "tipo"=>$_POST['tipo']
+            $data = array(
+                "idcanje"=>$this->input->post('idcanje'),
+                "nombre"=>$this->input->post('nombre'),
+                "mensaje"=>$this->input->post('mensaje'),
+                "tipo"=>$this->input->post('tipo')
              );
 
-            $duda = $this->reconocelo_model->addDudaTicket($data);
+            $duda = $this->Reconocelo_model1->addDudaTicket($data);
             if ($duda){
-                $ticketAtencion = $this->reconocelo_model->AtencionTicket();
+                $ticketAtencion = $this->Reconocelo_model1->AtencionTicket();
                 $this->sendEmailTicket($data);
                 if ($ticketAtencion){
-                    $dudaDetalle = $this->reconocelo_model->detalleTicket($duda,$data);
+                    $dudaDetalle = $this->Reconocelo_model1->detalleTicket($duda,$data);
                     if ($dudaDetalle){
                         $this->output->set_output(json_encode($dudaDetalle));
                     }else{
@@ -693,7 +699,7 @@
         /* Funcion Ticket Reconocelo */
 
         public function ticket(){
-            $ticketHistory = $this->reconocelo_model->Get_TicketsReconocelo();
+            $ticketHistory = $this->Reconocelo_model1->Get_TicketsReconocelo();
             
             if ($ticketHistory){
                 $data["ticketHistory"] = $ticketHistory;
@@ -705,10 +711,14 @@
 
         public function historiaTicket(){
             
-            $ticketData = array("idTicket"=>$_POST['idTicket']);
-            $ticketStatus = array("status"=>$_POST['status']);
+            $ticketData = array(
+                "idTicket"=>$this->input->post('idTicket')
+            );
+            $ticketStatus = array(
+                "status"=>$this->input->post('status')
+            );
 
-            $ticketHistory = $this->reconocelo_model->Get_TicketsHistory($ticketData);
+            $ticketHistory = $this->Reconocelo_model1->Get_TicketsHistory($ticketData);
 
             if ($ticketHistory){
                 $data['ticketHistory'] = $ticketHistory;
@@ -724,15 +734,19 @@
 
         public function historiaTicketAnswer(){
 
-            $ticketHistoria = array("idTicketHistory"=>$_POST['idTicketHistory']);
+            $ticketHistoria = array(
+                "idTicketHistory"=>$this->input->post('idTicketHistory')
+            );
             $this->load->view('modalTicketAns_view',$ticketHistoria);
 
         }
 
 
         public function closeTicket(){
-            $ticketDataClose = array("ticketId"=>$_POST['ticketId']);
-            $ticketCloseData = $this->reconocelo_model->closeTicket($ticketDataClose);
+            $ticketDataClose = array(
+                "ticketId"=>$this->input->post('ticketId')
+            );
+            $ticketCloseData = $this->Reconocelo_model1->closeTicket($ticketDataClose);
 
             if ($ticketCloseData){
                 $this->output->set_output(json_encode('ok'));
@@ -743,10 +757,10 @@
 
         public function sendTicketAnswer(){
             $ticketAnswer = array(
-                "ticketId"=>$_POST['ticketId'],
-                "respuestaTicket"=>$_POST['respuestaTicket']
+                "ticketId"=>$this->input->post('ticketId'),
+                "respuestaTicket"=>$this->input->post('respuestaTicket')
             );
-            $ticketHistoryData = $this->reconocelo_model->sendAnswerTicketAdmin($ticketAnswer);
+            $ticketHistoryData = $this->Reconocelo_model1->sendAnswerTicketAdmin($ticketAnswer);
 
             if ($ticketHistoryData){
                 $this->output->set_output(json_encode('ok'));
@@ -756,7 +770,9 @@
         }
 
         public function closeConfirmTicket(){
-            $ticketClose = array("idTicket"=>$_POST['idTicket']);
+            $ticketClose = array(
+                "idTicket"=>$this->input->post('idTicket')
+            );
             $this->load->view('modalTicketClose_view',$ticketClose);
         }
 
@@ -770,12 +786,12 @@
 
         public function updatePasswordReconocelo(){
             $updatePasswordReconoceloData = array(
-                "passwordOld"=>$_POST['passwordOld'],
-                "passwordNew"=>$_POST['passwordNew']
+                "passwordOld"=>$this->input->post('passwordOld'),
+                "passwordNew"=>$this->input->post('passwordNew')
             );
-            $checkPasswordReconocelo = $this->reconocelo_model->checkPasswordReconocelo($updatePasswordReconoceloData);
+            $checkPasswordReconocelo = $this->Reconocelo_model1->checkPasswordReconocelo($updatePasswordReconoceloData);
             if($checkPasswordReconocelo){
-                $updatePasswordReconocelo = $this->reconocelo_model->updatePasswordReconocelo($updatePasswordReconoceloData);
+                $updatePasswordReconocelo = $this->Reconocelo_model1->updatePasswordReconocelo($updatePasswordReconoceloData);
                 if($updatePasswordReconocelo){
                     $this->output->set_output(json_encode($updatePasswordReconocelo));
                 }else{
@@ -798,10 +814,34 @@
 
         /* Funcion salir Reconocelo */
         public function salirReconocelo(){
-            $array_items = array('nombre' => '', 'programa' => '', 'participante' => '', 'empresa' => '', 'status' => '', 'puntos' => '', 'idPart' => '','logged_in' => '');
-            $this->session->unset_userdata($array_items);
+            $userData = array(
+                'logged_in',
+                'nombre',
+                'programa',
+                'participante',
+                'empresa',
+                'status',
+                'puntos',
+                'idPart',
+                'calle',
+                'colonia',
+                'cp',
+                'ciudad',
+                'estado',
+                'iniOrden',
+                'finOrden',
+                'email',
+                'Visibilidad',
+                'pwd'
+            );
+
+
+            //$array_items = array('nombre' => '', 'programa' => '', 'participante' => '', 'empresa' => '', 'status' => '', 'puntos' => '', 'idPart' => '','logged_in' => '');
+            $this->session->unset_userdata($userData);
+            //$this->session->unset_userdata($array_items);
             //Manda al inicio de la página, si no hay session se va al login.
             header( 'Location: '.base_url());
+            //redirect("Ini");
          }
         /* Fin funcion Reconocelo*/
     }

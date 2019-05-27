@@ -19,7 +19,7 @@
                           echo ' aria-expanded="true"';
                       }
                       echo' aria-controls="'.$row['idReglaNombre'].'">
-                          <strong>'.$row['regla'].'</strong>
+                          '.$row['regla'].'
                       </button>
                   </h2>
               </div>

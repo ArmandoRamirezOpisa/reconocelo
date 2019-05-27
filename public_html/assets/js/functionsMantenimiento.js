@@ -12,7 +12,7 @@ function loginMantenimiento() {
     } else {
 
         $.ajax({
-            url: '/mantenimiento/login',
+            url: '/Mantenimiento/login',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -24,7 +24,7 @@ function loginMantenimiento() {
             success: function(result) {
 
                 if (result) {
-                    location.href = "https://" + location.hostname + "/mantenimiento/home";
+                    location.href = "https://" + location.hostname + "/Mantenimiento/home";
                 } else {
                     $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageError').show();
@@ -49,9 +49,9 @@ function optionsParticipante(id) {
     var idOptionParticipante = id.id;
     var optionParticipante = document.getElementById(idOptionParticipante).value;
     if (optionParticipante == "oneParticipantes") {
-        changeOptionParticipante('/mantenimiento/unParticipante');
+        changeOptionParticipante('/Mantenimiento/unParticipante');
     } else if (optionParticipante == "moreParticipantes") {
-        changeOptionParticipante('/mantenimiento/variosParticipantes');
+        changeOptionParticipante('/Mantenimiento/variosParticipantes');
     } else if (optionParticipante == "selecciona") {}
 
 }
@@ -119,7 +119,7 @@ function saveParticipante() {
         }
 
         $.ajax({
-            url: '/mantenimiento/participanteSave',
+            url: '/Mantenimiento/participanteSave',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -201,18 +201,18 @@ function optionsPremio(id) {
     var optionPremio = document.getElementById(idOptionPremio).value;
     if (optionPremio == "A") {
 
-        chanceOpcionPremio('/mantenimiento/altaPremio');
+        chanceOpcionPremio('/Mantenimiento/altaPremio');
 
     } else if (optionPremio == "B") {
 
-        chanceOpcionPremio('/mantenimiento/bajaPremio');
+        chanceOpcionPremio('/Mantenimiento/bajaPremio');
 
     } else if (optionPremio == "U") {
 
-        chanceOpcionPremio('/mantenimiento/updatePremio');
+        chanceOpcionPremio('/Mantenimiento/updatePremio');
 
     } else if (optionPremio == "T") {
-        chanceOpcionPremio('/mantenimiento/transferenciaPremio');
+        chanceOpcionPremio('/Mantenimiento/transferenciaPremio');
     }
 
 }
@@ -263,7 +263,7 @@ function altaPremio() {
         throw new Error("Datos de formulario incompleto");
     } else {
         $.ajax({
-            url: '/mantenimiento/premiosAlta',
+            url: '/Mantenimiento/premiosAlta',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -363,7 +363,7 @@ function premioBajaOk() {
     var codPremioBaja = $('#codPremioBaja').val();
 
     $.ajax({
-        url: '/mantenimiento/premiosBaja',
+        url: '/Mantenimiento/premiosBaja',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -408,7 +408,7 @@ function UpdatePremio(id) {
     if (premio != "") {
 
         $.ajax({
-            url: '/mantenimiento/premiosUpdateInfo',
+            url: '/Mantenimiento/premiosUpdateInfo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -456,7 +456,7 @@ function premioUpdate() {
         $('#MessagePremio').show();
     } else {
         $.ajax({
-            url: '/mantenimiento/premiosUpdateInfoData',
+            url: '/Mantenimiento/premiosUpdateInfoData',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -510,7 +510,7 @@ function uploadPuntosDepoMantenimiento() {
 
     if (numTransaccionMantenimiento != "Selecciona") {
         $.ajax({
-            url: '/mantenimiento/uploadPuntosDepositoMantenimiento',
+            url: '/Mantenimiento/uploadPuntosDepositoMantenimiento',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -540,5 +540,5 @@ function uploadPuntosDepoMantenimiento() {
 
 //Exit mantenimiento
 function salirMantenimiento() {
-    location.href = "https://" + location.hostname + "/mantenimiento/exit_mantenimiento";
+    location.href = "https://" + location.hostname + "/Mantenimiento/exit_mantenimiento";
 }

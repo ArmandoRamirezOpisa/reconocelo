@@ -8,7 +8,7 @@ function loginMonitorReconocelo() {
         $('#errorMessage').show();
     } else {
         $.ajax({
-            url: '/monitor/login',
+            url: location.href + '/login',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -20,7 +20,10 @@ function loginMonitorReconocelo() {
             success: function(result) {
 
                 if (result) {
-                    location.href = "https://" + location.hostname + "/monitor/home";
+
+                    location.href = "https://" + location.hostname + "/Monitor/home";
+                    //console.log(result);
+
                 } else {
                     $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageError').show();
@@ -44,34 +47,34 @@ function MonitorNav(id) {
 
     switch (idNavMonitor) {
         case 'inicioMonitor':
-            location.href = "https://" + location.hostname + "/monitor/home";
+            location.href = "https://" + location.hostname + "/Monitor/home";
             break;
         case 'participantes':
-            location.href = "https://" + location.hostname + "/monitor/participantes";
+            location.href = "https://" + location.hostname + "/Monitor/participantes";
             break;
         case 'depositosPuntos':
-            location.href = "https://" + location.hostname + "/monitor/depositos";
+            location.href = "https://" + location.hostname + "/Monitor/depositos";
             break;
         case 'catologoActual':
-            location.href = "https://" + location.hostname + "/monitor/catalogo";
+            location.href = "https://" + location.hostname + "/Monitor/catalogo";
             break;
         case 'monitorPrograma':
-            location.href = "https://" + location.hostname + "/monitor/programa";
+            location.href = "https://" + location.hostname + "/Monitor/programa";
             break;
         case 'canjesPuntos':
-            location.href = "https://" + location.hostname + "/monitor/canjes";
+            location.href = "https://" + location.hostname + "/Monitor/canjes";
             break;
         case 'depositosPuntosInsertar':
-            location.href = "https://" + location.hostname + "/monitor/insertarDepositos";
+            location.href = "https://" + location.hostname + "/Monitor/insertarDepositos";
             break;
         case 'configuracionUsuarioMonitor':
-            location.href = "https://" + location.hostname + "/monitor/configuracion";
+            location.href = "https://" + location.hostname + "/Monitor/configuracion";
             break;
         case 'olvidoPassword':
-            location.href = "https://" + location.hostname + "/monitor/recuperarPassword";
+            location.href = "https://" + location.hostname + "/Monitor/recuperarPassword";
             break;
         case 'reglasMonitor':
-            location.href = "https://" + location.hostname + "/monitor/reglasMonitor";
+            location.href = "https://" + location.hostname + "/Monitor/reglasMonitor";
             break;
     }
 
@@ -82,7 +85,7 @@ function MonitorNav(id) {
 function Todosparticipantes() {
 
     $.ajax({
-        url: '/monitor/ParticipantesTodos',
+        url: '/Monitor/ParticipantesTodos',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -110,7 +113,7 @@ function Todosparticipantes() {
 function participantesSaldo() {
 
     $.ajax({
-        url: '/monitor/conSaldoParticipantes',
+        url: '/Monitor/conSaldoParticipantes',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -143,7 +146,7 @@ function filtroParticipantes(id) {
         participantesSaldo();
     } else if (idSaldo == 'sinSaldo') {
         $.ajax({
-            url: '/monitor/sinSaldoParticipantes',
+            url: '/Monitor/sinSaldoParticipantes',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -183,28 +186,28 @@ function estadoParticipante() {
         Todosparticipantes();
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioTodosParticipantes.checked == true && EstadoActivo) {
-        estadoParticipantes('/monitor/saldoTodoActivo');
+        estadoParticipantes('/Monitor/saldoTodoActivo');
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioTodosParticipantes.checked == true && EstadoInactivo) {
-        estadoParticipantes('/monitor/saldoTodoInactivo');
+        estadoParticipantes('/Monitor/saldoTodoInactivo');
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoActivo && EstadoInactivo) {
-        estadoParticipantes('/monitor/conSaldoParticipantes');
+        estadoParticipantes('/Monitor/conSaldoParticipantes');
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoActivo) {
-        estadoParticipantes('/monitor/saldoActivo');
+        estadoParticipantes('/Monitor/saldoActivo');
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSaldo.checked == true && EstadoInactivo) {
-        estadoParticipantes('/monitor/saldoInactivo');
+        estadoParticipantes('/Monitor/saldoInactivo');
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo && EstadoInactivo) {
-        estadoParticipantes('/monitor/sinSaldoParticipantes');
+        estadoParticipantes('/Monitor/sinSaldoParticipantes');
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoActivo) {
-        estadoParticipantes('/monitor/sinSaldoActivo');
+        estadoParticipantes('/Monitor/sinSaldoActivo');
         document.getElementById("alertFiltro").style.display = "none";
     } else if (radioParticipantesSinSaldo.checked == true && EstadoInactivo) {
-        estadoParticipantes('/monitor/sinSaldoInactivo');
+        estadoParticipantes('/Monitor/sinSaldoInactivo');
         document.getElementById("alertFiltro").style.display = "none";
     } else {
         document.getElementById("alertFiltro").style.display = "block";
@@ -243,7 +246,7 @@ function infoParticipante(id) {
 
     var codParticipante = id.id;
     $.ajax({
-        url: '/monitor/participanteInfo',
+        url: '/Monitor/participanteInfo',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -288,7 +291,7 @@ function catalogoIMG(id) {
     }
     /* foto catologo */
     $.ajax({
-        url: '/monitor/catalogoImg',
+        url: '/Monitor/catalogoImg',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -319,7 +322,7 @@ function catalogoIMG(id) {
 function depositos() {
 
     $.ajax({
-        url: '/monitor/depositosInfo',
+        url: '/Monitor/depositosInfo',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -361,7 +364,7 @@ function fechaInicioFinSelect() {
             throw new Error("La fecha de inicio es mayor");
         } else if (fechaInicio <= fechaFin) {
             $.ajax({
-                url: '/monitor/depositosInforma',
+                url: '/Monitor/depositosInforma',
                 async: 'true',
                 cache: false,
                 contentType: "application/x-www-form-urlencoded",
@@ -397,7 +400,7 @@ function uploadPuntosDepo() {
 
     if (numTransaccion != "Selecciona") {
         $.ajax({
-            url: '/monitor/uploadPuntosDeposito',
+            url: '/Monitor/uploadPuntosDeposito',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -429,7 +432,7 @@ function uploadPuntosDepo() {
 /* Inicio canjes */
 function canjes() {
     $.ajax({
-        url: '/monitor/canjesInfo',
+        url: '/Monitor/canjesInfo',
         async: 'true',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -470,7 +473,7 @@ function fechaInicioFinSelectCanje() {
         } else if (fechaInicio <= fechaFin) {
 
             $.ajax({
-                url: '/monitor/canjesInforma',
+                url: '/Monitor/canjesInforma',
                 async: 'true',
                 cache: false,
                 contentType: "application/x-www-form-urlencoded",
@@ -510,7 +513,7 @@ function config(id) {
             throw new Error("Datos de formulario incompleto");
         } else {
             $.ajax({
-                url: '/monitor/cambiarUserName',
+                url: '/Monitor/cambiarUserName',
                 async: 'true',
                 cache: false,
                 contentType: "application/x-www-form-urlencoded",
@@ -546,7 +549,7 @@ function config(id) {
             throw new Error("Datos de formulario incompleto");
         } else if (password == passwordConfirm) {
             $.ajax({
-                url: '/monitor/cambiarUserPassword',
+                url: '/Monitor/cambiarUserPassword',
                 async: 'true',
                 cache: false,
                 contentType: "application/x-www-form-urlencoded",
@@ -582,7 +585,7 @@ function sendRecuperaPassword() {
         throw new Error("Datos de formulario incompleto");
     } else {
         $.ajax({
-            url: '/monitor/sendMailRecupera',
+            url: '/Monitor/sendMailRecupera',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -623,7 +626,7 @@ function configNew(id) {
             throw new Error("Datos de formulario incompleto");
         } else {
             $.ajax({
-                url: '/monitor/cambiarUserPasswordNew',
+                url: '/Monitor/cambiarUserPasswordNew',
                 async: 'true',
                 cache: false,
                 contentType: "application/x-www-form-urlencoded",
@@ -659,7 +662,7 @@ function cambiarRegla(id) {
         throw new Error("Rule void");
     } else {
         $.ajax({
-            url: '/monitor/cambiarReglaReconocelo',
+            url: '/Monitor/cambiarReglaReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -703,7 +706,7 @@ function cambiarNombreReglaBtn(id) {
         throw new Error("Caja de texto vacio");
     } else {
         $.ajax({
-            url: '/monitor/cambiarNombreReglaReconocelo',
+            url: '/Monitor/cambiarNombreReglaReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -751,7 +754,7 @@ function addNuevaReglaData() {
         throw new Error("Cajas de texto vacio");
     } else {
         $.ajax({
-            url: '/monitor/addNuevaRegla',
+            url: '/Monitor/addNuevaRegla',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -806,7 +809,7 @@ function exit() {
         dangerMode: true,
     }).then(function(isConfirm) {
         if (isConfirm) {
-            location.href = "https://" + location.hostname + "/monitor/salirMonitor";
+            location.href = "https://" + location.hostname + "/Monitor/salirMonitor";
         } else {}
     });
 

@@ -5,21 +5,24 @@
         public function __construct() {
             parent::__construct();
             $this->load->library('email');
-            $this->load->model("reconocelo_model");
+            $this->load->model("Reconocelo_model1");
         }
 
     	public function index(){
 			
             if ($this->session->userdata('administardor')) {
-                header( 'Location: '.base_url().'ticketsAdmin/home');
+                header( 'Location: '.base_url().'TicketsAdmin/home');
             } else {
                 $this->load->view('home_adminList_view');
             }
         }
 
         public function login(){
-            $loginTicketAdmin = array("usuario"=>$_POST['usuario'],"password"=>$_POST['password']);
-            $userTicketExist = $this->reconocelo_model->loginUserTicket($loginTicketAdmin);
+            $loginTicketAdmin = array(
+                "usuario"=>$this->input->post('usuario'),
+                "password"=>$this->input->post('password')
+            );
+            $userTicketExist = $this->Reconocelo_model1->loginUserTicket($loginTicketAdmin);
             if ($userTicketExist){
                 $userTicketExist = array(
                     'administrador' => TRUE,
@@ -36,7 +39,7 @@
         }
 
         public function home(){
-            $ticketListAdmin = $this->reconocelo_model->ticketsAdmin();
+            $ticketListAdmin = $this->Reconocelo_model1->ticketsAdmin();
             if ($ticketListAdmin){
                 $data['ticketListAdmin'] = $ticketListAdmin;
             }else{
@@ -48,11 +51,11 @@
 
         public function sendTicketAnswer(){
             $ticketAnswerAdmin = array(
-                "ticketId"=>$_POST['ticketId'],
-                "respuestaTicket"=>$_POST['respuestaTicket']
+                "ticketId"=>$this->input->post('ticketId'),
+                "respuestaTicket"=>$this->input->post('respuestaTicket')
             );
 
-            $ticketHistoryData = $this->reconocelo_model->sendAnswerTicketAdmin($ticketAnswerAdmin);
+            $ticketHistoryData = $this->Reconocelo_model1->sendAnswerTicketAdmin($ticketAnswerAdmin);
 
             $mailAdministradorTickets = $this->session->userdata('idPart');
             if($mailAdministradorTickets){
@@ -62,13 +65,13 @@
                 $ticketId = $ticketAnswerAdmin['ticketId'];
                 $RespuestaTicket = $ticketAnswerAdmin['respuestaTicket'];
 
-                $participanteTicket = $this->reconocelo_model->participanteTicket($ticketId);
+                $participanteTicket = $this->Reconocelo_model1->participanteTicket($ticketId);
 
                 $ParticipanteId = $participanteTicket[0]['idParticipante'];
 
                 $fechaCreacion = $participanteTicket[0]['FechaCreacion'];
 
-                $datosParticipante = $this->reconocelo_model->datosParticipante($ParticipanteId);
+                $datosParticipante = $this->Reconocelo_model1->datosParticipante($ParticipanteId);
 
                 /* Notificacion por correo */
                 //Configuracion de SMTP
@@ -389,7 +392,7 @@
             $array_items = array('administrador' => '', 'Usuario' => '');
             $this->session->unset_userdata($array_items);
             //Manda al inicio de la página, si no hay session se va al login.
-            header( 'Location: '.base_url().'ticketsAdmin');
+            header( 'Location: '.base_url().'TicketsAdmin');
         }
 
     }
