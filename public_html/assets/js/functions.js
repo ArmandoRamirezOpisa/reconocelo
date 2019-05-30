@@ -48,7 +48,7 @@ function loadSection(controller, divSel) {
         contentType: "application/x-www-form-urlencoded",
         dataType: "html",
         error: function(object, error, anotherObject) {
-            alert('Mensaje: ' + object.statusText + 'Status: ' + object.status);
+            console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
         },
         global: true,
         ifModified: false,
@@ -212,7 +212,6 @@ function enviar_pregunta() {
 
     if ($('#mensaje').val().trim() == "") {
         $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de agregar una descripcion para poder enviar su duda.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        //$.notify("Debe de agregar una descripcion para poder enviar su duda", "error");
     } else {
         var pregunta = $('select[name=preguntas]').val();
         var orden = $('select[name=orden]').val();
@@ -222,7 +221,7 @@ function enviar_pregunta() {
         if (pregunta == "Articulo de mi orden") {
             if (pregunta == "Selecciona" || articulo == "Selecciona") {
                 $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de seleccionar una orden o artículo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                //$.notify("Debe de seleccionar una orden o artículo", "error");
+
             } else {
                 var fields = articulo.split('-');
                 var idCanjeArticulo = fields[0];
@@ -232,14 +231,12 @@ function enviar_pregunta() {
         } else if (pregunta == "Sobre mi orden") {
             if (orden == "Selecciona" || temaOrden == "") {
                 $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de seleccionar una orden o escribir el tema.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                //$.notify("Debe de seleccionar una orden o escribir el tema", "error");
             } else {
                 enviarPregunta1(orden, temaOrden, mensaje, 2);
             }
         } else if (pregunta == "otro") {
             if (temaOrden == "") {
                 $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de escribir el tema.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                //$.notify("Debe de escribir el tema", "error");
             } else {
                 orden = 0;
                 enviarPregunta1(orden, temaOrden, mensaje, 3);
@@ -485,7 +482,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                 if (click == 1) {
                     document.getElementById('btnGenCanje').style.display = "none";
                     if (contOrder.length > 0) {
-                        var jsonString = JSON.stringify(contOrder); //Pasa array a formato JSON
+                        var jsonString = JSON.stringify(contOrder);
                         var address = $("#frmCanjeDir").serializeArray();
                         $.ajax({
                             type: 'POST',
