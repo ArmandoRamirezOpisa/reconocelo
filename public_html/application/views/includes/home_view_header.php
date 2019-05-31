@@ -81,6 +81,10 @@
         </div>
         <div class="row justify-content-center mt-4 mb-4 animated apareciendo" id="homeReconocelo">
             <div class="col-12 col-md-4 mt-4">
-                <img src="assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
+                <?if($this->session->userdata('urlEmp') == 'https://reconocelo.com.mx/'){?>
+                    <img src="assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
+                    <?}else{?>
+                        <img src="<?= base_url() ?>/assets/images/<?=   $data = $this->session->userdata('empresa'); ?>.png" class="img-fluid mt-4" alt="Responsive image">';
+                    <?}?>
             </div>
         </div>

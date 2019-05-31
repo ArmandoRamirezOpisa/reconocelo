@@ -52,7 +52,7 @@
 				$userData = array(
                     'logged_in'      => TRUE,
                     'nombre'      	  => $login['result'][0]->PrimerNombre,
-                    'programa'   	  => $login['result'][0]->codPrograma,
+                    'programa'  	  => $login['result'][0]->codPrograma,
                     'participante'	  => $login['result'][0]->codParticipante,
                     'empresa'        => $login['result'][0]->codEmpresa,
                     'status'         => $login['result'][0]->Status,
@@ -66,8 +66,8 @@
                     'iniOrden'       => $login['result'][0]->fhInicioOrden,
                     'finOrden'       => $login['result'][0]->fhFinOrden,
                     'email'          => $email_s,
-                    'Visibilidad'       => Visibilidad,
-                    'pwd' => $login['result'][0]->pwd
+                    'pwd' => $login['result'][0]->pwd,
+                    'urlEmp' => $login['result'][0]->urlEmpresa
                 );
                 $this->session->set_userdata($userData);
 				$this->output->set_output(json_encode($login['result'][0]));
@@ -814,34 +814,18 @@
 
         /* Funcion salir Reconocelo */
         public function salirReconocelo(){
-            $userData = array(
-                'logged_in',
-                'nombre',
-                'programa',
-                'participante',
-                'empresa',
-                'status',
-                'puntos',
-                'idPart',
-                'calle',
-                'colonia',
-                'cp',
-                'ciudad',
-                'estado',
-                'iniOrden',
-                'finOrden',
-                'email',
-                'Visibilidad',
-                'pwd'
-            );
 
+            $urlRedirect = $this->session->userdata('urlEmp');
 
-            //$array_items = array('nombre' => '', 'programa' => '', 'participante' => '', 'empresa' => '', 'status' => '', 'puntos' => '', 'idPart' => '','logged_in' => '');
-            $this->session->unset_userdata($userData);
-            //$this->session->unset_userdata($array_items);
-            //Manda al inicio de la página, si no hay session se va al login.
-            header( 'Location: '.base_url());
-            //redirect("Ini");
+            if($urlRedirect == 'https://reconocelo.com.mx/'){
+                $userData = array(
+                    'logged_in','nombre','programa','participante','empresa','status','puntos','idPart',
+                    'calle','colonia','cp','ciudad','estado','iniOrden','finOrden','email','pwd','urlEmp'
+                );
+    
+                $this->session->unset_userdata($userData);
+                header( 'Location: '.base_url());
+            }
          }
         /* Fin funcion Reconocelo*/
     }
