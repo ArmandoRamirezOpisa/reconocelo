@@ -537,7 +537,7 @@
                         pr.codPremio, pr.Nombre_Esp as Premio, Caracts_Esp, Marca, Modelo, pp.ValorPuntos 
                         FROM Premio pr 
                         JOIN PremioPrograma pp on pr.codPremio=pp.codPremio
-                        JOIN t213kpCategoriaPremio c on c.codCategoria=pr.codCategoria
+                        JOIN CategoriaPremio c on c.codCategoria=pr.codCategoria
                         WHERE pp.codPrograma='41' and pp.codEmpresa='".$this->session->userdata('CodEmpresa')."'
                         ORDER BY 10,5
                   ");

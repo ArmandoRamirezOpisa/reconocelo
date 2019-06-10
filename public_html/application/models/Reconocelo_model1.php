@@ -22,7 +22,7 @@ class Reconocelo_model1 extends CI_Model {
     public function getCategory(){
         $query = $this->db->query("
             SELECT distinct(cp.nbCategoria) as nbCategoria,cp.CodCategoria                                          
-            FROM t213kpCategoriaPremio cp 
+            FROM CategoriaPremio cp 
             JOIN PremioPrograma pp ON pp.codCategoria = cp.codCategoria                                 
             WHERE pp.CodEmpresa = ".$this->session->userdata('empresa')."
             AND pp.codPrograma = ".$this->session->userdata('programa')." 
