@@ -6,12 +6,11 @@
                   $password = $datos['password'];
                   $query = $this->db->query("          
                         SELECT adm.CodEmpresa,adm.CodPrograma,adm.Usuario,adm.email,emp.NombreOficial as empresa
-                        FROM opisa_opisa.administrador as adm inner join opisa_opisa.Programa as
+                        FROM opisa_opisa.Administrador as adm inner join opisa_opisa.Programa as
                         pr on adm.CodPrograma = pr.codPrograma
                         inner join opisa_opisa.Empresa as emp on emp.codEmpresa = adm.CodEmpresa 
                         and adm.Usuario = '".$usuario."' and adm.Pwd = '".$password."'
-                  ;");
-        
+                  ;");        
                   if ($query) {
                         return $query->result_array() ;
                   }else{
@@ -20,9 +19,6 @@
                   }
             }
 
-            /* Modelo participantes */
-
-            //Todos los participantes
             public function getTodosParticipantes(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante ,pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -40,7 +36,6 @@
                   }
             }
 
-            //Participantes con saldo
             public function geTParticipantesSaldo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -59,7 +54,6 @@
                   }
             }
 
-            //Participantes sin saldo
             public function geTParticipantesSinSaldo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -78,7 +72,6 @@
                   }
             }
 
-            //Participantes todos activos
             public function geTodoSaldoActivo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -97,7 +90,6 @@
                   }
             }
 
-            //Participantes todos inactivos
             public function geTodoInactivo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -116,7 +108,6 @@
                   }
             }
 
-            //Participantes activos con saldo
             public function getSaldoActivo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -136,7 +127,6 @@
                   }
             }
 
-            //Participantes con saldo inactivos
             public function geTSaldoInactivo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -156,7 +146,6 @@
                   }
             }
 
-            //Participantes sin saldo activos
             public function geTSinSaldoActivo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -176,7 +165,6 @@
                   }
             }
 
-            //Participantes sin saldo inactivos
             public function geTSinSaldoInactivo(){
                   $query = $this->db->query("
                         SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
@@ -213,7 +201,7 @@
                   $query = $this->db->query("
                         select c.idCanje as Folio, c.feSolicitud as Fecha, d.cantidad,d.codPremio, 
                         pr.Nombre_Esp as Descripcion,d.PuntosXUnidad*d.cantidad*-1 as Puntos
-                        FROM PreCanje c JOIN PreCanjeDet d on c.idParticipante=d.idParticipante 
+                        FROM Canje c JOIN CanjeDetalle d on c.idParticipante=d.idParticipante 
                         and c.idCanje=d.noFolio JOIN Participante p on p.idParticipante=c.idParticipante
                         JOIN Premio pr on pr.codPremio=d.codPremio
                         WHERE p.codPrograma=".$codPrograma."
@@ -235,9 +223,6 @@
                         return false;
                   }
             }
-            /* Fin Modelo participantes*/
-
-            /* Modelo Depositos */
 
             public function getFechaDeposito(){
                   $query = $this->db->query("
@@ -257,8 +242,7 @@
                   }
             }
 
-            public function getDeposito()
-            {
+            public function getDeposito(){
     		      $query = $this->db->query("
                         SELECT m.noFolio, p.idParticipante,
                         CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', 
@@ -280,8 +264,7 @@
     		      }
             }
 
-            public function getDepositoFechas($infoFechas)
-            {
+            public function getDepositoFechas($infoFechas){
     		      $query = $this->db->query("
                         SELECT m.noFolio, p.idParticipante,CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', 
                         p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) AS Nombre, 
@@ -305,7 +288,7 @@
 
             public function insertDepositoMasivo($usuario){
                   $query = $this->db->query("                            
-                        INSERT INTO `opisa_opisa`.`despositos_dev`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
+                        INSERT INTO `opisa_opisa`.`Despositos`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
                         VALUES (NOW(),'".$this->session->userdata('CodEmpresa')."',0)
                   ");
     	            if ($query)
@@ -330,7 +313,7 @@
                                           if($valoresDefinidosDepositos[0] == "Cliente" || $valoresDefinidosDepositos[1] == "Puntos" || $valoresDefinidosDepositos[2] == "Concepto"){}
                                           else{
                                                 $query = $this->db->query("
-                                                      INSERT INTO `opisa_opisa`.`depositosDet_dev`(`idDeposito`, 
+                                                      INSERT INTO `opisa_opisa`.`DepositosDet`(`idDeposito`, 
                                                       `idParticipanteCliente`, `Puntos`, `Concepto`, 
                                                       `fechaRegistro`, `status`) 
                                                       VALUES ('".$depositoMasivo."','".$valoresDefinidosDepositos[0]."',
@@ -354,7 +337,7 @@
             public function totalPuntos($depositoMasivo){
                   $query = $this->db->query("
                         SELECT SUM( Puntos ) AS Puntos
-                        FROM depositosDet_dev
+                        FROM DepositosDet
                         WHERE idDeposito ='".$depositoMasivo."'
                   ");
     		      if ($query->num_rows() > 0)
@@ -368,7 +351,7 @@
             public function verDepositosUsuario(){
                   $query = $this->db->query("
                         SELECT idDeposito
-                        FROM  `despositos_dev` 
+                        FROM  `Despositos`
                         WHERE idParticipanteCliente ='".$this->session->userdata('CodEmpresa')."'
                         AND standBy = 0
                   ");
@@ -383,7 +366,7 @@
             public function getDepositosDet($numTransaccion){
                   $query = $this->db->query("
                         SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS 
-                        FROM depositosDet_dev
+                        FROM DepositosDet
                         WHERE idDeposito =".$numTransaccion['numTransaccion']."
                   ");
     		      if ($query->num_rows() > 0)
@@ -411,7 +394,7 @@
 
             public function UpdateDepositosDet($numTransaccion,$idParticipanteCliente){
                   $query = $this->db->query("
-                        UPDATE `depositosDet_dev` 
+                        UPDATE `DepositosDet`
                         SET `status`= 1 
                         WHERE `idDeposito` = ".$numTransaccion['numTransaccion']." 
                         and `idParticipanteCliente` = ".$idParticipanteCliente
@@ -453,24 +436,21 @@
 
             public function UpdateMasterDeposito($numTransaccion){
                   $query = $this->db->query("
-                        UPDATE  `opisa_opisa`.`despositos_dev` 
+                        UPDATE  `opisa_opisa`.`Despositos`
                         SET  `standBy` =  '1' 
-                        WHERE  `despositos_dev`.`idDeposito` = ".$numTransaccion['numTransaccion'].";
-                  ");//Este no quiere actualizar
+                        WHERE  `Despositos`.`idDeposito` = ".$numTransaccion['numTransaccion'].";
+                  ");
 			if ($query){
 			      return true;
 			}else{
 				return false;
 			}
             }
-            /* Fin Modelo Depositos */
-
-            /* Modelo Canjes */
 
             public function getFechaCanje(){
                   $query = $this->db->query("
                       SELECT DISTINCT DATE_FORMAT( pc.feSolicitud,  '%Y %m' ) AS Fecha
-                      FROM PreCanje pc
+                      FROM Canje pc
                       JOIN Participante p ON p.idParticipante = pc.idParticipante
                       WHERE p.codEmpresa =".$this->session->userdata('CodEmpresa')."
                       AND p.CodPrograma =41
@@ -485,17 +465,38 @@
                   }
             }
 
-            public function getCanje()
-            {
+            public function getCanje(){
                   $query = $this->db->query("
                         SELECT idCanje, p.idParticipante, 
                         CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) 
                         AS Nombre, pc.feSolicitud, pc.fhExp, pcd.PuntosXUnidad
-                        FROM PreCanje pc, Participante p, PreCanjeDet pcd
+                        FROM Canje pc, Participante p, CanjeDetalle pcd
                         WHERE pc.idParticipante = p.idParticipante
                         AND pc.idCanje = pcd.noFolio
                         AND pc.codPrograma =41
                         AND p.codEmpresa =".$this->session->userdata('CodEmpresa')."
+                        ORDER BY pc.feSolicitud
+                  ");
+                  if ($query->num_rows() > 0)
+                  {
+                        return $query->result_array();
+                  }else{
+                        return false;
+                  }
+            }
+
+            public function getCanjeFechas($infoFechas){
+                  $query = $this->db->query("
+                        SELECT idCanje, p.idParticipante, 
+                        CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) 
+                        AS Nombre, pc.feSolicitud, pc.fhExp, pcd.PuntosXUnidad
+                        FROM Canje pc, Participante p, CanjeDetalle pcd
+                        WHERE pc.idParticipante = p.idParticipante
+                        AND pc.idCanje = pcd.noFolio
+                        AND pc.codPrograma =41
+                        AND p.codEmpresa =".$this->session->userdata('CodEmpresa')."
+                        AND DATE_FORMAT( pc.feSolicitud,  '%Y %m' ) >= '".$infoFechas['fechaInicio']."'
+                        AND DATE_FORMAT( pc.feSolicitud,  '%Y %m' ) <= '".$infoFechas['fechaFin']."'
                         ORDER BY pc.feSolicitud
                   ");
                   if ($query->num_rows() > 0)
@@ -506,31 +507,6 @@
                   }
             }
 
-            public function getCanjeFechas($infoFechas)
-            {
-                  $query = $this->db->query("
-                        SELECT idCanje, p.idParticipante, 
-                        CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) 
-                        AS Nombre, pc.feSolicitud, pc.fhExp, pcd.PuntosXUnidad
-                        FROM PreCanje pc, Participante p, PreCanjeDet pcd
-                        WHERE pc.idParticipante = p.idParticipante
-                        AND pc.idCanje = pcd.noFolio
-                        AND pc.codPrograma =41
-                        AND p.codEmpresa =".$this->session->userdata('CodEmpresa')."
-                        AND DATE_FORMAT( pc.feSolicitud,  '%Y %m' ) >= '".$infoFechas['fechaInicio']."'
-                        AND DATE_FORMAT( pc.feSolicitud,  '%Y %m' ) <= '".$infoFechas['fechaFin']."'
-                        ORDER BY Fecha
-                  ");
-                  if ($query->num_rows() > 0)
-                  {
-                        return $query->result_array(); 
-                  }else{
-                        return false;
-                  }
-            }
-            /* Fin Modelo canjes */
-
-            /* Modelo catalogo */
             public function getCatalogo(){
                   $query = $this->db->query("
                         SELECT pp.codPrograma, pp.codEmpresa, c.codCategoria, c.nbCategoria as Categoria, 
@@ -560,9 +536,7 @@
                         return false;
     		      }
             }
-            /* Fin Modelo catalogo */
 
-            /* Modelo programa */
             public function getPrograma(){
                   $query = $this->db->query("
                         SELECT DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha, 
@@ -586,7 +560,7 @@
                   $query = $this->db->query("
                         SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha, 
                         SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
-                        FROM PreCanjeDet cd, PreCanje c, Participante p
+                        FROM CanjeDetalle cd, Canje c, Participante p
                         WHERE cd.noFolio = c.idCanje
                         AND cd.idParticipante = c.idParticipante
                         AND c.idParticipante = p.idParticipante
@@ -594,7 +568,7 @@
                         AND c.codPrograma =41
                         AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
                         GROUP BY DATE_FORMAT( feSolicitud,  '%Y %m' ) 
-                        ORDER BY 1                      
+                        ORDER BY 1                 
                   ");
                   if ($query->num_rows() > 0){
                         return $query->result_array(); 
@@ -602,12 +576,10 @@
                         return false;
                   }
             }
-            /* Fin Modelo programa */
 
-            /* Modelo Configuracion usuario */
             public function cambiarNombre($usuario){
                   $query = $this->db->query("
-                      UPDATE `administrador` SET `Usuario`='".$usuario['usuario']." '
+                      UPDATE `Administrador` SET `Usuario`='".$usuario['usuario']." '
                       WHERE `CodEmpresa` = ".$this->session->userdata('CodEmpresa')."
                   ");
                   if ($query){
@@ -619,7 +591,7 @@
 
             public function cambiarPassword($password){
                   $query = $this->db->query("
-                      UPDATE `administrador` SET `Pwd`=".$password['password']." 
+                      UPDATE `Administrador` SET `Pwd`=".$password['password']." 
                       WHERE `CodEmpresa` = ".$this->session->userdata('CodEmpresa')."
                   ");
                   if ($query){
@@ -632,7 +604,7 @@
             public function checkMailExits($email){
                   $query = $this->db->query("
                       SELECT Usuario, CodEmpresa
-                      FROM administrador
+                      FROM Administrador
                       WHERE email =  '".$email['email']."'
                   ");
                   if ($query->num_rows() > 0){
@@ -644,7 +616,7 @@
 
             public function cambiarPasswordNew($passwordConfig){
                   $query = $this->db->query("
-                      UPDATE `administrador` SET `Pwd`=".$passwordConfig['password']." 
+                      UPDATE `Administrador` SET `Pwd`=".$passwordConfig['password']." 
                       WHERE `CodEmpresa` = ".$passwordConfig['codEmpresa']."
                       AND `Usuario` = '".$passwordConfig['usuario']."'
                   ");
@@ -654,6 +626,5 @@
                         return false;
                   }
             }
-            /* Fin Modelo configuracion usuario */
       }
 ?>

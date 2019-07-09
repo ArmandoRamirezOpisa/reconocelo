@@ -13,13 +13,9 @@
                 AND  pwd = md5('".$password."')
             ");
             if ($query->num_rows() == 1){
-
                 return $query->result_array(); 
-
             }else{
-
                 return false;
-
             }
         }
 
@@ -27,7 +23,6 @@
         {
             $usuario =$loginMantenimientoData['usuario'];
             $password = $loginMantenimientoData['password'];
-                        
             $query = $this->db->query("
                 SELECT pp.codPrograma,pp.codEmpresa,pp.codParticipante,pp.Status,pp.Cargo,
                 pp.PrimerNombre,pp.SegundoNombre,pp.ApellidoPaterno,pp.ApellidoMaterno,pp.eMail,
@@ -41,18 +36,13 @@
                 AND pp.Status = 1
             ");
             if ($query->num_rows() == 1){
-
-                return $query->result_array(); 
-
+                return $query->result_array();
             }else{
-
                 return false;
-
             }
         }
 
         public function participanteMantenimientoExits($saveParticipantesData){
-
             $query = $this->db->query("
             SELECT loginWeb, codPrograma, codEmpresa, codParticipante, Status, Cargo, PrimerNombre, SegundoNombre, 
             ApellidoPaterno, ApellidoMaterno, CalleNumero, Colonia, CP, Ciudad, Estado, Pais, Telefono, 
@@ -68,11 +58,9 @@
             }else{
                 return false;
             }
-
         }
 
         public function participanteMantenimiento($saveParticipantesData){
-
             $query = $this->db->query("
                 INSERT INTO `opisa_opisa`.`Participante`(`loginWeb`, `codPrograma`, `codEmpresa`, `codParticipante`, 
                 `Status`, `Cargo`, `PrimerNombre`, `SegundoNombre`, `ApellidoPaterno`, `ApellidoMaterno`, 
@@ -141,7 +129,7 @@
     	                        }else{
                                     $valorReturn = false;
     	                        }
-                            }                                           
+                            }
                         }
                     }
                 }
@@ -149,9 +137,7 @@
             return $valorReturn;
         }
 
-        /* Premios alta */
         public function premioMantenimientoExits($savePremioData){
-
             $query = $this->db->query("
                 SELECT codPremio, CodCategoria, codProveedor, Marca, Modelo, Nombre_Esp, Nombre_Ing, Caracts_Esp, 
                 Caracts_Ing
@@ -163,11 +149,9 @@
             }else{
                 return false;
             }
-
         }
 
         public function premioMantenimiento($savePremioData){
-
             $query = $this->db->query("
                 INSERT INTO `opisa_opisa`.`Premio`(`codPremio`, `CodCategoria`, `codProveedor`, `Marca`, `Modelo`, 
                 `Nombre_Esp`, `Nombre_Ing`, `Caracts_Esp`, `Caracts_Ing`) VALUES ('".$savePremioData['codPremio']."',
@@ -180,7 +164,6 @@
             }else{
                 return false;
             }
-
         }
 
         public function premioProgramaMantenimiento($savePremioData){
@@ -198,9 +181,7 @@
                 return false;
             }
         }
-        /* Fin premios alta */
 
-        /* Baja premios */
         public function premioDelete($savePremioData){
             $query = $this->db->query("
                 DELETE FROM `opisa_opisa`.`PremioPrograma` WHERE `codPremio` = '".$savePremioData['codPremio']."'
@@ -211,12 +192,8 @@
                 return false;
             }
         }
-        /* Fin baja premios */ 
 
-        /* Update premios */
-        //Buscando premios
         public function premioData(){
-
             $query = $this->db->query("
                 SELECT codPremio, Nombre_Esp
                 FROM Premio
@@ -227,7 +204,6 @@
     		}else{
                 return false;
     		}
-
         }
 
         public function premioProgramaMantenimientoExits($savePremioData){
@@ -272,12 +248,10 @@
                 return false;
             }
         }
-        /* Fin update premios */
 
-        /* Subir depositos mantenimiento */
         public function insertDepositoMasivoMantenimiento(){
             $query = $this->db->query("                            
-                INSERT INTO `opisa_opisa`.`despositos_dev`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
+                INSERT INTO `opisa_opisa`.`Despositos`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
                 VALUES (NOW(),'41160001',0)
             ");
     	    if ($query){
@@ -301,7 +275,7 @@
                             if($valoresDefinidosDepositos[0] == "idParticipante" || $valoresDefinidosDepositos[1] == "Puntos" || $valoresDefinidosDepositos[2] == "Concepto"){}
                             else{
                                 $query = $this->db->query("
-                                    INSERT INTO `opisa_opisa`.`depositosDet_dev`(`idDeposito`, 
+                                    INSERT INTO `opisa_opisa`.`DepositosDet`(`idDeposito`, 
                                     `idParticipanteCliente`, `Puntos`, `Concepto`, 
                                     `fechaRegistro`, `status`) 
                                     VALUES ('".$depositoMasivo."','".$valoresDefinidosDepositos[0]."',
@@ -313,7 +287,7 @@
     	                        }else{
                                     $valorReturn = false;
     	                        }
-                            }                                           
+                            }
                         }
                     }
                 }
@@ -324,7 +298,7 @@
         public function verDepositosUsuarioMantenimiento(){
             $query = $this->db->query("
                 SELECT idDeposito
-                FROM  `despositos_dev` 
+                FROM  `Despositos`
                 WHERE idParticipanteCliente ='41160001'
                 AND standBy = 0
             ");
@@ -338,7 +312,7 @@
         public function getDepositosDetMantenimiento($numTransaccionMantenimiento){
             $query = $this->db->query("
                 SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS 
-                FROM depositosDet_dev
+                FROM DepositosDet
                 WHERE idDeposito =".$numTransaccionMantenimiento['numTransaccionMantenimiento']."
             ");
     		if ($query->num_rows() > 0){
@@ -363,7 +337,7 @@
 
         public function UpdateDepositosDetMantenimiento($numTransaccionMantenimiento,$idParticipanteCliente){
             $query = $this->db->query("
-                UPDATE `depositosDet_dev` 
+                UPDATE `DepositosDet` 
                 SET `status`= 1 
                 WHERE `idDeposito` = ".$numTransaccionMantenimiento['numTransaccionMantenimiento']." 
                 and `idParticipanteCliente` = ".$idParticipanteCliente
@@ -404,17 +378,15 @@
 
         public function UpdateMasterDepositoMantenimiento($numTransaccionMantenimiento){
             $query = $this->db->query("
-                UPDATE  `opisa_opisa`.`despositos_dev` 
+                UPDATE  `opisa_opisa`.`Despositos`
                 SET  `standBy` =  '1' 
-                WHERE  `despositos_dev`.`idDeposito` = ".$numTransaccionMantenimiento['numTransaccionMantenimiento'].";
-            ");//Este no quiere actualizar
+                WHERE  `Despositos`.`idDeposito` = ".$numTransaccionMantenimiento['numTransaccionMantenimiento'].";
+            ");
             if ($query){
                 return true;
             }else{
                 return false;
             }
         }
-        /* fin subir depositos mantenimiento */ 
-
 	}
 ?>

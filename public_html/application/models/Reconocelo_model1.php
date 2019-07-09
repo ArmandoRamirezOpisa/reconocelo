@@ -6,19 +6,20 @@ class Reconocelo_model1 extends CI_Model {
     }
     function loginReconocelo($loginReconoceloData) {
         $query = $this->db->query('
-        SELECT pp.codPrograma,pp.codEmpresa,pp.codParticipante,pp.Status,pp.Cargo,
-        pp.PrimerNombre,pp.SegundoNombre,pp.ApellidoPaterno,pp.ApellidoMaterno,pp.eMail,
-        pp.SaldoActual,pp.idParticipante,pp.CalleNumero, pp.Colonia, pp.CP,pp.Ciudad,pp.Estado,
-        pp.eMail,pp.Telefono,pp.fhInicioOrden,pp.fhFinOrden,Emp.Visibilidad,pp.pwd,Emp.urlEmpresa
-        FROM Participante AS pp 
-        INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
-        WHERE pp.codPrograma = 41
-        AND pp.loginWeb = '.$loginReconoceloData['usuarioReconocelo'].'
-        AND pwd = md5('.$loginReconoceloData['passwordReconocelo'].')
-        AND pp.Status = 1
+            SELECT pp.codPrograma,pp.codEmpresa,pp.codParticipante,pp.Status,pp.Cargo,
+            pp.PrimerNombre,pp.SegundoNombre,pp.ApellidoPaterno,pp.ApellidoMaterno,pp.eMail,
+            pp.SaldoActual,pp.idParticipante,pp.CalleNumero, pp.Colonia, pp.CP,pp.Ciudad,pp.Estado,
+            pp.eMail,pp.Telefono,pp.fhInicioOrden,pp.fhFinOrden,Emp.Visibilidad,pp.pwd,Emp.urlEmpresa
+            FROM Participante AS pp 
+            INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
+            WHERE pp.codPrograma = 41
+            AND pp.loginWeb = '.$loginReconoceloData['usuarioReconocelo'].'
+            AND pwd = md5('.$loginReconoceloData['passwordReconocelo'].')
+            AND pp.Status = 1
         ');
         return $query->result();
     }
+
     public function getCategory(){
         $query = $this->db->query("
             SELECT distinct(cp.nbCategoria) as nbCategoria,cp.CodCategoria                                          
@@ -35,6 +36,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function getAwards($idCat){
         $query = $this->db->query("
             SELECT DISTINCT (p.codPremio) AS codPremio, p.Nombre_Esp, p.Caracts_Esp, pp.ValorPuntos
@@ -62,10 +64,11 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }     
     }
+
     public function getDataItem($idItem){
         $query = $this->db->query("
             SELECT p.codPremio,p.Nombre_Esp,p.Caracts_Esp,pp.ValorPuntos
-            FROM Premio p 
+            FROM Premio p
             INNER JOIN PremioPrograma pp ON pp.codPremio = p.codPremio 
             WHERE pp.codPrograma = ". $this->session->userdata('programa')." 
             AND p.codPremio = ".$idItem
@@ -77,14 +80,15 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function misPreCanjes(){
         $query=$this->db->query("
             SELECT p.idCanje,p.feSolicitud,d.Cantidad,pr.Nombre_Esp,d.Status,d.Mensajeria,
             d.NumeroGuia,d.Cantidad*d.PuntosXUnidad *-1 as puntos
-            FROM PreCanje p
-            INNER JOIN PreCanjeDet d on d.noFolio = p.idCanje
+            FROM Canje p
+            INNER JOIN CanjeDetalle d on d.noFolio = p.idCanje
             INNER join Premio pr ON pr.codPremio = d.CodPremio 
-            WHERE  
+            WHERE
             p.codPrograma = ".$this->session->userdata('programa')."
             AND p.idParticipante = ".$this->session->userdata('idPart')."
             UNION ALL SELECT p.NoFolio as idCanje, p.feMov as feSolicitud,null as Cantidad, 
@@ -99,6 +103,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function saldoActualParticipante(){
         $query=$this->db->query("
             SELECT SaldoActual
@@ -112,12 +117,13 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function checkAddCanje(){
         $address = $this->input->post("address");
         $query=$this->db->query("
             SELECT codPrograma, idParticipante, noTipoEntrega, CalleNumero, Colonia, CP, 
             Ciudad, Estado, Telefono, referencias
-            FROM  `PreCanje` 
+            FROM  `Canje`
             WHERE codPrograma = ".$this->session->userdata('programa')."
             AND idParticipante = ".$this->session->userdata('idPart')."
             AND noTipoEntrega = 1
@@ -135,10 +141,11 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function addCanje(){
         $address = $this->input->post("address");
         $query = $this->db->query("
-            INSERT INTO `opisa_opisa`.PreCanje (codPrograma,idParticipante,noTipoEntrega,CalleNumero,Colonia,
+            INSERT INTO `opisa_opisa`.Canje (codPrograma,idParticipante,noTipoEntrega,CalleNumero,Colonia,
             CP,Ciudad,Estado,Telefono,referencias)
             VALUES (".$this->session->userdata('programa').",
             ".$this->session->userdata('idPart').",1,'".$_POST["address"][0]["value"]."',
@@ -153,12 +160,13 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }  
     }
+
     public function addDetCanje($datos,$noFolio){
         $err = 0;
         $nItem = 1;
         foreach($datos as $d){
             $query = $this->db->query("
-                INSERT INTO `opisa_opisa`.PreCanjeDet (idParticipante,noFolio,idPreCanjeDet,CodPremio,
+                INSERT INTO `opisa_opisa`.CanjeDetalle (idParticipante,noFolio,idPreCanjeDet,CodPremio,
                 cantidad,PuntosXUnidad)
                 VALUES (".$this->session->userdata('idPart').",".$noFolio.",".$nItem.",
                 ".$d->id.",".$d->cantidad.",".$d->puntos.")
@@ -173,8 +181,9 @@ class Reconocelo_model1 extends CI_Model {
         if ($err > 0){
             return false;
         }
-            return true;
+        return true;
     }
+
     public function updSaldo($ptsCanje){
         $query = $this->db->query("
             UPDATE Participante 
@@ -187,6 +196,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function misOrdenesFolio(){
         $query=$this->db->query("
             SELECT idCanje 
@@ -200,8 +210,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
-    /* Fin Funciones Canjes Reconocelo */
-    /* Funcion Ayuda Model */
+
     public function tipos_preguntas() {
         $query = $this->db->query("
             SELECT TipoPregunta FROM Preguntas "
@@ -212,6 +221,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function addDudaTicket($data){
         $query = $this->db->query("
             INSERT INTO `opisa_opisa`.`AtencionTicket`(`idCanje`, `idParticipante`, `status`, `FechaCreacion`,
@@ -224,6 +234,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function AtencionTicket(){
         $query = $this->db->query("
             SELECT IdTicket
@@ -237,6 +248,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function detalleTicket($duda,$data){
         $query = $this->db->query("                           
             INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
@@ -249,12 +261,11 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
-    /* Fin Funcion Ayuda Model */
-    /* Funcion historial del ticket Reconocelo*/
+
     public function Get_TicketsReconocelo() {
         $query = $this->db->query("                  
             SELECT IdTicket,idCanje,idParticipante,status,FechaCreacion,Subject
-            FROM AtencionTicket 
+            FROM AtencionTicket
             WHERE idParticipante = '".$this->session->userdata('idPart')."';
         ");
         if ($query->num_rows() > 0) {
@@ -263,6 +274,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function Get_TicketsHistory($ticketData){
         $query = $this->db->query("                  
             SELECT IdTicket, mensaje, fecha, loginWeb
@@ -275,6 +287,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function sendAnswerTicketAdmin($ticketAnswerAdmin){
         $loginWeb = $this->session->userdata('idPart');
         if($loginWeb){
@@ -294,12 +307,13 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function loginUserTicket($loginTicketAdmin){
         $usuario =$loginTicketAdmin['usuario'];
         $password = $loginTicketAdmin['password'];
         $query = $this->db->query("
             SELECT * 
-            FROM  `administrador` 
+            FROM  `Administrador` 
             WHERE Usuario =  '".$usuario."'
             AND Pwd ='".$password."'
             AND typeTicket = 1
@@ -310,6 +324,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function ticketsAdmin(){
         $query = $this->db->query("                              
             SELECT at.IdTicket, at.idCanje, at.idParticipante, at.STATUS, at.FechaCreacion, at.Subject, 
@@ -323,6 +338,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function participanteTicket($ticketId){
         $query = $this->db->query("                              
             SELECT idParticipante,FechaCreacion,Subject
@@ -335,6 +351,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function datosParticipante($ParticipanteId){
         $query = $this->db->query("                              
             SELECT PrimerNombre, eMail
@@ -347,6 +364,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
+
     public function closeTicket($ticketDataClose){
         $query = $this->db->query("                           
             UPDATE `AtencionTicket` SET `status`=0 WHERE `IdTicket` = ".$ticketDataClose['ticketId'].";
@@ -357,8 +375,7 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
-    /* Fin funcion historial del ticket Reconocelo */
-    /* Funcion configuracion personal */
+    
     public function checkPasswordReconocelo($updatePasswordReconoceloData){
         $query = $this->db->query("
               SELECT pwd
@@ -374,6 +391,7 @@ class Reconocelo_model1 extends CI_Model {
               return false;
         }
     }
+
     public function updatePasswordReconocelo($updatePasswordReconoceloData){
         $query = $this->db->query("
             UPDATE `Participante` 
@@ -388,21 +406,21 @@ class Reconocelo_model1 extends CI_Model {
             return false;
         }
     }
-    /* Fin funcion configuracion personal */
-    /* Funcion Recuperar password */
+    
     public function checkMailExitsReconocelo($usuarioEmailReconocelo){
         $query = $this->db->query("
-              SELECT loginWeb, CodPrograma, codEmpresa, idParticipante, PrimerNombre
-              FROM  `Participante` 
-              WHERE codPrograma =41
-              AND eMail =  '".$usuarioEmailReconocelo['usuarioEmailReconocelo']."'
+            SELECT loginWeb, CodPrograma, codEmpresa, idParticipante, PrimerNombre
+            FROM  `Participante` 
+            WHERE codPrograma =41
+            AND eMail =  '".$usuarioEmailReconocelo['usuarioEmailReconocelo']."'
         ");
         if ($query->num_rows() > 0){
-            return $query->result_array(); 
+            return $query->result_array();
         }else{
             return false;
         }
     }
+    
     public function cambiarPasswordNewReconocelo($passwordConfigReconocelo){
         $query = $this->db->query("
             UPDATE `Participante` SET `pwd`=md5(".$passwordConfigReconocelo['passwordNewReconocelo'].")
