@@ -201,8 +201,8 @@
                   $query = $this->db->query("
                         select c.idCanje as Folio, c.feSolicitud as Fecha, d.cantidad,d.codPremio, 
                         pr.Nombre_Esp as Descripcion,d.PuntosXUnidad*d.cantidad*-1 as Puntos
-                        FROM Canje c JOIN CanjeDetalle d on c.idParticipante=d.idParticipante 
-                        and c.idCanje=d.noFolio JOIN Participante p on p.idParticipante=c.idParticipante
+                        FROM Canje c JOIN CanjeDetalle d on c.codPrograma=d.codPrograma
+                        and c.idCanje=d.idCanje JOIN Participante p on p.idParticipante=c.idParticipante
                         JOIN Premio pr on pr.codPremio=d.codPremio
                         WHERE p.codPrograma=".$codPrograma."
                         and p.codEmpresa=".$codEmpresa."
@@ -472,7 +472,7 @@
                         AS Nombre, pc.feSolicitud, pc.fhExp, pcd.PuntosXUnidad
                         FROM Canje pc, Participante p, CanjeDetalle pcd
                         WHERE pc.idParticipante = p.idParticipante
-                        AND pc.idCanje = pcd.noFolio
+                        AND pc.idCanje = pcd.idCanje
                         AND pc.codPrograma =41
                         AND p.codEmpresa =".$this->session->userdata('CodEmpresa')."
                         ORDER BY pc.feSolicitud
@@ -561,14 +561,14 @@
                         SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha, 
                         SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
                         FROM CanjeDetalle cd, Canje c, Participante p
-                        WHERE cd.noFolio = c.idCanje
-                        AND cd.idParticipante = c.idParticipante
+                        WHERE cd.idCanke = c.idCanje
+                        AND cd.codPrograma = c.codPrograma
                         AND c.idParticipante = p.idParticipante
                         AND feSolicitud >=  '20180501'
                         AND c.codPrograma =41
                         AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
                         GROUP BY DATE_FORMAT( feSolicitud,  '%Y %m' ) 
-                        ORDER BY 1                 
+                        ORDER BY 1
                   ");
                   if ($query->num_rows() > 0){
                         return $query->result_array(); 

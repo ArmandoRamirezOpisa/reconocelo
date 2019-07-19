@@ -86,7 +86,7 @@ class Reconocelo_model1 extends CI_Model {
             SELECT p.idCanje,p.feSolicitud,d.Cantidad,pr.Nombre_Esp,d.Status,d.Mensajeria,
             d.NumeroGuia,d.Cantidad*d.PuntosXUnidad *-1 as puntos
             FROM Canje p
-            INNER JOIN CanjeDetalle d on d.noFolio = p.idCanje
+            INNER JOIN CanjeDetalle d on d.idCanje = p.idCanje
             INNER join Premio pr ON pr.codPremio = d.CodPremio 
             WHERE
             p.codPrograma = ".$this->session->userdata('programa')."
@@ -166,7 +166,7 @@ class Reconocelo_model1 extends CI_Model {
         $nItem = 1;
         foreach($datos as $d){
             $query = $this->db->query("
-                INSERT INTO `opisa_opisa`.CanjeDetalle (idParticipante,noFolio,idPreCanjeDet,CodPremio,
+                INSERT INTO `opisa_opisa`.CanjeDetalle (idParticipante,idCanje,idPreCanjeDet,CodPremio,
                 cantidad,PuntosXUnidad)
                 VALUES (".$this->session->userdata('idPart').",".$noFolio.",".$nItem.",
                 ".$d->id.",".$d->cantidad.",".$d->puntos.")
@@ -200,7 +200,7 @@ class Reconocelo_model1 extends CI_Model {
     public function misOrdenesFolio(){
         $query=$this->db->query("
             SELECT idCanje 
-            FROM PreCanje 
+            FROM Canje
             where idParticipante =  " .$this->session->userdata('idPart')." 
             and codPrograma = ".$this->session->userdata('programa')."
         ");
