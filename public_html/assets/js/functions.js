@@ -491,6 +491,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                             data: { "data": jsonString, "ptsCanje": $ptsCanje, "address": address },
                             beforeSend: function() {},
                             success: function(response) {
+                                console.log(response);
                                 if (response) {
                                     swal("Solicitud de canje", "Tu orden ha sido realizada correctamente", "success");
                                     sleep(2000);
@@ -505,6 +506,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                                 swal("Error al realizar el canje", "Ocurrio un error al realizar el canje", "warning");
                                 $("#btnGenCanje").show();
                                 $("#lblProc").hide();
+                                console.log(x, e);
                             }
                         });
                     } else {

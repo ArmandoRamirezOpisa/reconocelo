@@ -146,11 +146,11 @@
 
             if($saldoACtualParticipante >= $this->session->userdata('puntos')){
                 $idCanjeExits = $this->Reconocelo_model1->checkAddCanje();
-                if($idCanjeExits){
+                if($idCanjeExits != false){
                     $this->output->set_output(json_encode(false));
                 }else{
                     $idCanje = $this->Reconocelo_model1->addCanje();
-                    if ($idCanje){
+                    if ($idCanje != false){
                         $detCanje = $this->Reconocelo_model1->addDetCanje($data,$idCanje);
                         $updateSaldo = $this->Reconocelo_model1->updSaldo($_POST["ptsCanje"]);
                 
@@ -162,7 +162,7 @@
                         if ($detCanje){
                             //Envía mail de confirmación de canje
                             $this->sendCanjeMail($idCanje,$data);
-                            $this->output->set_output(json_encode(true));    
+                            $this->output->set_output(json_encode(true));
                         }
                     }else{
                         $this->output->set_output(json_encode(false));
