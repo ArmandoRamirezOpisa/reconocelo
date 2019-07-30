@@ -166,9 +166,9 @@ class Reconocelo_model1 extends CI_Model {
         $nItem = 1;
         foreach($datos as $d){
             $query = $this->db->query("
-                INSERT INTO `opisa_opisa`.CanjeDetalle (idCanje,idPreCanjeDet,CodPremio,
+                INSERT INTO `opisa_opisa`.CanjeDetalle (codPrograma,idCanje,idPreCanjeDet,CodPremio,
                 cantidad,PuntosXUnidad)
-                VALUES (".$noFolio.",".$nItem.",".$d->id.",".$d->cantidad.",".$d->puntos.")
+                VALUES (".$this->session->userdata('programa').",".$noFolio.",".$nItem.",".$d->id.",".$d->cantidad.",".$d->puntos.")
             ");
             if (!$query)
             {
