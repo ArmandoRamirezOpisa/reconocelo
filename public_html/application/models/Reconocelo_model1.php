@@ -70,7 +70,8 @@ class Reconocelo_model1 extends CI_Model {
             SELECT p.codPremio,p.Nombre_Esp,p.Caracts_Esp,pp.ValorPuntos
             FROM Premio p
             INNER JOIN PremioPrograma pp ON pp.codPremio = p.codPremio 
-            WHERE pp.codPrograma = ". $this->session->userdata('programa')." 
+            WHERE pp.codPrograma = ". $this->session->userdata('programa')."
+            AND pp.codEmpresa = ".$this->session->userdata('empresa')."
             AND p.codPremio = ".$idItem
         );
         if ($query->num_rows() > 0)
