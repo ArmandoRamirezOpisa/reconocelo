@@ -467,7 +467,7 @@
 
             public function getCanje(){
                   $query = $this->db->query("
-                        SELECT idCanje, p.idParticipante, 
+                        SELECT pc.idCanje, p.idParticipante, 
                         CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) 
                         AS Nombre, pc.feSolicitud, pc.fhExp, pcd.PuntosXUnidad
                         FROM Canje pc, Participante p, CanjeDetalle pcd
@@ -561,7 +561,7 @@
                         SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha, 
                         SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
                         FROM CanjeDetalle cd, Canje c, Participante p
-                        WHERE cd.idCanke = c.idCanje
+                        WHERE cd.idCanje = c.idCanje
                         AND cd.codPrograma = c.codPrograma
                         AND c.idParticipante = p.idParticipante
                         AND feSolicitud >=  '20180501'

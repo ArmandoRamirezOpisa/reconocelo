@@ -48,7 +48,7 @@
                 $this->session->set_userdata($InformacionLoginUsuario);
                 $this->output->set_output(json_encode($InformacionLogin));
             } else {
-                $this->output->set_output(json_encode(false));
+                $this->output->set_output(json_encode(0));
             }
         }
 
@@ -68,8 +68,8 @@
         //Todos los participantes
         public function ParticipantesTodos(){
 
-            $participante = $this->Monitor_model->getTodosParticipantes();
             $codEmpresa = $this->session->userdata('CodEmpresa');
+            $participante = $this->Monitor_model->getTodosParticipantes();
             if ($participante){
                 $data["participante"] = $participante;
             }else{

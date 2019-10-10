@@ -19,10 +19,10 @@ function loginMonitorReconocelo() {
             beforeSend: function() {},
             success: function(result) {
 
-                if (result) {
+                if (result != 0) {
 
                     location.href = "https://" + location.hostname + "/Monitor/home";
-                    //console.log(result);
+                    console.log(result);
 
                 } else {
                     $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
