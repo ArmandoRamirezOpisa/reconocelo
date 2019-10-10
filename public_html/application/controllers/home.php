@@ -1,20 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
     class Home extends CI_Controller {
-        
         public function __construct() {
             parent:: __construct();
             $this->load->library('email');
             $this->load->library('session');
             $this->load->model('Reconocelo_model1');
             $this->load->model("Reglas_model1");
-
         }
 
-        //Pagina principal que carga todo
     	public function index(){
             if($this->session->userdata('logged_in')){
-
                 $cat = $this->Reconocelo_model1->getCategory();
                 if ($cat){
                     $data["cat"] = $cat;
@@ -22,27 +17,20 @@
                     $data["cat"] = false;
                 }
                 $this->load->view('includes/home_view_header',$data);
-
                 $this->load->view('home_view');
-
                 $this->load->view('includes/home_view_footer');
-
             }else{
                 header('Location:'.base_url());
             }
 		}
 
-        //funcion para logearse
         public function loginReconocelo(){
             $loginReconoceloData = array(
                 "usuarioReconocelo"=>$this->input->post('usuarioReconocelo'),
                 "passwordReconocelo"=>$this->input->post('passwordReconocelo')
             );
             $login['result'] = $this->Reconocelo_model1->loginReconocelo($loginReconoceloData);
-
-            //print_r ($data['result'][0]->Estado);
             print_r ($login['result'][0]);
-
             if ($login['result'][0]){
                 if (strlen($login['result'][0]->eMail)>0){
                 	$email_s = $login['result'][0]->eMail;
@@ -72,13 +60,10 @@
                 $this->session->set_userdata($userData);
 				$this->output->set_output(json_encode($login['result'][0]));
             }else{
-                $this->output->set_output(json_encode(0));//si no encuentra al usuario regresa false
+                $this->output->set_output(json_encode(0));
             }
         }
 
-        /* Funciones premios */
-
-        //Obtiene todos los premios
         public function getAwards($idCat){
     	    $aw = $this->Reconocelo_model1->getAwards($idCat);
             if ($aw){
@@ -89,7 +74,6 @@
             $this->load->view('premios_view',$data);
         }
 
-        //Muestra el premio seleccionado
         public function showItem($id){
     	    $item = $this->Reconocelo_model1->getDataItem($id);
             if ($item){
@@ -100,14 +84,10 @@
     		$this->load->view('det_item_view',$data);
         }
 
-        //Muestra los premios que se van a canjear
         public function showContentCart(){
 			$this->load->view('prev_cart_view');
 		}
 
-        /* Fin funciones premios */
-
-        /* Funcion Reglas Reconocelo */
         public function reglas(){
 			if ($this->session->userdata('logged_in')){
                 $cat = $this->Reglas_model1->getRules();
@@ -119,31 +99,20 @@
                 $this->load->view('reglas_view',$data);
 			}
     	}
-        /* Fin funcion Reglas Reconocelo */
 
-        /* Funcion Canjes Reconocelo */
-
-        function getCanjes()
-        {
+        function getCanjes(){
             $misPreCanjes = $this->Reconocelo_model1->misPreCanjes();
-
-            if ($misPreCanjes)
-            {
+            if ($misPreCanjes){
                 $data["precanjes"] = $misPreCanjes;
             }else{
                 $data["precanjes"] = false;
             }
-
             $this->load->view('canjes_view',$data);
         }
 
-        function addCanje()
-        {
-
-            $data = json_decode(stripslashes($_POST['data']));//Decodifica JSON
-            
+        function addCanje(){
+            $data = json_decode(stripslashes($_POST['data']));
             $saldoACtualParticipante = $this->Reconocelo_model1->saldoActualParticipante();
-
             if($saldoACtualParticipante >= $this->session->userdata('puntos')){
                 $idCanjeExits = $this->Reconocelo_model1->checkAddCanje();
                 if($idCanjeExits != false){
@@ -153,14 +122,11 @@
                     if ($idCanje != false){
                         $detCanje = $this->Reconocelo_model1->addDetCanje($data,$idCanje);
                         $updateSaldo = $this->Reconocelo_model1->updSaldo($_POST["ptsCanje"]);
-                
                         if ($updateSaldo){
                             $sdoAct = $this->session->userdata('puntos') - $_POST["ptsCanje"];
                             $this->session->set_userdata('puntos', $sdoAct);
                         }
-                
                         if ($detCanje){
-                            //Envía mail de confirmación de canje
                             $this->sendCanjeMail($idCanje,$data);
                             $this->output->set_output(json_encode(true));
                         }
@@ -171,19 +137,14 @@
             }else{
                 $this->output->set_output(json_encode(false));
             }
-
         }
 
-        function sendCanjeMail($idCanje = 0,$datos)
-        {
-            //Configuracion de SMTP
+        function sendCanjeMail($idCanje = 0,$datos){
             $config['smtp_host'] = 'm176.neubox.net';
-            $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
-            $config['smtp_pass'] = '3hf89w';//3hf89w
+            $config['smtp_user'] = 'envios@opisa.com';
+            $config['smtp_pass'] = '3hf89w';
             $config['smtp_port'] = 465;
             $config['mailtype'] = 'html';
-            
-            /* Estructura del correo de reconocelo */
             $message = '<!DOCTYPE html>
             <html xmlns="http://www.w3.org/1999/xhtml">
                 <head>
@@ -573,62 +534,44 @@
                     </table>
                 </body>
             </html>';
-            /* Fin de la Estructura del correo de reconocelo */
-                       
-            //Inicializa
             $this->email->initialize($config);
-            //Envío de alerta de canje.
             $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
-            $this->email->to('operaciones@opisa.com');//operaciones@opisa.com
+            $this->email->to('operaciones@opisa.com');
             $this->email->cc($this->session->userdata('email'));
-
             $this->email->subject('Canje');
             $this->email->message($message);
-
             $this->email->send();
         }
 
-        /* Fin Funcion Canjes Reconocelo */
-
-        /* Funcion Ayuda Reconocelo */
-
-        public function ayuda()
-    	{
-                  
+        public function ayuda(){
             $preguntas = $this->Reconocelo_model1->tipos_preguntas();
             $ordenes= $this->Reconocelo_model1->misPreCanjes();
             $ordenesFolio = $this->Reconocelo_model1->misOrdenesFolio();
-           
            if ($ordenesFolio){
                 $data["ordenesFolio"] = $ordenesFolio;
             }else{
                 $data["ordenesFolio"] = false;
             }
-           
             if ($ordenes){
                 $data["ordenes"] = $ordenes;
             }else{
                 $data["ordenes"] = false;
             }
-            
             if ($preguntas){
                 $data["preguntas"] = $preguntas;
             }else{
                 $data["preguntas"] = false;
             }
-            
     		$this->load->view('ayuda_View',$data);
         }
 
         public function crearTicketReconocelo(){
-         
             $data = array(
                 "idcanje"=>$this->input->post('idcanje'),
                 "nombre"=>$this->input->post('nombre'),
                 "mensaje"=>$this->input->post('mensaje'),
                 "tipo"=>$this->input->post('tipo')
              );
-
             $duda = $this->Reconocelo_model1->addDudaTicket($data);
             if ($duda){
                 $ticketAtencion = $this->Reconocelo_model1->AtencionTicket();
@@ -646,17 +589,14 @@
             }else{
                 $this->output->set_output(json_encode(false));
             }
-        
         }
 
         function sendEmailTicket($data){
-            //Configuracion de SMTP
             $config['smtp_host'] = 'm176.neubox.net';
-            $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
-            $config['smtp_pass'] = '3hf89w';//3hf89w
+            $config['smtp_user'] = 'envios@opisa.com';
+            $config['smtp_pass'] = '3hf89w';
             $config['smtp_port'] = 465;
             $config['mailtype'] = 'html';
-            
             $message = "<h1>PROGRAMA DE INCENTIVOS RECONÓCELO</h1>
                         <h2>SE HA GENERADO UN NUEVO TICKET DE ATENCIÓN CANJE : ".$data['idcanje']."</h2>
                         <table>
@@ -682,10 +622,7 @@
                 <p><b>Mensaje: </b><br/>".$data['mensaje']."</p>
                 </tr>
             ";
-                       
-            //Inicializa
             $this->email->initialize($config);
-            //Envío de alerta de canje.
             $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
             $this->email->to('operaciones@opisa.com');
             $this->email->cc($this->session->userdata('email'));
@@ -693,14 +630,9 @@
             $this->email->message($message);
             $this->email->send();
         }
-        
-        /* Fin Funcion Ayuda Reconocelo */
-
-        /* Funcion Ticket Reconocelo */
 
         public function ticket(){
-            $ticketHistory = $this->Reconocelo_model1->Get_TicketsReconocelo();
-            
+            $ticketHistory = $this->Reconocelo_model1->Get_TicketsReconocelo();   
             if ($ticketHistory){
                 $data["ticketHistory"] = $ticketHistory;
             }else{
@@ -710,16 +642,13 @@
         }
 
         public function historiaTicket(){
-            
             $ticketData = array(
                 "idTicket"=>$this->input->post('idTicket')
             );
             $ticketStatus = array(
                 "status"=>$this->input->post('status')
             );
-
             $ticketHistory = $this->Reconocelo_model1->Get_TicketsHistory($ticketData);
-
             if ($ticketHistory){
                 $data['ticketHistory'] = $ticketHistory;
                 $data['status'] = $ticketStatus;
@@ -727,27 +656,21 @@
                 $data['ticketHistory'] = false;
                 $data['status'] = false;
             }
-
             $this->load->view('modalTickect_view',$data);
-
         }
 
         public function historiaTicketAnswer(){
-
             $ticketHistoria = array(
                 "idTicketHistory"=>$this->input->post('idTicketHistory')
             );
             $this->load->view('modalTicketAns_view',$ticketHistoria);
-
         }
-
 
         public function closeTicket(){
             $ticketDataClose = array(
                 "ticketId"=>$this->input->post('ticketId')
             );
             $ticketCloseData = $this->Reconocelo_model1->closeTicket($ticketDataClose);
-
             if ($ticketCloseData){
                 $this->output->set_output(json_encode('ok'));
             }else{
@@ -761,7 +684,6 @@
                 "respuestaTicket"=>$this->input->post('respuestaTicket')
             );
             $ticketHistoryData = $this->Reconocelo_model1->sendAnswerTicketAdmin($ticketAnswer);
-
             if ($ticketHistoryData){
                 $this->output->set_output(json_encode('ok'));
             }else{
@@ -775,10 +697,6 @@
             );
             $this->load->view('modalTicketClose_view',$ticketClose);
         }
-
-        /* Fin Funcion ticket Reconocelo */
-
-        /* Funcion Configuracion personal */
 
         public function info() {
             $this->load->view('confInfo_View');
@@ -802,31 +720,20 @@
             }
         }
 
-        /* Fin funcion configuracion personal */
-
-        /* Funcion Aviso de privacidad */
         public function avisoPrivacidad(){
-
             $this->load->view('aviso_view');
-            
         }
-        /* Fin Funcion Aviso de privacidad */
 
-        /* Funcion salir Reconocelo */
         public function salirReconocelo(){
-
             $urlRedirect = $this->session->userdata('urlEmp');
-
             if($urlRedirect == 'https://reconocelo.com.mx/'){
                 $userData = array(
                     'logged_in','nombre','programa','participante','empresa','status','puntos','idPart',
                     'calle','colonia','cp','ciudad','estado','iniOrden','finOrden','email','pwd','urlEmp'
                 );
-    
                 $this->session->unset_userdata($userData);
                 header( 'Location: '.base_url());
             }
-         }
-        /* Fin funcion Reconocelo*/
+        }
     }
 ?>

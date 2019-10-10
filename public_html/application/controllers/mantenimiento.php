@@ -1,24 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-    class Mantenimiento extends CI_Controller {
-    
+    class Mantenimiento extends CI_Controller {    
         public function __construct() {
             parent::__construct();
             $this->load->library('email');
             $this->load->model("Mantenimiento_model");
         }
 
-    	public function index(){
-			
+    	public function index(){			
             if ($this->session->userdata('administrador')) {
                 header( 'Location: '.base_url().'Mantenimiento/home');
             } else {
                 $this->load->view('home_mantenimiento_view');
             }
-            
         }
         
-        //Login mantenimiento
         public function login(){
             $loginMantenimientoData = array(
                 "usuario"=>$this->input->post('usuario'),
@@ -26,7 +21,6 @@
             );
             $userMantenimientoExist = $this->Mantenimiento_model->loginUserMantenimiento($loginMantenimientoData);
             if ($userMantenimientoExist['loginWeb'] == '41160001' && $userMantenimientoExist['pwd']){
-
                 $InformacionLogin = $this->Mantenimiento_model->login($loginMantenimientoData);
                 if ($InformacionLogin){
                     $InformacionLoginUsuario = array(
@@ -36,26 +30,20 @@
                         'PrimerNombre' => $InformacionLogin[0]["PrimerNombre"]
                     );
                     $this->session->set_userdata($InformacionLoginUsuario);
-                    $this->output->set_output(json_encode(true));//si encuantra al usuario regresa true
+                    $this->output->set_output(json_encode(true));
                 }else{
-                    $this->output->set_output(json_encode(false));//si no encuentra al usuario regresa false
+                    $this->output->set_output(json_encode(false));
                 }
             }
-
         }
 
-        //Inicio manteniniento
         public function home(){
-
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('includes/mantenimiento_header',$PrimerNombre);
             $this->load->view('mantenimiento_view');
             $this->load->view('includes/mantenimiento_footer');
-
         }
 
-        /* Inicio pantalla participantes */
-        //pantalla participantes
         public function participantes(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('includes/mantenimiento_header',$PrimerNombre);
@@ -64,16 +52,13 @@
         }
 
         public function unParticipante(){
-
             $this->load->view('participante_uno_view');
-
         }
 
         public function variosParticipantes(){
             $this->load->view('participante_varios_view');
         }
 
-        //guardando participantes
         public function participanteSave(){
             $saveParticipantesData = array(
                 "idParticipanteMantenimiento"=>$this->input->post('idParticipanteMantenimiento'),
@@ -93,14 +78,11 @@
                 "emailMantenimiento"=>$this->input->post('emailMantenimiento'),
                 "loginwebMantenimiento"=>$this->input->post('loginwebMantenimiento')
             );
-
             $participanteDataExits = $this->Mantenimiento_model->participanteMantenimientoExits($saveParticipantesData);
-
             if ($participanteDataExits){
                 $this->output->set_output(json_encode(false));
             }else{
                 $participanteData = $this->Mantenimiento_model->participanteMantenimiento($saveParticipantesData);
-
                 if($participanteData){
                     $this->output->set_output(json_encode(true));
                 }else{
@@ -116,29 +98,20 @@
                 $this->output->set_output(json_encode($participanteMasivo));
             }else{
                 $this->output->set_output(json_encode(false));
-                    
             }
         }
-        /* Fin pantalla participantes */
-
-        /* Inicio pantalla premios */
-        //pantalla premios
+        
         public function premios(){
-            $PrimerNombre = array(
-                "PrimerNombre"=>$this->session->userdata('CodEmpresa'));
+            $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('includes/mantenimiento_header',$PrimerNombre);
             $this->load->view('mantenimiento_premio_view');
             $this->load->view('includes/mantenimiento_footer');
         }
 
-        //Alta de premios
         public function altaPremio(){
-
             $this->load->view('premio_alta_view');
-            
         }
 
-        //save alta premios
         public function premiosAlta(){
             $savePremioData = array(
                 "codPremio"=>$this->input->post('codPremio'),
@@ -156,62 +129,41 @@
             );
             $PremioDataExits = $this->Mantenimiento_model->premioMantenimientoExits($savePremioData);
             if($PremioDataExits){
-
                 $this->output->set_output(json_encode(false));
-
             }else{
-
                 $premioData = $this->Mantenimiento_model->premioMantenimiento($savePremioData);
-
                 $premioProgramaData = $this->Mantenimiento_model->premioProgramaMantenimiento($savePremioData);
                 if($premioProgramaData){
-
                     $this->output->set_output(json_encode($premioData));
-
                 }else{
-
                     $this->output->set_output(json_encode(false));
-
                 }
             }
         }
 
-        //baja de premio
         public function bajaPremio(){
-
             $this->load->view('premio_baja_view');
-            
         }
 
-        //Baja del premio
         public function premiosBaja(){
-            $savePremioData = array(
-                "codPremio"=>$this->input->post('codPremio')
-            );
+            $savePremioData = array("codPremio"=>$this->input->post('codPremio'));
             $PremioDataExits = $this->Mantenimiento_modelmantenimiento_model->premioMantenimientoExits($savePremioData);
             if($PremioDataExits){
-
                 $PremioDelete = $this->Mantenimiento_model->premioDelete($savePremioData);
                 $this->output->set_output(json_encode("Bien"));
-
             }else{
                 $this->output->set_output(json_encode("Mal"));
             }
-
         }
 
-        /* Update premios */
         public function updatePremio(){
             $PremioData = $this->Mantenimiento_model->premioData();
-
             if($PremioData){
                 $data["PremioData"] = $PremioData;
             }else{
                 $data["PremioData"] = false;
             }
-
             $this->load->view('premio_update_view',$data);
-
         }
 
         public function premiosUpdateInfo(){
@@ -220,7 +172,6 @@
             );
             $PremioDataInfo = $this->Mantenimiento_model->premioMantenimientoExits($savePremioData);
             $PremioProgramaDataInfo = $this->Mantenimiento_model->premioProgramaMantenimientoExits($savePremioData);
-            
             if($PremioDataInfo){
                 $data = array(
                     'PremioDataInfo' => $PremioDataInfo,
@@ -231,9 +182,7 @@
                     'PremioProgramaDataInfo' => false
                 );
             }
-
             $this->load->view('premio_updateInfo_view',$data);
-
         }
 
         public function premiosUpdateInfoData(){
@@ -253,15 +202,11 @@
             );
             $PremioDataInfo = $this->Mantenimiento_model->updatePremio($savePremioData);
             $PremioProgramaDataInfo = $this->Mantenimiento_model->updatePremioPrograma($savePremioData);
-
             if($PremioDataInfo && $PremioProgramaDataInfo){
                 $this->output->set_output(json_encode("Bien"));
             }
-
         }
-        /* Fin update premios */
 
-        /* Pantalla para subir depositos */
         public function uploadDepositos(){
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('includes/mantenimiento_header',$PrimerNombre);
@@ -271,7 +216,6 @@
 
         public function uploadDepositosNewsMantenimiento(){
             $infoNewsDepositosMantenimiento = $this->input->post('infoNewsDepositosMantenimiento');
-
             $depositoMasivo = $this->Mantenimiento_model->insertDepositoMasivoMantenimiento();
             if($depositoMasivo){
                 $depositoDetalleMasivo = $this->Mantenimiento_model->insertDepositoDetalleMasivoMantenimiento($infoNewsDepositosMantenimiento,$depositoMasivo);
@@ -283,11 +227,9 @@
             }else{
                 $this->output->set_output(json_encode(false));
             }
-
         }
 
         public function depositosSubidosMantenimiento(){
-
             $idDepositoParticipante = "";
             $this->load->model("Mantenimiento_model");
             $depositover = $this->Mantenimiento_model->verDepositosUsuarioMantenimiento();
@@ -297,11 +239,9 @@
                 $data["depositover"] = false;
             }
             $this->load->view('depositoUpload_mantenimiento_view',$data);
-
         }
 
         public function uploadPuntosDepositoMantenimiento(){
-
             $numTransaccionMantenimiento = array(
                 "numTransaccionMantenimiento"=>$this->input->post('numTransaccionMantenimiento')
             );
@@ -309,12 +249,9 @@
             $saldoTotalParticipante = 0;
             $totalRegistros = 0;
             if($depositoverUpload){
-
                 foreach($depositoverUpload as $row){
-
                     $saldoParticipantes = $this->Mantenimiento_model->UpdateSaldoParticipanteMantenimiento($row['idParticipanteCliente'],$row['Puntos']);
                     if($saldoParticipantes){
-                        
                         $updateDepositosDet = $this->Mantenimiento_model->UpdateDepositosDetMantenimiento($numTransaccionMantenimiento,$row['idParticipanteCliente']);
                         if($updateDepositosDet){
                             $idParticipanteData = $this->Mantenimiento_model->idParticipanteGetMantenimiento($row['idParticipanteCliente']);
@@ -322,37 +259,25 @@
                                 $insertPartMovsRealiza = $this->Mantenimiento_model->insertPartMovsRealizaMantenimiento($idParticipanteData[0]['idParticipante'],$row['Concepto'],$row['Puntos']);
                                 $saldoTotalParticipante = $saldoTotalParticipante + 1;
                             }
-
                         }
                     }
-
                     $totalRegistros = $totalRegistros + 1;
                 }
-
                 if($saldoTotalParticipante > 0){
-
                     $UpdateMasterDeposito = $this->Mantenimiento_modelmantenimiento_model->UpdateMasterDepositoMantenimiento($numTransaccionMantenimiento);
                     $this->output->set_output(json_encode($saldoTotalParticipante));
-
                 }else{
                     $this->output->set_output(json_encode(false));    
                 }
-
             }else{
                 $this->output->set_output(json_encode(false));
             }
-
         }
-        /* Fin pantalla para subir depositos */
 
-        //salir del mantenimiento
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');
             $this->session->unset_userdata($array_items);
-            //Manda al inicio de la página, si no hay session se va al login.
             header( 'Location: '.base_url().'Mantenimiento');
         }
-
     }
-
 ?>
