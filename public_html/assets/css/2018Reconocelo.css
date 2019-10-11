@@ -8,6 +8,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.center-image {
+    display: block;
+    margin: auto;
+}
+
 .cardAyuda {
     border-color: var(--colorBlanco);
 }
