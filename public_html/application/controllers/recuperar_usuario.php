@@ -1,7 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
     class Recuperar_usuario extends CI_Controller {
-            
         public function __construct() {
             parent::__construct();
             $this->load->library('email');
@@ -32,7 +30,6 @@
         }
 
         public function cambiarUserPasswordNewReconocelo(){
-
             $passwordConfigReconocelo = array(
                 "loginWeb"=>$this->input->post('loginWeb'),
                 "idParticipante"=>$this->input->post('idParticipante'),
@@ -47,13 +44,11 @@
         }
 
         public function correoRecuperaReconocelo($loginWeb,$CodPrograma,$codEmpresa,$idParticipante){
-            //Configuracion de SMTP
             $config['smtp_host'] = 'm176.neubox.net';
-            $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
-            $config['smtp_pass'] = '3hf89w';//3hf89w
+            $config['smtp_user'] = 'envios@opisa.com';
+            $config['smtp_pass'] = '3hf89w';
             $config['smtp_port'] = 465;
             $config['mailtype'] = 'html';
-
             $message = '<!DOCTYPE html>
             <html xmlns="http://www.w3.org/1999/xhtml">
                 <head>
@@ -79,18 +74,11 @@
                         a {
                             color: #382F2E;
                         }
-                        p,
-                        h1,
-                        h2,
-                        ul,
-                        ol,
-                        li,
-                        div {
+                        p,h1,h2,ul,ol,li,div {
                             margin: 0;
                             padding: 0;
                         }
-                        h1,
-                        h2 {
+                        h1,h2 {
                             font-weight: normal;
                             background: transparent !important;
                             border: none !important;
@@ -101,8 +89,7 @@
                         .contentEditable h2.bigger {
                             font-size: 37px !important;
                         }
-                        td,
-                        table {
+                        td,table {
                             vertical-align: top;
                         }
                         td.middle {
@@ -148,147 +135,140 @@
                     <script type="colorScheme" class="swatch active">
                         { "name":"Default", "bgBody":"ffffff", "link":"B791BF", "color":"ffffff", "bgItem":"CFB4D5", "title":"ffffff" }
                     </script>
-                    </head>
-                    <body paddingwidth="0" paddingheight="0" class="bgBody" style="padding-top: 0; padding-bottom: 0; padding-top: 0; padding-bottom: 0; background-repeat: repeat; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased;"
-                    offset="0" toppadding="0" leftpadding="0">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableContent bgBody" align="center" style="font-family:Georgia, serif;">
-                            <tr>
-                                <td width="660" align="center">
-                                    <table width="660" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem">
-                                        <tr>
-                                            <td align="center" width="660" class="movableContentContainer">
-                                                <div class="movableContent">
-                                                    <table width="660" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td align="center">
-                                                                <div class="contentEditableContainer contentImageEditable">
-                                                                    <div class="contentEditable">
-                                                                        <img src="https://www.reconocelo.com.mx/assets/images/reconocelo.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
-                                                                    </div>
+                </head>
+                <body paddingwidth="0" paddingheight="0" class="bgBody" style="padding-top: 0; padding-bottom: 0; padding-top: 0; padding-bottom: 0; background-repeat: repeat; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased;"
+                offset="0" toppadding="0" leftpadding="0">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableContent bgBody" align="center" style="font-family:Georgia, serif;">
+                        <tr>
+                            <td width="660" align="center">
+                                <table width="660" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem">
+                                    <tr>
+                                        <td align="center" width="660" class="movableContentContainer">
+                                            <div class="movableContent">
+                                                <table width="660" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td align="center">
+                                                            <div class="contentEditableContainer contentImageEditable">
+                                                                <div class="contentEditable">
+                                                                    <img src="https://www.reconocelo.com.mx/assets/images/reconocelo.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
                                                                 </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="movableContent">
-                                                    <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td height="30" colspan="3"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="middle" width="100">
-                                                                <div style="border-top:0px solid #ffffff"></div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable" style="color:#000000;text-align:center;font-family:Baskerville;">
-                                                                        <h2 class="bigger">Ingresa al siguiente link para cambiar tu contraseña</h2>
-                                                                    </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td height="30" colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="middle" width="100">
+                                                            <div style="border-top:0px solid #ffffff"></div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                <div class="contentEditable" style="color:#000000;text-align:center;font-family:Baskerville;">
+                                                                    <h2 class="bigger">Ingresa al siguiente link para cambiar tu contraseña</h2>
                                                                 </div>
-                                                            </td>
-                                                            <td class="middle" width="100">
-                                                                <div style="border-top:0px solid #ffffff"></div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="movableContent">
-                                                    <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td colspan="5">
-                                                                <div style="border-top:0px solid #ffffff;"></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="5" height="35"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="5">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable" style="color:#000000;text-align:center;font-family:Helvetica;font-weight:normal;font-style:italic;">
-                                                                        <h2 class="big"><a href="https://reconocelo.com.mx/recuperar_usuario/passwordNuevoReconocelo/?log='.$loginWeb.'&codP='.$CodPrograma.'&codE='.$codEmpresa.'&codP='.$idParticipante.'">Recupera tu contraseña</a></h2>
-                                                                    </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="middle" width="100">
+                                                            <div style="border-top:0px solid #ffffff"></div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <div style="border-top:0px solid #ffffff;"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5" height="35"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                <div class="contentEditable" style="color:#000000;text-align:center;font-family:Helvetica;font-weight:normal;font-style:italic;">
+                                                                    <h2 class="big"><a href="https://reconocelo.com.mx/recuperar_usuario/passwordNuevoReconocelo/?log='.$loginWeb.'&codP='.$CodPrograma.'&codE='.$codEmpresa.'&codP='.$idParticipante.'">Recupera tu contraseña</a></h2>
                                                                 </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="5" height="15"></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="movableContent">
-                                                    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td colspan="2" height="50"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <div style="border-top:0px solid #ffffff;"></div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="movableContent">
-                                                    <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td class="middle" width="100">
-                                                                <div style="border-top:0px solid #ffffff"></div>
-                                                            </td>
-                                                            <td class="middle" width="100">
-                                                                <div style="border-top:0px solid #ffffff"></div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="movableContent">
-                                                    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td height="75"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div style="border-top:0px solid #ffffff;"></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td height="25"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable" style="color:#000000;text-align:center;font-size:13px;line-height:19px;">
-                                                                        <p>Enviado por el equipo de Operaciones Reconocelo</p>
-                                                                        <p>soporte@Reconocelo.com.mx</p>
-                                                                    </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5" height="15"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td colspan="2" height="50"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <div style="border-top:0px solid #ffffff;"></div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td class="middle" width="100">
+                                                            <div style="border-top:0px solid #ffffff"></div>
+                                                        </td>
+                                                        <td class="middle" width="100">
+                                                            <div style="border-top:0px solid #ffffff"></div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="movableContent">
+                                                <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                    <tr>
+                                                        <td height="75"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div style="border-top:0px solid #ffffff;"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="25"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="contentEditableContainer contentTextEditable">
+                                                                <div class="contentEditable" style="color:#000000;text-align:center;font-size:13px;line-height:19px;">
+                                                                    <p>Enviado por el equipo de Operaciones Reconocelo</p>
+                                                                    <p>soporte@Reconocelo.com.mx</p>
                                                                 </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td height="20"></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </body>
-                </html>';
-            /* Fin de la Estructura del correo de reconocelo monitor */
-            //Inicializa
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="20"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </body>
+            </html>';
             $this->email->initialize($config);
-            //Envío de alerta.
             $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
             $this->email->to($usuarioEmailReconocelo['usuarioEmailReconocelo']);
-            //$this->email->cc($this->session->userdata('email'));
-
             $this->email->subject('Recuperar cuenta Reconocelo');
             $this->email->message($message);
-
             $this->email->send();
         }
-
     }
 ?>

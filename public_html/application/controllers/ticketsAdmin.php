@@ -1,7 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
     class TicketsAdmin extends CI_Controller {
-    
         public function __construct() {
             parent::__construct();
             $this->load->library('email');
@@ -9,7 +7,6 @@
         }
 
     	public function index(){
-			
             if ($this->session->userdata('administardor')) {
                 header( 'Location: '.base_url().'TicketsAdmin/home');
             } else {
@@ -45,7 +42,6 @@
             }else{
                 $data['ticketListAdmin'] = false;
             }
-
             $this->load->view('ticketsList_view',$data);
         }
 
@@ -54,33 +50,22 @@
                 "ticketId"=>$this->input->post('ticketId'),
                 "respuestaTicket"=>$this->input->post('respuestaTicket')
             );
-
             $ticketHistoryData = $this->Reconocelo_model1->sendAnswerTicketAdmin($ticketAnswerAdmin);
-
             $mailAdministradorTickets = $this->session->userdata('idPart');
             if($mailAdministradorTickets){
                 $mailAdministradorTickets;
             }else{
-
                 $ticketId = $ticketAnswerAdmin['ticketId'];
                 $RespuestaTicket = $ticketAnswerAdmin['respuestaTicket'];
-
                 $participanteTicket = $this->Reconocelo_model1->participanteTicket($ticketId);
-
                 $ParticipanteId = $participanteTicket[0]['idParticipante'];
-
                 $fechaCreacion = $participanteTicket[0]['FechaCreacion'];
-
                 $datosParticipante = $this->Reconocelo_model1->datosParticipante($ParticipanteId);
-
-                /* Notificacion por correo */
-                //Configuracion de SMTP
                 $config['smtp_host'] = 'm176.neubox.net';
-                $config['smtp_user'] = 'envios@opisa.com';//envios@opisa.com
-                $config['smtp_pass'] = '3hf89w';//3hf89w
+                $config['smtp_user'] = 'envios@opisa.com';
+                $config['smtp_pass'] = '3hf89w';
                 $config['smtp_port'] = 465;
                 $config['mailtype'] = 'html';
-            
                 $message = '<!DOCTYPE html>
                 <html xmlns="http://www.w3.org/1999/xhtml">
                     <head>
@@ -106,18 +91,11 @@
                             a {
                                 color: #382F2E;
                             }
-                            p,
-                            h1,
-                            h2,
-                            ul,
-                            ol,
-                            li,
-                            div {
+                            p,h1,h2,ul,ol,li,div {
                                 margin: 0;
                                 padding: 0;
                             }
-                            h1,
-                            h2 {
+                            h1,h2 {
                                 font-weight: normal;
                                 background: transparent !important;
                                 border: none !important;
@@ -128,8 +106,7 @@
                             .contentEditable h2.bigger {
                                 font-size: 37px !important;
                             }
-                            td,
-                            table {
+                            td,table {
                                 vertical-align: top;
                             }
                             td.middle {
@@ -196,191 +173,186 @@
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                </div>
-                                                <div class="movableContent">
-                                                    <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td height="30" colspan="3"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="middle" width="100">
-                                                                <div style="border-top:0px solid #ffffff"></div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable" style="color:#000000;text-align:center;font-family:Baskerville;">
-                                                                        <h2 class="bigger">Respuesta del ticket: '.$ticketId.'</h2>
+                                                    </div>
+                                                    <div class="movableContent">
+                                                        <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                            <tr>
+                                                                <td height="30" colspan="3"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="middle" width="100">
+                                                                    <div style="border-top:0px solid #ffffff"></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable" style="color:#000000;text-align:center;font-family:Baskerville;">
+                                                                            <h2 class="bigger">Respuesta del ticket: '.$ticketId.'</h2>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="middle" width="100">
-                                                                <div style="border-top:0px solid #ffffff"></div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="movableContent">
-                                                    <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td colspan="5" height="50"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="5">
-                                                                <div style="border-top:0px solid #ffffff;"></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="5">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable" style="color:#000000;text-align:center;font-family:Helvetica;font-weight:normal;font-style:italic;">
-                                                                        <h2 class="big">Detalle del ticket</h2>
+                                                                </td>
+                                                                <td class="middle" width="100">
+                                                                    <div style="border-top:0px solid #ffffff"></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="movableContent">
+                                                        <table width="900" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                            <tr>
+                                                                <td colspan="5" height="50"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="5">
+                                                                    <div style="border-top:0px solid #ffffff;"></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="5">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable" style="color:#000000;text-align:center;font-family:Helvetica;font-weight:normal;font-style:italic;">
+                                                                            <h2 class="big">Detalle del ticket</h2>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="5" height="15"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="40"></td>
-                                                            <td width="230" align="center">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable">
-                                                                        <ul>
-                                                                            <h2 style="font-size:18px;line-height:50px;">Participante:</h2>
-                                                                        </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="5" height="15"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="40"></td>
+                                                                <td width="230" align="center">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable">
+                                                                            <ul>
+                                                                                <h2 style="font-size:18px;line-height:50px;">Participante:</h2>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td width="60"></td>
-                                                            <td width="230" align="center">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable">
-                                                                        <ul>
-                                                                            <h2 style="font-size:18px;line-height:50px;">'.$datosParticipante[0]['PrimerNombre'].'</h2>
-                                                                        </ul>
+                                                                </td>
+                                                                <td width="60"></td>
+                                                                <td width="230" align="center">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable">
+                                                                            <ul>
+                                                                                <h2 style="font-size:18px;line-height:50px;">'.$datosParticipante[0]['PrimerNombre'].'</h2>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td width="60"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="40"></td>
-                                                            <td width="230" align="center">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable">
-                                                                        <ul>
-                                                                            <h2 style="font-size:18px;line-height:50px;">Fecha de creacion:</h2>
-                                                                        </ul>
+                                                                </td>
+                                                                <td width="60"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="40"></td>
+                                                                <td width="230" align="center">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable">
+                                                                            <ul>
+                                                                                <h2 style="font-size:18px;line-height:50px;">Fecha de creacion:</h2>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td width="60"></td>
-                                                            <td width="230" align="center">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable">
-                                                                        <ul>
-                                                                            <h2 style="font-size:18px;line-height:50px;">'.$fechaCreacion.'</h2>
-                                                                        </ul>
+                                                                </td>
+                                                                <td width="60"></td>
+                                                                <td width="230" align="center">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable">
+                                                                            <ul>
+                                                                                <h2 style="font-size:18px;line-height:50px;">'.$fechaCreacion.'</h2>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td width="60"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="40"></td>
-                                                            <td width="230" align="center">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable">
-                                                                        <ul>
-                                                                            <h2 style="font-size:18px;line-height:50px;">Tema:</h2>
-                                                                        </ul>
+                                                                </td>
+                                                                <td width="60"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="40"></td>
+                                                                <td width="230" align="center">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable">
+                                                                            <ul>
+                                                                                <h2 style="font-size:18px;line-height:50px;">Tema:</h2>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td width="60"></td>
-                                                            <td width="230" align="center">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable">
-                                                                        <ul>
-                                                                            <h2 style="font-size:18px;line-height:50px;">'.$participanteTicket[0]['Subject'].'</h2>
-                                                                        </ul>
+                                                                </td>
+                                                                <td width="60"></td>
+                                                                <td width="230" align="center">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable">
+                                                                            <ul>
+                                                                                <h2 style="font-size:18px;line-height:50px;">'.$participanteTicket[0]['Subject'].'</h2>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td width="60"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="40"></td>
-                                                            <td width="230" align="center">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable">
-                                                                        <ul>
-                                                                            <h2 style="font-size:18px;line-height:50px;">Respuesta:</h2>
-                                                                        </ul>
+                                                                </td>
+                                                                <td width="60"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="40"></td>
+                                                                <td width="230" align="center">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable">
+                                                                            <ul>
+                                                                                <h2 style="font-size:18px;line-height:50px;">Respuesta:</h2>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td width="60"></td>
-                                                            <td width="230" align="center">
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable">
-                                                                        <ul>
-                                                                            <h2 style="font-size:18px;line-height:50px;">'.$RespuestaTicket.'</h2>
-                                                                        </ul>
+                                                                </td>
+                                                                <td width="60"></td>
+                                                                <td width="230" align="center">
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable">
+                                                                            <ul>
+                                                                                <h2 style="font-size:18px;line-height:50px;">'.$RespuestaTicket.'</h2>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td width="60"></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="movableContent">
-                                                    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                        <tr>
-                                                            <td>
-                                                                <div style="border-top:0px solid #ffffff;"></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td height="25"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="contentEditableContainer contentTextEditable">
-                                                                    <div class="contentEditable" style="color:#000000;text-align:center;font-size:13px;line-height:19px;">
-                                                                    <p>Enviado por el equipo de Operaciones Reconocelo</p>
-                                                                    <p>soporte@Reconocelo.com.mx</p>
-                                                                </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td height="20"></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </body>
-                </html>';
-                       
-                //Inicializa
+                                                                </td>
+                                                                <td width="60"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="movableContent">
+                                                        <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                            <tr>
+                                                                <td>
+                                                                    <div style="border-top:0px solid #ffffff;"></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="25"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="contentEditableContainer contentTextEditable">
+                                                                        <div class="contentEditable" style="color:#000000;text-align:center;font-size:13px;line-height:19px;">
+                                                                            <p>Enviado por el equipo de Operaciones Reconocelo</p>
+                                                                            <p>soporte@Reconocelo.com.mx</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="20"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </body>
+                    </html>';
                 $this->email->initialize($config);
-                //Envío de alerta de ticket.
                 $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
-                $this->email->to($datosParticipante[0]['eMail']);//operaciones@opisa.com
-                //$this->email->cc('operaciones@opisa.com');
+                $this->email->to($datosParticipante[0]['eMail']);
                 $this->email->subject('Respuesta del ticket '.$ticketId.'');
                 $this->email->message($message);
                 $this->email->send();
                 $mailAdministradorTickets = "Administrador";
             }
-
             if ($ticketHistoryData){
                 $this->output->set_output(json_encode($ticketHistoryData));
             }else{
@@ -391,10 +363,7 @@
         public function exit_ticket(){
             $array_items = array('administrador' => '', 'Usuario' => '');
             $this->session->unset_userdata($array_items);
-            //Manda al inicio de la página, si no hay session se va al login.
             header( 'Location: '.base_url().'TicketsAdmin');
         }
-
     }
-
 ?>

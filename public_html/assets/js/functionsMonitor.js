@@ -1,6 +1,4 @@
-/* Login Reconocelo Monitor */
 function loginMonitorReconocelo() {
-
     var user = $('#user').val();
     var password = $('#password').val();
     if (user == "" || password == "") {
@@ -18,19 +16,14 @@ function loginMonitorReconocelo() {
             data: { "user": user, "password": password },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result != 0) {
-
                     location.href = "https://" + location.hostname + "/Monitor/home";
-                    console.log(result);
-
                 } else {
                     $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageError').show();
                     $('#user').val("");
                     $('#password').val("");
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
@@ -38,13 +31,9 @@ function loginMonitorReconocelo() {
         });
     }
 }
-/* Fin login Reconocelo Monitor*/
 
-//Funcion para controlar el div, cuando se esta navegando
 function MonitorNav(id) {
-
     var idNavMonitor = id.id;
-
     switch (idNavMonitor) {
         case 'inicioMonitor':
             location.href = "https://" + location.hostname + "/Monitor/home";
@@ -77,13 +66,9 @@ function MonitorNav(id) {
             location.href = "https://" + location.hostname + "/Monitor/reglasMonitor";
             break;
     }
-
 }
-/* Inicio participantes */
 
-//Todos los participantes
 function Todosparticipantes() {
-
     $.ajax({
         url: '/Monitor/ParticipantesTodos',
         async: 'true',
@@ -95,23 +80,18 @@ function Todosparticipantes() {
         ifModified: false,
         processData: true,
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#ParticipanteSaldo').html(result);
             }
-
         },
         timeout: 30000,
         type: "GET"
     });
-
 }
 
-//Participantes con saldo
 function participantesSaldo() {
-
     $.ajax({
         url: '/Monitor/conSaldoParticipantes',
         async: 'true',
@@ -123,21 +103,17 @@ function participantesSaldo() {
         ifModified: false,
         processData: true,
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#ParticipanteSaldo').html(result);
             }
-
         },
         timeout: 30000,
         type: "GET"
     });
-
 }
 
-//Filtro participantes
 function filtroParticipantes(id) {
     var idSaldo = id.id;
     if (idSaldo == 'TodosSaldo') {
@@ -156,32 +132,24 @@ function filtroParticipantes(id) {
             ifModified: false,
             processData: true,
             success: function(result) {
-
                 if (result == "0") {
                     window.location.reload();
                 } else {
                     $('#ParticipanteSaldo').html(result);
                 }
-
             },
             timeout: 30000,
             type: "GET"
         });
-
     }
 }
 
-//Estado Activo e Inactivo, participantes
 function estadoParticipante() {
-
     var radioTodosParticipantes = document.getElementById("TodosSaldo");
     var radioParticipantesSaldo = document.getElementById("Saldo");
     var radioParticipantesSinSaldo = document.getElementById("sinSaldo");
-
     var EstadoActivo = document.getElementById('estadoActivo').checked;
     var EstadoInactivo = document.getElementById('estadoInactivo').checked;
-
-
     if (radioTodosParticipantes.checked == true && EstadoActivo && EstadoInactivo) {
         Todosparticipantes();
         document.getElementById("alertFiltro").style.display = "none";
@@ -215,7 +183,6 @@ function estadoParticipante() {
 }
 
 function estadoParticipantes(estadoFiltro) {
-
     $.ajax({
         url: estadoFiltro,
         async: 'true',
@@ -227,23 +194,18 @@ function estadoParticipantes(estadoFiltro) {
         ifModified: false,
         processData: true,
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#ParticipanteSaldo').html(result);
             }
-
         },
         timeout: 30000,
         type: "GET"
     });
-
 }
 
-//Info participantes modal
 function infoParticipante(id) {
-
     var codParticipante = id.id;
     $.ajax({
         url: '/Monitor/participanteInfo',
@@ -256,26 +218,19 @@ function infoParticipante(id) {
         data: { "codParticipante": codParticipante },
         beforeSend: function() {},
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#participanteInfoBody').html(result);
             }
-
         },
         error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
-
 }
 
-/* Fin Participantes */
-
-/* Inicio Catologo */
 function catalogoIMG(id) {
-
     var codPremio = id.id;
     var longitudPremio = codPremio.length;
     if (longitudPremio == 1) {
@@ -289,7 +244,6 @@ function catalogoIMG(id) {
     } else if (longitudPremio == 5) {
         codPremi = codPremio;
     }
-    /* foto catologo */
     $.ajax({
         url: '/Monitor/catalogoImg',
         async: 'true',
@@ -301,26 +255,19 @@ function catalogoIMG(id) {
         data: { "codPremio": codPremi },
         beforeSend: function() {},
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#imgCatalogo').html(result);
             }
-
         },
         error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
-    /* fin foto catalogo */
-
 }
-/* Fin Catalogo */
 
-/* Inicio depositos */
 function depositos() {
-
     $.ajax({
         url: '/Monitor/depositosInfo',
         async: 'true',
@@ -332,30 +279,24 @@ function depositos() {
         ifModified: false,
         processData: true,
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#depositoInformacion').html(result);
             }
-
         },
         timeout: 30000,
         type: "GET"
     });
-
 }
 
 function fechaInicioFinSelect() {
-
     var fechaInicio = document.getElementById("fechaInicio").value;
     var fechaFin = document.getElementById("fechaFin").value;
-
     if (fechaInicio == 'selecciona' && fechaFin == 'selecciona') {
         $('#alertFiltroDeposito').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Atención!</strong> Debes tener seleccionar una fecha.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         throw new Error("Seleccionaste selecciona");
     } else if (fechaInicio != 'selecciona' || fechaFin != 'selecciona') {
-
         if (fechaInicio == fechaFin) {
             $('#alertFiltroDeposito').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Atención!</strong> Las fechas que seleccionaste son iguales, selecciona diferentes.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             throw new Error("Fechas iguales");
@@ -374,13 +315,11 @@ function fechaInicioFinSelect() {
                 data: { "fechaInicio": fechaInicio, "fechaFin": fechaFin },
                 beforeSend: function() {},
                 success: function(result) {
-
                     if (result == "0") {
                         $('#alertFiltroDeposito').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Atención!</strong> No se encontraron datos con las fechas seleccionadas.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
                         $('#depositoInformacion').html(result);
                     }
-
                 },
                 error: function(object, error, anotherObject) {
                     $('#alertFiltroDeposito').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Atención!</strong> Ocurrio un error intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
@@ -388,16 +327,12 @@ function fechaInicioFinSelect() {
                 timeout: 30000,
                 type: "POST"
             });
-
         }
-
     }
-
 }
 
 function uploadPuntosDepo() {
     var numTransaccion = $('#numTransaccion').val()
-
     if (numTransaccion != "Selecciona") {
         $.ajax({
             url: '/Monitor/uploadPuntosDeposito',
@@ -410,26 +345,20 @@ function uploadPuntosDepo() {
             data: { "numTransaccion": numTransaccion },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {
                     $('#MessageInsertarDepositos').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se activaron todos los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 } else {
                     $('#parsed_csv_list').hide();
                     $('#MessageInsertarDepositos').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se activaron los puntos correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
     }
-
 }
-/* fin depositos*/
 
-/* Inicio canjes */
 function canjes() {
     $.ajax({
         url: '/Monitor/canjesInfo',
@@ -442,13 +371,11 @@ function canjes() {
         ifModified: false,
         processData: true,
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#CanjeInformacion').html(result);
             }
-
         },
         timeout: 30000,
         type: "GET"
@@ -458,12 +385,10 @@ function canjes() {
 function fechaInicioFinSelectCanje() {
     var fechaInicio = document.getElementById("fechaInicio").value;
     var fechaFin = document.getElementById("fechaFin").value;
-
     if (fechaInicio == 'selecciona' && fechaFin == 'selecciona') {
         $('#messageCanjeAlert').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de seleccionar alguna fecha.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         throw new Error("Seleccionaste Selecciona");
     } else if (fechaInicio != 'selecciona' || fechaFin != 'selecciona') {
-
         if (fechaInicio == fechaFin) {
             $('#messageCanjeAlert').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Seleccionaste fechas iguales.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             throw new Error("Fechas iguales");
@@ -471,7 +396,6 @@ function fechaInicioFinSelectCanje() {
             $('#messageCanjeAlert').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> La fecha de inicio, tiene que ser menor.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             throw new Error("Fecha de inicio menor");
         } else if (fechaInicio <= fechaFin) {
-
             $.ajax({
                 url: '/Monitor/canjesInforma',
                 async: 'true',
@@ -483,30 +407,23 @@ function fechaInicioFinSelectCanje() {
                 data: { "fechaInicio": fechaInicio, "fechaFin": fechaFin },
                 beforeSend: function() {},
                 success: function(result) {
-
                     if (result == "0") {
                         $('#messageCanjeAlert').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal, intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
                         $('#depositoInformacion').html(result);
                     }
-
                 },
                 error: function(object, error, anotherObject) {},
                 timeout: 30000,
                 type: "POST"
             });
-
         }
-
     }
 }
-/* Fin canjes */
 
-/* Funcion configuracion */
 function config(id) {
     var id = id.id;
     if (id == "changeUser") {
-
         var usuario = $('#userReconoceloMonitor').val();
         if (usuario == "") {
             $('#messageUser').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debes de escribir un nombre, para poder cambiar el nombre.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
@@ -523,22 +440,18 @@ function config(id) {
                 data: { "usuario": usuario },
                 beforeSend: function() {},
                 success: function(result) {
-
                     if (result == "0") {
                         $('#messageUser').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio el nombre correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
                         $('#messageUser').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio el nombre correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     }
-
                 },
                 error: function(object, error, anotherObject) {},
                 timeout: 30000,
                 type: "POST"
             });
         }
-
     } else if (id == "changePassword") {
-
         var password = $('#password').val();
         var passwordConfirm = $('#passwordConfirm').val();
         if (password == "" || passwordConfirm == "") {
@@ -559,25 +472,20 @@ function config(id) {
                 data: { "password": password },
                 beforeSend: function() {},
                 success: function(result) {
-
                     if (result == "0") {
                         $('#messagePassword').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
                         $('#messagePassword').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     }
-
                 },
                 error: function(object, error, anotherObject) {},
                 timeout: 30000,
                 type: "POST"
             });
         }
-
     }
 }
-/* Fin funcion configuracion */
 
-/* Funcion recuperar password */
 function sendRecuperaPassword() {
     var email = $('#mailRecuperar').val();
     if (email == "") {
@@ -595,13 +503,11 @@ function sendRecuperaPassword() {
             data: { "email": email },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {
                     $('#MessageRecupera').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal al mandar el correo, verifica si lo escribiste correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 } else {
                     $('#MessageRecupera').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se mando a tu correo, para que puedas recuperar tu cuenta.En caso de no aparecer, favor de revisar la carpeta de spam.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
@@ -636,13 +542,11 @@ function configNew(id) {
                 data: { "password": password, "usuario": usuario, "codEmpresa": codEmpresa },
                 beforeSend: function() {},
                 success: function(result) {
-
                     if (result == "0") {
                         $('#MessageRecuperar').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
                         $('#MessageRecuperar').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     }
-
                 },
                 error: function(object, error, anotherObject) {},
                 timeout: 30000,
@@ -651,11 +555,8 @@ function configNew(id) {
         }
     }
 }
-/* Fin funcion recuperar password */
 
-/* Funcion cambiar regla */
 function cambiarRegla(id) {
-
     var idReglaNombre = id.id;
     var textoRegla = $('#regla-' + idReglaNombre).val();
     if (textoRegla == "") {
@@ -672,24 +573,18 @@ function cambiarRegla(id) {
             data: { "idReglaNombre": idReglaNombre, "textoRegla": textoRegla },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {} else {
                     location.reload();
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
     }
-
 }
-/* Fin funcion cambiar regla*/
 
-/* Funcion cambiar nombre regla */
 function cambiarNombreRegla(id) {
-
     var idBtn = id.id
     var idBtnArray = idBtn.split("-");
     var activeInput = "nombre-" + idBtnArray[1];
@@ -697,7 +592,6 @@ function cambiarNombreRegla(id) {
 }
 
 function cambiarNombreReglaBtn(id) {
-
     var idBtnCambiar = id.id;
     var idBtnCambiarArray = idBtnCambiar.split("-");
     var idReglaNombre = idBtnCambiarArray[1];
@@ -716,22 +610,17 @@ function cambiarNombreReglaBtn(id) {
             data: { "idReglaNombre": idReglaNombre, "textCambiar": textCambiar },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {} else {
                     location.reload();
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
     }
-
 }
-/* Fin funcion cambiar nombre regla */
 
-/* Funcion agregar y ocultar regla */
 function addNuevaRegla(id) {
     var idRegla = id.id;
     if (idRegla == "agregarNuevaRegla") {
@@ -762,11 +651,8 @@ function addNuevaReglaData() {
             ifModified: false,
             processData: true,
             data: { "regla": textoRegla, "descripcionRegla": descripcionRegla },
-            beforeSend: function() {
-
-            },
+            beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {} else {
                     $('#nuevoNombreRegla').val("");
                     $('#DecripcionNuevaRegla').val("");
@@ -776,7 +662,6 @@ function addNuevaReglaData() {
                     $('#MessageNuevaRegla').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se ha creado una nueva regla.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button</div>');
                     $('#MessageNuevaRegla').show();
                 }
-
             },
             error: function(object, error, anotherObject) {
                 $('#nuevoNombreRegla').val("");
@@ -792,12 +677,8 @@ function addNuevaReglaData() {
         });
     }
 }
-/* Fin funcion agregar y ocultar regla */
 
-
-//Funcion salir de reconocelo monitor
 function exit() {
-
     swal({
         title: "¿Esta seguro de cerrar sesion?",
         text: "",
@@ -812,5 +693,4 @@ function exit() {
             location.href = "https://" + location.hostname + "/Monitor/salirMonitor";
         } else {}
     });
-
 }

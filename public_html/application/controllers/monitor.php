@@ -1,10 +1,8 @@
 <?php
-
     if (!defined('BASEPATH'))
         exit('No direct script access allowed');
 
     class Monitor extends CI_Controller {
-
         public function __construct() {
             parent::__construct();
             $this->load->library('email');
@@ -21,11 +19,8 @@
         }
 
         public function home(){
-
             $this->load->view('includes/home_monitor_view_header');
-
             $this->load->view("home_monitor_view");
-
             $this->load->view('includes/home_monitor_view_footer');
         }
 
@@ -56,18 +51,13 @@
             $this->load->view('aviso_view_monitor');   
         }
 
-    /////////////////////////Menu navegacion reconocelo monitor/////////////////////
-    ///////////////////////////////Participantes///////////////////////////////////
         public function participantes(){
             $this->load->view('includes/home_monitor_view_header');
             $this->load->view('participante_monitor_view');
             $this->load->view('includes/home_monitor_view_footer');
-
         }
 
-        //Todos los participantes
         public function ParticipantesTodos(){
-
             $codEmpresa = $this->session->userdata('CodEmpresa');
             $participante = $this->Monitor_model->getTodosParticipantes();
             if ($participante){
@@ -76,10 +66,8 @@
                 $data["participante"] = false;
             }
             $this->load->view('partSaldo_monitor_view',$data);
-
         }
 
-        //Participantes con saldo
         public function conSaldoParticipantes(){
             $participante = $this->Monitor_model->geTParticipantesSaldo();
             if ($participante){
@@ -90,7 +78,6 @@
             $this->load->view('partSaldo_monitor_view',$data);
         }
 
-        //Participantes sin saldo
         public function sinSaldoParticipantes(){
             $participante = $this->Monitor_model->geTParticipantesSinSaldo();
             if ($participante){
@@ -101,11 +88,9 @@
             $this->load->view('partSaldo_monitor_view',$data);
         }
 
-        //Participantes todos activos
         public function saldoTodoActivo(){
             $participante = $this->Monitor_model->geTodoSaldoActivo();
-            if ($participante)
-            {
+            if ($participante){
                 $data["participante"] = $participante;
             }else{
                 $data["participante"] = false;
@@ -113,11 +98,9 @@
             $this->load->view('partSaldo_monitor_view',$data);
         }
 
-        //Participantes todos inactivos
         public function saldoTodoInactivo(){
             $participante = $this->Monitor_model->geTodoInactivo();
-            if ($participante)
-            {
+            if ($participante){
                 $data["participante"] = $participante;
             }else{
                 $data["participante"] = false;
@@ -125,11 +108,9 @@
             $this->load->view('partSaldo_monitor_view',$data);
         }
 
-        //Participantes Activos con saldo
         public function saldoActivo(){
             $participante = $this->Monitor_model->getSaldoActivo();
-            if ($participante)
-            {
+            if ($participante){
                 $data["participante"] = $participante;
             }else{
                 $data["participante"] = false;
@@ -137,11 +118,9 @@
             $this->load->view('partSaldo_monitor_view',$data);
         }
 
-        //Participantes inactivos con saldo
         public function saldoInactivo(){
             $participante = $this->Monitor_model->geTSaldoInactivo();
-            if ($participante)
-            {
+            if ($participante){
                 $data["participante"] = $participante;
             }else{
                 $data["participante"] = false;
@@ -149,11 +128,9 @@
             $this->load->view('partSaldo_monitor_view',$data);
         }
 
-        //Participantes activos sin saldo
         public function sinSaldoActivo(){
             $participante = $this->Monitor_model->geTSinSaldoActivo();
-            if ($participante)
-            {
+            if ($participante){
                 $data["participante"] = $participante;
             }else{
                 $data["participante"] = false;
@@ -161,11 +138,9 @@
             $this->load->view('partSaldo_monitor_view',$data);
         }
 
-        //Pariticipantes inactivos sin saldo
         public function sinSaldoInactivo(){
             $participante = $this->Monitor_model->geTSinSaldoInactivo();
-            if ($participante)
-            {
+            if ($participante){
                 $data["participante"] = $participante;
             }else{
                 $data["participante"] = false;
@@ -173,21 +148,15 @@
             $this->load->view('partSaldo_monitor_view',$data);
         }
 
-        //Informacion de los participantes
         public function participanteInfo(){
-
             $infoParticipante = array(
                 "codParticipante"=>$this->input->post('codParticipante')
             );
-
             $movimientosDeParticipante = $this->Monitor_model->participanteInfoData($infoParticipante);
-
             $codPrograma = $movimientosDeParticipante[0]["codPrograma"];
             $codEmpresa = $movimientosDeParticipante[0]["codEmpresa"];
             $codParticipante = $movimientosDeParticipante[0]["codParticipante"];
-
             $participanteData = $this->Monitor_model->movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante);
-
             if ($participanteData){
                 $data = array( 'participanteData' => $participanteData);
             }else{
@@ -195,8 +164,7 @@
             }
             $this->load->view('modalPartici_monitor_view',$data);
         }
-////////////////////////////FinParticipantes///////////////////////////////////
-////////////////////////////InicioDepositos///////////////////////////////////
+
         public function depositos(){
             $deposito = $this->Monitor_model->getFechaDeposito();
             if ($deposito){
@@ -204,7 +172,6 @@
             }else{
                 $data["deposito"] = false;
             }
-
             $this->load->view('includes/home_monitor_view_header');
             $this->load->view('deposito_monitor_view',$data);
             $this->load->view('includes/home_monitor_view_footer');
@@ -221,12 +188,10 @@
         }
 
         public function depositosInforma(){
-
             $infoFechas = array(
                 "fechaInicio"=>$this->input->post('fechaInicio'),
                 "fechaFin"=>$this->input->post('fechaFin')
             );
-
             $deposito = $this->Monitor_model->getDepositoFechas($infoFechas);
             if ($deposito){
                 $data["deposito"] = $deposito;
@@ -244,30 +209,21 @@
 
         public function uploadDepositosNews(){
             $infoDepositosNews = $this->input->post('infoNewsDepositos');
-
             $depositoMasivo = $this->Monitor_model->insertDepositoMasivo();
-
             if($depositoMasivo){
                 $depositoDetalleMasivo = $this->Monitor_model->insertDepositoDetalleMasivo($infoDepositosNews,$depositoMasivo);
                 if($depositoDetalleMasivo){
-
                     $totalPuntos = $this->Monitor_model->totalPuntos($depositoMasivo);
-
                     $totalParticipantesSubidos = $this->Monitor_model->totalParticipantesSubidos($depositoMasivo);
-
                     $this->correoDepositoMasivo($depositoMasivo,$totalPuntos[0]['Puntos'],$totalParticipantesSubidos[0]['TotalSubido']);
-
                     $this->output->set_output(json_encode($depositoDetalleMasivo));
                 }else{
                     $this->output->set_output(json_encode(false));
-                    
                 }
             }
-
         }
 
         public function depositosSubidos(){
-
             $idDepositoParticipante = "";
             $depositover = $this->Monitor_model->verDepositosUsuario();
             if ($depositover){
@@ -276,11 +232,9 @@
                 $data["depositover"] = false;
             }
             $this->load->view('depositoUpload_monitor_view',$data);
-        
         }
 
         public function uploadPuntosDeposito(){
-
             $numTransaccion = array(
                 "numTransaccion"=>$this->input->post('numTransaccion')
             );
@@ -288,12 +242,9 @@
             $saldoTotalParticipante = 0;
             $totalRegistros = 0;
             if($depositoverUpload){
-
                 foreach($depositoverUpload as $row){
-
                     $saldoParticipantes = $this->Monitor_model->UpdateSaldoParticipante($row['idParticipanteCliente'],$row['Puntos']);
                     if($saldoParticipantes){
-                        
                         $updateDepositosDet = $this->Monitor_model->UpdateDepositosDet($numTransaccion,$row['idParticipanteCliente']);
                         if($updateDepositosDet){
                             $idParticipanteData = $this->Monitor_model->idParticipanteGet($row['idParticipanteCliente']);
@@ -301,28 +252,21 @@
                                 $insertPartMovsRealiza = $this->Monitor_model->insertPartMovsRealiza($idParticipanteData[0]['idParticipante'],$row['Concepto'],$row['Puntos']);
                                 $saldoTotalParticipante = $saldoTotalParticipante + 1;
                             }
-
                         }
                     }
-
                     $totalRegistros = $totalRegistros + 1;
                 }
-
                 if($totalRegistros == $saldoTotalParticipante){
-
                     $UpdateMasterDeposito = $this->Monitor_model->UpdateMasterDeposito($numTransaccion);
                     $this->output->set_output(json_encode("Todo se hizo correcto"));
-
                 }else{
                     $this->output->set_output(json_encode($saldoTotalParticipante));    
                 }
-
             }else{
                 $this->output->set_output(json_encode(false));
             }
         }
-////////////////////////////FinDepositos///////////////////////////////////////
-/////////////////////////InicioCanjes/////////////////////////////////////////
+
         public function canjes(){
             $canje = $this->Monitor_model->getFechaCanje();
             if ($canje){
@@ -330,7 +274,6 @@
             }else{
                 $data["canje"] = false;
             }
-
             $this->load->view('includes/home_monitor_view_header');
             $this->load->view('canje_monitor_view',$data);
             $this->load->view('includes/home_monitor_view_footer');
@@ -347,12 +290,10 @@
         }
 
         public function canjesInforma(){
-
             $infoFechas = array(
                 "fechaInicio"=>$this->input->post('fechaInicio'),
                 "fechaFin"=>$this->input->post('fechaFin')
             );
-
             $canje = $this->Monitor_model->getCanjeFechas($infoFechas);
             if ($canje){
                 $data["canje"] = $canje;
@@ -361,30 +302,24 @@
             }
             $this->load->view('canjeTable_monitor_view',$data);
         }
-////////////////////////FinCanjes////////////////////////////////////////////
-///////////////////////////InicioCatalogo//////////////////////////////////////
+
         public function catalogo(){
             $catalogo = $this->Monitor_model->getCatalogo();
-            if ($catalogo)
-            {
+            if ($catalogo){
                 $data["catalogo"] = $catalogo;
             }else{
                 $data["catalogo"] = false;
             }
-
             $this->load->view('includes/home_monitor_view_header');
             $this->load->view('catalogo_monitor_view',$data);
             $this->load->view('includes/home_monitor_view_footer');
         }
 
         public function catalogoImg(){
-
             $codPremio = array(
                 "codPremio"=>$this->input->post('codPremio')
             );
-
             $descripcionImg = $this->Monitor_model->getDescripcionIMG($codPremio);
-
             if($descripcionImg){
                 $data = array('codPremio'=>$codPremio,
                     'descripcion'=>$descripcionImg
@@ -394,10 +329,9 @@
                     'descripcion'=>false
                 );
             }
-
             $this->load->view('catalogoModal_monitor_view',$data);
         }
-///////////////////////////FinCatalogo//////////////////////////////////////
+
         public function programa(){
             $programa= $this->Monitor_model->getPrograma();
             $programaCanje= $this->Monitor_model->getProgramaCanje();
@@ -408,12 +342,11 @@
             }else{
                 $data = array( 'programa' => false,'programaCanje' => false);
             }
-
             $this->load->view('includes/home_monitor_view_header');
             $this->load->view('programa_monitor_view',$data);
             $this->load->view('includes/home_monitor_view_footer');
         }
-/////////////////////Reglas monitor reconocelo/////////////////////////
+
         public function reglasMonitor(){
             $codEmpresa = $this->session->userdata('CodEmpresa');
             $CodPrograma = $this->session->userdata('CodPrograma');
@@ -466,8 +399,7 @@
                 $this->output->set_output(json_encode(false));
             }
         }
-/////////////////////Fin reglas monitor reconocelo/////////////////////
-///////////////////////Configuracion usuario reconocelo monitor///////////////
+
         public function configuracion(){
             $this->load->view('includes/home_monitor_view_header');
             $this->load->view('configuracionUser_monitor_view');
@@ -497,12 +429,10 @@
                 $this->output->set_output(json_encode(false));
             }
         }
-///////////////////////Fin Configuracion usuario reconocelo monitor///////////////
-/////////////////////// Recuperar contrasena///////////////////////////
+
         public function recuperarPassword(){
             $this->load->view('recuperaPassword_monitor_view');
             $this->load->view('includes/home_monitor_view_footer');
-
         }
 
         public function sendMailRecupera(){
@@ -511,15 +441,11 @@
             );
             $emailTrue = $this->Monitor_model->checkMailExits($email);
             if($emailTrue){
-                /* Notificacion por correo */
-
-                //Configuracion de SMTP
                 $config['smtp_host'] = 'm176.neubox.net';
                 $config['smtp_user'] = 'envios@opisa.com';
                 $config['smtp_pass'] = '3hf89w';
                 $config['smtp_port'] = 465;
                 $config['mailtype'] = 'html';
-
                 $message = '<!DOCTYPE html>
                 <html xmlns="http://www.w3.org/1999/xhtml">
                     <head>
@@ -545,18 +471,11 @@
                             a {
                                 color: #382F2E;
                             }
-                            p,
-                            h1,
-                            h2,
-                            ul,
-                            ol,
-                            li,
-                            div {
+                            p,h1,h2,ul,ol,li,div {
                                 margin: 0;
                                 padding: 0;
                             }
-                            h1,
-                            h2 {
+                            h1,h2 {
                                 font-weight: normal;
                                 background: transparent !important;
                                 border: none !important;
@@ -567,8 +486,7 @@
                             .contentEditable h2.bigger {
                                 font-size: 37px !important;
                             }
-                            td,
-                            table {
+                            td,table {
                                 vertical-align: top;
                             }
                             td.middle {
@@ -614,27 +532,27 @@
                         <script type="colorScheme" class="swatch active">
                             { "name":"Default", "bgBody":"ffffff", "link":"B791BF", "color":"ffffff", "bgItem":"CFB4D5", "title":"ffffff" }
                         </script>
-                        </head>
-                        <body paddingwidth="0" paddingheight="0" class="bgBody" style="padding-top: 0; padding-bottom: 0; padding-top: 0; padding-bottom: 0; background-repeat: repeat; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased;"
-                        offset="0" toppadding="0" leftpadding="0">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableContent bgBody" align="center" style="font-family:Georgia, serif;">
-                                <tr>
-                                    <td width="660" align="center">
-                                        <table width="660" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem">
-                                            <tr>
-                                                <td align="center" width="660" class="movableContentContainer">
-                                                    <div class="movableContent">
-                                                        <table width="660" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                            <tr>
-                                                                <td align="center">
-                                                                    <div class="contentEditableContainer contentImageEditable">
-                                                                        <div class="contentEditable">
-                                                                            <img src="https://www.reconocelo.com.mx/assets/images/monitorLog.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
-                                                                        </div>
+                    </head>
+                    <body paddingwidth="0" paddingheight="0" class="bgBody" style="padding-top: 0; padding-bottom: 0; padding-top: 0; padding-bottom: 0; background-repeat: repeat; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased;"
+                    offset="0" toppadding="0" leftpadding="0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableContent bgBody" align="center" style="font-family:Georgia, serif;">
+                            <tr>
+                                <td width="660" align="center">
+                                    <table width="660" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem">
+                                        <tr>
+                                            <td align="center" width="660" class="movableContentContainer">
+                                                <div class="movableContent">
+                                                    <table width="660" border="0" cellspacing="0" cellpadding="0" align="center">
+                                                        <tr>
+                                                            <td align="center">
+                                                                <div class="contentEditableContainer contentImageEditable">
+                                                                    <div class="contentEditable">
+                                                                        <img src="https://www.reconocelo.com.mx/assets/images/monitorLog.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
                                                                     </div>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
                                                 </div>
                                                 <div class="movableContent">
                                                     <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -723,9 +641,9 @@
                                                             <td>
                                                                 <div class="contentEditableContainer contentTextEditable">
                                                                     <div class="contentEditable" style="color:#000000;text-align:center;font-size:13px;line-height:19px;">
-                                                                    <p>Enviado por el equipo de Operaciones Reconocelo</p>
-                                                                    <p>soporte@Reconocelo.com.mx</p>
-                                                                </div>
+                                                                        <p>Enviado por el equipo de Operaciones Reconocelo</p>
+                                                                        <p>soporte@Reconocelo.com.mx</p>
+                                                                    </div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -741,22 +659,13 @@
                             </tr>
                         </table>
                     </body>
-                </html>
-                ';
-                /* Fin de la Estructura del correo de reconocelo monitor */
-                //Inicializa
+                </html>';
                 $this->email->initialize($config);
-                //Envío de alerta.
                 $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
                 $this->email->to($email['email']);
-                //$this->email->cc($this->session->userdata('email'));
-
                 $this->email->subject('Recuperar cuenta');
                 $this->email->message($message);
-
                 $this->email->send();
-
-                /* Fin notificacion por correo */
             }
         }
 
@@ -770,7 +679,6 @@
 
         public function cambiarUserPasswordNew(){
             $passwordConfig = array(
-                
                 "password"=>$this->input->post('password'),
                 "usuario"=>$this->input->post('usuario'),
                 "codEmpresa"=>$this->input->post('codEmpresa')
@@ -782,25 +690,19 @@
                 $this->output->set_output(json_encode(false));
             }
         }
-/////////////////////////Fin recuperar contrasena////////////////////////
-/////////////////////////////////////Fin menu/////////////////////////////////////
-///////////////////////////Salir del Monitor Reconocelo/////////////////////////
+
         public function salirMonitor(){
             $array_items = array('administrador' => '', 'empresa' => '');
             $this->session->unset_userdata($array_items);
             header( 'Location: '.base_url().'/Monitor');
         }
 
-////////////////////////Funciones de correo electronico/////////////////////////
         public function correoDepositoMasivo($depositoMasivo,$totalPuntos,$totalParticipantesSubidos){
-            //Configuracion de SMTP
             $config['smtp_host'] = 'm176.neubox.net';
             $config['smtp_user'] = 'envios@opisa.com';
             $config['smtp_pass'] = '3hf89w';
             $config['smtp_port'] = 465;
             $config['mailtype'] = 'html';
-
-            /* Estructura del correo de reconocelo monitor*/
             $message = '<!DOCTYPE html>
             <html xmlns="http://www.w3.org/1999/xhtml">
                 <head>
@@ -1094,18 +996,11 @@
                     </table>
                 </body>
             </html>';
-
-
-            /* Fin de la Estructura del correo de reconocelo monitor */
-            //Inicializa
             $this->email->initialize($config);
-            //Envío de alerta.
             $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
             $this->email->to($this->session->userdata('email'));
-
             $this->email->subject('Nuevos depositos subidos');
             $this->email->message($message);
-
             $this->email->send();
         }
     }

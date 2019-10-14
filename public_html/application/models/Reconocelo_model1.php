@@ -29,8 +29,7 @@ class Reconocelo_model1 extends CI_Model {
             AND pp.codPrograma = ".$this->session->userdata('programa')." 
             ORDER BY cp.nbCategoria
         ");
-        if ($query->num_rows() > 0)
-        {
+        if ($query->num_rows() > 0){
             return $query->result_array(); 
         }else{
             return false;
@@ -57,8 +56,7 @@ class Reconocelo_model1 extends CI_Model {
             )
             ORDER BY pp.ValorPuntos DESC , p.codPremio
         ");
-        if ($query->num_rows() > 0)
-        {
+        if ($query->num_rows() > 0){
             return $query->result_array(); 
         }else{
             return false;
@@ -74,8 +72,7 @@ class Reconocelo_model1 extends CI_Model {
             AND pp.codEmpresa = ".$this->session->userdata('empresa')."
             AND p.codPremio = ".$idItem
         );
-        if ($query->num_rows() > 0)
-        {
+        if ($query->num_rows() > 0){
             return $query->result_array(); 
         }else{
             return false;
@@ -154,8 +151,7 @@ class Reconocelo_model1 extends CI_Model {
             ,'".$_POST["address"][2]["value"]."','".$_POST["address"][3]["value"]."'
             ,'".$_POST["address"][5]["value"]."','".$_POST["address"][6]["value"]."')
         ");
-        if ($query)
-        {
+        if ($query){
             return $this->db->insert_id();
         }else{
             return false;
@@ -171,8 +167,7 @@ class Reconocelo_model1 extends CI_Model {
                 cantidad,PuntosXUnidad)
                 VALUES (".$this->session->userdata('programa').",".$noFolio.",".$nItem.",".$d->id.",".$d->cantidad.",".$d->puntos.")
             ");
-            if (!$query)
-            {
+            if (!$query){
                 $err ++;
             }else{
                 $nItem++;
@@ -254,8 +249,7 @@ class Reconocelo_model1 extends CI_Model {
             INSERT INTO `opisa_opisa`.`AtencionTicketDetalle`(`IdTicket`, `mensaje`, `fecha`, `loginWeb`) 
             VALUES (".$duda.",'".$data['mensaje']."',now(),".$this->session->userdata('idPart').");
         ");
-        if ($query)
-        {
+        if ($query){
             return $this->db->insert_id();
         }else{
             return false;
@@ -300,8 +294,7 @@ class Reconocelo_model1 extends CI_Model {
             VALUES (".$ticketAnswerAdmin['ticketId'].",'".$ticketAnswerAdmin['respuestaTicket']."',
             now(),'".$loginWeb."');
         ");
-        if ($query)
-        {
+        if ($query){
             return $this->db->insert_id();
         }else{
             return false;

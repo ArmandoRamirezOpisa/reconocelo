@@ -1,6 +1,5 @@
 <?php
-      class Monitor_model  extends CI_Model{
-   
+      class Monitor_model  extends CI_Model{   
             public function loadData($datos){
                   $usuario =$datos['usuario'];
                   $password = $datos['password'];
@@ -234,8 +233,7 @@
                         AND feMov >=  '20180101'
                         ORDER BY Fecha
                   ");
-                  if ($query->num_rows() > 0)
-                  {
+                  if ($query->num_rows() > 0){
                         return $query->result_array(); 
                   }else{
                         return false;
@@ -256,8 +254,7 @@
                         AND feMov >=  '20180101'
                         ORDER BY Fecha
                   ");
-    		      if ($query->num_rows() > 0)
-    		      {
+    		      if ($query->num_rows() > 0){
                         return $query->result_array(); 
     		      }else{
                         return false;
@@ -278,8 +275,7 @@
                         AND DATE_FORMAT( m.feMov,  '%Y %m' ) <= '".$infoFechas['fechaFin']."'
                         ORDER BY Fecha
                   ");
-    		      if ($query->num_rows() > 0)
-    		      {
+    		      if ($query->num_rows() > 0){
                         return $query->result_array(); 
     		      }else{
                         return false;
@@ -291,8 +287,7 @@
                         INSERT INTO `opisa_opisa`.`Despositos`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
                         VALUES (NOW(),'".$this->session->userdata('CodEmpresa')."',0)
                   ");
-    	            if ($query)
-    	            {
+    	            if ($query){
                         return $this->db->insert_id();
     	            }else{
                         return false;
@@ -320,13 +315,12 @@
                                                       '".$valoresDefinidosDepositos[1]."','".$valoresDefinidosDepositos[2]."',
                                                       NOW(),0)
                                                 ");
-                                                if ($query)
-    	                                          {
+                                                if ($query){
                                                       $valorReturn = $this->db->insert_id();
     	                                          }else{
                                                       $valorReturn = false;
     	                                          }
-                                          }                                           
+                                          }                           
                                     }
                               }
                         }
@@ -340,8 +334,7 @@
                         FROM DepositosDet
                         WHERE idDeposito ='".$depositoMasivo."'
                   ");
-    		      if ($query->num_rows() > 0)
-    		      {
+    		      if ($query->num_rows() > 0){
                         return $query->result_array(); 
     		      }else{
                         return false;
@@ -355,8 +348,7 @@
                         WHERE idParticipanteCliente ='".$this->session->userdata('CodEmpresa')."'
                         AND standBy = 0
                   ");
-    		      if ($query->num_rows() > 0)
-    		      {
+    		      if ($query->num_rows() > 0){
                         return $query->result_array(); 
     		      }else{
                         return false;
@@ -369,8 +361,7 @@
                         FROM DepositosDet
                         WHERE idDeposito =".$numTransaccion['numTransaccion']."
                   ");
-    		      if ($query->num_rows() > 0)
-    		      {
+    		      if ($query->num_rows() > 0){
                         return $query->result_array(); 
     		      }else{
                         return false;
@@ -414,8 +405,7 @@
                         AND codEmpresa =".$this->session->userdata('CodEmpresa')."
                         AND idParticipanteCliente =".$IdParticipanteCliente."
                   ");
-    		      if ($query->num_rows() > 0)
-    		      {
+    		      if ($query->num_rows() > 0){
                         return $query->result_array(); 
     		      }else{
                         return false;
@@ -457,8 +447,7 @@
                       AND feSolicitud >=  '20180101'
                       ORDER BY Fecha
                   ");
-                  if ($query->num_rows() > 0)
-                  {
+                  if ($query->num_rows() > 0){
                       return $query->result_array(); 
                   }else{
                       return false;
@@ -477,8 +466,7 @@
                         AND p.codEmpresa =".$this->session->userdata('CodEmpresa')."
                         ORDER BY pc.feSolicitud
                   ");
-                  if ($query->num_rows() > 0)
-                  {
+                  if ($query->num_rows() > 0){
                         return $query->result_array();
                   }else{
                         return false;
@@ -499,8 +487,7 @@
                         AND DATE_FORMAT( pc.feSolicitud,  '%Y %m' ) <= '".$infoFechas['fechaFin']."'
                         ORDER BY pc.feSolicitud
                   ");
-                  if ($query->num_rows() > 0)
-                  {
+                  if ($query->num_rows() > 0){
                         return $query->result_array(); 
                   }else{
                         return false;

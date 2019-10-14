@@ -1,6 +1,5 @@
 <?php
-    class Mantenimiento_model extends CI_Model {
-    	
+    class Mantenimiento_model extends CI_Model {    	
         public function __construct(){}
         
         public function loginUserMantenimiento($loginMantenimientoData){
@@ -19,8 +18,7 @@
             }
         }
 
-        public function login($loginMantenimientoData)
-        {
+        public function login($loginMantenimientoData){
             $usuario =$loginMantenimientoData['usuario'];
             $password = $loginMantenimientoData['password'];
             $query = $this->db->query("
@@ -198,8 +196,7 @@
                 SELECT codPremio, Nombre_Esp
                 FROM Premio
             ");
-            if ($query->num_rows() > 0)
-    		{
+            if ($query->num_rows() > 0){
                 return $query->result_array(); 
     		}else{
                 return false;
@@ -212,8 +209,7 @@
                 FROM PremioPrograma
                 WHERE codPremio = '".$savePremioData['codPremio']."'
             ");
-            if ($query->num_rows() > 0)
-    		{
+            if ($query->num_rows() > 0){
                 return $query->result_array(); 
     		}else{
                 return false;
@@ -356,8 +352,7 @@
                 WHERE codPrograma =41
                 AND idParticipanteCliente =".$IdParticipanteCliente."
             ");
-            if ($query->num_rows() > 0)
-            {
+            if ($query->num_rows() > 0){
                 return $query->result_array(); 
             }else{
                 return false;

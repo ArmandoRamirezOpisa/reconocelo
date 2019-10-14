@@ -1,10 +1,7 @@
-/* Variables globales */
 var click = 0;
 var contOrder = new Array();
 
-/* Funcion login Reconocelo */
 function loginReconocelo() {
-
     $('#loading').show();
     var usuarioReconocelo = $('#usuarioReconocelo').val();
     var passwordReconocelo = $('#passwordReconocelo').val();
@@ -23,14 +20,12 @@ function loginReconocelo() {
             data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {
                     $('#error').show();
                     $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
                 } else {
                     location.href = "https://" + location.hostname + "/home";
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
@@ -38,7 +33,6 @@ function loginReconocelo() {
         });
     }
 }
-/* Fin funcion login reconocelo*/
 
 function loadSection(controller, divSel) {
     $.ajax({
@@ -88,7 +82,6 @@ var formatNumber = {
 function addItemOrder(idProduct, name, puntos) {
     var exist = 0;
     numE = contOrder.length;
-
     if (numE == 0) {
         contOrder = [{
             "id": idProduct,
@@ -96,7 +89,6 @@ function addItemOrder(idProduct, name, puntos) {
             "nombre": name,
             "puntos": puntos
         }];
-
     } else {
         $.each(contOrder, function(k, v) {
             if (v.id == idProduct) {
@@ -105,7 +97,6 @@ function addItemOrder(idProduct, name, puntos) {
                 exist = 1;
             }
         });
-
         if (exist == 0) {
             contOrder.push({
                 "id": idProduct,
@@ -171,7 +162,6 @@ function showDet(id) {
 }
 
 function sendDataAjaxDuda(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
-
     $.ajax({
         type: 'POST',
         url: "Ayuda_Controller/crearComentario",
@@ -190,7 +180,6 @@ function sendDataAjaxDuda(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
             swal("Envio de Mensaje", "Ocurrio un error al enviar su mensaje", "warning");
         }
     });
-
 }
 
 function enviarPregunta(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
@@ -207,9 +196,7 @@ function enviarPregunta(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
     }
 }
 
-/* Funcion para guardar tickets */
 function enviar_pregunta() {
-
     if ($('#mensaje').val().trim() == "") {
         $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de agregar una descripcion para poder enviar su duda.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
     } else {
@@ -221,7 +208,6 @@ function enviar_pregunta() {
         if (pregunta == "Articulo de mi orden") {
             if (pregunta == "Selecciona" || articulo == "Selecciona") {
                 $('#MessageTicket').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Debe de seleccionar una orden o artículo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-
             } else {
                 var fields = articulo.split('-');
                 var idCanjeArticulo = fields[0];
@@ -244,9 +230,8 @@ function enviar_pregunta() {
         }
     }
 }
-/* */
-function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
 
+function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
     $.ajax({
         type: 'POST',
         url: location.href + "/crearTicketReconocelo",
@@ -265,13 +250,8 @@ function enviarPregunta1(idCanjeArticulo, NombreCanjeArticulo, mensaje, tipo) {
             swal("Envio de Mensaje", "Ocurrio un error al enviar su mensaje", "warning");
         }
     });
-
-
-
 }
-/* Fin funcion de prueba */
 
-/* Funcion aparecer opciones select*/
 function selectOptionTicket(id) {
     var idSelectPregunta = id.id;
     var x = document.getElementById(idSelectPregunta).value;
@@ -293,15 +273,12 @@ function selectOptionTicket(id) {
         document.getElementById("temaOtro").style = "display:none";
     }
 }
-/* Fin funcion aparecer opciones select*/
 
-/* Funcion del historial del ticket */
 function historiaTicket(id) {
     var id = id.id;
     var tickeyArray = id.split("-");
     var idTicket = tickeyArray[0];
     var status = tickeyArray[1];
-
     $.ajax({
         url: '/Home/historiaTicket',
         async: 'true',
@@ -313,25 +290,20 @@ function historiaTicket(id) {
         data: { "idTicket": idTicket, "status": status },
         beforeSend: function() {},
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#historialTicket').html(result);
             }
-
         },
         error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
-
 }
 
 function answerTicket(id) {
-
     var idTicketHistory = id.id;
-
     $.ajax({
         url: '/Home/historiaTicketAnswer',
         async: 'true',
@@ -343,37 +315,27 @@ function answerTicket(id) {
         data: { "idTicketHistory": idTicketHistory },
         beforeSend: function() {},
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#ticketAnswer').html(result);
             }
-
         },
         error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
-
     $('#ticketAnswer').show();
-
 }
 
 function sendTicket(id) {
-
     var ticketId = id.id;
-
     var respuestaTicket = $('#ticketRespuesta').val();
-
     if (respuestaTicket == "") {
-
         $('#mensaje').html('<div class = "alert alert-warning alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> Debes escribir algo en la caja de texto.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
         $('#mensaje').show();
         throw new Error("Respuesta Tickets vacio");
-
     } else {
-
         $.ajax({
             url: '/TicketsAdmin/sendTicketAnswer',
             async: 'true',
@@ -385,7 +347,6 @@ function sendTicket(id) {
             data: { "ticketId": ticketId, "respuestaTicket": respuestaTicket },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {
                     $('#mensaje').html('<div class = "alert alert-danger alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> No se puedo enviar la respuesta, intentalo mas tarde.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
                     $('#mensaje').show();
@@ -395,7 +356,6 @@ function sendTicket(id) {
                     $('#mensaje').show();
                     $('#ticketAnswer').hide();
                 }
-
             },
             error: function(object, error, anotherObject) {
                 $('#mensaje').html('<div class = "alert alert-danger alert-dismissible fade show" role = "alert"><strong> Atencion! </strong> No se puedo enviar la respuesta, intentalo mas tarde.<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close"><span aria-hidden = "true"> &times; </span></button></div>');
@@ -405,15 +365,11 @@ function sendTicket(id) {
             timeout: 30000,
             type: "POST"
         });
-
     }
-
 }
 
 function closeTicket(id) {
-
     var ticketId = id.id;
-
     $.ajax({
         url: '/Home/closeTicket',
         async: 'true',
@@ -425,23 +381,18 @@ function closeTicket(id) {
         data: { "ticketId": ticketId },
         beforeSend: function() {},
         success: function(result) {
-
             if (result == "0") {} else {
                 window.location.reload();
             }
-
         },
         error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
-
 }
 
-/* */
 function confirmCloseTicket(id) {
     var idTicket = id.id;
-
     $.ajax({
         url: '/Home/closeConfirmTicket',
         async: 'true',
@@ -453,32 +404,24 @@ function confirmCloseTicket(id) {
         data: { "idTicket": idTicket },
         beforeSend: function() {},
         success: function(result) {
-
             if (result == "0") {
                 window.location.reload();
             } else {
                 $('#closeTicketConfirm').html(result);
             }
-
         },
         error: function(object, error, anotherObject) {},
         timeout: 30000,
         type: "POST"
     });
-
 }
-/* */
-/* Fin funcion prueba del historial del ticket */
 
 function sendCanje($ptsUser, $ptsCanje) {
     periodoCanjes = 1;
     if (validaCampos()) {
         if (periodoCanjes == 1) {
-
             if ($ptsUser >= $ptsCanje) {
-
                 click++;
-
                 if (click == 1) {
                     document.getElementById('btnGenCanje').style.display = "none";
                     if (contOrder.length > 0) {
@@ -491,7 +434,6 @@ function sendCanje($ptsUser, $ptsCanje) {
                             data: { "data": jsonString, "ptsCanje": $ptsCanje, "address": address },
                             beforeSend: function() {},
                             success: function(response) {
-                                console.log(response);
                                 if (response) {
                                     swal("Solicitud de canje", "Tu orden ha sido realizada correctamente", "success");
                                     sleep(2000);
@@ -506,7 +448,6 @@ function sendCanje($ptsUser, $ptsCanje) {
                                 swal("Error al realizar el canje", "Ocurrio un error al realizar el canje", "warning");
                                 $("#btnGenCanje").show();
                                 $("#lblProc").hide();
-                                console.log(x, e);
                             }
                         });
                     } else {
@@ -516,10 +457,6 @@ function sendCanje($ptsUser, $ptsCanje) {
                     swal("Solo debes de realizar un click para poder relizar tu canje", "Warning");
                     location.reload();
                 }
-
-
-
-
             } else {
                 swal("Operacion no permitida", "Su saldo es insuficiente para realizar este canje.", "warning");
             }
@@ -532,7 +469,6 @@ function sendCanje($ptsUser, $ptsCanje) {
 }
 
 function exit() {
-
     swal({
         title: "¿Esta seguro de cerrar sesion?",
         text: "",
@@ -547,13 +483,11 @@ function exit() {
             location.href = "https://" + location.hostname + "/Home/salirReconocelo";
         } else {}
     });
-
 }
 
 function validaCampos() {
     var datosForm = $("#frmCanjeDir").serializeArray();
     var vc = 0;
-
     $.each(datosForm, function(k, v) {
         if (v.value == "") {
             $("#g" + v.name).addClass("has-error");
@@ -579,7 +513,6 @@ function up() {
 function CambiarCorreo() {
     var correo = document.getElementsByName("nuevoCorreo")[0].value;
     if (validateEmailLogIn(correo)) {
-
         $.ajax({
             type: 'POST',
             url: "CofInfo_controller/cambiarCorreo",
@@ -590,7 +523,6 @@ function CambiarCorreo() {
                 if (response) {
                     swal("Cambio de email", "Cambio de correo exitosamente", "success");
                 } else {
-
                     swal("Cambio de email", "Ha ocurrido un error al cambiar el email.", "warning");
                 }
             },
@@ -598,13 +530,9 @@ function CambiarCorreo() {
                 swal("Cambio de email", "Ha ocurrido un error al cambiar el email." + e + x, "warning");
             }
         });
-
-
     } else {
         swal("Correo invalido", "Ingresa un correo valido", "warning");
-
     }
-
     return true;
 }
 
@@ -613,19 +541,15 @@ function validateEmailLogIn(correo) {
     return pattern.test(correo);
 }
 
-/* Ticket administrador */
 function loginTicketAdmin() {
-
     $('#MessageError').hide();
     var usuario = $('#user').val();
     var password = $('#password').val();
-
     if (usuario == "" || password == "") {
         $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Hay campos vacios.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         $('#MessageError').show();
         throw new Error("Campos vacios");
     } else {
-
         $.ajax({
             url: '/TicketsAdmin/login',
             async: 'true',
@@ -645,22 +569,18 @@ function loginTicketAdmin() {
                 } else {
                     location.href = "https://" + location.hostname + "/TicketsAdmin/home";
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
         });
-
     }
 }
 
 function salirTicket() {
     location.href = "https://" + location.hostname + "/TicketsAdmin/exit_ticket";
 }
-/* Fin ticket administrador */
 
-/* Recuperar password Reconocelo */
 function sendRecuperaPasswordReconocelo() {
     var usuarioEmailReconocelo = $('#usuarioEmailReconocelo').val();
     if (usuarioEmailReconocelo == "") {
@@ -679,7 +599,6 @@ function sendRecuperaPasswordReconocelo() {
             data: { "usuarioEmailReconocelo": usuarioEmailReconocelo },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {
                     $('#MessageRecuperaReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo salio mal al mandar el correo, o intentalo mas tarde.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageRecuperaReconocelo').show();
@@ -687,7 +606,6 @@ function sendRecuperaPasswordReconocelo() {
                     $('#MessageRecuperaReconocelo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se mando a tu correo, para que puedas recuperar tu cuenta.En caso de no aparecer, favor de revisar la carpeta de spam.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageRecuperaReconocelo').show();
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
@@ -727,7 +645,6 @@ function configNewPasswordReconocelo(id) {
             },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {
                     $('#MessageRecuperarReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageRecuperarReconocelo').show();
@@ -737,7 +654,6 @@ function configNewPasswordReconocelo(id) {
                     $('#IniciarSesionReconocelo').show();
                     $('#PAsswordNewReconocelo1').hide();
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
@@ -745,9 +661,7 @@ function configNewPasswordReconocelo(id) {
         });
     }
 }
-/* Fin recuperar password Reconocelo */
 
-/* funcion cambiar password */
 function CambiarContraseña() {
     var passwordOld = $('#passwordOld').val();
     var passwordNew = $('#passwordNew').val();
@@ -773,7 +687,6 @@ function CambiarContraseña() {
             },
             beforeSend: function() {},
             success: function(result) {
-
                 if (result == "0") {
                     $('#messageUpdatePasswordReconocelo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#messageUpdatePasswordReconocelo').show();
@@ -784,7 +697,6 @@ function CambiarContraseña() {
                     $('#passwordNew').val('');
                     $('#passwordNewConfirmar').val('');
                 }
-
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
@@ -792,4 +704,3 @@ function CambiarContraseña() {
         });
     }
 }
-/* fin funcion cambiar password */
