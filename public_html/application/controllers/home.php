@@ -51,8 +51,6 @@
                     'cp'             => $login['result'][0]->CP,
                     'ciudad'         => $login['result'][0]->Ciudad,
                     'estado'         => $login['result'][0]->Estado,
-                    'iniOrden'       => $login['result'][0]->fhInicioOrden,
-                    'finOrden'       => $login['result'][0]->fhFinOrden,
                     'email'          => $email_s,
                     'pwd' => $login['result'][0]->pwd,
                     'urlEmp' => $login['result'][0]->urlEmpresa

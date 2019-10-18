@@ -9,7 +9,7 @@ class Reconocelo_model1 extends CI_Model {
             SELECT pp.codPrograma,pp.codEmpresa,pp.codParticipante,pp.Status,pp.Cargo,
             pp.PrimerNombre,pp.SegundoNombre,pp.ApellidoPaterno,pp.ApellidoMaterno,pp.eMail,
             pp.SaldoActual,pp.idParticipante,pp.CalleNumero, pp.Colonia, pp.CP,pp.Ciudad,pp.Estado,
-            pp.eMail,pp.Telefono,pp.fhInicioOrden,pp.fhFinOrden,Emp.Visibilidad,pp.pwd,Emp.urlEmpresa
+            pp.eMail,pp.Telefono,Emp.Visibilidad,pp.pwd,Emp.urlEmpresa
             FROM Participante AS pp 
             INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
             WHERE pp.codPrograma = 41
