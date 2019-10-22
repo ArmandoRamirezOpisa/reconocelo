@@ -274,6 +274,27 @@
             }
         }
 
+        public function premioPrograma(){
+            $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
+            $this->load->view('includes/mantenimiento_header',$PrimerNombre);
+            $this->load->view('premio_programa_mantenimiento');
+            $this->load->view('includes/mantenimiento_footer');          
+        }
+
+        public function uploadPremioPrograma(){
+            $dataPremioPrograma = array(
+                "infoPremioPrograma"=>$this->input->post('infoPremioPrograma')
+            );
+            if($dataPremioPrograma){
+                $dataPremio = $this->Mantenimiento_model->insertPremio($dataPremioPrograma['infoPremioPrograma']);
+                if($dataPremio){
+                    $this->output->set_output(json_encode($dataPremio));
+                }
+            }else{
+                $this->output->set_output(json_encode(false));
+            }
+        }
+
         public function exit_mantenimiento(){
             $array_items = array('administrador' => '', 'CodEmpresa' => '');
             $this->session->unset_userdata($array_items);

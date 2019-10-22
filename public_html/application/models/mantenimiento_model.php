@@ -383,5 +383,17 @@
                 return false;
             }
         }
+
+        public function insertPremio($dataPremioPrograma){
+            $cont = 0;
+            foreach($dataPremioPrograma as $row){
+                foreach($row as $row1){
+                    $valorColumnaPremio = explode(",",$row1);
+                    if ($valorColumnaPremio[0] != 'codPrograma'){
+                        return $valorColumnaPremio[10];
+                    }
+                }
+            }
+        }
 	}
 ?>

@@ -1,5 +1,4 @@
 @import 'globalStyles.css';
-
 .upperCase {
     text-transform: var(--textTransform);
 }
@@ -10,4 +9,10 @@
 
 #errorMessage {
     display: none;
+}
+
+.icon-load {
+    font-size: 60px;
+    position: relative;
+    left: 50%;
 }

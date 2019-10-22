@@ -1,4 +1,4 @@
-        <div id="MessageDepositoMantenimiento" class="container animated apareciendo margin-botton:150px;" style="display:none;" style="margin-top: 50px;"></div>
+        <div id="MessageDepositoMantenimiento" class="container animated apareciendo" style="display:none; margin-top: 50px; margin-botton:150px;"></div>
 
         <div class="container animated apareciendo" style="margin-top: 100px;">
 
