@@ -24,7 +24,8 @@ class Reconocelo_model1 extends CI_Model {
         $query = $this->db->query("
             SELECT distinct(cp.nbCategoria) as nbCategoria,cp.CodCategoria                                          
             FROM CategoriaPremio cp 
-            JOIN PremioPrograma pp ON pp.codCategoria = cp.codCategoria                                 
+            JOIN Premio pr ON pr.codCategoria = cp.codCategoria
+            JOIN PremioPrograma pp ON pp.codPremio = pr.codPremio                              
             WHERE pp.CodEmpresa = ".$this->session->userdata('empresa')."
             AND pp.codPrograma = ".$this->session->userdata('programa')." 
             ORDER BY cp.nbCategoria
@@ -44,7 +45,7 @@ class Reconocelo_model1 extends CI_Model {
             JOIN Empresa e ON e.codPrograma = pp.codPrograma
             AND e.codEmpresa = pp.codEmpresa
             WHERE pp.codPrograma =". $this->session->userdata('programa')."
-            AND pp.CodCategoria =".$idCat."
+            AND p.CodCategoria =".$idCat."
             AND pp.CodEmpresa = ".$this->session->userdata('empresa')."
             AND ( e.catalogoVisible =1
             OR pp.ValorPuntos <= ( 

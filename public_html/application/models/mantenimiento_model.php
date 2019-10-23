@@ -389,11 +389,22 @@
             foreach($dataPremioPrograma as $row){
                 foreach($row as $row1){
                     $valorColumnaPremio = explode(",",$row1);
-                    if ($valorColumnaPremio[0] != 'codPrograma'){
-                        return $valorColumnaPremio[10];
+                    if ( $valorColumnaPremio[0] != 'codPrograma' || $valorColumnaPremio[1] != 'codEmpresa' || $valorColumnaPremio[2] != 'ValorPuntos' || $valorColumnaPremio[3] != 'codPremio' || $valorColumnaPremio[4] != 'codCategoria' || $valorColumnaPremio[5] != 'codProveedor' || $valorColumnaPremio[6] != 'Marca' || $valorColumnaPremio[7] != 'Modelo' || $valorColumnaPremio[8] != 'Nombre_ESP' || $valorColumnaPremio[9] != 'Nombre_ING' || $valorColumnaPremio[10] != 'Caracts_ESP' || $valorColumnaPremio[11] != 'Caracts_ING' ){
+                        $query = $this->db->query('
+                            CALL spu_InsPremio ('.$valorColumnaPremio[3].','.$valorColumnaPremio[4].','.$valorColumnaPremio[5].',"'.$valorColumnaPremio[6].'","'.$valorColumnaPremio[7].'","'.$valorColumnaPremio[8].'","'.$valorColumnaPremio[9].'","'.$valorColumnaPremio[10].'","'.$valorColumnaPremio[11].'");
+                        ');
+                        if($query){
+                            $query2 = $this->db->query('
+                                CALL spu_InsPremioPrograma('.$valorColumnaPremio[0].','.$valorColumnaPremio[3].','.$valorColumnaPremio[1].','.$valorColumnaPremio[2].')
+                            ');
+                            if($query2){
+                                $cont++;
+                            }
+                        }
                     }
                 }
             }
+            return $cont;
         }
 	}
 ?>
