@@ -66,13 +66,14 @@
                     $('#MessagePremioPrograma').show();
                     $("#file-CSV-premioPrograma").val("");
                     $('#resultado').html(result);
+                    console.log(result);
                     $('#resultado').show();
                 }
             },
             error: function(object, error, anotherObject) {
                 $('#MessagePremioPrograma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong>Error: ' + object.statusText + 'Status: ' + object.status + '.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             },
-            timeout: 30000,
+            /*timeout: 30000,*/
             type: "POST"
         });
     }
