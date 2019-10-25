@@ -45,7 +45,7 @@
                         <a class="nav-link" href="/Mantenimiento/uploadDepositos">Depositos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/Mantenimiento/premioPrograma" class="nav-link">Premio Prpgrama</a>
+                        <a href="/Mantenimiento/premioPrograma" class="nav-link">Premio Programa</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

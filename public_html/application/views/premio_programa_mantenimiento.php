@@ -6,7 +6,7 @@
         <h4 class="alert-heading">Importante!</h4>
         <p>Es importante subir el arhivo correctamente, para que se pueda hacer correctamente</p>
         <hr>
-        <p class="mb-0">En caso de que no tengas el archivo ve a siguiente link, para descargar <a href="#">Descargar archivo</a></p>
+        <!--<p class="mb-0">En caso de que no tengas el archivo ve a siguiente link, para descargar <a href="#">Descargar archivo</a></p>-->
     </div>
     <form>
         <div class="form-group">
