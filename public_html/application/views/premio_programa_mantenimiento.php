@@ -31,19 +31,19 @@
             before: function(file, inputElem){
                 message.style = 'display:block';
                 message.innerHTML = "<i class='fas fa-sync fa-spin icon-load' style='font-size: 60px;position: relative;left: 50%;'></i>";
-                console.log("Cargando archivo...", file);
+                //console.log("Cargando archivo...", file);
             },
             error: function(err, file){},
             complete: function(){
-                console.log("Se ha cargado corecctamente: ");
+                //console.log("Se ha cargado corecctamente: ");
             }
         });
     });
             
     function ProcesarInfoPremioPrograma(results){
         var data = results.data;
-        console.log("Esta esta la data que se cargo:.........");
-        console.log(data);
+        //console.log("Esta esta la data que se cargo:.........");
+        //console.log(data);
         $.ajax({
             url: '/Mantenimiento/uploadPremioPrograma',
             async: 'true',
@@ -54,7 +54,7 @@
             processData: true,
             data: { "infoPremioPrograma": data },
             beforeSend: function() {
-                console.log('Procesando, espere por favor...');
+                //console.log('Procesando, espere por favor...');
             },
             success: function(result) {
                 if (result == "0") {

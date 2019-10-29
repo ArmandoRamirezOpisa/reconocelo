@@ -385,14 +385,16 @@
         }
 
         public function insertPremio($valorColumnaPremio3,$valorColumnaPremio4,$valorColumnaPremio5,$valorColumnaPremio6,$valorColumnaPremio7,$valorColumnaPremio8,$valorColumnaPremio9,$valorColumnaPremio10,$valorColumnaPremio11){
-            $query = $this->db->query('
+            /*$query = $this->db->query('
                 CALL spu_InsPremio ('.$valorColumnaPremio3.','.$valorColumnaPremio4.','.$valorColumnaPremio5.',"'.$valorColumnaPremio6.'","'.$valorColumnaPremio7.'","'.$valorColumnaPremio8.'","'.$valorColumnaPremio9.'","'.$valorColumnaPremio10.'","'.$valorColumnaPremio11.'");'
-            );
-            if($query){
+            );*/
+            $sql = ' CALL spu_InsPremio ('.$valorColumnaPremio3.','.$valorColumnaPremio4.','.$valorColumnaPremio5.',"'.$valorColumnaPremio6.'","'.$valorColumnaPremio7.'","'.$valorColumnaPremio8.'","'.$valorColumnaPremio9.'","'.$valorColumnaPremio10.'","'.$valorColumnaPremio11.'");';
+            return $sql;
+            /*if($query){
                 return true;
             }else{
                 return false;
-            }
+            }*/
         }
 	}
 ?>

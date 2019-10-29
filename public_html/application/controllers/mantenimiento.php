@@ -286,33 +286,60 @@
                 "infoPremioPrograma"=>$this->input->post('infoPremioPrograma')
             );
             if($dataPremioPrograma){
-                $cont = 0;
-                $a=array();
-                //if(!empty($dataPremioPrograma['infoPremioPrograma'])){
+                if(!empty($dataPremioPrograma['infoPremioPrograma'])){
+                    $cont = 0;
+                    $a=array();
                     foreach($dataPremioPrograma['infoPremioPrograma'] as $row){
                         if(isset($row)){
                             foreach($row as $row1){
-                                $valorColumnaPremio = explode(";",$row1);
-                                if(! isset($valorColumnaPremio[0]) || ! isset($valorColumnaPremio[1]) || ! isset($valorColumnaPremio[2]) || ! isset($valorColumnaPremio[3]) || ! isset($valorColumnaPremio[4]) || ! isset($valorColumnaPremio[5]) || ! isset($valorColumnaPremio[6]) || ! isset($valorColumnaPremio[7]) || ! isset($valorColumnaPremio[8]) || ! isset($valorColumnaPremio[9]) || ! isset($valorColumnaPremio[10]) || ! isset($valorColumnaPremio[11]) ){
-                                }else{
-                                    if ( $valorColumnaPremio[0] != 'codPrograma' || $valorColumnaPremio[1] != 'codEmpresa' || $valorColumnaPremio[2] != 'ValorPuntos' || $valorColumnaPremio[3] != 'codPremio' || $valorColumnaPremio[4] != 'codCategoria' || $valorColumnaPremio[5] != 'codProveedor' || $valorColumnaPremio[6] != 'Marca' || $valorColumnaPremio[7] != 'Modelo' || $valorColumnaPremio[8] != 'Nombre_ESP' || $valorColumnaPremio[9] != 'Nombre_ING' || $valorColumnaPremio[10] != 'Caracts_ESP' || $valorColumnaPremio[11] != 'Caracts_ING' ){
-                                        $dataPremio = $this->Mantenimiento_model->insertPremio( $valorColumnaPremio[3],$valorColumnaPremio[4],$valorColumnaPremio[5],$valorColumnaPremio[6],$valorColumnaPremio[7],$valorColumnaPremio[8],$valorColumnaPremio[9],$valorColumnaPremio[10],$valorColumnaPremio[11]);
-                                        if($dataPremio){
-                                            $cont++;
+                                //if($cont > 0){
+
+                                    $valorColumnaPremio = explode(";",$row1);
+                                    if(! isset($valorColumnaPremio[0]) || ! isset($valorColumnaPremio[1]) || ! isset($valorColumnaPremio[2]) || ! isset($valorColumnaPremio[3]) || ! isset($valorColumnaPremio[4]) || ! isset($valorColumnaPremio[5]) || ! isset($valorColumnaPremio[6]) || ! isset($valorColumnaPremio[7]) || ! isset($valorColumnaPremio[8]) || ! isset($valorColumnaPremio[9]) || ! isset($valorColumnaPremio[10]) || ! isset($valorColumnaPremio[11]) ){
+                                    }else{
+                                        if ( $valorColumnaPremio[0] != 'codPrograma' || $valorColumnaPremio[1] != 'codEmpresa' || $valorColumnaPremio[2] != 'ValorPuntos' || $valorColumnaPremio[3] != 'codPremio' || $valorColumnaPremio[4] != 'codCategoria' || $valorColumnaPremio[5] != 'codProveedor' || $valorColumnaPremio[6] != 'Marca' || $valorColumnaPremio[7] != 'Modelo' || $valorColumnaPremio[8] != 'Nombre_ESP' || $valorColumnaPremio[9] != 'Nombre_ING' || $valorColumnaPremio[10] != 'Caracts_ESP' || $valorColumnaPremio[11] != 'Caracts_ING' ){
+                                            $dataPremio = $this->Mantenimiento_model->insertPremio( $valorColumnaPremio[3],$valorColumnaPremio[4],$valorColumnaPremio[5],$valorColumnaPremio[6],$valorColumnaPremio[7],$valorColumnaPremio[8],$valorColumnaPremio[9],$valorColumnaPremio[10],$valorColumnaPremio[11]);
+                                            if($dataPremio){
+                                                //$cont++;
+                                                //$sql = ' CALL spu_InsPremio ('.$valorColumnaPremio[3].','.$valorColumnaPremio[4].','.$valorColumnaPremio[5].',"'.$valorColumnaPremio[6].'","'.$valorColumnaPremio[7].'","'.$valorColumnaPremio[8].'","'.$valorColumnaPremio[9].'","'.$valorColumnaPremio[10].'","'.$valorColumnaPremio[11].'");';
+                                                //array_push($a,$valorColumnaPremio[3],$valorColumnaPremio[4],$valorColumnaPremio[5],$valorColumnaPremio[6],$valorColumnaPremio[7],$valorColumnaPremio[8],$valorColumnaPremio[9],$valorColumnaPremio[10],$valorColumnaPremio[11]);
+                                                array_push($a,$dataPremio);
+                                            }
                                         }
                                     }
-                                }
+
+
+                                //}
+                                //else{
+
+                                    //$valorColumnaPremio = explode(";",$row1);
+                                    //if(! isset($valorColumnaPremio[0]) || ! isset($valorColumnaPremio[1]) || ! isset($valorColumnaPremio[2]) || ! isset($valorColumnaPremio[3]) || ! isset($valorColumnaPremio[4]) || ! isset($valorColumnaPremio[5]) || ! isset($valorColumnaPremio[6]) || ! isset($valorColumnaPremio[7]) || ! isset($valorColumnaPremio[8]) || ! isset($valorColumnaPremio[9]) || ! isset($valorColumnaPremio[10]) || ! isset($valorColumnaPremio[11]) ){
+                                    //}else{
+                                        //if ( $valorColumnaPremio[0] != 'codPrograma' || $valorColumnaPremio[1] != 'codEmpresa' || $valorColumnaPremio[2] != 'ValorPuntos' || $valorColumnaPremio[3] != 'codPremio' || $valorColumnaPremio[4] != 'codCategoria' || $valorColumnaPremio[5] != 'codProveedor' || $valorColumnaPremio[6] != 'Marca' || $valorColumnaPremio[7] != 'Modelo' || $valorColumnaPremio[8] != 'Nombre_ESP' || $valorColumnaPremio[9] != 'Nombre_ING' || $valorColumnaPremio[10] != 'Caracts_ESP' || $valorColumnaPremio[11] != 'Caracts_ING' ){
+                                            //$dataPremio = $this->Mantenimiento_model->insertPremio( $valorColumnaPremio[3],$valorColumnaPremio[4],$valorColumnaPremio[5],$valorColumnaPremio[6],$valorColumnaPremio[7],$valorColumnaPremio[8],$valorColumnaPremio[9],$valorColumnaPremio[10],$valorColumnaPremio[11]);
+                                            //if($dataPremio){
+                                                //array_push($a,$valorColumnaPremio[3],$valorColumnaPremio[4],$valorColumnaPremio[5],$valorColumnaPremio[6],$valorColumnaPremio[7],$valorColumnaPremio[8],$valorColumnaPremio[9],$valorColumnaPremio[10],$valorColumnaPremio[11]);
+                                            //}
+                                            //$cont++;
+                                        //}
+                                    //}
+
+                                //}
+                                
+
+
                             }
                         }
                     }
-                    if($cont > 0){
-                        $this->output->set_output(json_encode($dataPremio));
-                    }else{
-                        $this->output->set_output(json_encode(false));
-                    }
-                /*}else{
+                    //if($cont > 0){
+                        //$this->output->set_output(json_encode($dataPremio));
+                    //}else{
+                        //$this->output->set_output(json_encode(false));
+                    //}
+                    $this->output->set_output(json_encode($a));
+                }else{
                     $this->output->set_output(json_encode(false));
-                }*/
+                }
             }else{
                 $this->output->set_output(json_encode(false));
             }
