@@ -1,5 +1,5 @@
 <?php
-    class Mantenimiento_model extends CI_Model {    	
+    class Mantenimiento_model extends CI_Model {
         public function __construct(){}
         
         public function loginUserMantenimiento($loginMantenimientoData){
@@ -12,7 +12,7 @@
                 AND  pwd = md5('".$password."')
             ");
             if ($query->num_rows() == 1){
-                return $query->result_array(); 
+                return $query->result_array();
             }else{
                 return false;
             }
@@ -26,10 +26,10 @@
                 pp.PrimerNombre,pp.SegundoNombre,pp.ApellidoPaterno,pp.ApellidoMaterno,pp.eMail,
                 pp.SaldoActual,pp.idParticipante,pp.CalleNumero, pp.Colonia, pp.CP,pp.Ciudad,pp.Estado,
                 pp.eMail,pp.Telefono,pp.fhInicioOrden,pp.fhFinOrden,Emp.Visibilidad,pp.pwd
-                FROM Participante AS pp 
+                FROM Participante AS pp
                 INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
-                WHERE pp.codPrograma = 41 
-                AND pp.loginWeb = '".$usuario."' 
+                WHERE pp.codPrograma = 41
+                AND pp.loginWeb = '".$usuario."'
                 AND pwd = md5('".$password."')
                 AND pp.Status = 1
             ");
@@ -42,9 +42,9 @@
 
         public function participanteMantenimientoExits($saveParticipantesData){
             $query = $this->db->query("
-            SELECT loginWeb, codPrograma, codEmpresa, codParticipante, Status, Cargo, PrimerNombre, SegundoNombre, 
-            ApellidoPaterno, ApellidoMaterno, CalleNumero, Colonia, CP, Ciudad, Estado, Pais, Telefono, 
-            EnvioDocumentacion, TipoMov, pwd, eMail, stEmail, SaldoActual, idParticipante, codCategoria, 
+            SELECT loginWeb, codPrograma, codEmpresa, codParticipante, Status, Cargo, PrimerNombre, SegundoNombre,
+            ApellidoPaterno, ApellidoMaterno, CalleNumero, Colonia, CP, Ciudad, Estado, Pais, Telefono,
+            EnvioDocumentacion, TipoMov, pwd, eMail, stEmail, SaldoActual, idParticipante, codCategoria,
             Administrador FROM Participante
             WHERE loginWeb = '".$saveParticipantesData['loginwebMantenimiento']."'
             AND pwd = '".$saveParticipantesData['passwordMantenimiento']."'
@@ -60,10 +60,10 @@
 
         public function participanteMantenimiento($saveParticipantesData){
             $query = $this->db->query("
-                INSERT INTO `opisa_opisa`.`Participante`(`loginWeb`, `codPrograma`, `codEmpresa`, `codParticipante`, 
-                `Status`, `Cargo`, `PrimerNombre`, `SegundoNombre`, `ApellidoPaterno`, `ApellidoMaterno`, 
-                `CalleNumero`, `Colonia`, `CP`, `Ciudad`, `Estado`, `Pais`, `Telefono`, 
-                `EnvioDocumentacion`, `TipoMov`, `pwd`, `eMail`, `stEmail`, 
+                INSERT INTO `opisa_opisa`.`Participante`(`loginWeb`, `codPrograma`, `codEmpresa`, `codParticipante`,
+                `Status`, `Cargo`, `PrimerNombre`, `SegundoNombre`, `ApellidoPaterno`, `ApellidoMaterno`,
+                `CalleNumero`, `Colonia`, `CP`, `Ciudad`, `Estado`, `Pais`, `Telefono`,
+                `EnvioDocumentacion`, `TipoMov`, `pwd`, `eMail`, `stEmail`,
                 `SaldoActual`,`idParticipante`,`codCategoria`, `Administrador`) VALUES (
                 '".$saveParticipantesData['loginwebMantenimiento']."','".$saveParticipantesData['codProgramaMantenimiento']."',
                 '".$saveParticipantesData['codEmpresaMantenimiento']."','".$saveParticipantesData['codParticipanteMantenimiento']."',
@@ -76,7 +76,7 @@
                 1,0);
             ");
             if ($query){
-                return $this->db->insert_id(); 
+                return $this->db->insert_id();
             }else{
                 return false;
             }
@@ -109,10 +109,10 @@
                             if($valoresDefinidosParticipantes[0] == "idParticipante" || $valoresDefinidosParticipantes[1] == "codPrograma" || $valoresDefinidosParticipantes[2] == "codEmpresa" || $valoresDefinidosParticipantes[3] == "codParticipante" || $valoresDefinidosParticipantes[4] == "cargo" || $valoresDefinidosParticipantes[5] == "nombreCompleto" || $valoresDefinidosParticipantes[6] == "calleNumero" || $valoresDefinidosParticipantes[7] == "colonia" || $valoresDefinidosParticipantes[8] == "cp" || $valoresDefinidosParticipantes[9] == "ciudad" || $valoresDefinidosParticipantes[10] == "estado" || $valoresDefinidosParticipantes[11] == "pais" || $valoresDefinidosParticipantes[12] == "telefono" || $valoresDefinidosParticipantes[13] == "pwd" || $valoresDefinidosParticipantes[14] == "eMail" || $valoresDefinidosParticipantes[15] == "loginWeb" ){}
                             else{
                                 $query = $this->db->query("
-                                    INSERT INTO `opisa_opisa`.`Participante`(`idParticipante`, 
-                                    `codPrograma`, `codEmpresa`, `codParticipante`, `Cargo`, `PrimerNombre`, 
-                                    `CalleNumero`, `Colonia`, `CP`, `Ciudad`, `Estado`, `Pais`, 
-                                    `Telefono`, `pwd`, `eMail`, `loginWeb`) 
+                                    INSERT INTO `opisa_opisa`.`Participante`(`idParticipante`,
+                                    `codPrograma`, `codEmpresa`, `codParticipante`, `Cargo`, `PrimerNombre`,
+                                    `CalleNumero`, `Colonia`, `CP`, `Ciudad`, `Estado`, `Pais`,
+                                    `Telefono`, `pwd`, `eMail`, `loginWeb`)
                                     VALUES (".$valoresDefinidosParticipantes[0].",".$valoresDefinidosParticipantes[1].",
                                     ".$valoresDefinidosParticipantes[2].",".$valoresDefinidosParticipantes[3].",
                                     '".$valoresDefinidosParticipantes[4]."','".$valoresDefinidosParticipantes[5]."',
@@ -137,7 +137,7 @@
 
         public function premioMantenimientoExits($savePremioData){
             $query = $this->db->query("
-                SELECT codPremio, CodCategoria, codProveedor, Marca, Modelo, Nombre_Esp, Nombre_Ing, Caracts_Esp, 
+                SELECT codPremio, CodCategoria, codProveedor, Marca, Modelo, Nombre_Esp, Nombre_Ing, Caracts_Esp,
                 Caracts_Ing
                 FROM Premio
                 WHERE codPremio ='".$savePremioData['codPremio']."'
@@ -151,7 +151,7 @@
 
         public function premioMantenimiento($savePremioData){
             $query = $this->db->query("
-                INSERT INTO `opisa_opisa`.`Premio`(`codPremio`, `CodCategoria`, `codProveedor`, `Marca`, `Modelo`, 
+                INSERT INTO `opisa_opisa`.`Premio`(`codPremio`, `CodCategoria`, `codProveedor`, `Marca`, `Modelo`,
                 `Nombre_Esp`, `Nombre_Ing`, `Caracts_Esp`, `Caracts_Ing`) VALUES ('".$savePremioData['codPremio']."',
                 '".$savePremioData['codCategoria']."','".$savePremioData['codProveedor']."',
                 '".$savePremioData['marca']."','".$savePremioData['modelo']."','".$savePremioData['nomESP']."',
@@ -166,11 +166,11 @@
 
         public function premioProgramaMantenimiento($savePremioData){
             $query = $this->db->query("
-                INSERT INTO `opisa_opisa`.`PremioPrograma` (`codPrograma`, `codPremio`, `codEmpresa`, 
-                `ValorPuntos`, `stAtipico`, `codCategoria`, `Visible`) 
-                SELECT '".$savePremioData['codPrograma']."' , codPremio, '".$savePremioData['codEmpresa']."', 
+                INSERT INTO `opisa_opisa`.`PremioPrograma` (`codPrograma`, `codPremio`, `codEmpresa`,
+                `ValorPuntos`, `stAtipico`, `codCategoria`, `Visible`)
+                SELECT '".$savePremioData['codPrograma']."' , codPremio, '".$savePremioData['codEmpresa']."',
                 '".$savePremioData['valorPuntos']."', 0, codCategoria, 1
-                FROM Premio 
+                FROM Premio
                 WHERE codPremio ='".$savePremioData['codPremio']."';
             ");
             if ($query){
@@ -197,7 +197,7 @@
                 FROM Premio
             ");
             if ($query->num_rows() > 0){
-                return $query->result_array(); 
+                return $query->result_array();
     		}else{
                 return false;
     		}
@@ -210,7 +210,7 @@
                 WHERE codPremio = '".$savePremioData['codPremio']."'
             ");
             if ($query->num_rows() > 0){
-                return $query->result_array(); 
+                return $query->result_array();
     		}else{
                 return false;
     		}
@@ -222,7 +222,7 @@
                 `CodCategoria`='".$savePremioData['codCategoriaUpdate']."',`codProveedor`='".$savePremioData['codProveedorUpdate']."',
                 `Marca`='".$savePremioData['marcaUpdate']."',`Modelo`='".$savePremioData['modeloUpdate']."',
                 `Nombre_Esp`='".$savePremioData['nomESPUpdate']."',`Nombre_Ing`='".$savePremioData['nomINGUpdate']."',
-                `Caracts_Esp`='".$savePremioData['caracESPUpdate']."',`Caracts_Ing`='".$savePremioData['caracINGUpdate']."' 
+                `Caracts_Esp`='".$savePremioData['caracESPUpdate']."',`Caracts_Ing`='".$savePremioData['caracINGUpdate']."'
                 WHERE codPremio = '".$savePremioData['codPremioUpdate']."'
             ");
             if ($query){
@@ -235,7 +235,7 @@
         public function updatePremioPrograma($savePremioData){
             $query = $this->db->query("
                 UPDATE `PremioPrograma` SET `codPrograma`='".$savePremioData['codProgramaUpdate']."',
-                `codEmpresa`='".$savePremioData['codEmpresaUpdate']."',`ValorPuntos`='".$savePremioData['valorPuntosUpdate']."' 
+                `codEmpresa`='".$savePremioData['codEmpresaUpdate']."',`ValorPuntos`='".$savePremioData['valorPuntosUpdate']."'
                 WHERE codPremio = '".$savePremioData['codPremioUpdate']."'
             ");
             if ($query){
@@ -246,8 +246,8 @@
         }
 
         public function insertDepositoMasivoMantenimiento(){
-            $query = $this->db->query("                            
-                INSERT INTO `opisa_opisa`.`Despositos`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
+            $query = $this->db->query("
+                INSERT INTO `opisa_opisa`.`Despositos`(`fhDeposito`, `idParticipanteCliente`, `standBy`)
                 VALUES (NOW(),'41160001',0)
             ");
     	    if ($query){
@@ -271,9 +271,9 @@
                             if($valoresDefinidosDepositos[0] == "idParticipante" || $valoresDefinidosDepositos[1] == "Puntos" || $valoresDefinidosDepositos[2] == "Concepto"){}
                             else{
                                 $query = $this->db->query("
-                                    INSERT INTO `opisa_opisa`.`DepositosDet`(`idDeposito`, 
-                                    `idParticipanteCliente`, `Puntos`, `Concepto`, 
-                                    `fechaRegistro`, `status`) 
+                                    INSERT INTO `opisa_opisa`.`DepositosDet`(`idDeposito`,
+                                    `idParticipanteCliente`, `Puntos`, `Concepto`,
+                                    `fechaRegistro`, `status`)
                                     VALUES ('".$depositoMasivo."','".$valoresDefinidosDepositos[0]."',
                                     '".$valoresDefinidosDepositos[1]."','".$valoresDefinidosDepositos[2]."',
                                     NOW(),0)
@@ -299,7 +299,7 @@
                 AND standBy = 0
             ");
     		if ($query->num_rows() > 0){
-                return $query->result_array(); 
+                return $query->result_array();
     		}else{
                 return false;
     		}
@@ -307,12 +307,12 @@
 
         public function getDepositosDetMantenimiento($numTransaccionMantenimiento){
             $query = $this->db->query("
-                SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS 
+                SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS
                 FROM DepositosDet
                 WHERE idDeposito =".$numTransaccionMantenimiento['numTransaccionMantenimiento']."
             ");
     		if ($query->num_rows() > 0){
-                return $query->result_array(); 
+                return $query->result_array();
     		}else{
                 return false;
     		}
@@ -333,9 +333,9 @@
 
         public function UpdateDepositosDetMantenimiento($numTransaccionMantenimiento,$idParticipanteCliente){
             $query = $this->db->query("
-                UPDATE `DepositosDet` 
-                SET `status`= 1 
-                WHERE `idDeposito` = ".$numTransaccionMantenimiento['numTransaccionMantenimiento']." 
+                UPDATE `DepositosDet`
+                SET `status`= 1
+                WHERE `idDeposito` = ".$numTransaccionMantenimiento['numTransaccionMantenimiento']."
                 and `idParticipanteCliente` = ".$idParticipanteCliente
             );
             if ($query){
@@ -348,12 +348,12 @@
         public function idParticipanteGetMantenimiento($IdParticipanteCliente){
             $query = $this->db->query("
                 SELECT idParticipante
-                FROM  `Participante` 
+                FROM  `Participante`
                 WHERE codPrograma =41
                 AND idParticipanteCliente =".$IdParticipanteCliente."
             ");
             if ($query->num_rows() > 0){
-                return $query->result_array(); 
+                return $query->result_array();
             }else{
                 return false;
             }
@@ -361,7 +361,7 @@
 
         public function insertPartMovsRealizaMantenimiento($idParticipanteCliente,$Concepto,$Puntos){
             $query = $this->db->query("
-                INSERT INTO `opisa_opisa`.`PartMovsRealizados`(`idParticipante`, `feMov`, `dsMov`, 
+                INSERT INTO `opisa_opisa`.`PartMovsRealizados`(`idParticipante`, `feMov`, `dsMov`,
                 `noPuntos`) VALUES (".$idParticipanteCliente.",NOW(),'".$Concepto."',".$Puntos.")
             ");
             if ($query){
@@ -374,7 +374,7 @@
         public function UpdateMasterDepositoMantenimiento($numTransaccionMantenimiento){
             $query = $this->db->query("
                 UPDATE  `opisa_opisa`.`Despositos`
-                SET  `standBy` =  '1' 
+                SET  `standBy` =  '1'
                 WHERE  `Despositos`.`idDeposito` = ".$numTransaccionMantenimiento['numTransaccionMantenimiento'].";
             ");
             if ($query){
@@ -387,7 +387,6 @@
         public function insertPremio($PcodPremio,$PcodCategoria,$PcodProveedor,$PMarca,$PModelo,$PNombre_Esp,$PNombre_Ing,$PCaracts_Esp,$PCaracts_Ing){
             $sql = "CALL spu_InsPremio (\"$PcodPremio\",\"$PcodCategoria\",\"$PcodProveedor\",\"$PMarca\",\"$PModelo\",\"$PNombre_Esp\",\"$PNombre_Ing\",\"$PCaracts_Esp\",\"$PCaracts_Ing\");";
             $query = $this->db->query($sql);
-            sleep(5);
             if($query){
                 return true;
             }else{

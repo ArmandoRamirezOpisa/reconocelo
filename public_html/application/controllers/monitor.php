@@ -47,8 +47,8 @@
             }
         }
 
-        public function AvisoPrivacidad(){   
-            $this->load->view('aviso_view_monitor');   
+        public function AvisoPrivacidad(){
+            $this->load->view('aviso_view_monitor');
         }
 
         public function participantes(){

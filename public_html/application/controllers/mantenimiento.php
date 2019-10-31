@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-    class Mantenimiento extends CI_Controller {    
+    class Mantenimiento extends CI_Controller {
         public function __construct() {
             parent::__construct();
             $this->load->library('email');
             $this->load->model("Mantenimiento_model");
         }
 
-    	public function index(){			
+    	public function index(){
             if ($this->session->userdata('administrador')) {
                 header( 'Location: '.base_url().'Mantenimiento/home');
             } else {
@@ -267,7 +267,7 @@
                     $UpdateMasterDeposito = $this->Mantenimiento_modelmantenimiento_model->UpdateMasterDepositoMantenimiento($numTransaccionMantenimiento);
                     $this->output->set_output(json_encode($saldoTotalParticipante));
                 }else{
-                    $this->output->set_output(json_encode(false));    
+                    $this->output->set_output(json_encode(false));
                 }
             }else{
                 $this->output->set_output(json_encode(false));
@@ -278,7 +278,7 @@
             $PrimerNombre = array("PrimerNombre"=>$this->session->userdata('CodEmpresa'));
             $this->load->view('includes/mantenimiento_header',$PrimerNombre);
             $this->load->view('premio_programa_mantenimiento');
-            $this->load->view('includes/mantenimiento_footer');          
+            $this->load->view('includes/mantenimiento_footer');
         }
 
         public function uploadPremioPrograma(){
@@ -287,7 +287,6 @@
             );
             if(!empty($dataPremioPrograma['infoPremioPrograma'])){
                 $contador = 0;$resultadoPremio=array();
-                sleep(5);
                 foreach($dataPremioPrograma['infoPremioPrograma'] as $row){
                     if(isset($row)){
                         foreach($row as $row1){
@@ -304,7 +303,6 @@
                         }
                     }
                 }
-                sleep(5);
                 if($contador > 0){
                     $this->output->set_output(json_encode($resultadoPremio));
                 }else{

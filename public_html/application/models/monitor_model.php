@@ -1,17 +1,17 @@
 <?php
-      class Monitor_model  extends CI_Model{   
+      class Monitor_model  extends CI_Model{
             public function loadData($datos){
                   $usuario =$datos['usuario'];
                   $password = $datos['password'];
-                  $query = $this->db->query("          
+                  $query = $this->db->query("      
                         SELECT adm.CodEmpresa,adm.CodPrograma,adm.Usuario,adm.email,emp.NombreOficial as empresa
                         FROM opisa_opisa.Administrador as adm inner join opisa_opisa.Programa as
                         pr on adm.CodPrograma = pr.codPrograma
-                        inner join opisa_opisa.Empresa as emp on emp.codEmpresa = adm.CodEmpresa 
+                        inner join opisa_opisa.Empresa as emp on emp.codEmpresa = adm.CodEmpresa
                         and adm.Usuario = '".$usuario."' and adm.Pwd = '".$password."'
-                  ;");        
+                  ;");
                   if ($query) {
-                        return $query->result_array() ;
+                        return $query->result_array();
                   }else{
                         $query=array();
                         return $query;
@@ -20,7 +20,7 @@
 
             public function getTodosParticipantes(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante ,pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante ,pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status, pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -29,7 +29,7 @@
                         AND pr.codParticipante <>1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -37,7 +37,7 @@
 
             public function geTParticipantesSaldo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status, pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -47,7 +47,7 @@
                         AND pr.codParticipante <>1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -55,7 +55,7 @@
 
             public function geTParticipantesSinSaldo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -65,7 +65,7 @@
                         AND pr.codParticipante <>1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -73,7 +73,7 @@
 
             public function geTodoSaldoActivo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -83,7 +83,7 @@
                         AND pr.codParticipante <>1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -91,7 +91,7 @@
 
             public function geTodoInactivo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -101,7 +101,7 @@
                         AND pr.codParticipante <>1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -109,7 +109,7 @@
 
             public function getSaldoActivo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -120,7 +120,7 @@
                         AND pr.Status = 1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -128,7 +128,7 @@
 
             public function geTSaldoInactivo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -139,7 +139,7 @@
                         AND pr.Status = 0
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -147,7 +147,7 @@
 
             public function geTSinSaldoActivo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -158,7 +158,7 @@
                         AND pr.Status = 1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -166,7 +166,7 @@
 
             public function geTSinSaldoInactivo(){
                   $query = $this->db->query("
-                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail, 
+                        SELECT pr.codParticipante, pr.idParticipante, pr.PrimerNombre, pr.Telefono, pr.eMail,
                         pr.SaldoActual, pr.Status,pr.idParticipante
                         FROM Participante pr
                         WHERE pr.codPrograma =41
@@ -177,7 +177,7 @@
                         AND pr.Status = 0
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -190,7 +190,7 @@
                         WHERE idParticipante =".$infoParticipante['codParticipante']."
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -198,17 +198,17 @@
 
             public function movimientosDeParticipante($codPrograma,$codEmpresa,$codParticipante){
                   $query = $this->db->query("
-                        select c.idCanje as Folio, c.feSolicitud as Fecha, d.cantidad,d.codPremio, 
+                        select c.idCanje as Folio, c.feSolicitud as Fecha, d.cantidad,d.codPremio,
                         pr.Nombre_Esp as Descripcion,d.PuntosXUnidad*d.cantidad*-1 as Puntos
                         FROM Canje c JOIN CanjeDetalle d on c.codPrograma=d.codPrograma
                         and c.idCanje=d.idCanje JOIN Participante p on p.idParticipante=c.idParticipante
                         JOIN Premio pr on pr.codPremio=d.codPremio
                         WHERE p.codPrograma=".$codPrograma."
                         and p.codEmpresa=".$codEmpresa."
-                        and p.codParticipante=".$codParticipante." 
+                        and p.codParticipante=".$codParticipante."
                         and c.Status=1
                         UNION ALL
-                        SELECT m.noFolio as Folio, m.feMov as Fecha, 1 as cantidad, 0 as codPremio, 
+                        SELECT m.noFolio as Folio, m.feMov as Fecha, 1 as cantidad, 0 as codPremio,
                         m.dsMov as Descripcion, m.noPuntos as Puntos
                         FROM PartMovsRealizados m Join Participante p on p.idParticipante=m.idParticipante
                         WHERE p.codPrograma = ".$codPrograma."
@@ -234,7 +234,7 @@
                         ORDER BY Fecha
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -243,9 +243,9 @@
             public function getDeposito(){
     		      $query = $this->db->query("
                         SELECT m.noFolio, p.idParticipante,
-                        CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', 
-                        p.ApellidoMaterno ) AS Nombre, DATE_FORMAT( m.feMov,  '%Y %m %d' ) AS Fecha, 
-                        m.dsMov AS Descripcion, 
+                        CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ',
+                        p.ApellidoMaterno ) AS Nombre, DATE_FORMAT( m.feMov,  '%Y %m %d' ) AS Fecha,
+                        m.dsMov AS Descripcion,
                         m.noPuntos AS Puntos
                         FROM PartMovsRealizados m
                         JOIN Participante p ON p.idParticipante = m.idParticipante
@@ -255,7 +255,7 @@
                         ORDER BY Fecha
                   ");
     		      if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
     		      }else{
                         return false;
     		      }
@@ -263,9 +263,9 @@
 
             public function getDepositoFechas($infoFechas){
     		      $query = $this->db->query("
-                        SELECT m.noFolio, p.idParticipante,CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', 
-                        p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) AS Nombre, 
-                        DATE_FORMAT( m.feMov, '%Y %m %d' ) AS Fecha, m.dsMov AS Descripcion, 
+                        SELECT m.noFolio, p.idParticipante,CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ',
+                        p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) AS Nombre,
+                        DATE_FORMAT( m.feMov, '%Y %m %d' ) AS Fecha, m.dsMov AS Descripcion,
                         m.noPuntos AS Puntos
                         FROM PartMovsRealizados m
                         JOIN Participante p ON p.idParticipante = m.idParticipante
@@ -276,15 +276,15 @@
                         ORDER BY Fecha
                   ");
     		      if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
     		      }else{
                         return false;
     		      }
             }
 
             public function insertDepositoMasivo($usuario){
-                  $query = $this->db->query("                            
-                        INSERT INTO `opisa_opisa`.`Despositos`(`fhDeposito`, `idParticipanteCliente`, `standBy`) 
+                  $query = $this->db->query("              
+                        INSERT INTO `opisa_opisa`.`Despositos`(`fhDeposito`, `idParticipanteCliente`, `standBy`)
                         VALUES (NOW(),'".$this->session->userdata('CodEmpresa')."',0)
                   ");
     	            if ($query){
@@ -308,9 +308,9 @@
                                           if($valoresDefinidosDepositos[0] == "Cliente" || $valoresDefinidosDepositos[1] == "Puntos" || $valoresDefinidosDepositos[2] == "Concepto"){}
                                           else{
                                                 $query = $this->db->query("
-                                                      INSERT INTO `opisa_opisa`.`DepositosDet`(`idDeposito`, 
-                                                      `idParticipanteCliente`, `Puntos`, `Concepto`, 
-                                                      `fechaRegistro`, `status`) 
+                                                      INSERT INTO `opisa_opisa`.`DepositosDet`(`idDeposito`,
+                                                      `idParticipanteCliente`, `Puntos`, `Concepto`,
+                                                      `fechaRegistro`, `status`)
                                                       VALUES ('".$depositoMasivo."','".$valoresDefinidosDepositos[0]."',
                                                       '".$valoresDefinidosDepositos[1]."','".$valoresDefinidosDepositos[2]."',
                                                       NOW(),0)
@@ -320,7 +320,7 @@
     	                                          }else{
                                                       $valorReturn = false;
     	                                          }
-                                          }                           
+                                          }
                                     }
                               }
                         }
@@ -335,7 +335,7 @@
                         WHERE idDeposito ='".$depositoMasivo."'
                   ");
     		      if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
     		      }else{
                         return false;
     		      }
@@ -349,7 +349,7 @@
                         AND standBy = 0
                   ");
     		      if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
     		      }else{
                         return false;
     		      }
@@ -357,12 +357,12 @@
 
             public function getDepositosDet($numTransaccion){
                   $query = $this->db->query("
-                        SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS 
+                        SELECT idDeposito, idParticipanteCliente, Puntos, Concepto, STATUS
                         FROM DepositosDet
                         WHERE idDeposito =".$numTransaccion['numTransaccion']."
                   ");
     		      if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
     		      }else{
                         return false;
     		      }
@@ -386,8 +386,8 @@
             public function UpdateDepositosDet($numTransaccion,$idParticipanteCliente){
                   $query = $this->db->query("
                         UPDATE `DepositosDet`
-                        SET `status`= 1 
-                        WHERE `idDeposito` = ".$numTransaccion['numTransaccion']." 
+                        SET `status`= 1
+                        WHERE `idDeposito` = ".$numTransaccion['numTransaccion']."
                         and `idParticipanteCliente` = ".$idParticipanteCliente
                         );
 			if ($query){
@@ -400,13 +400,13 @@
             public function idParticipanteGet($IdParticipanteCliente){
                   $query = $this->db->query("
                         SELECT idParticipante
-                        FROM  `Participante` 
+                        FROM  `Participante`
                         WHERE codPrograma =41
                         AND codEmpresa =".$this->session->userdata('CodEmpresa')."
                         AND idParticipanteCliente =".$IdParticipanteCliente."
                   ");
     		      if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
     		      }else{
                         return false;
     		      }
@@ -414,7 +414,7 @@
 
             public function insertPartMovsRealiza($idParticipanteCliente,$Concepto,$Puntos){
                   $query = $this->db->query("
-                        INSERT INTO `opisa_opisa`.`PartMovsRealizados`(`idParticipante`, `feMov`, `dsMov`, 
+                        INSERT INTO `opisa_opisa`.`PartMovsRealizados`(`idParticipante`, `feMov`, `dsMov`,
                         `noPuntos`) VALUES (".$idParticipanteCliente.",NOW(),'".$Concepto."',".$Puntos.")
                   ");
                   if ($query){
@@ -448,7 +448,7 @@
                       ORDER BY Fecha
                   ");
                   if ($query->num_rows() > 0){
-                      return $query->result_array(); 
+                      return $query->result_array();
                   }else{
                       return false;
                   }
@@ -456,8 +456,8 @@
 
             public function getCanje(){
                   $query = $this->db->query("
-                        SELECT pc.idCanje, p.idParticipante, 
-                        CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) 
+                        SELECT pc.idCanje, p.idParticipante,
+                        CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', p.ApellidoMaterno )
                         AS Nombre, pc.feSolicitud, pc.fhExp, pcd.PuntosXUnidad
                         FROM Canje pc, Participante p, CanjeDetalle pcd
                         WHERE pc.idParticipante = p.idParticipante
@@ -475,8 +475,8 @@
 
             public function getCanjeFechas($infoFechas){
                   $query = $this->db->query("
-                        SELECT idCanje, p.idParticipante, 
-                        CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', p.ApellidoMaterno ) 
+                        SELECT idCanje, p.idParticipante,
+                        CONCAT( p.PrimerNombre,  ' ', p.SegundoNombre,  ' ', p.ApellidoPaterno,  ' ', p.ApellidoMaterno )
                         AS Nombre, pc.feSolicitud, pc.fhExp, pcd.PuntosXUnidad
                         FROM Canje pc, Participante p, CanjeDetalle pcd
                         WHERE pc.idParticipante = p.idParticipante
@@ -488,7 +488,7 @@
                         ORDER BY pc.feSolicitud
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -496,16 +496,16 @@
 
             public function getCatalogo(){
                   $query = $this->db->query("
-                        SELECT pp.codPrograma, pp.codEmpresa, c.codCategoria, c.nbCategoria as Categoria, 
+                        SELECT pp.codPrograma, pp.codEmpresa, c.codCategoria, c.nbCategoria as Categoria,
                         pr.codPremio, pr.Nombre_Esp as Premio, Caracts_Esp, Marca, Modelo, pp.ValorPuntos 
-                        FROM Premio pr 
+                        FROM Premio pr
                         JOIN PremioPrograma pp on pr.codPremio=pp.codPremio
                         JOIN CategoriaPremio c on c.codCategoria=pr.codCategoria
                         WHERE pp.codPrograma='41' and pp.codEmpresa='".$this->session->userdata('CodEmpresa')."'
                         ORDER BY 10,5
                   ");
     		      if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
     		      }else{
                         return false;
     		      }
@@ -513,12 +513,12 @@
 
             public function getDescripcionIMG($codPremio){
                   $query = $this->db->query("
-                        SELECT  `Caracts_Esp` 
-                        FROM  `Premio` 
+                        SELECT  `Caracts_Esp`
+                        FROM  `Premio`
                         WHERE  `codPremio` =".$codPremio['codPremio']."
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
     		      }else{
                         return false;
     		      }
@@ -526,18 +526,18 @@
 
             public function getPrograma(){
                   $query = $this->db->query("
-                        SELECT DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha, 
+                        SELECT DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha,
                         SUM( m.noPuntos ) AS Depositos
                         FROM PartMovsRealizados m
                         JOIN Participante p ON p.idParticipante = m.idParticipante
                         WHERE feMov >=  '20180501'
                         AND p.CodPrograma =41
                         AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                        GROUP BY DATE_FORMAT( m.feMov,  '%Y %m' ) 
-                        ORDER BY 1      
+                        GROUP BY DATE_FORMAT( m.feMov,  '%Y %m' )
+                        ORDER BY 1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -545,7 +545,7 @@
 
             public function getProgramaCanje(){
                   $query = $this->db->query("
-                        SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha, 
+                        SELECT DATE_FORMAT( feSolicitud,  '%Y %m' ) AS Fecha,
                         SUM( cd.PuntosXUnidad * cd.Cantidad ) AS Canjes
                         FROM CanjeDetalle cd, Canje c, Participante p
                         WHERE cd.idCanje = c.idCanje
@@ -554,11 +554,11 @@
                         AND feSolicitud >=  '20180501'
                         AND c.codPrograma =41
                         AND p.codEmpresa = ".$this->session->userdata('CodEmpresa')."
-                        GROUP BY DATE_FORMAT( feSolicitud,  '%Y %m' ) 
+                        GROUP BY DATE_FORMAT( feSolicitud,  '%Y %m' )
                         ORDER BY 1
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -578,7 +578,7 @@
 
             public function cambiarPassword($password){
                   $query = $this->db->query("
-                      UPDATE `Administrador` SET `Pwd`=".$password['password']." 
+                      UPDATE `Administrador` SET `Pwd`=".$password['password']."
                       WHERE `CodEmpresa` = ".$this->session->userdata('CodEmpresa')."
                   ");
                   if ($query){
@@ -595,7 +595,7 @@
                       WHERE email =  '".$email['email']."'
                   ");
                   if ($query->num_rows() > 0){
-                        return $query->result_array(); 
+                        return $query->result_array();
                   }else{
                         return false;
                   }
@@ -603,7 +603,7 @@
 
             public function cambiarPasswordNew($passwordConfig){
                   $query = $this->db->query("
-                      UPDATE `Administrador` SET `Pwd`=".$passwordConfig['password']." 
+                      UPDATE `Administrador` SET `Pwd`=".$passwordConfig['password']."
                       WHERE `CodEmpresa` = ".$passwordConfig['codEmpresa']."
                       AND `Usuario` = '".$passwordConfig['usuario']."'
                   ");
