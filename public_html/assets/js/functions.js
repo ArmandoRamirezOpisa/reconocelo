@@ -1,5 +1,14 @@
 var click = 0;
 var contOrder = new Array();
+const passwordReconocelo = document.getElementById('passwordReconocelo');
+
+passwordReconocelo.addEventListener('keyup', loginBtn);
+
+function loginBtn(event) {
+    if (event.keyCode == 13) {
+        loginReconocelo();
+    }
+}
 
 function loginReconocelo() {
     $('#loading').show();

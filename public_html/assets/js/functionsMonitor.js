@@ -1,3 +1,13 @@
+const password = document.getElementById('password');
+
+password.addEventListener('keyup', loginBtn);
+
+function loginBtn(event) {
+    if (event.keyCode == 13) {
+        loginMonitorReconocelo();
+    }
+}
+
 function loginMonitorReconocelo() {
     var user = $('#user').val();
     var password = $('#password').val();
