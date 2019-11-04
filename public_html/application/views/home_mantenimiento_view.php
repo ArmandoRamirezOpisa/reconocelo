@@ -27,7 +27,7 @@
                                 <form>
                                     <div class="form-group">
                                         <label for="user"><strong>Usuario</strong></label>
-                                        <input type="email" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Ejem: usuario01">
+                                        <input type="text" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Ejem: usuario01">
                                     </div>
                                     <div class="form-group">
                                         <label for="password"><strong>Contraseña</strong></label>

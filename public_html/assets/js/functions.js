@@ -1,7 +1,9 @@
 var click = 0;
 var contOrder = new Array();
-const passwordReconocelo = document.getElementById('passwordReconocelo');
+const usuarioReconocelo = document.getElementById('usuarioReconocelo');
+usuarioReconocelo.addEventListener('keyup', loginBtn);
 
+const passwordReconocelo = document.getElementById('passwordReconocelo');
 passwordReconocelo.addEventListener('keyup', loginBtn);
 
 function loginBtn(event) {

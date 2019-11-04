@@ -1,5 +1,7 @@
-const password = document.getElementById('password');
+const user = document.getElementById('user');
+user.addEventListener('keyup', loginBtn);
 
+const password = document.getElementById('password');
 password.addEventListener('keyup', loginBtn);
 
 function loginBtn(event) {
