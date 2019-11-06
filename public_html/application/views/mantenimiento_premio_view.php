@@ -7,7 +7,6 @@
                 </div>
                 <div class="col-sm"></div>
             </div>
-
             <div class="form-group animated apareciendo">
                 <label for="functionsPremio">Selecciona alguna opcion:</label>
                 <select class="form-control" id="functionsPremio" onchange="optionsPremio(this)">
@@ -17,6 +16,5 @@
                     <option value="U">Actualizar</option>
                 </select>
             </div>
-
             <div id="premioFunctions" class="animated apareciendo" style="display:none;"></div>
         </div>

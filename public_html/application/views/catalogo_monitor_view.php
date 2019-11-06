@@ -1,5 +1,4 @@
         <div class="container">
-
             <table id="infoCatologoActual" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -29,9 +28,7 @@
                 <tbody>
                 <?php
                     if ($catalogo){
-
                         foreach($catalogo as $row){
-
                             echo '<tr>
                                 <td>'.$row["Categoria"].'</td>
                                 <td>'.$row["codPremio"].'</td>
@@ -45,11 +42,8 @@
                                     </button>
                                 </td>
                             </tr>';
-
                         }
-
                     }else{
-
                         echo '<tr>
                                 <td>--</td>
                                 <td>--</td>
@@ -59,9 +53,7 @@
                                 <td>--</td>
                                 <td>--</td>
                             </tr>';
-
                     }
-                
                 ?>
                 </tbody>
                 <tfoot>
@@ -76,10 +68,7 @@
                     </tr>
                 </tfoot>
             </table>
-
         </div>
-
-    <!-- Modal -->
     <div class="modal fade animated apareciendo" id="catalogoImgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -89,18 +78,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div id="imgCatalogo"></div>
-
             </div>
         </div>
     </div>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información del catalogo actual</h1>";
-
             $(document).ready(function() {
                 $('#infoCatologoActual').DataTable();
-            } );
-
+            });
         </script>

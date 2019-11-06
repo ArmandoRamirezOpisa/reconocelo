@@ -26,7 +26,6 @@
                         $totalPuntos = 0;
                         if ($deposito){
                             foreach($deposito as $row){
-
                                 echo '<tr>
                                     <td scope="row">'.$row['noFolio'].'</td>
                                     <td>'.$row['idParticipante'].'</td>
@@ -35,11 +34,8 @@
                                     <td>'.$row['Descripcion'].'</td>
                                     <td>'.number_format($row['Puntos']).'</td>
                                 </tr>';
-
                                 $totalPuntos = $totalPuntos + $row['Puntos'];
-
                             }
-
                         }else{
                             echo '<tr>
                                 <td>--</td>
@@ -50,7 +46,6 @@
                                 <td>--</td>
                             </tr>';
                         }
-                            
                     ?>
                     </tbody>
                     <tfoot>
@@ -64,14 +59,10 @@
                         </tr>
                     </tfoot>
                 </table>
-
                 <script>
                     $(document).ready(function() {
                         $('#infoDeposito').DataTable();
-                    } );
-
+                    });
                     var puntosTotalNumero = '<?php echo number_format($totalPuntos); ?>';
-
                     $('#totalNumPuntos').html(puntosTotalNumero);
-
                 </script>

@@ -10,12 +10,10 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>Reconocelo</title>
-        <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="assets/css/2018Reconocelo.css?ab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <script src="https://use.fontawesome.com/1f2183b84e.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script src="https://kit.fontawesome.com/4d404e5112.js" crossorigin="anonymous"></script>
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
@@ -36,11 +34,7 @@
                                     <?php
                                         if($cat){
                                             foreach($cat as $row){
-                                                $act = "";
-                                                if ($row["CodCategoria"] == 1){
-                                                    $act = "active";
-                                                }
-                                                echo '<a id="a'.$row["CodCategoria"].'" href="javascript:void(0)" onClick="selCat('.$row["CodCategoria"].',\'a'.$row["CodCategoria"].'\')" class="dropdown-item '.$act.'" >'.$row["nbCategoria"].'</a>';
+                                                echo '<a id="a'.$row["CodCategoria"].'" href="javascript:void(0)" onClick="selCat('.$row["CodCategoria"].',\'a'.$row["CodCategoria"].'\')" class="dropdown-item" >'.$row["nbCategoria"].'</a>';
                                             }
                                         }
                                     ?>

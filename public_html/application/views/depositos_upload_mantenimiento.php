@@ -1,13 +1,10 @@
         <div id="MessageDepositoMantenimiento" class="container animated apareciendo" style="display:none; margin-top: 50px; margin-botton:150px;"></div>
-
         <div class="container animated apareciendo" style="margin-top: 100px;">
-
             <div class="row animated apareciendo">
                 <div class="col-md-12">
                     <h1>Subir depositos</h1>
                 </div>
             </div>
-
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Advertencia!</strong> 
                 <p>Debes de subir un archivo con la extencion csv.</p>
@@ -16,7 +13,6 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Sube tu archivo CSV</label>
@@ -26,18 +22,12 @@
 				    <button type="button" id="subirArchivoDepositosMantenimiento" class="btn btn-primary"><i class="fas fa-upload"></i> Subir archivo</button>
 			    </div>
             </form>
-
             <div id="parsed_csv_list"></div>
-
         </div>
-
         <script>
-
             $(document).ready(function () {
                 activarDepositosSubidosMantenimiento();
             });
-
-            //boton para leer un archivo csv
             $('#subirArchivoDepositosMantenimiento').on("click",function(e){
 				e.preventDefault();
 				$('#file-CSV-mantenimiento').parse({
@@ -45,26 +35,13 @@
 						delimiter: "auto",
 						complete: ProcesarInfoDepositosMantenimiento,
 					},
-					before: function(file, inputElem)
-					{
-						console.log("Cargando archivo...", file);
-					},
-					error: function(err, file)
-					{
-                        //
-					},
-					complete: function()
-					{
-                        console.log("Todo salio de maravill");
-					}
+					before: function(file, inputElem){},
+					error: function(err, file){},
+					complete: function(){}
 				});
 			});
-            
-            //funcion que pasa a la base de datos
 			function ProcesarInfoDepositosMantenimiento(results){
-
                 var data = results.data;
-
                 $.ajax({
                     url: '/Mantenimiento/uploadDepositosNewsMantenimiento',
                     async: 'true',
@@ -74,9 +51,7 @@
                     ifModified: false,
                     processData: true,
                     data: { "infoNewsDepositosMantenimiento": data },
-                    beforeSend: function() {
-                        console.log('Procesando, espere por favor...');
-                    },
+                    beforeSend: function() {},
                     success: function(result) {
                         if (result == "0") {
                             $('#MessageDepositoMantenimiento').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
@@ -94,9 +69,7 @@
                     timeout: 30000,
                     type: "POST"
                 });
-                
             }
-
             function activarDepositosSubidosMantenimiento(){
                 $.ajax({
                     url: '/Mantenimiento/depositosSubidosMantenimiento',
@@ -104,16 +77,12 @@
                     cache: false,
                     contentType: "application/x-www-form-urlencoded",
                     dataType: "html",
-                    error: function(object, error, anotherObject) {
-                    console.log('Mensaje: ' + object.statusText + 'Status: ' + object.status);
-                    },
+                    error: function(object, error, anotherObject) {},
                     global: true,
                     ifModified: false,
                     processData: true,
                     success: function(result) {
-                        if (result == "0") {
-                            console.log("Expiro");
-                        } else {
+                        if (result == "0") {} else {
                             $('#parsed_csv_list').html(result);
                             $('#parsed_csv_list').show();
                         }

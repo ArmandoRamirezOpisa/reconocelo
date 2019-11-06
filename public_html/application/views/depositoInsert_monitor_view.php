@@ -1,13 +1,10 @@
         <div class="container mt-5">
-
             <div id="MessageInsertarDepositos"></div>
-
             <div class="alert alert-warning" role="alert">
                 <h4 class="alert-heading">Advertencia!</h4>
                 <p>Para subir el archivo es necesario que tenga la extensión CSV</p>
                 <p>Descargar el formato para subir los depositos <a href="https://www.reconocelo.com.mx/assets/images/SubirDepositos.csv" class="text-info">Descargar</a></p>
             </div>
-
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Sube tu archivo CSV</label>
@@ -17,20 +14,13 @@
 				    <button type="button" id="subirArchivoDepositos" class="btn btn-primary"><i class="fas fa-upload"></i> Subir archivo</button>
 			    </div>
             </form>
-
             <div id="parsed_csv_list"></div>
-
         </div>
-
         <script>
-            //titulo
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Insertar depósitos</h1>";
-
             $(document).ready(function () {
                 activarDepositosSubidos();
             });
-
-            //boton para leer un archivo csv
             $('#subirArchivoDepositos').on("click",function(e){
 				e.preventDefault();
 				$('#file-CSV').parse({
@@ -38,20 +28,13 @@
 						delimiter: "auto",
 						complete: ProcesarInfoDepositos,
 					},
-					before: function(file, inputElem)
-					{},
-					error: function(err, file)
-					{},
-					complete: function()
-					{}
+					before: function(file, inputElem){},
+					error: function(err, file){},
+					complete: function(){}
 				});
 			});
-            
-            //funcion que pasa a la base de datos
 			function ProcesarInfoDepositos(results){
-
                 var data = results.data;
-
                 $.ajax({
                     url: '/Monitor/uploadDepositosNews',
                     async: 'true',
@@ -71,14 +54,11 @@
                             activarDepositosSubidos();
                         }
                     },
-                    error: function(object, error, anotherObject) {
-                    },
+                    error: function(object, error, anotherObject) {},
                     timeout: 30000,
                     type: "POST"
                 });
-                
             }
-
             function activarDepositosSubidos(){
                 $.ajax({
                     url: '/Monitor/depositosSubidos',

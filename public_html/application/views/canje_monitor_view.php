@@ -1,5 +1,4 @@
         <div id="messageCanjeAlert mt-5" class="container"></div>
-
         <div class="container mt-5">
             <div class="row">
                 <div class="col">
@@ -39,12 +38,9 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
             <div id="CanjeInformacion"></div>
-
         </div>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de los canjes</h1>";
             $( document ).ready(function() {

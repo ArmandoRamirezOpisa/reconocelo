@@ -15,6 +15,5 @@
                         <option value="moreParticipantes">Dar de alta varios participantes</option>
                     </select>
                 </div>
-
             <div id="opcionesParticipantes" class="animated apareciendo"></div>
         </div>

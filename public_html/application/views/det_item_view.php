@@ -17,7 +17,7 @@
                             <p><a class="btn btn-outline-secondary text-white" onClick = "addItemOrder('.$row["codPremio"].',\''.str_replace('"',' ',$row["Nombre_Esp"]).'\','.$row["ValorPuntos"].')"><i class="fas fa-plus-circle mr-2"></i>Agregar</a></p>
                         </div>';
                         $count =1;
-                }else{}
+                }
             } 
         }
     ?>

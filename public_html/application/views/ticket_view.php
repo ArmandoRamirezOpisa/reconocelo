@@ -4,7 +4,6 @@
         <p class="text-center lead">Aqui podras visualizar las respuestas a tus preguntas realizadas</p>
     </div>
 </div>
-
 <div class="row justify-content-center mt-4 animated apareciendo">
     <div class="col-8">
         <?php
@@ -50,17 +49,14 @@
                             </div>
                         </div>
                     </div>
-                    </br>
-                    ';
+                    </br>';
                 }  
             }else{
                 echo "<div class='alert alert-warning' role='alert'><h1 class=\"text-center\">No cuentas con un historial de tickets</h1></div>";
             }
         ?>
-    </div>  
+    </div>
 </div>
-
-<!-- Modal -->
 <div class="modal fade bd-example-modal-lg animated apareciendo" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -79,7 +75,6 @@
         </div>
     </div>
 </div>
-
 <script>
-up();
+    up();
 </script>

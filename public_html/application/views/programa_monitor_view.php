@@ -1,5 +1,4 @@
         <div class="container mt-5">
-
             <div id="Depositos">
                 <table id="infoMonitorPrograma" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                     <thead>
@@ -13,28 +12,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                <?php
-
+                    <?php
                         if ($programa){
-
                             $puntosCirculantes = 0;
                             $canjes = 0;
-                            foreach ($programa as $row){
-                                    
-                                    echo '<tr>';
-                                        echo '<td>'.$row['Fecha'].'</td>';
-                                        echo '<td>'.$row['Depositos'].'</td>';
-                                    echo '</tr>';
-
-                            }
-                            
+                            foreach ($programa as $row){            
+                                echo '<tr>';
+                                    echo '<td>'.$row['Fecha'].'</td>';
+                                    echo '<td>'.$row['Depositos'].'</td>';
+                                echo '</tr>';
+                            }    
                         }else{
                             echo '<tr>
                                 <td>--</td>
                                 <td>--</td>
                             </tr>';
                         }
-
                     ?>
                     </tbody>
                     <tfoot>
@@ -55,27 +48,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                    <?php
-
+                        <?php
                             if ($programaCanje){
-
                                 $puntosCirculantes = 0;
                                 $canjes = 0;
                                 foreach ($programaCanje as $row){
-                                        
-                                        echo '<tr>';
-                                            echo '<td>'.$row['Canjes'].'</td>';
-                                        echo '</tr>';
-
+                                    echo '<tr>';
+                                        echo '<td>'.$row['Canjes'].'</td>';
+                                    echo '</tr>';
                                 }
-                                
                             }else{
                                 echo '<tr>
                                     <td>--</td>
                                     <td>--</td>
                                 </tr>';
                             }
-
                         ?>
                         </tbody>
                         <tfoot>
@@ -85,9 +72,7 @@
                         </tfoot>
                     </table>
             </div>
-
         </div>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>información del monitor programa</h1>";
         </script>

@@ -13,13 +13,12 @@
         <link href="../assets/css/ReconoceloMantenimiento.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="shortcut icon" href="assets/images/monitorLogLink.png" type="image/x-icon" />
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/4d404e5112.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../assets/js/papaparse.min.js"></script>
         <title>Mantenimiento Reconocelo</title>
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
-
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light animated apareciendo">
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="/mantenimiento/home">
@@ -53,13 +52,9 @@
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php
                                 if ($PrimerNombre){
-
                                     echo '<i class="fas fa-user"></i> '.$PrimerNombre;
-
                                 }else{
-
                                     echo '<i class="fas fa-user"></i> Usuario';
-
                                 }
                             ?>
                         </button>

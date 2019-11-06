@@ -11,7 +11,7 @@
         <link href="assets/css/ReconoceloStyles.css?a" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/4d404e5112.js" crossorigin="anonymous"></script>
     </head>
     <body class="animated apareciendo">
         <div class="container-fluid  pxy-0 mxy-0 animated apareciendo" >
@@ -94,7 +94,6 @@
                 </div>
             </div>
         </div>
-        <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="assets/js/functions.js"></script>

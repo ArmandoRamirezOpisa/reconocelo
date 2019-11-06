@@ -12,20 +12,18 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
+        <script src="https://kit.fontawesome.com/4d404e5112.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
-        <link href="assets/css/ReconoceloMonitor.css?ab" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/ReconoceloMonitor.css" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="assets/js/papaparse.min.js"></script>
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
-        <!-- Navigation -->
         <nav class="navbar navbar-expand-lg">
             <a id="inicioMonitor" class="navbar-brand" href="https://www.reconocelo.com.mx/monitor/">
                 <img src="assets/images/monitorLog.png" width="150" height="30" alt="">
             </a>
         </nav>
-        <!-- Navigation --> 
         <div class="container">
             <div class="row justify-content-center mb-4 mt-3">
                 <div id="navegacionMonitor" class="card-deck mt-3">
@@ -33,7 +31,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
             <div id="MessageRecuperar"></div>
             <form>
@@ -48,7 +45,6 @@
                 <button type="button" id="<?php echo $user.'-'.$cod;?>" class="btn btn-primary" onClick = "configNew(this)"><i class="fas fa-save"></i> Cambiar contraseña</button>
             </form>
         </div>
-
         <script src="assets/js/functionsMonitor.js?ab"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -57,7 +53,6 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Recuperar contraseña</h1>";
         </script>

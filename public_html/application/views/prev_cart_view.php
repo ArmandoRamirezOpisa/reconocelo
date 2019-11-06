@@ -5,11 +5,11 @@
 		<table class="table ">  
   		<thead class="thead navcolor text-white">
     		<tr>
-      		<th scope="col">C&oacute;digo</th>
-      		<th scope="col">Nombre</th>
-      		<th scope="col">Cantidad</th>
-      		<th scope="col">Valor Puntos</th>
-					<th scope="col">Eliminar</th>
+				<th scope="col">C&oacute;digo</th>
+				<th scope="col">Nombre</th>
+				<th scope="col">Cantidad</th>
+				<th scope="col">Valor Puntos</th>
+				<th scope="col">Eliminar</th>
     		</tr>
 	  	</thead>
 	    <tbody id="bodyContentCart">	
@@ -34,16 +34,16 @@
 				</h5>
 				<form id="frmCanjeDir">
 			  	<div class="form-group" id="gedo">
-						<input type="text" class="form-control" id="num" name="num" placeholder="Calle y Número" required>
+					<input type="text" class="form-control" id="num" name="num" placeholder="Calle y Número" required>
 			  	</div>
 			  	<div class="form-group" id="gdelmuni">
-						<input type="text" class="form-control" id="col" name="col" placeholder="Colonia" required>	
+					<input type="text" class="form-control" id="col" name="col" placeholder="Colonia" required>	
 			  	</div>
 			  	<div class="form-group" id="gcol">
-						<input type="text" class="form-control" id="delmuni" name="delmuni" placeholder="Delegación/Municipio" required>
+					<input type="text" class="form-control" id="delmuni" name="delmuni" placeholder="Delegación/Municipio" required>
 			  	</div>
 			  	<div class="form-group" id="gnum">
-						<input type="text" class="form-control" id="edo" name="edo" placeholder="Estado" required>
+					<input type="text" class="form-control" id="edo" name="edo" placeholder="Estado" required>
 			  	</div>
 			  	<div class="form-group" id="gcp">
 			    	<input type="text" class="form-control" id="cp"  maxlength="5" name="cp" placeholder="C.P." required>
@@ -58,7 +58,7 @@
 				<div class="d-flex justify-content-end">
 	    		<button id="btnGenCanje" onclick="sendCanje(<?php echo $this->session->userdata('puntos'); ?>,totPuntos)" type="button" class="btn btn-outline-secondary" ><i class="fas fa-flag-checkered mr-2"></i>Finalizar compra</button>
 				</div>
-  		</div>
+  			</div>
 		</div>
 	</div>
 </div>
@@ -68,17 +68,16 @@
 	var ctd;
 	var totPuntos = 0;
 	if(contOrder.length == 0){
-    $('#numeroCarrito').html(contOrder.length);
-  }else{
-    $('#numeroCarrito').html('<strong>'+contOrder.length+'</strong>');
-  }
+    	$('#numeroCarrito').html(contOrder.length);
+  	}else{
+    	$('#numeroCarrito').html('<strong>'+contOrder.length+'</strong>');
+  	}
 	if(contOrder.length == 0){
 		document.getElementById("btnGenCanje").disabled = true;
 		$('#MessageCarrito').html('<div class="alert alert-warning" role="warning"><div class="row"><div class="col-5"></div><div class="col">No hay premios agregados</div><div class="col"></div></div></div>')
 	}else{
 		document.getElementById("btnGenCanje").disabled = false;
 	}
-
 	$.each(contOrder, function(k,v){
 		totPuntos = totPuntos + v.puntos;
 		if (totPuntos == 0){
@@ -97,10 +96,10 @@
 </script>
 <script>
 $(document).ready(function () {
-  $("#cp").keypress(function (e) {
-     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-        return false;
-    }
-   });
+	$("#cp").keypress(function (e) {
+		if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+			return false;
+    	}
+   	});
 });
 </script>

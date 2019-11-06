@@ -4,7 +4,6 @@
                     </div>
                     <div class="col-sm"></div>
                 </div>
-
                 <form>
                     <div class="form-group">
                         <label for="idParticipante">Id participante</label>

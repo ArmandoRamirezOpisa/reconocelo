@@ -36,23 +36,19 @@
 </div>
 <script>
     var dAct = "a1";
-    function selCat(idCat,id)
-    {
+    function selCat(idCat,id){
         $("#"+dAct).removeClass("active");
         dAct = id;
         $("#"+id).addClass("active");
        loadSection('Home/getAwards/'+idCat,'dvSecc');
     }
     up();
-    
-    function up()
-    {
+    function up(){
         $('body,html').animate({
             scrollTop: 0
         }, 800);
         return false;
     }
-    
     $("#selProd").change(function(){
         selCat($("#selProd").val(),1);
     });

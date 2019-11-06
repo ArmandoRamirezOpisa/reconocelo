@@ -1,5 +1,4 @@
         <div class="container mt-5" id="alertFiltroDeposito"></div>
-
         <div class="container mt-5">
             <div class="row">
                 <div class="col">
@@ -42,7 +41,6 @@
         <div class="container">
             <div id="depositoInformacion"></div>
         </div>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de los depósitos</h1>";
             $( document ).ready(function() {

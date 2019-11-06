@@ -4,7 +4,6 @@
   </div>
   <div class="col-8">
     <div class="panel-group animated apareciendo" id="accordion">
-      <!--Inicio cajas de las reglas, como acordeon -->
       <?php
         if($cat){
           $contador = 0;
@@ -32,12 +31,8 @@
           $contador = $contador + 1;
           }
       }
-
-
       ?>
-      <!--Fin cajas de las reglas, como acordeon -->
     </div>
-    <br>
-    <br>
+    <br><br>
   </div>
 </div>

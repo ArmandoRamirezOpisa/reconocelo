@@ -31,19 +31,13 @@
             before: function(file, inputElem){
                 message.style = 'display:block';
                 message.innerHTML = "<i class='fas fa-sync fa-spin icon-load' style='font-size: 60px;position: relative;left: 50%;'></i>";
-                //console.log("Cargando archivo...", file);
             },
             error: function(err, file){},
-            complete: function(){
-                //console.log("Se ha cargado corecctamente: ");
-            }
+            complete: function(){}
         });
     });
-            
     function ProcesarInfoPremioPrograma(results){
         var data = results.data;
-        //console.log("Esta esta la data que se cargo:.........");
-        //console.log(data);
         $.ajax({
             url: '/Mantenimiento/uploadPremioPrograma',
             async: 'true',
@@ -53,9 +47,7 @@
             ifModified: false,
             processData: true,
             data: { "infoPremioPrograma": data },
-            beforeSend: function() {
-                //console.log('Procesando, espere por favor...');
-            },
+            beforeSend: function() {},
             success: function(result) {
                 if (result == "0") {
                     $('#MessagePremioPrograma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
@@ -66,14 +58,12 @@
                     $('#MessagePremioPrograma').show();
                     $("#file-CSV-premioPrograma").val("");
                     $('#resultado').html(result);
-                    console.log(result);
                     $('#resultado').show();
                 }
             },
             error: function(object, error, anotherObject) {
                 $('#MessagePremioPrograma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong>Error: ' + object.statusText + 'Status: ' + object.status + '.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             },
-            /*timeout: 30000,*/
             type: "POST"
         });
     }

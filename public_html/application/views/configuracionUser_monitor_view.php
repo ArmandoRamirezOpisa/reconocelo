@@ -9,9 +9,7 @@
                 <div class="col-8">
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="list-usuario" role="tabpanel" aria-labelledby="list-usuario-list">
-
                             <div id="messageUser"></div>
-
                             <form>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1"><strong>Nombre usuario</strong></label>
@@ -21,9 +19,7 @@
                             </form>
                         </div>
                         <div class="tab-pane fade" id="list-password" role="tabpanel" aria-labelledby="list-password-list">
-
                             <div id="messagePassword"></div>
-
                             <form>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1"><strong>Contraseña*</strong></label>
@@ -39,9 +35,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Restablecer contraseña</h1>";
         </script>

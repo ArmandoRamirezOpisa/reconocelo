@@ -2,14 +2,12 @@
                     <h4 class="alert-heading">Advertencia!</h4>
                     <p>Para subir el archivo es necesario que tenga la extensión CSV</p>
                 </div>
-                
                 <div class="row">
                     <div class="col-sm">
                         <h1>Registra varios participantes</h1>
                     </div>
                     <div class="col-sm"></div>
                 </div>
-
                 <form>
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Selecciona un archivo csv, para subir los participantes</label>
@@ -17,9 +15,7 @@
                     </div>
                     <button id="subirArchivoParticipantesMantenimiento" type="button" class="btn btn-primary"><i class="fas fa-upload"></i> Subir</button>
                 </form>
-
                 <script>
-                    //boton para leer un archivo csv
                     $('#subirArchivoParticipantesMantenimiento').on("click",function(e){
 				        e.preventDefault();
 				        $('#archivoParticipantes').parse({
@@ -35,11 +31,8 @@
 					        {}
 				        });
                     });
-                    
-                    //funcion que pasa a la base de datos
 			        function ProcesarInfoParticipantes(results){
                         var dataParticipantes = results.data;
-
                         $.ajax({
                             url: '/Mantenimiento/uploadParticipantesNews',
                             async: 'true',
@@ -58,13 +51,11 @@
                                     $('#alertMessage').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                                     $('#alertMessage').show();
                                     $("#archivoParticipantes").val("");
-                                    //activarDepositosSubidos();
                                 }
                             },
                             error: function(object, error, anotherObject) {},
                             timeout: 30000,
                             type: "POST"
                         });
-
                     }
                 </script>

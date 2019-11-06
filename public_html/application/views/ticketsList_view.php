@@ -9,16 +9,13 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>Reconocelo</title>
-        <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="../assets/css/2018Reconocelo.css?a" rel="stylesheet">
+        <link href="../assets/css/2018Reconocelo.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <script src="https://use.fontawesome.com/1f2183b84e.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script src="https://kit.fontawesome.com/4d404e5112.js" crossorigin="anonymous"></script>
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
-
         <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
             <a class="navbar-brand" href="#">
                 <img src="../assets/images/reconocelo.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -27,7 +24,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -46,16 +42,11 @@
                 </form>
             </div>
         </nav>
-
-
         <div class="row justify-content-center mt-4 mb-4">
             <div class="col-12 col-md-4 mt-4">
                 <img src="assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
             </div>
         </div>
-
-
-
         <div class="row">
             <div class="col-12">
                 <h1 class="text-center">
@@ -67,18 +58,14 @@
                 </p>
             </div>
         </div>
-
-
         <div class="w-100 mb-4"></div>
         <div class="row mt-4 mb-4" >
             <div class ="col mt-4" id="dvSecc">
                 <div class="container-fluid mt-4">
-
                     <?php
                         if ($ticketListAdmin){
                             foreach ($ticketListAdmin as $row){
                                 $id = $row['IdTicket'];
-
                                 echo '<div class="card text-center">
                                     <div class="card-header">
                                         <strong class="space-ticket"><i class="fas fa-user"></i> Usuario: '.$row['PrimerNombre'].'</strong>
@@ -134,74 +121,58 @@
                             echo '<h1>En estos momentos no hay tickets</h1>';
                         }
                     ?>
-
                 </div>
             </div>
         </div>
-
-
-<!-- Modal Cerrar secion-->
-<div class="modal fade" id="modalTicket" tabindex="-1" role="dialog" aria-labelledby="modalTicketLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTicketLabel">Cerrar sesion</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Estas seguro de salir?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="salirTicket()">Salir</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Modal Historial -->
-<div class="modal fade bd-example-modal-lg" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Historial del ticket</strong></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="historialTicket"></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <div class="modal fade" id="modalTicket" tabindex="-1" role="dialog" aria-labelledby="modalTicketLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTicketLabel">Cerrar sesion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Estas seguro de salir?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" onclick="salirTicket()">Salir</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-<!-- Modal cerrar ticket -->
-<div class="modal" tabindex="-1" role="dialog" id="modalCloseTicket">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div id="closeTicketConfirm"></div>
+        <div class="modal fade bd-example-modal-lg" id="modalTicketHistorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Historial del ticket</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="historialTicket"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<!-- Fin modal cerrar ticket -->
-
-
-
-
+        <div class="modal" tabindex="-1" role="dialog" id="modalCloseTicket">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div id="closeTicketConfirm"></div>
+                </div>
+            </div>
+        </div>
         <div class="row mt-5 fixed-bottom justify-content-center" style="background: #034889;color: #F25917;">
             <div class="col-auto " id="footer">
                 <a href="javascript:void(0)" onclick="loadSection('aviso_controller', 'dvSecc')" class="linkPrivacy">Aviso de privacidad</a>
             </div>
         </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>

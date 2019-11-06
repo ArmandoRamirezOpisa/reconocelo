@@ -3,9 +3,7 @@
 <?php
 include 'home_monitor_view_header.php';
 ?>
-
         <div class="container mt-5">
-
             <table id="infoCatologoActual" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -35,9 +33,7 @@ include 'home_monitor_view_header.php';
                 <tbody>
                 <?php
                     if ($catalogoActual){
-
                         foreach($catalogoActual as $row){
-
                             echo '<tr>
                                 <td>'.$row["categoria"].'</td>
                                 <td>'.$row["codPremio"].'</td>
@@ -51,11 +47,8 @@ include 'home_monitor_view_header.php';
                                     </button>
                                 </td>
                             </tr>';
-
                         }
-
                     }else{
-
                         echo '<tr>
                             <td>--</td>
                             <td>--</td>
@@ -65,9 +58,7 @@ include 'home_monitor_view_header.php';
                             <td>--</td>
                             <td>--</td>
                         </tr>';
-
                     }
-    
                 ?>
                 </tbody>
                 <tfoot>
@@ -82,20 +73,15 @@ include 'home_monitor_view_header.php';
                     </tr>
                 </tfoot>
             </table>
-
         </div>
-
 <?php
 include 'home_monitor_view_footer.php';
 ?>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información del catalogo actual</h1>";
-
             $(document).ready(function() {
                 $('#infoDeposito').DataTable();
-            } );
-
-        </script>-
+            });
+        </script>
 </body>
 </html>

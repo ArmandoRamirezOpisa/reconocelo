@@ -6,17 +6,13 @@
                 </button>
             </div>
         </div>
-
         <div class="container">
             <div class="row justify-content-center mb-4 mt-3">
                 <div id="contentido" class="card-deck mt-3"></div>
             </div>
         </div>
-
         <div class="container">
-
             <div class="row">
-
                 <div class="col">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="TodosSaldo" onchange= "filtroParticipantes(this)" value="Todos" checked="checked">
@@ -50,18 +46,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         <div class="container">
             <div id="ParticipanteSaldo" class="table-responsive-sm"></div>
-
         </div>
-
         <script>
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Información de participantes</h1>";
             $(document).ready(function() {
                 Todosparticipantes();
             });
-
         </script>

@@ -13,14 +13,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="shortcut icon" href="assets/images/reconocelo.ico" type="image/x-icon" />  
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
+        <script src="https://kit.fontawesome.com/4d404e5112.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
         <link href="../assets/css/ReconoceloMonitor.css" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../assets/js/papaparse.min.js"></script>
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
-        <!-- Navigation -->
         <nav class="navbar navbar-expand-lg">
             <a id="inicioMonitor" class="navbar-brand" href="javascript:void(0)" onclick="MonitorNav(this)">
                 <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
@@ -77,7 +76,6 @@
                 </form>
             </div>
         </nav>
-        <!-- Navigation --> 
         <div class="container animated apareciendo">
             <div class="row justify-content-center mb-4 mt-3">
                 <div id="navegacionMonitor" class="card-deck mt-3 animated apareciendo">

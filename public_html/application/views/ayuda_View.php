@@ -5,7 +5,6 @@
         </h1>
     </div>
 </div>
-
 <div class="row mt-4 animated apareciendo">
     <div class="col-12 col-md-6">
        <div class="card-group animated apareciendo">
@@ -180,7 +179,6 @@
     </div>
 </div>
 <script>
-
     function  estado_form(){
         if ($('select[name=preguntas]').val()=="Sobre mi orden") {
             $("#orden").show();  

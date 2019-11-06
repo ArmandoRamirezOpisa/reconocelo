@@ -26,7 +26,6 @@
                         if ($canje){
                             $totalPuntos = 0;
                             foreach($canje as $row){
-
                                 echo '<tr>
                                     <td>'.$row['idCanje'].'</td>
                                     <td>'.$row['idParticipante'].'</td>
@@ -37,7 +36,6 @@
                                 </tr>';
                                 $totalPuntos = $totalPuntos + $row['PuntosXUnidad'];
                             }
-
                         }else{
                             echo '<tr>
                                 <td>--</td>
@@ -48,7 +46,6 @@
                                 <td>--</td>
                             </tr>';
                         }
-                            
                     ?>
                     </tbody>
                     <tfoot>
@@ -62,14 +59,10 @@
                         </tr>
                     </tfoot>
                 </table>
-
                 <script>
                     $(document).ready(function() {
                         $('#infoCanje').DataTable();
-                    } );
-
+                    });
                     var puntosTotalNumero = '<?php echo number_format($totalPuntos); ?>';
-
                     $('#totalNumPuntosCanjes').html(puntosTotalNumero);
-
                 </script>

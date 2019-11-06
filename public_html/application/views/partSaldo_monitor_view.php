@@ -55,7 +55,7 @@
                             <td>--</td>
                             <td>--</td>
                             <td>--</td>
-                            </tr>';
+                        </tr>';
                     }
                     ?>
                     </tbody>
@@ -71,8 +71,6 @@
                         </tr>
                     </tfoot>
                 </table>
-
-                <!-- Modal -->
                 <div class="modal fade bd-example-modal-lg animated apareciendo" id="modalParticipante" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
@@ -91,7 +89,6 @@
                         </div>
                     </div>
                 </div>
-
             <script>
                 $(document).ready(function() {
                     $('#infoParticipante').DataTable();
