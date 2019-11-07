@@ -52,7 +52,7 @@
                     </br>';
                 }  
             }else{
-                echo "<div class='alert alert-warning' role='alert'><h1 class=\"text-center\">No cuentas con un historial de tickets</h1></div>";
+                echo "<div class='alert alert-warning' role='alert'><h1 class=\"text-center\">No cuentas con un historial de tickets <i class='far fa-sad-tear'></i></h1></div>";
             }
         ?>
     </div>

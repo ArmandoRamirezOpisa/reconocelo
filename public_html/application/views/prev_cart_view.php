@@ -87,10 +87,10 @@
 			ctd = "";
 			c = 0;
 		}
-		str += "<tr "+ctd+"><td>"+v.id+"</td><td>"+v.nombre+"</td><td>"+v.cantidad+"</td><td>"+formatNumber.new(v.puntos)+"</td><td><a class='borrarCarritoReconocelo' onClick='deleteItem("+v.id+")'><span class='far fa-trash-alt ml-2' aria-hidden='true'></span></a></td></tr>";
+		str += "<tr "+ctd+"><td>"+v.id+"</td><td>"+v.nombre+"</td><td>"+v.cantidad+"</td><td>"+Number(v.puntos)+"</td><td><a class='borrarCarritoReconocelo' onClick='deleteItem("+v.id+")'><span class='far fa-trash-alt ml-2' aria-hidden='true'></span></a></td></tr>";
 		$("#bodyContentCart").html(str);
 	});
-	str = "<tr><td colspan = 3 style ='text-align:right;'><h2>Total:</h2></td><td><h2>"+formatNumber.new(totPuntos)+"</h2></td></tr>";
+	str = "<tr><td colspan = 3 style ='text-align:right;'><h2>Total:</h2></td><td><h2>"+Number(totPuntos)+"</h2></td></tr>";
 	str += "<tr><td border=0><button id=\"addGenCanje\" onclick=\"loadSection('home/getAwards/1','dvSecc')\" type=\"button\" class=\"btn btn-outline-secondary\"><i class=\"fas fa-shopping-basket mr-2\"></i>Continuar comprando</button></td></tr>";
 	$("#bodyContentCart").append(str);
 </script>

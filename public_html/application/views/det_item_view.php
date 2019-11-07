@@ -14,7 +14,7 @@
                             <h2><span class="badge badge-warning">'.number_format($row["ValorPuntos"]).' Puntos</span></h2>
                             <h2 class="font-weight-bold">'.$row["Nombre_Esp"].'</h2>
                             <p style="text-justify">'.$row["Caracts_Esp"].'</p>
-                            <p><a class="btn btn-outline-secondary text-white" onClick = "addItemOrder('.$row["codPremio"].',\''.str_replace('"',' ',$row["Nombre_Esp"]).'\','.$row["ValorPuntos"].')"><i class="fas fa-plus-circle mr-2"></i>Agregar</a></p>
+                            <p><a class="btn btn-outline-secondary text-white" onClick = "addItemOrder('.$row["codPremio"].',\''.str_replace('"',' ',$row["Nombre_Esp"]).'\','.$row["ValorPuntos"].')"><i class="fas fa-plus-circle mr-2"></i>Agregar al Carrito</a></p>
                         </div>';
                         $count =1;
                 }
