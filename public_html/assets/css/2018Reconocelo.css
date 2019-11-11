@@ -122,6 +122,9 @@ body {
 
 .dropdown-item:hover {
     background: var(--colorNaranja2);
+    color: var(--colorBlanco);
+    transition: all 1s;
+    -webkit-transition: all 1s;
 }
 
 .scrollable-menu {
