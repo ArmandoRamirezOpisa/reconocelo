@@ -1,7 +1,7 @@
         <div id="footerReconocelo" class="row mt-5 fixed-bottom justify-content-center">
             <div class="col-auto " id="footer">
                 <a id="avisoReconocelo" href="javascript:void(0)" onclick="loadSection('home/avisoPrivacidad', 'dvSecc')" class="linkPrivacy"> <i class="fas fa-flag"></i> Aviso de privacidad</a>
-                <a id="ayudaReconocelo" href="javascript:void(0)" onclick="loadSection('home/ayuda', 'dvSecc')" class="linkPrivacy"> <i class="fas fa-question-circle"></i> Ayuda</a>
+                <a id="ayudaReconocelo" href="javascript:void(0)" onclick="loadSection('home/ayuda', 'dvSecc')" class="linkPrivacy" style="margin-right: 50px;"> <i class="fas fa-question-circle"></i> Ayuda</a>
             </div>
         </div>
         <a id="irHomeReconocelo" href="#homeReconocelo" class="move-top">

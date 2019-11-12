@@ -12,6 +12,6 @@
         <input type="password" class="form-control" id="passwordNewConfirmar" aria-describedby="emailHelp" placeholder="Confirma la nueva contraseña"  name="NuevoPassword2">
       </div>
     </form>
-    <button class="btn btn-outline-secondary btn-block mr-lg-3 mt-3 mb-4" onclick="CambiarContraseña();"><i class="fas fa-exchange-alt"></i> Cambiar contraseña</button>
+    <button class="btn btn-outline-secondary btn-block mr-lg-3 mt-3 mb-4" onclick="CambiarContraseña()"><i class="fas fa-exchange-alt"></i> Cambiar contraseña</button>
   </div>  
 </div>

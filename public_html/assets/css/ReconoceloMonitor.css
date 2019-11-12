@@ -1,5 +1,4 @@
 @import 'globalStyles.css';
-
 body {
     background: var(--colorBlanco);
     font-family: 'Roboto Condensed', sans-serif;
@@ -167,6 +166,10 @@ a:hover {
 
 .dataUserRecononoceloMonitor #salirReconoceloMonitor:hover {
     background-color: var(--colorBlanco);
+}
+
+.btn-color {
+    color: white !important;
 }
 
 

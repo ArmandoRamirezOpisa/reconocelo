@@ -16,7 +16,10 @@
             );
             $emailTrueReconocelo = $this->Reconocelo_model1->checkMailExitsReconocelo($usuarioEmailReconocelo);
             if($emailTrueReconocelo){
-                $this->correoRecuperaReconocelo($emailTrueReconocelo[0]['loginWeb'],$emailTrueReconocelo[0]['CodPrograma'],$emailTrueReconocelo[0]['codEmpresa'],$emailTrueReconocelo[0]['idParticipante']);
+                $this->correoRecuperaReconocelo($usuarioEmailReconocelo['usuarioEmailReconocelo'],$emailTrueReconocelo[0]['loginWeb'],$emailTrueReconocelo[0]['CodPrograma'],$emailTrueReconocelo[0]['codEmpresa'],$emailTrueReconocelo[0]['idParticipante']);
+                $this->output->set_output(json_encode($emailTrueReconocelo));
+            }else{
+                $this->output->set_output(json_encode(0));
             }
         }
 
@@ -43,7 +46,7 @@
             }
         }
 
-        public function correoRecuperaReconocelo($loginWeb,$CodPrograma,$codEmpresa,$idParticipante){
+        public function correoRecuperaReconocelo($usuarioEmailReconocelo,$loginWeb,$CodPrograma,$codEmpresa,$idParticipante){
             $config['smtp_host'] = 'm176.neubox.net';
             $config['smtp_user'] = 'envios@opisa.com';
             $config['smtp_pass'] = '3hf89w';
@@ -265,7 +268,7 @@
             </html>';
             $this->email->initialize($config);
             $this->email->from('no_reply@reconocelo.com.mx', 'reconocelo.com.mx');
-            $this->email->to($usuarioEmailReconocelo['usuarioEmailReconocelo']);
+            $this->email->to($usuarioEmailReconocelo);
             $this->email->subject('Recuperar cuenta Reconocelo');
             $this->email->message($message);
             $this->email->send();

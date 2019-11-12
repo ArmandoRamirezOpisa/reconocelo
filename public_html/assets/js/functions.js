@@ -616,9 +616,12 @@ function sendRecuperaPasswordReconocelo() {
                 } else {
                     $('#MessageRecuperaReconocelo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se mando a tu correo, para que puedas recuperar tu cuenta.En caso de no aparecer, favor de revisar la carpeta de spam.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageRecuperaReconocelo').show();
+                    $('#usuarioEmailReconocelo').val("");
                 }
             },
-            error: function(object, error, anotherObject) {},
+            error: function(object, error, anotherObject) {
+                console.log(object + '-' + error + '-' + anotherObject);
+            },
             timeout: 30000,
             type: "POST"
         });
@@ -685,7 +688,7 @@ function CambiarContraseña() {
         throw new Error("Password no match");
     } else {
         $.ajax({
-            url: '/CofInfo_controller/updatePasswordReconocelo',
+            url: 'Home/updatePasswordReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
