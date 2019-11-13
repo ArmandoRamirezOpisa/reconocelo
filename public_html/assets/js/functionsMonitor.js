@@ -498,6 +498,15 @@ function config(id) {
     }
 }
 
+const mailRecuperar = document.getElementById('mailRecuperar');
+mailRecuperar.addEventListener('keyup', enviarCorreo);
+
+function enviarCorreo(event) {
+    if (event.keyCode == 13) {
+        sendRecuperaPassword();
+    }
+}
+
 function sendRecuperaPassword() {
     var email = $('#mailRecuperar').val();
     if (email == "") {
@@ -558,6 +567,8 @@ function configNew(id) {
                         $('#MessageRecuperar').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     } else {
                         $('#MessageRecuperar').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cambio la contraseña correctamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                        $('#PasswordMonitor').hide();
+                        $('#sesionMonitor').show();
                     }
                 },
                 error: function(object, error, anotherObject) {},

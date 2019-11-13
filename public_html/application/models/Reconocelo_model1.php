@@ -395,7 +395,7 @@ class Reconocelo_model1 extends CI_Model {
             AND  `idParticipante` ='".$this->session->userdata('idPart')."'
         ");
         if ($query){
-            return $this->db->insert_id();
+            return true;
         }else{
             return false;
         }

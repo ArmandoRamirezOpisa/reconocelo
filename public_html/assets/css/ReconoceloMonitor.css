@@ -172,6 +172,14 @@ a:hover {
     color: white !important;
 }
 
+#sesionMonitor {
+    display: none;
+}
+
+.color-sesionMonitor {
+    color: white !important;
+}
+
 
 /* Animaciones */
 
