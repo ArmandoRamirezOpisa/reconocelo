@@ -42,6 +42,9 @@
                 <table id="infoMonitorPrograma" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                         <thead>
                             <tr>
+                                <th class="th-am">Mes/Año
+                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                                </th>
                                 <th class="th-sm">Canjes
                                     <i class="fa fa-sort float-right" aria-hidden="true"></i>
                                 </th>
@@ -54,6 +57,7 @@
                                 $canjes = 0;
                                 foreach ($programaCanje as $row){
                                     echo '<tr>';
+                                        echo '<td>'.$row['Fecha'].'</td>';
                                         echo '<td>'.$row['Canjes'].'</td>';
                                     echo '</tr>';
                                 }
@@ -67,6 +71,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th>Mes/Año</th>
                                 <th>Canjes</th>
                             </tr>
                         </tfoot>

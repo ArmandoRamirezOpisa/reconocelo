@@ -13,9 +13,9 @@
                             <form>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1"><strong>Nombre usuario</strong></label>
-                                    <input type="text" class="form-control" id="userReconoceloMonitor">
+                                    <input type="text" class="form-control" id="userReconoceloMonitor" placeholder="Escribe tu nombre de usuario.">
                                 </div>
-                                <button type="button" id="changeUser" class="btn btn-primary" onClick = "config(this)"><i class="fas fa-save"></i> Cambiar nombre</button>
+                                <button type="button" id="changeUser" class="btn btn-primary btn-block" onClick = "config(this)"><i class="fas fa-save"></i> Cambiar nombre</button>
                             </form>
                         </div>
                         <div class="tab-pane fade" id="list-password" role="tabpanel" aria-labelledby="list-password-list">
@@ -23,13 +23,13 @@
                             <form>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1"><strong>Contraseña*</strong></label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" id="password" placeholder="Escribe tu contraseña">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1"><Strong>Confirmar contraseña*</strong></label>
-                                    <input type="password" class="form-control" id="passwordConfirm">
+                                    <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirma tu contraseña">
                                 </div>
-                                <button type="button" id="changePassword" class="btn btn-primary" onClick = "config(this)"><i class="fas fa-save"></i> Cambiar contraseña</button>
+                                <button type="button" id="changePassword" class="btn btn-primary btn-block" onClick = "config(this)"><i class="fas fa-save"></i> Cambiar contraseña</button>
                             </form>
                         </div>
                     </div>
