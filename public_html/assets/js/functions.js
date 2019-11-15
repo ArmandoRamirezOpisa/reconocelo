@@ -46,6 +46,12 @@ function loginReconocelo() {
 }
 
 function loadSection(controller, divSel) {
+    let controladorOpcion = controller.split("/");
+    if (controladorOpcion[1] == 'getAwards') {
+        $('#categoriasReconoceloMain').show();
+    } else {
+        $('#categoriasReconoceloMain').hide();
+    }
     $.ajax({
         url: controller,
         async: 'true',
@@ -147,7 +153,7 @@ function deleteItem(item) {
                 if (item == v.id) {
                     contOrder.splice(k, 1);
                     loadSection("Home/showContentCart/", "dvContAw");
-                    $.notify("Se ha eliminado el producto de su orden", "success");
+                    swal("Producto eliminado", "Se ha eliminado el producto de su orden.", "success");
                     return false;
                 }
             });
