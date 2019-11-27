@@ -182,6 +182,10 @@ a.borrarCarritoReconocelo {
     cursor: var(--cursor);
 }
 
+a.borrarCarritoReconocelo:hover {
+    color: var(--colorRojo);
+}
+
 .move-top {
     width: calc((var(--borderRadius)*8)+2);
     height: calc((var(--borderRadius)*8)+2);
