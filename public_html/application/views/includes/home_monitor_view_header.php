@@ -46,7 +46,18 @@
                         <a id="canjesPuntos" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-exchange-alt"></i>Canjes</a>
                     </li>
                     <li class="nav-item">
-                        <a id="catologoActual" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
+                        <?php if ($this->session->userdata('CodEmpresa') != 0){ ?>
+                            <a id="catologoActual" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
+                        <?php    } ?>
+                        <?php if ($this->session->userdata('CodEmpresa') == 0){ ?>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Catalogo Actual
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a id="catologoActual" class="dropdown-item" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-book mr-2"></i>Catalogo Actual</a>
+                                <a id="SubirCatologoActual" class="dropdown-item" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-upload"></i> Subir Catalogo</a>
+                            </div>
+                        <?php } ?>
                     </li>
                     <li class="nav-item">
                         <a id="monitorPrograma" class="nav-link" href="javascript:void(0)" onclick="MonitorNav(this)"><i class="fas fa-chart-pie mr-2"></i>Monitor de programa</a>

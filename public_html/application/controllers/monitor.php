@@ -332,6 +332,12 @@
             $this->load->view('catalogoModal_monitor_view',$data);
         }
 
+        public function SubirCatologoActual(){
+            $this->load->view('includes/home_monitor_view_header');
+            $this->load->view('catalogoSubir_monitor_view');
+            $this->load->view('includes/home_monitor_view_footer');
+        }
+
         public function programa(){
             $programa= $this->Monitor_model->getPrograma();
             $programaCanje= $this->Monitor_model->getProgramaCanje();

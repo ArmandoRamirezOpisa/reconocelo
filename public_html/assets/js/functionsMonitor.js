@@ -59,6 +59,9 @@ function MonitorNav(id) {
         case 'catologoActual':
             location.href = "https://" + location.hostname + "/Monitor/catalogo";
             break;
+        case 'SubirCatologoActual':
+            location.href = "https://" + location.hostname + "/Monitor/SubirCatologoActual";
+            break;
         case 'monitorPrograma':
             location.href = "https://" + location.hostname + "/Monitor/programa";
             break;
@@ -277,6 +280,17 @@ function catalogoIMG(id) {
         timeout: 30000,
         type: "POST"
     });
+}
+
+var idPremioCatalogo = 0;
+
+function borrarCatalogoPremio(id) {
+    idPremioCatalogo = id.id;
+    //alert(idPremioCatalogo);
+}
+
+function borrarPremioCatalogo() {
+    alert(idPremioCatalogo);
 }
 
 function depositos() {

@@ -180,6 +180,14 @@ a:hover {
     color: white !important;
 }
 
+.borrarCatalogo {
+    cursor: pointer;
+}
+
+.borrarCatalogo:hover {
+    color: var(--colorRojo);
+}
+
 
 /* Animaciones */
 
