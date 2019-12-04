@@ -304,7 +304,12 @@
         }
 
         public function catalogo(){
-            $catalogo = $this->Monitor_model->getCatalogo();
+
+            if($this->session->userdata('CodEmpresa') != 0){
+                $catalogo = $this->Monitor_model->getCatalogo();
+            }else{
+                $catalogo = $this->Monitor_model->getCatalogoAdminOpi();
+            }
             if ($catalogo){
                 $data["catalogo"] = $catalogo;
             }else{
@@ -313,6 +318,7 @@
             $this->load->view('includes/home_monitor_view_header');
             $this->load->view('catalogo_monitor_view',$data);
             $this->load->view('includes/home_monitor_view_footer');
+
         }
 
         public function catalogoImg(){
@@ -330,6 +336,16 @@
                 );
             }
             $this->load->view('catalogoModal_monitor_view',$data);
+        }
+
+        public function borrarCatalogo(){
+            $premio = $this->input->post('idPremioCatalogo');
+            $premioResult = $this->Monitos_model->borrarPremioCatalogo($premio);
+            if($premioResult){
+                $this->output->set_output(json_encode($premioResult));
+            }else{
+                $this->output->set_output(json_encode(0));
+            }
         }
 
         public function SubirCatologoActual(){

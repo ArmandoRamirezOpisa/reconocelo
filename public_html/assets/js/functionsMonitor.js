@@ -286,11 +286,30 @@ var idPremioCatalogo = 0;
 
 function borrarCatalogoPremio(id) {
     idPremioCatalogo = id.id;
-    //alert(idPremioCatalogo);
 }
 
 function borrarPremioCatalogo() {
-    alert(idPremioCatalogo);
+    $.ajax({
+        url: '/Monitor/borrarCatalogo',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: { "idPremioCatalogo": idPremioCatalogo },
+        beforeSend: function() {},
+        success: function(result) {
+            if (result == "0") {
+                $('#messageCatalogoActual').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se pudo borrar el PermissionRequest, espera un momento para volverlo a intentar.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>')
+            } else {
+                $('#messageCatalogoActual').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Excelente!</strong> El premio se borro exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            }
+        },
+        error: function(object, error, anotherObject) {},
+        timeout: 30000,
+        type: "POST"
+    });
 }
 
 function depositos() {

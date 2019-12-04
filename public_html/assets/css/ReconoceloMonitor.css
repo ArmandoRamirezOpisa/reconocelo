@@ -185,7 +185,8 @@ a:hover {
 }
 
 .borrarCatalogo:hover {
-    color: var(--colorRojo);
+    color: var(--colorRojo) !important;
+    animation: apareciendo .5s ease-in-out;
 }
 
 

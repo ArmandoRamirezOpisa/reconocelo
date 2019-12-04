@@ -511,6 +511,24 @@
     		      }
             }
 
+            public function getCatalogoAdminOpi(){
+                  $query = $this->db->query("
+                        SELECT DISTINCT pp.codPrograma,pp.codEmpresa,em.NombreOficial, c.codCategoria,
+                        c.nbCategoria as Categoria, pr.codPremio, pr.Nombre_Esp as Premio, Caracts_Esp, Marca,
+                        Modelo, pp.ValorPuntos 
+                        FROM Premio pr 
+                        JOIN PremioPrograma pp on pr.codPremio=pp.codPremio 
+                        JOIN Empresa em on pp.codEmpresa = em.codEmpresa
+                        JOIN CategoriaPremio c on c.codCategoria=pr.codCategoria 
+                        WHERE pp.codPrograma='41' ORDER BY 5
+                  ");
+                  if ($query->num_rows() > 0){
+                        return $query->result_array();
+    		      }else{
+                        return false;
+    		      }
+            }
+
             public function getDescripcionIMG($codPremio){
                   $query = $this->db->query("
                         SELECT  `Caracts_Esp`
@@ -522,6 +540,20 @@
     		      }else{
                         return false;
     		      }
+            }
+
+            public function borrarPremioCatalogo($premio){
+                  $query = $this-db-query("
+                        DELETE FROM PremioPrograma pp
+                        WHERE pp.codPrograma = 41
+                        and pp.codEmpresa = '".$this->session->userdata('CodEmpresa')."'
+                        and pp.codPremio = ".$premio
+                  );
+                  if($query){
+                        return true;
+                  }else{
+                        return false;
+                  }
             }
 
             public function getPrograma(){
