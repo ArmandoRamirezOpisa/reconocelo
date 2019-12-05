@@ -31,7 +31,8 @@
 			});
 			function procesarNuevoCatalogo(results){
                 var data = results.data;
-                $.ajax({
+                console.log(data);
+                /*$.ajax({
                     url: '/Monitor/uploadCatalogoNews',
                     async: 'true',
                     cache: false,
@@ -52,6 +53,6 @@
                     error: function(object, error, anotherObject) {},
                     timeout: 30000,
                     type: "POST"
-                });
+                });*/
             }
         </script>

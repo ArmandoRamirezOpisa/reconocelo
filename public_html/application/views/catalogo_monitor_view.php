@@ -107,6 +107,9 @@
                         <th class="th-sm">Valor en Puntos
                             <i class="fa fa-sort float-right" aria-hidden="true"></i>
                         </th>
+                        <th class="th-sm">Premio
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
                         <th class="th-sm">Borrar
                             <i class="fa fa-sort float-right" aria-hidden="true"></i>
                         </th>
@@ -118,9 +121,11 @@
                         foreach($catalogo as $row){
                             $codPremio = $row["Premio"];
                             echo '<tr>
+                                <td>'.$row["NombreOficial"].'</td>
                                 <td>'.$row["Categoria"].'</td>
                                 <td>'.$row["codPremio"].'</td>
                                 <td>'.$row["Premio"].'</td>
+                                <td>'.$row["Caracts_Esp"].'</td>
                                 <td>'.$row["Marca"].'</td>
                                 <td>'.$row["Modelo"].'</td>
                                 <td>'.number_format($row["ValorPuntos"]).'</td>
@@ -141,18 +146,23 @@
                                 <td>--</td>
                                 <td>--</td>
                                 <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
                             </tr>';
                     }
                 ?>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Categoría</th>
-                        <th>Código de premio</th>
-                        <th>Nombre de premio</th>
+                        <th>Nombre Empresa</th>
+                        <th>Categoria</th>
+                        <th>Codigo de Premio</th>
+                        <th>Premio</th>
+                        <th>Caracteristicas español</th>
                         <th>Marca</th>
                         <th>Modelo</th>
-                        <th>Puntos</th>
+                        <th>Valor en Puntos</th>
                         <th>Premio</th>
                         <th>Borrar</th>
                     </tr>

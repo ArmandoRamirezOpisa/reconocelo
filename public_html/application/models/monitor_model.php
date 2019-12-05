@@ -515,7 +515,7 @@
                   $query = $this->db->query("
                         SELECT DISTINCT pp.codPrograma,pp.codEmpresa,em.NombreOficial, c.codCategoria,
                         c.nbCategoria as Categoria, pr.codPremio, pr.Nombre_Esp as Premio, Caracts_Esp, Marca,
-                        Modelo, pp.ValorPuntos 
+                        Modelo, pp.ValorPuntos
                         FROM Premio pr 
                         JOIN PremioPrograma pp on pr.codPremio=pp.codPremio 
                         JOIN Empresa em on pp.codEmpresa = em.codEmpresa
