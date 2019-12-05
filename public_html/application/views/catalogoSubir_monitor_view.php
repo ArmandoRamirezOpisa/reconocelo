@@ -4,7 +4,7 @@
                 <h4 class="alert-heading">Advertencia!</h4>
                 <p>Para subir el archivo es necesario que tenga la extensión CSV</p>
             </div>
-            <form>
+            <form id="frmCatalogo" role="form">
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Sube tu archivo CSV</label>
                     <input type="file" class="form-control-file" id="file-CSV" accept=".csv" required>
@@ -19,7 +19,9 @@
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Subir catalogo Reconocelo</h1>";
             $('#subirCatalogo').on("click",function(e){
 				e.preventDefault();
-				$('#file-CSV').parse({
+                const data = new FormData($('file-CSV')[0]);
+                console.log($('file-CSV').value);
+				/*$('#file-CSV').parse({
 					config: {
 						delimiter: "auto",
 						complete: procesarNuevoCatalogo,
@@ -27,7 +29,7 @@
 					before: function(file, inputElem){},
 					error: function(err, file){},
 					complete: function(){}
-				});
+				});*/
 			});
 			function procesarNuevoCatalogo(results){
                 var data = results.data;
