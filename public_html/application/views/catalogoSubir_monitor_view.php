@@ -23,20 +23,15 @@
                 const fileCSV = document.getElementById('file-CSV');
                 var fd = new FormData();
                 fd.append('file', $('input[type=file]')[0].files[0]);
-
-
-
-
-
-
-                $.ajax({
+                /* Ajax para mandar el CSV sin necesidad de librerias */
+                /*$.ajax({
                     url: '/Monitor/uploadCatalogoNews',
                     async: 'true',
                     cache: false,
                     contentType: "application/x-www-form-urlencoded",
                     global: true,
                     ifModified: false,
-                    processData: true,
+                    processData: false,
                     data: { "infoNewCatalogo": fd },
                     beforeSend: function() {},
                     success: function(result) {
@@ -52,17 +47,8 @@
                     error: function(object, error, anotherObject) {},
                     timeout: 30000,
                     type: "POST"
-                });
-
-
-
-
-
-
-
-
-
-
+                });*/
+                /* Fin Ajax para mandar el CSV sin necesidad de librerias */
 
 
 				/*$('#file-CSV').parse({
@@ -74,7 +60,9 @@
 					error: function(err, file){},
 					complete: function(){}
 				});*/
+
 			});
+            
 			function procesarNuevoCatalogo(results){
                 /*var data = results.data;
                 console.log(data);*/
