@@ -19,8 +19,52 @@
             document.getElementById("navegacionMonitor").innerHTML = "<h1>Subir catalogo Reconocelo</h1>";
             $('#subirCatalogo').on("click",function(e){
 				e.preventDefault();
-                const data = new FormData($('file-CSV')[0]);
-                console.log($('file-CSV').value);
+                const frmCatalogo = document.getElementById('frmCatalogo');
+                const fileCSV = document.getElementById('file-CSV');
+                var fd = new FormData();
+                fd.append('file', $('input[type=file]')[0].files[0]);
+
+
+
+
+
+
+                $.ajax({
+                    url: '/Monitor/uploadCatalogoNews',
+                    async: 'true',
+                    cache: false,
+                    contentType: "application/x-www-form-urlencoded",
+                    global: true,
+                    ifModified: false,
+                    processData: true,
+                    data: { "infoNewCatalogo": fd },
+                    beforeSend: function() {},
+                    success: function(result) {
+                        if (result == "0") {
+                            //$('#MessageSubeCatalogo').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> Error al cargar el archivo.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                            $('#parsed_csv_list').html('error');
+                        } else {
+                            //$('#MessageSubeCatalogo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                            $('#parsed_csv_list').html(result);
+                            $("#file-CSV").val("");
+                        }
+                    },
+                    error: function(object, error, anotherObject) {},
+                    timeout: 30000,
+                    type: "POST"
+                });
+
+
+
+
+
+
+
+
+
+
+
+
 				/*$('#file-CSV').parse({
 					config: {
 						delimiter: "auto",
@@ -32,8 +76,8 @@
 				});*/
 			});
 			function procesarNuevoCatalogo(results){
-                var data = results.data;
-                console.log(data);
+                /*var data = results.data;
+                console.log(data);*/
                 /*$.ajax({
                     url: '/Monitor/uploadCatalogoNews',
                     async: 'true',

@@ -354,6 +354,15 @@
             $this->load->view('includes/home_monitor_view_footer');
         }
 
+        public function uploadCatalogoNews(){
+            $fileCatalogo = $this->input->post('infoNewCatalogo');
+            if($fileCatalogo){
+                $this->output->set_output(json_encode($fileCatalogo));
+            }else{
+                $this->output->set_output(json_encode(0));
+            }
+        }
+
         public function programa(){
             $programa= $this->Monitor_model->getPrograma();
             $programaCanje= $this->Monitor_model->getProgramaCanje();
