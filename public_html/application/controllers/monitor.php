@@ -355,11 +355,13 @@
         }
 
         public function uploadCatalogoNews(){
-            $fileCatalogo = $this->input->post('infoNewCatalogo');
+            $fileCatalogo = array(
+                "infoNewCatalogo"=>$this->input->post('infoNewCatalogo')
+            );
             if($fileCatalogo){
                 $this->output->set_output(json_encode($fileCatalogo));
             }else{
-                $this->output->set_output(json_encode(0));
+                $this->output->set_output(json_encode(false));
             }
         }
 
