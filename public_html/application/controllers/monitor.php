@@ -355,9 +355,10 @@
         }
 
         public function uploadCatalogoNews(){
-            $fileCatalogo = $this->input->post('infoNewCatalogo');
+            $fileCatalogo = get_user_posts($this->input->post('infoNewCatalogo'));
+            //$fileCatalogo = array('infoNewCatalogo' => $this->input->post('infoNewCatalogo'));
             $instPremio = array();
-            if($fileCatalogo){
+            if( is_array($fileCatalogo) || is_object($fileCatalogo) ){
                 foreach ($fileCatalogo as $row) {
                     if(! isset($row[0]) || ! isset($row[1]) || ! isset($row[2]) || ! isset($row[3]) || ! isset($row[4]) || ! isset($row[5]) || ! isset($row[6]) || ! isset($row[7]) || ! isset($row[8]) || ! isset($row[9]) || ! isset($row[10]) ){
                         $row[0] = null;$row[1] = null;$row[2] = null;$row[3] = null;$row[4] = null;$row[5] = null;$row[6] = null;$row[7] = null;
@@ -378,7 +379,8 @@
                 }else{
                     $this->output->set_output(json_encode(false));
                 }
-            }else{
+            }
+            else{
                 $this->output->set_output(json_encode(false));
             }
         }
