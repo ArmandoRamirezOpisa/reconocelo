@@ -189,6 +189,14 @@ a:hover {
     animation: apareciendo .5s ease-in-out;
 }
 
+.upload-catalogo {
+    font-size: 50px;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    margin-bottom: 1rem;
+}
+
 
 /* Animaciones */
 

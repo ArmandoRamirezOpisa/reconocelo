@@ -556,6 +556,15 @@
                   }
             }
 
+            public function insPremioCatalogo($row0,$row1,$row2,$row3,$row4,$row5,$row6,$row7,$row8){
+                  $query = $this->db->query("CALL spu_InsPremio (".$row0.",".$row1.",".$row2.",'".$row3."','".$row4."','".$row5."','".$row6."','".$row7."','".$row8."');");
+    		      if ($query->num_rows() > 0){
+                        return $query->result_array();
+    		      }else{
+                        return false;
+    		      }
+            }
+
             public function getPrograma(){
                   $query = $this->db->query("
                         SELECT DATE_FORMAT( feMov,  '%Y %m' ) AS Fecha,

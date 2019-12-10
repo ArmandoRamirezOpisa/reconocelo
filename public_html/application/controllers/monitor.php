@@ -355,11 +355,29 @@
         }
 
         public function uploadCatalogoNews(){
-            $fileCatalogo = array(
-                "infoNewCatalogo"=>$this->input->post('infoNewCatalogo')
-            );
+            $fileCatalogo = $this->input->post('infoNewCatalogo');
+            $instPremio = array();
             if($fileCatalogo){
-                $this->output->set_output(json_encode($fileCatalogo));
+                foreach ($fileCatalogo as $row) {
+                    if(! isset($row[0]) || ! isset($row[1]) || ! isset($row[2]) || ! isset($row[3]) || ! isset($row[4]) || ! isset($row[5]) || ! isset($row[6]) || ! isset($row[7]) || ! isset($row[8]) || ! isset($row[9]) || ! isset($row[10]) ){
+                        $row[0] = null;$row[1] = null;$row[2] = null;$row[3] = null;$row[4] = null;$row[5] = null;$row[6] = null;$row[7] = null;
+                        $row[8] = null;$prw[9] = null;$row[10] = null;
+                    }else{
+                        if($row[0] == "codPremio" || $row[1] == "codCategoria" || $row[2] == "codPrograma" || $row[3] == "Marca" || $row[4] == "Modelo" || $row[5] == "Nombre" || $row[6] == "Nombre_Ing" || $row[7] == "Caracts" || $row[8] == "Caracts_Ing" || $row[9] == "codEmpresa" || $row[10] == "ValorPuntos" ){}
+                        else{
+                            $consulta = "CALL spu_InsPremio (".$row[0].",".$row[1].",".$row[2].",'".$row[3]."','".$row[4]."','".$row[5]."','".$row[6]."','".$row[7]."','".$row[8]."');";
+                            $programaCanje = $this->Monitor_model->insPremioCatalogo($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8]);
+                            if($programaCanje){
+                                array_push($instPremio,$consulta);
+                            }
+                        }
+                    }
+                }
+                if($instPremio){
+                    $this->output->set_output(json_encode($instPremio));
+                }else{
+                    $this->output->set_output(json_encode(false));
+                }
             }else{
                 $this->output->set_output(json_encode(false));
             }
