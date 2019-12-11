@@ -340,7 +340,7 @@
 
         public function borrarCatalogo(){
             $premio = $this->input->post('idPremioCatalogo');
-            $premioResult = $this->Monitos_model->borrarPremioCatalogo($premio);
+            $premioResult = $this->Monitor_model->borrarPremioCatalogo($premio);
             if($premioResult){
                 $this->output->set_output(json_encode($premioResult));
             }else{
@@ -355,27 +355,40 @@
         }
 
         public function uploadCatalogoNews(){
-            $fileCatalogo = get_user_posts($this->input->post('infoNewCatalogo'));
-            //$fileCatalogo = array('infoNewCatalogo' => $this->input->post('infoNewCatalogo'));
-            $instPremio = array();
-            if( is_array($fileCatalogo) || is_object($fileCatalogo) ){
-                foreach ($fileCatalogo as $row) {
-                    if(! isset($row[0]) || ! isset($row[1]) || ! isset($row[2]) || ! isset($row[3]) || ! isset($row[4]) || ! isset($row[5]) || ! isset($row[6]) || ! isset($row[7]) || ! isset($row[8]) || ! isset($row[9]) || ! isset($row[10]) ){
-                        $row[0] = null;$row[1] = null;$row[2] = null;$row[3] = null;$row[4] = null;$row[5] = null;$row[6] = null;$row[7] = null;
-                        $row[8] = null;$prw[9] = null;$row[10] = null;
+            $fileCatalogo = array('infoNewCatalogo' => $this->input->post('infoNewCatalogo'));
+
+            //$resultCatalogoNuevo = $this->Monitor_model->insPremioCatalogo($fileCatalogo['infoNewCatalogo']);
+
+            /*if($resultCatalogoNuevo){
+                $this->output->set_output(json_encode($resultCatalogoNuevo));
+            }else{
+                $this->output->set_output(json_encode(false));
+            }*/
+
+            $contador = 0;
+            $instPremioSpu = array();
+            if( is_array($fileCatalogo['infoNewCatalogo']) || is_object($fileCatalogo['infoNewCatalogo']) ){
+                foreach ($fileCatalogo['infoNewCatalogo'] as $dataCatalogo) {
+                    if(! isset($dataCatalogo[0]) || ! isset($dataCatalogo[1]) || ! isset($dataCatalogo[2]) || ! isset($dataCatalogo[3]) || ! isset($dataCatalogo[4]) || ! isset($dataCatalogo[5]) || ! isset($dataCatalogo[6]) || ! isset($dataCatalogo[7]) || ! isset($dataCatalogo[8]) || ! isset($dataCatalogo[9]) || ! isset($dataCatalogo[10]) ){
+                        $dataCatalogo[0] = null;$dataCatalogo[1] = null;$dataCatalogo[2] = null;$dataCatalogo[3] = null;$dataCatalogo[4] = null;
+                        $dataCatalogo[5] = null;$dataCatalogo[6] = null;$dataCatalogo[7] = null;$dataCatalogo[8] = null;$dataCatalogo[9] = null;$dataCatalogo[10] = null;
                     }else{
-                        if($row[0] == "codPremio" || $row[1] == "codCategoria" || $row[2] == "codPrograma" || $row[3] == "Marca" || $row[4] == "Modelo" || $row[5] == "Nombre" || $row[6] == "Nombre_Ing" || $row[7] == "Caracts" || $row[8] == "Caracts_Ing" || $row[9] == "codEmpresa" || $row[10] == "ValorPuntos" ){}
+                        if($dataCatalogo[0] == "codPremio" || $dataCatalogo[1] == "codCategoria" || $dataCatalogo[2] == "codPrograma" || $dataCatalogo[3] == "Marca" || $dataCatalogo[4] == "Modelo" || $dataCatalogo[5] == "Nombre" || $dataCatalogo[6] == "Nombre_Ing" || $dataCatalogo[7] == "Caracts" || $dataCatalogo[8] == "Caracts_Ing" || $dataCatalogo[9] == "codEmpresa" || $dataCatalogo[10] == "ValorPuntos" ){}
                         else{
-                            $consulta = "CALL spu_InsPremio (".$row[0].",".$row[1].",".$row[2].",'".$row[3]."','".$row[4]."','".$row[5]."','".$row[6]."','".$row[7]."','".$row[8]."');";
-                            $programaCanje = $this->Monitor_model->insPremioCatalogo($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8]);
+                            //$consulta = "CALL spu_InsPremio (".$dataCatalogo[0].",".$dataCatalogo[1].",".$dataCatalogo[2].",'".$dataCatalogo[3]."','".$dataCatalogo[4]."','".$dataCatalogo[5]."','".$dataCatalogo[6]."','".$dataCatalogo[7]."','".$dataCatalogo[8]."');";
+                            $programaCanje = $this->Monitor_model->PremioCatalogo($dataCatalogo[0]);
                             if($programaCanje){
-                                array_push($instPremio,$consulta);
+                                //$updPremio = $this->Monitor_model->PremioCatalogoUpd($dataCatalogo[1],$dataCatalogo[3],$dataCatalogo[4],$dataCatalogo[5],$dataCatalogo[7],$dataCatalogo[8],$dataCatalogo[0]);
+                                //if($updPremio){
+                                    $contador++;
+                                //}
                             }
+                            //array_push($instPremioSpu,$consulta);
                         }
                     }
                 }
-                if($instPremio){
-                    $this->output->set_output(json_encode($instPremio));
+                if($contador > 0 ){
+                    $this->output->set_output(json_encode($contador));
                 }else{
                     $this->output->set_output(json_encode(false));
                 }
@@ -383,6 +396,7 @@
             else{
                 $this->output->set_output(json_encode(false));
             }
+
         }
 
         public function programa(){

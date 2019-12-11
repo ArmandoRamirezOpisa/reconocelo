@@ -48,7 +48,7 @@
                             }
                         },
                         error: function(object, error, anotherObject) {},
-                        timeout: 30000,
+                        /*timeout: 30000,*/
                         type: "POST"
                     });
                 }
