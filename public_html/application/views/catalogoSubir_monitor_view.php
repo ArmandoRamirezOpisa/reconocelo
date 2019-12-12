@@ -33,6 +33,7 @@
                         global: true,
                         ifModified: false,
                         processData: true,
+                        dataType: 'json',
                         data: { "infoNewCatalogo": lines },
                         beforeSend: function() {
                             $('#MessageSubeCatalogo').html('<i class="fas fa-sync-alt fa-spin upload-catalogo"></i>');

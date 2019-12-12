@@ -378,8 +378,8 @@
                             //$consulta = "CALL spu_InsPremio (".$dataCatalogo[0].",".$dataCatalogo[1].",".$dataCatalogo[2].",'".$dataCatalogo[3]."','".$dataCatalogo[4]."','".$dataCatalogo[5]."','".$dataCatalogo[6]."','".$dataCatalogo[7]."','".$dataCatalogo[8]."');";
                             $programaCanje = $this->Monitor_model->PremioCatalogo($dataCatalogo[0]);
                             if($programaCanje){
-                                //$updPremio = $this->Monitor_model->PremioCatalogoUpd($dataCatalogo[1],$dataCatalogo[3],$dataCatalogo[4],$dataCatalogo[5],$dataCatalogo[7],$dataCatalogo[8],$dataCatalogo[0]);
-                                //if($updPremio){
+                                //$updPremioCatalogo = $this->Monitor_model->PremioCatalogoUpd($dataCatalogo[1],$dataCatalogo[3],$dataCatalogo[4],$dataCatalogo[5],$dataCatalogo[7],$dataCatalogo[8],$dataCatalogo[0]);
+                                //if($updPremioCatalogo){
                                     $contador++;
                                 //}
                             }
