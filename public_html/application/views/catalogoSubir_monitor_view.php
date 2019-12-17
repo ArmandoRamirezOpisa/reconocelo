@@ -41,10 +41,8 @@
                         success: function(result) {
                             if (result == false) {
                                 $('#MessageSubeCatalogo').html('<i class="fas fa-sync-alt fa-spin upload-catalogo"></i>');
-                                $('#parsed_csv_list').html('error');
                             } else {
                                 $('#MessageSubeCatalogo').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong>El archivo se cargo, exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                                $('#parsed_csv_list').html(result);
                                 $("#file-CSV").val("");
                             }
                         },

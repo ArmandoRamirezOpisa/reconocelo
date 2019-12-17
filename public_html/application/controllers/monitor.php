@@ -356,39 +356,32 @@
 
         public function uploadCatalogoNews(){
             $fileCatalogo = array('infoNewCatalogo' => $this->input->post('infoNewCatalogo'));
-
-            //$resultCatalogoNuevo = $this->Monitor_model->insPremioCatalogo($fileCatalogo['infoNewCatalogo']);
-
-            /*if($resultCatalogoNuevo){
-                $this->output->set_output(json_encode($resultCatalogoNuevo));
-            }else{
-                $this->output->set_output(json_encode(false));
-            }*/
-
-            $contador = 0;
+            $contador = 0;$contadorFinal = 0;
             $instPremioSpu = array();
             if( is_array($fileCatalogo['infoNewCatalogo']) || is_object($fileCatalogo['infoNewCatalogo']) ){
                 foreach ($fileCatalogo['infoNewCatalogo'] as $dataCatalogo) {
-                    if(! isset($dataCatalogo[0]) || ! isset($dataCatalogo[1]) || ! isset($dataCatalogo[2]) || ! isset($dataCatalogo[3]) || ! isset($dataCatalogo[4]) || ! isset($dataCatalogo[5]) || ! isset($dataCatalogo[6]) || ! isset($dataCatalogo[7]) || ! isset($dataCatalogo[8]) || ! isset($dataCatalogo[9]) || ! isset($dataCatalogo[10]) ){
-                        $dataCatalogo[0] = null;$dataCatalogo[1] = null;$dataCatalogo[2] = null;$dataCatalogo[3] = null;$dataCatalogo[4] = null;
-                        $dataCatalogo[5] = null;$dataCatalogo[6] = null;$dataCatalogo[7] = null;$dataCatalogo[8] = null;$dataCatalogo[9] = null;$dataCatalogo[10] = null;
-                    }else{
-                        if($dataCatalogo[0] == "codPremio" || $dataCatalogo[1] == "codCategoria" || $dataCatalogo[2] == "codPrograma" || $dataCatalogo[3] == "Marca" || $dataCatalogo[4] == "Modelo" || $dataCatalogo[5] == "Nombre" || $dataCatalogo[6] == "Nombre_Ing" || $dataCatalogo[7] == "Caracts" || $dataCatalogo[8] == "Caracts_Ing" || $dataCatalogo[9] == "codEmpresa" || $dataCatalogo[10] == "ValorPuntos" ){}
-                        else{
-                            //$consulta = "CALL spu_InsPremio (".$dataCatalogo[0].",".$dataCatalogo[1].",".$dataCatalogo[2].",'".$dataCatalogo[3]."','".$dataCatalogo[4]."','".$dataCatalogo[5]."','".$dataCatalogo[6]."','".$dataCatalogo[7]."','".$dataCatalogo[8]."');";
-                            $programaCanje = $this->Monitor_model->PremioCatalogo($dataCatalogo[0]);
-                            if($programaCanje){
-                                //$updPremioCatalogo = $this->Monitor_model->PremioCatalogoUpd($dataCatalogo[1],$dataCatalogo[3],$dataCatalogo[4],$dataCatalogo[5],$dataCatalogo[7],$dataCatalogo[8],$dataCatalogo[0]);
-                                //if($updPremioCatalogo){
-                                    $contador++;
-                                //}
+                    if(! isset($dataCatalogo[0]) || ! isset($dataCatalogo[1]) || ! isset($dataCatalogo[2]) || ! isset($dataCatalogo[3])  ){}
+                    else{
+                        foreach($dataCatalogo as $data){
+                            $contador++;
+                            if($contador <= 11){
+                                array_push($instPremioSpu,$data);
                             }
-                            //array_push($instPremioSpu,$consulta);
+                            if($contador == 11){
+                                $spuInsPremioCatalogo = $this->Monitor_model->PremioCatalogo($instPremioSpu);
+                                unset($instPremioSpu[0], $instPremioSpu[1], $instPremioSpu[2], $instPremioSpu[3], $instPremioSpu[4], $instPremioSpu[5], $instPremioSpu[6], $instPremioSpu[7], $instPremioSpu[8], $instPremioSpu[9], $instPremioSpu[10] );
+                                $contador = 0;
+                                if($spuInsPremioCatalogo != 'enzabezado'){
+                                    if($spuInsPremioCatalogo){
+                                        $contadorFinal++;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-                if($contador > 0 ){
-                    $this->output->set_output(json_encode($contador));
+                if($contadorFinal >0){
+                    $this->output->set_output(json_encode(true));
                 }else{
                     $this->output->set_output(json_encode(false));
                 }
@@ -396,7 +389,6 @@
             else{
                 $this->output->set_output(json_encode(false));
             }
-
         }
 
         public function programa(){

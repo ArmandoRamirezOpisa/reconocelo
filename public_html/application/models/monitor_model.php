@@ -556,100 +556,22 @@
                   }
             }
 
-            public function PremioCatalogo($codPremioCatalogo  /*$row0,$row1,$row2,$row3,$row4,$row5,$row6,$row7,$row8*/){
-
-                  //$instPremioSpu = array();
-                  //if( is_array($fileCatalogo) || is_object($fileCatalogo) ){
-                        //foreach ($fileCatalogo as $dataCatalogo) {
-                              //if(! isset($dataCatalogo[0]) || ! isset($dataCatalogo[1]) || ! isset($dataCatalogo[2]) || ! isset($dataCatalogo[3]) || ! isset($dataCatalogo[4]) || ! isset($dataCatalogo[5]) || ! isset($dataCatalogo[6]) || ! isset($dataCatalogo[7]) || ! isset($dataCatalogo[8]) || ! isset($dataCatalogo[9]) || ! isset($dataCatalogo[10]) ){
-                                    //$dataCatalogo[0] = null;$dataCatalogo[1] = null;$dataCatalogo[2] = null;$dataCatalogo[3] = null;
-                                    //$dataCatalogo[4] = null;$dataCatalogo[5] = null;$dataCatalogo[6] = null;$dataCatalogo[7] = null;
-                                    //$dataCatalogo[8] = null;$dataCatalogo[9] = null;$dataCatalogo[10] = null;
-                              //}else{
-                                    //if($dataCatalogo[0] == "codPremio" || $dataCatalogo[1] == "codCategoria" || $dataCatalogo[2] == "codPrograma" || $dataCatalogo[3] == "Marca" || $dataCatalogo[4] == "Modelo" || $dataCatalogo[5] == "Nombre" || $dataCatalogo[6] == "Nombre_Ing" || $dataCatalogo[7] == "Caracts" || $dataCatalogo[8] == "Caracts_Ing" || $dataCatalogo[9] == "codEmpresa" || $dataCatalogo[10] == "ValorPuntos" ){}
-                                    //else{
-
-                                          $query = $this->db->query("
-                                                SELECT * FROM Premio WHERE codPremio=".$codPremioCatalogo."
-                                          ");
-    		                              if ($query->num_rows() > 0){
-                                                return $query->result_array();
-    		                              }else{
-                                                return false;
-                                          }
-
-                                          /*
-                                          IF EXISTS ((SELECT * FROM Premio WHERE codPremio=PcodPremio)) THEN
-
-  UPDATE Premio SET codCategoria=PcodCategoria, Marca=PMarca,   Modelo=PModelo
-     , Nombre_Esp=PNombre_Esp, Caracts_Esp=PCaracts_Esp
-     ,Caracts_Ing=PCaracts_Ing
-     where codPremio = PcodPremio;
-  SELECT "Registro existente";
-
-ELSE
-
-	INSERT INTO Premio (codPremio, codCategoria, codProveedor, Marca,
-     Modelo, Nombre_Esp, 
-	Nombre_Ing, Caracts_Esp, Caracts_Ing)
-		VALUES (PcodPremio, PcodCategoria, PcodProveedor, PMarca, PModelo, 
-                PNombre_Esp, PNombre_Ing
-		,PCaracts_Esp, PCaracts_Ing);
-      SELECT "Registro añadido";
-
-END IF
-                                          */
-
-
-
-
-
-
-
-                                          //$consulta = "CALL spu_InsPremio (".$dataCatalogo[0].",".$dataCatalogo[1].",".$dataCatalogo[2].",'".$dataCatalogo[3]."','".$dataCatalogo[4]."','".$dataCatalogo[5]."','".$dataCatalogo[6]."','".$dataCatalogo[7]."','".$dataCatalogo[8]."');";
-                                          /*$query = $this->db->query($consulta);
-    		                              if ($query->num_rows() > 0){
-                                                array_push($instPremioSpu,$consulta);
-                                          }*/
-                                          //array_push($instPremioSpu,$consulta);
-                                    //}
-                              //}
-                        //}
-                        /*if($instPremioSpu){
-                              return $instPremioSpu;
+            public function PremioCatalogo($dataPremio){
+                  $consultaPremio = '';
+                  if( $dataPremio[0] != 'codPremio' || $dataPremio[1] != 'codCategoria' || $dataPremio[2] != 'codPrograma' || $dataPremio[3] != 'Marca' || $dataPremio[4] != 'Modelo' || $dataPremio[5] != 'Nombre' || $dataPremio[6] != 'Nombre_Ing' || $dataPremio[7] != 'Caracts' || $dataPremio[8] != 'Caracts_Ing' ){
+                        $consultaPremio = 'CALL spu_InsPremio ('.$dataPremio[0].','.$dataPremio[1].','.$dataPremio[2].',"'.$dataPremio[3].'","'.$dataPremio[4].'","'.$dataPremio[5].'","'.$dataPremio[6].'","'.$dataPremio[7].'","'.$dataPremio[8].'");';
+                        $query = $this->db->query($consultaPremio);
+                        if ($query){
+                              $consultaPremio = true;
                         }else{
-                              return false;
-                        }*/
-                  //}
-                  //else{
-                        //return false;
-                  //}
+                              $consultaPremio = false;
+                        }
+                  }else{
+                        $consultaPremio = 'enzabezado';
+                  }
 
-
-
-                  /*$query = $this->db->query("CALL spu_InsPremio (".$row0.",".$row1.",".$row2.",'".$row3."','".$row4."','".$row5."','".$row6."','".$row7."','".$row8."');");
-    		      if ($query->num_rows() > 0){
-                        return $query->result_array();
-    		      }else{
-                        return false;
-                  }*/
-                      
+                  return $consultaPremio;
             }
-
-            /* Codigo de prueba */
-            public function PremioCatalogoUpd($PcodCategoria,$PMarca,$PModelo,$PNombre_Esp,$PCaracts_Esp,$PCaracts_Ing,$PcodPremio){
-                  $query = $this->db->query("
-                        UPDATE Premio SET CodCategoria=".$PcodCategoria.", Marca=".$PMarca.", Modelo=".$PModelo.",
-                        Nombre_Esp=".$PNombre_Esp.", Caracts_Esp=".$PCaracts_Esp.",Caracts_Ing=".$PCaracts_Ing."
-                        where codPremio = ".$PcodPremio.";
-                  ");
-			if ($query){
-			        return true;
-			}else{
-				return false;
-			}
-            }
-            /* Fin Codigo de prueba */
 
             public function getPrograma(){
                   $query = $this->db->query("
