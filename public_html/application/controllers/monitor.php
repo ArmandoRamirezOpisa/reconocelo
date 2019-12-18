@@ -358,36 +358,40 @@
             $fileCatalogo = array('infoNewCatalogo' => $this->input->post('infoNewCatalogo'));
             $contador = 0;$contadorFinal = 0;
             $instPremioSpu = array();
-            if( is_array($fileCatalogo['infoNewCatalogo']) || is_object($fileCatalogo['infoNewCatalogo']) ){
-                foreach ($fileCatalogo['infoNewCatalogo'] as $dataCatalogo) {
-                    if(! isset($dataCatalogo[0]) || ! isset($dataCatalogo[1]) || ! isset($dataCatalogo[2]) || ! isset($dataCatalogo[3])  ){}
-                    else{
-                        foreach($dataCatalogo as $data){
-                            $contador++;
-                            if($contador <= 11){
-                                array_push($instPremioSpu,$data);
-                            }
-                            if($contador == 11){
-                                $spuInsPremioCatalogo = $this->Monitor_model->PremioCatalogo($instPremioSpu);
-                                unset($instPremioSpu[0], $instPremioSpu[1], $instPremioSpu[2], $instPremioSpu[3], $instPremioSpu[4], $instPremioSpu[5], $instPremioSpu[6], $instPremioSpu[7], $instPremioSpu[8], $instPremioSpu[9], $instPremioSpu[10] );
-                                $contador = 0;
-                                if($spuInsPremioCatalogo != 'enzabezado'){
-                                    if($spuInsPremioCatalogo){
-                                        $contadorFinal++;
+            try{
+                if( is_array($fileCatalogo['infoNewCatalogo']) || is_object($fileCatalogo['infoNewCatalogo']) ){
+                    foreach ($fileCatalogo['infoNewCatalogo'] as $dataCatalogo) {
+                        if(! isset($dataCatalogo[0]) || ! isset($dataCatalogo[1]) || ! isset($dataCatalogo[2]) || ! isset($dataCatalogo[3])  ){}
+                        else{
+                            foreach($dataCatalogo as $data){
+                                $contador++;
+                                if($contador <= 11){
+                                    array_push($instPremioSpu,$data);
+                                }
+                                if($contador == 11){
+                                    $spuInsPremioCatalogo = $this->Monitor_model->PremioCatalogo($instPremioSpu);
+                                    unset($instPremioSpu[0], $instPremioSpu[1], $instPremioSpu[2], $instPremioSpu[3], $instPremioSpu[4], $instPremioSpu[5], $instPremioSpu[6], $instPremioSpu[7], $instPremioSpu[8], $instPremioSpu[9], $instPremioSpu[10] );
+                                    $contador = 0;
+                                    if($spuInsPremioCatalogo != 'enzabezado'){
+                                        if($spuInsPremioCatalogo){
+                                            $contadorFinal++;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+                    if($contadorFinal >0){
+                        $this->output->set_output(json_encode(true));
+                    }else{
+                        $this->output->set_output(json_encode(false));
+                    }
                 }
-                if($contadorFinal >0){
-                    $this->output->set_output(json_encode(true));
-                }else{
+                else{
                     $this->output->set_output(json_encode(false));
                 }
-            }
-            else{
-                $this->output->set_output(json_encode(false));
+            }catch (Exception $e) {
+                $this->output->set_output(json_encode($e->getMessage()));
             }
         }
 
