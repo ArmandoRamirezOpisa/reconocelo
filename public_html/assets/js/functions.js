@@ -18,7 +18,8 @@ function loginReconocelo() {
     var passwordReconocelo = $('#passwordReconocelo').val();
     if (usuarioReconocelo == "" || passwordReconocelo == "") {
         $('#error').show();
-        $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
+        $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
+        $('#messageIniciar').show();
     } else {
         $.ajax({
             url: location.href + 'Home/loginReconocelo',
@@ -33,7 +34,8 @@ function loginReconocelo() {
             success: function(result) {
                 if (result == "0") {
                     $('#error').show();
-                    $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
+                    $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
+                    $('#messageIniciar').show();
                 } else {
                     location.href = "https://" + location.hostname + "/home";
                 }

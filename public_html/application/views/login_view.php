@@ -43,6 +43,7 @@
                 </div>
                 <div class="col-12 col-md-4 mt-6 mb-4  align-self-end animated apareciendo">
                     <div class="card mb-3 animated apareciendo">
+                        <div id="messageIniciar"></div>
                         <div class="card-header text-center"><h5 class="text-muted"> Iniciar sesión</h5></div>
                         <p class="text-center pb-4 pt-4 iconoColorSession"> <i class="fas fa-user fa-10x"></i></p>
                         <div class="card-body pxy-4">
@@ -66,9 +67,6 @@
                                             </div>
                                         </div>
                                         <a href="javascript:void(0)" class="btn btn-primary text-center btn-block" onclick="loginReconocelo()"><i class="fas fa-sign-in-alt"></i> Entrar</a>
-                                        <span id="error" display="style:none;">
-                                            <p id="mensajeErrorReconocelo" class="mt-4 text-center errorMessage"></p>
-                                        </span>
                                         <span id="loading" style="display:none;">
                                             <div class="fa-3x text-center">
                                                 <i class="fas fa-spinner fa-pulse"></i>

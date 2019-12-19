@@ -5,7 +5,7 @@ RewriteRule ^(.*)$ index.php/$1 [L]
 
 #RewriteEngine on
 #RewriteCond  %{SERVER_PORT} 80
-#RewriteRule ^(.*)$ https://www.reconocelo.com.mx/$1 [R,L]
+#RewriteRule ^(.*)$ www.reconocelo.com.mx/$1 [R,L]
 #RewriteCond $1 !^(index\.php|assets|images|css|js|robots\.txt|favicon\.ico)
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
