@@ -442,6 +442,7 @@ function sendCanje($ptsUser, $ptsCanje) {
             if ($ptsUser >= $ptsCanje) {
                 click++;
                 if (click == 1) {
+                    //Crear una funcion que revise los puntos desde la base de datos.
                     document.getElementById('btnGenCanje').style.display = "none";
                     if (contOrder.length > 0) {
                         var jsonString = JSON.stringify(contOrder);
@@ -455,8 +456,9 @@ function sendCanje($ptsUser, $ptsCanje) {
                             success: function(response) {
                                 if (response) {
                                     swal("Solicitud de canje", "Tu orden ha sido realizada correctamente", "success");
-                                    sleep(2000);
-                                    location.reload();
+                                    /*sleep(1000);
+                                    location.reload();*/
+                                    setTimeout("location.reload(true);", 2000);
                                 } else {
                                     swal("Error de comunicación", "Ha ocurrido un error de comunicación. Intente nuevamente", "warning");
                                     $("#btnGenCanje").show();
@@ -476,6 +478,7 @@ function sendCanje($ptsUser, $ptsCanje) {
                     swal("Solo debes de realizar un click para poder relizar tu canje", "Warning");
                     location.reload();
                 }
+
             } else {
                 swal("Operacion no permitida", "Su saldo es insuficiente para realizar este canje.", "warning");
             }
