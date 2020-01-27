@@ -338,6 +338,19 @@
             $this->load->view('catalogoModal_monitor_view',$data);
         }
 
+        public function updatePremio(){
+            $codPremio = array(
+                "codPremio"=>$this->input->post('codPremio')
+            );
+            $descripcionPremio = $this->Monitor_model->getDescripcionPremio($codPremio);
+            if($descripcionPremio){
+                $data = array('descripcion'=>$descripcionPremio);
+            }else{
+                $data = array('descripcion'=>false);
+            }
+            $this->load->view('infoUpdatePremioModal_monitor_view',$data);
+        }
+
         public function borrarCatalogo(){
             $premio = $this->input->post('idPremioCatalogo');
             $premioResult = $this->Monitor_model->borrarPremioCatalogo($premio);

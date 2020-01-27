@@ -542,6 +542,21 @@
     		      }
             }
 
+            public function getDescripcionPremio($codPremio){
+                  $query = $this->db->query("
+                        SELECT p.CodCategoria,cp.nbCategoria,p.Nombre_Esp,p.Marca,p.Modelo,p.Caracts_Esp
+                        from Premio p 
+                        JOIN CategoriaPremio cp on cp.CodCategoria = p.CodCategoria
+                        where p.codPremio =".$codPremio['codPremio']."
+                        limit 1;
+                  ");
+                  if ($query->num_rows() > 0){
+                        return $query->result_array();
+    		      }else{
+                        return false;
+    		      }
+            }
+
             public function borrarPremioCatalogo($premio){
                   $query = $this-db-query("
                         DELETE FROM PremioPrograma pp

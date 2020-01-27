@@ -282,6 +282,48 @@ function catalogoIMG(id) {
     });
 }
 
+
+function editarPremio(idPremio) {
+
+    let codPremio = idPremio.id;
+    let longitudPremio = codPremio.length;
+    var codPremi;
+    if (longitudPremio == 1) {
+        codPremi = "0000".concat(codPremio);
+    } else if (longitudPremio == 2) {
+        codPremi = "000".concat(codPremio);
+    } else if (longitudPremio == 3) {
+        codPremi = "00".concat(codPremio);
+    } else if (longitudPremio == 4) {
+        codPremi = "0".concat(codPremio);
+    } else if (longitudPremio == 5) {
+        codPremi = codPremio;
+    }
+
+    $.ajax({
+        url: '/Monitor/updatePremio',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: { "codPremio": codPremio },
+        beforeSend: function() {},
+        success: function(result) {
+            if (result == "0") {
+                window.location.reload();
+            } else {
+                $('#EditandoPremio').html(result);
+            }
+        },
+        error: function(object, error, anotherObject) {},
+        timeout: 30000,
+        type: "POST"
+    });
+
+}
+
 var idPremioCatalogo = 0;
 
 function borrarCatalogoPremio(id) {

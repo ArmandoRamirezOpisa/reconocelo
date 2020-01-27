@@ -22,7 +22,10 @@
                         <th class="th-sm">Puntos
                             <i class="fa fa-sort float-right" aria-hidden="true"></i>
                         </th>
-                        <th class="th-sm">Premio
+                        <th class="th-sm">Foto Premio
+                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                        </th>
+                        <th class="th-sm">Editar Premio
                             <i class="fa fa-sort float-right" aria-hidden="true"></i>
                         </th>
                         <th class="th-sm">Borrar
@@ -47,11 +50,17 @@
                                         Premio
                                     </button>
                                 </td>
+                                <td>
+                                    <button id='.$row["codPremio"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#editarPremio" onclick="editarPremio(this)">
+                                        Editar Premio
+                                    </button>
+                                </td>
                                 <td><a data-toggle="modal" data-target="#catalogoBorrar" id='.$row["codPremio"].' class="borrarCatalogo" onclick="borrarCatalogoPremio(this)"><i class="fas fa-trash"></i></a></td>
                             </tr>';
                         }
                     }else{
                         echo '<tr>
+                                <td>--</td>
                                 <td>--</td>
                                 <td>--</td>
                                 <td>--</td>
@@ -71,7 +80,8 @@
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Puntos</th>
-                        <th>Premio</th>
+                        <th>Foto Premio</th>
+                        <th>Editar Premio</th>
                         <th>Borrar</th>
                     </tr>
                 </tfoot>
@@ -79,96 +89,6 @@
             <?php 
                 } elseif($this->session->userdata('CodEmpresa') == 0){}
             ?>
-            <!-- Tabla administrador OPI -->
-            <table id="infoCatologoActual" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th class="th-sm">Nombre Empresa
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Categoria
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Codigo de Premio
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Premio
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Caracteristicas español
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Marca
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Modelo
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Valor en Puntos
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Premio
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                        <th class="th-sm">Borrar
-                            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    if ($catalogo){
-                        foreach($catalogo as $row){
-                            $codPremio = $row["Premio"];
-                            echo '<tr>
-                                <td>'.$row["NombreOficial"].'</td>
-                                <td>'.$row["Categoria"].'</td>
-                                <td>'.$row["codPremio"].'</td>
-                                <td>'.$row["Premio"].'</td>
-                                <td>'.$row["Caracts_Esp"].'</td>
-                                <td>'.$row["Marca"].'</td>
-                                <td>'.$row["Modelo"].'</td>
-                                <td>'.number_format($row["ValorPuntos"]).'</td>
-                                <td>
-                                    <button id='.$row["codPremio"].' type="button" class="btn btn-link" data-toggle="modal" data-target="#catalogoImgModal" onclick="catalogoIMG(this)">
-                                        Premio
-                                    </button>
-                                </td>
-                                <td><a data-toggle="modal" data-target="#catalogoBorrar" id='.$row["codPremio"].' class="borrarCatalogo" onclick="borrarCatalogoPremio(this)"><i class="fas fa-trash"></i></a></td>
-                            </tr>';
-                        }
-                    }else{
-                        echo '<tr>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                                <td>--</td>
-                            </tr>';
-                    }
-                ?>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Nombre Empresa</th>
-                        <th>Categoria</th>
-                        <th>Codigo de Premio</th>
-                        <th>Premio</th>
-                        <th>Caracteristicas español</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Valor en Puntos</th>
-                        <th>Premio</th>
-                        <th>Borrar</th>
-                    </tr>
-                </tfoot>
-            </table>
-            <!-- Fin Tabla administrador OPI -->
         </div>
     <div class="modal fade animated apareciendo" id="catalogoImgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -183,6 +103,26 @@
             </div>
         </div>
     </div>
+
+
+
+    <div class="modal fade animated apareciendo" id="editarPremio" tabindex="-1" role="dialog" aria-labelledby="editarPremio" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editando premio</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="EditandoPremio"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <div class="modal fade animated apareciendo" id="catalogoBorrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
