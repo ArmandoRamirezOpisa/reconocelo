@@ -544,7 +544,7 @@
 
             public function getDescripcionPremio($codPremio){
                   $query = $this->db->query("
-                        SELECT p.CodCategoria,cp.nbCategoria,p.Nombre_Esp,p.Marca,p.Modelo,p.Caracts_Esp
+                        SELECT p.codPremio,p.CodCategoria,cp.nbCategoria,p.Nombre_Esp,p.Marca,p.Modelo,p.Caracts_Esp
                         from Premio p 
                         JOIN CategoriaPremio cp on cp.CodCategoria = p.CodCategoria
                         where p.codPremio =".$codPremio['codPremio']."
@@ -555,6 +555,31 @@
     		      }else{
                         return false;
     		      }
+            }
+
+            public function getCatetoriasPremios(){
+                  $query = $this->db->query("
+                        SELECT cp.CodCategoria,cp.nbCategoria
+                        FROM CategoriaPremio cp;
+                  ");
+                  if ($query->num_rows() > 0){
+                        return $query->result_array();
+    		      }else{
+                        return false;
+    		      }
+            }
+
+            public function updPremioInfoCatalogo($CodPremio,$categoria,$nombrePremio,$marcaPremio,$modeloPremio,$caractsPremio){
+                  $query = $this->db->query("
+                        UPDATE Premio
+                        SET CodCategoria=".$categoria.", Marca='".$marcaPremio."', Modelo='".$modeloPremio."', Nombre_Esp='".$nombrePremio."', Caracts_Esp='".$caractsPremio."'
+                        WHERE codPremio = ".$CodPremio.";
+                  ");
+                  if ($query){
+                        return true;
+                  }else{
+                        return false;
+                  }     
             }
 
             public function borrarPremioCatalogo($premio){

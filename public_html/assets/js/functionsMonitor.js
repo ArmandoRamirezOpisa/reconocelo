@@ -287,19 +287,6 @@ function editarPremio(idPremio) {
 
     let codPremio = idPremio.id;
     let longitudPremio = codPremio.length;
-    var codPremi;
-    if (longitudPremio == 1) {
-        codPremi = "0000".concat(codPremio);
-    } else if (longitudPremio == 2) {
-        codPremi = "000".concat(codPremio);
-    } else if (longitudPremio == 3) {
-        codPremi = "00".concat(codPremio);
-    } else if (longitudPremio == 4) {
-        codPremi = "0".concat(codPremio);
-    } else if (longitudPremio == 5) {
-        codPremi = codPremio;
-    }
-
     $.ajax({
         url: '/Monitor/updatePremio',
         async: 'true',
@@ -322,6 +309,43 @@ function editarPremio(idPremio) {
         type: "POST"
     });
 
+}
+
+function actualizarPremioCatalogo(CodPremioId) {
+    let CodPremio = CodPremioId.id;
+    let categoria = document.getElementById('categoriaPremio');
+    let nombrePremio = document.getElementById('nombrePremio');
+    let marcaPremio = document.getElementById('marcaPremio');
+    let modeloPremio = document.getElementById('modeloPremio');
+    let caractsPremio = document.getElementById('caractsPremio');
+    $.ajax({
+        url: '/Monitor/updateDataPremio',
+        async: 'true',
+        cache: false,
+        contentType: "application/x-www-form-urlencoded",
+        global: true,
+        ifModified: false,
+        processData: true,
+        data: {
+            "CodPremio": CodPremio,
+            "categoria": categoria.value,
+            "nombrePremio": nombrePremio.value,
+            "marcaPremio": marcaPremio.value,
+            "modeloPremio": modeloPremio.value,
+            "caractsPremio": caractsPremio.value
+        },
+        beforeSend: function() {},
+        success: function(result) {
+            if (result == "0") {
+                $('#MessageModalPremio').html(`El codigo de premio ${ CodPremio } no se actualizo correctamente`);
+            } else {
+                setTimeout(window.location.reload(), 3000)
+            }
+        },
+        error: function(object, error, anotherObject) {},
+        timeout: 30000,
+        type: "POST"
+    });
 }
 
 var idPremioCatalogo = 0;

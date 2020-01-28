@@ -343,12 +343,36 @@
                 "codPremio"=>$this->input->post('codPremio')
             );
             $descripcionPremio = $this->Monitor_model->getDescripcionPremio($codPremio);
-            if($descripcionPremio){
-                $data = array('descripcion'=>$descripcionPremio);
+            $categorias = $this->Monitor_model->getCatetoriasPremios();
+            if($descripcionPremio && $categorias){
+                $data = array(
+                    'descripcion'=>$descripcionPremio,
+                    'categorias' => $categorias
+                );
             }else{
-                $data = array('descripcion'=>false);
+                $data = array(
+                    'descripcion'=>false,
+                    'categorias' => false
+                );
             }
             $this->load->view('infoUpdatePremioModal_monitor_view',$data);
+        }
+
+        public function updateDataPremio(){
+            $premioDataCatalogo = array(
+                "CodPremio"=>$this->input->post('CodPremio'),
+                "categoria" => $this->input->post('categoria'),
+                "nombrePremio" => $this->input->post('nombrePremio'),
+                "marcaPremio" => $this->input->post('marcaPremio'),
+                "modeloPremio" => $this->input->post('modeloPremio'),
+                "caractsPremio" => $this->input->post('caractsPremio')
+            );
+            $dataUpdatePremioCatalogo = $this->Monitor_model->updPremioInfoCatalogo($premioDataCatalogo['CodPremio'],$premioDataCatalogo['categoria'],$premioDataCatalogo['nombrePremio'],$premioDataCatalogo['marcaPremio'],$premioDataCatalogo['modeloPremio'],$premioDataCatalogo['caractsPremio']);
+            if($dataUpdatePremioCatalogo){
+                $this->output->set_output(json_encode($premioDataCatalogo));
+            }else{
+                $this->output->set_output(json_encode(0));
+            }
         }
 
         public function borrarCatalogo(){

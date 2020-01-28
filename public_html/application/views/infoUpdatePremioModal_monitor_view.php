@@ -1,10 +1,19 @@
                 <div class="modal-body">
+                    <div id="MessageModalPremio"></div>
                     <form>
                         <div class="form-group">
                             <label for="NombreCategoria">Nombre Categoria</label>
-                            <?php
-                                echo '<input type="text" class="form-control" id="categoria" aria-describedby="emailHelp" value="'.$descripcion[0]['nbCategoria'].'">';
-                            ?>
+                            <select class="form-control" id="categoriaPremio">
+                                <?php
+                                    foreach ($categorias as $row){
+                                        if($row['CodCategoria'] == $descripcion[0]['CodCategoria']){
+                                            echo '<option value="'.$row['CodCategoria'].'" selected>'.$row['nbCategoria'].'</option>';    
+                                        }else{
+                                            echo '<option value="'.$row['CodCategoria'].'">'.$row['nbCategoria'].'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="nombrePremio">Nombre Premio</label>
@@ -30,7 +39,7 @@
                                 echo '<input type="text" class="form-control" id="caractsPremio" value="'.$descripcion[0]['Caracts_Esp'].'">';
                             ?>
                         </div>
-                        <button type="button" class="btn btn-primary" id="actualizarPremio"><i class="fas fa-sync-alt"></i> Actualizar premio</button>
+                        <button type="button" class="btn btn-primary btn-block" id="<?php echo $descripcion[0]['codPremio']; ?>" onclick="actualizarPremioCatalogo(this)"><i class="fas fa-sync-alt"></i> Actualizar premio</button>
                     </form>
                 </div>
                 <div class="modal-footer">
