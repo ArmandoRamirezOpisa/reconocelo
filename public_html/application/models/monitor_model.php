@@ -582,13 +582,13 @@
                   }     
             }
 
-            public function borrarPremioCatalogo($premio){
-                  $query = $this-db-query("
-                        DELETE FROM PremioPrograma pp
-                        WHERE pp.codPrograma = 41
-                        and pp.codEmpresa = '".$this->session->userdata('CodEmpresa')."'
-                        and pp.codPremio = ".$premio
-                  );
+            public function borrarPremioCatalogo($codPremio){
+                  $query = $this->db->query(" 
+                        DELETE FROM PremioPrograma
+                        WHERE codPrograma = 41
+                        and codEmpresa = '".$this->session->userdata('CodEmpresa')."'
+                        and codPremio = ".$codPremio.";
+                  ");
                   if($query){
                         return true;
                   }else{

@@ -339,7 +339,7 @@ function actualizarPremioCatalogo(CodPremioId) {
             if (result == "0") {
                 $('#MessageModalPremio').html(`El codigo de premio ${ CodPremio } no se actualizo correctamente`);
             } else {
-                setTimeout(window.location.reload(), 3000)
+                setTimeout(window.location.reload(), 3000);
             }
         },
         error: function(object, error, anotherObject) {},
@@ -355,6 +355,8 @@ function borrarCatalogoPremio(id) {
 }
 
 function borrarPremioCatalogo() {
+    var codPremioCatalogo = idPremioCatalogo;
+    console.log(`Entro bien ${codPremioCatalogo}`);
     $.ajax({
         url: '/Monitor/borrarCatalogo',
         async: 'true',
@@ -363,12 +365,15 @@ function borrarPremioCatalogo() {
         global: true,
         ifModified: false,
         processData: true,
-        data: { "idPremioCatalogo": idPremioCatalogo },
+        data: { "idPremioCatalogo": codPremioCatalogo },
         beforeSend: function() {},
         success: function(result) {
             if (result == "0") {
+                console.log(result);
                 $('#messageCatalogoActual').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> No se pudo borrar el PermissionRequest, espera un momento para volverlo a intentar.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>')
             } else {
+                console.log(result);
+                setTimeout(window.location.reload(), 3000);
                 $('#messageCatalogoActual').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Excelente!</strong> El premio se borro exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             }
         },

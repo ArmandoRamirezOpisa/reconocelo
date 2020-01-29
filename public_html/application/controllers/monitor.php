@@ -376,10 +376,12 @@
         }
 
         public function borrarCatalogo(){
-            $premio = $this->input->post('idPremioCatalogo');
-            $premioResult = $this->Monitor_model->borrarPremioCatalogo($premio);
+            $premio = array(
+                "codPremio" => $this->input->post('idPremioCatalogo')
+            );
+            $premioResult = $this->Monitor_model->borrarPremioCatalogo($premio['codPremio']);
             if($premioResult){
-                $this->output->set_output(json_encode($premioResult));
+                $this->output->set_output(json_encode($premio['codPremio']));
             }else{
                 $this->output->set_output(json_encode(0));
             }
