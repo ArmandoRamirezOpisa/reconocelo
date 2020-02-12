@@ -18,7 +18,7 @@
                             <div class="card bg-light">
                                 <img class="card-img-top" src="http://www.opisa.com/incentivos/'.$codPremio.'.jpg" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>'.$row["Nombre_Esp"].'</b></h5>
+                                    <h5 class="card-title"><b>'.$row["Nombre_Esp"].' --  ('.$row["Marca"].')</b></h5>
                                     <p class="card-text"><b>C&oacute;digo '.$row["codPremio"].'</b>: '.substr($row["Caracts_Esp"],0,140).$pp.'</p>
                                 </div>
                                 <div data-toggle="tooltip" title="Agregar al carrito" class="card-footer">

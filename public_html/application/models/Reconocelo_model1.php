@@ -39,7 +39,7 @@ class Reconocelo_model1 extends CI_Model {
 
     public function getAwards($idCat){
         $query = $this->db->query("
-            SELECT DISTINCT (p.codPremio) AS codPremio, p.Nombre_Esp, p.Caracts_Esp, pp.ValorPuntos
+            SELECT DISTINCT (p.codPremio) AS codPremio, p.Nombre_Esp, p.Caracts_Esp, pp.ValorPuntos,p.Marca
             FROM Premio p
             INNER JOIN PremioPrograma pp ON pp.codPremio = p.codPremio
             JOIN Empresa e ON e.codPrograma = pp.codPrograma
