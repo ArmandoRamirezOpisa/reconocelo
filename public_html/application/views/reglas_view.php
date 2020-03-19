@@ -23,9 +23,50 @@
                   </h2>
               </div>
               <div id="'.$row['idReglaNombre'].'" class="collapse" aria-labelledby="heading'.$row['idReglaNombre'].'" data-parent="#accordionExample">
-                  <div class="card-body">
-                    '.$row['descripcionRegla'].'
-                  </div>
+                  <div class="card-body">';
+                    if($this->session->userdata('empresa') == 41162){
+                      if($row['idReglaNombre'] == 'Mecanica'){
+                        echo 'Todos los productos participantes tendrán una puntuación acorde a la siguiente tabla:';
+                        echo '<table style="width:100%">
+                          <tr>
+                            <th>Sku </th>
+                            <th>Producto</th>
+                            <th>Descripcion</th>
+                            <th>Puntos</th>
+                          </tr>
+                        <tr>
+                          <td>10021</td>
+                          <td>Mi Producto1</td>
+                          <td>Presentacion de 10 piezas de la marca XXX</td>
+                          <td>1500</td>
+                        </tr>
+                        <tr>
+                          <td>10022</td>
+                          <td>Mi Producto 2</td>
+                          <td>Pantalla de 40 pulgadas</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>10023</td>
+                          <td>Mi Producto 3</td>
+                          <td>Celular con Android</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>10024</td>
+                          <td>Mi Producto 4</td>
+                          <td>Caja de herramientas</td>
+                          <td>1800</td>
+                        </tr>
+                      </table>';
+                    }
+                  }
+                  if($this->session->userdata('empresa') == 41162){
+                    if($row['idReglaNombre'] == 'Mecanica'){}
+                  }else{
+                    echo ''.$row['descripcionRegla'].'';
+                  }
+                  echo '</div>
               </div>
           </div>';
           $contador = $contador + 1;
