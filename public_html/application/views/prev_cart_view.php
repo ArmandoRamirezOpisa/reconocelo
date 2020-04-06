@@ -56,7 +56,7 @@
 			  	</div>
 				</form>
 				<div class="d-flex justify-content-end">
-	    		<button id="btnGenCanje" onclick="sendCanje(<?php echo $this->session->userdata('puntos'); ?>,totPuntos)" type="button" class="btn btn-outline-secondary" ><i class="fas fa-flag-checkered mr-2"></i>Finalizar compra</button>
+	    		<button id="btnGenCanje" onclick="sendCanje(<?php echo $this->session->userdata('puntos'); ?>,totPuntos)" type="button" class="btn btn-outline-secondary btn-block" ><i class="fas fa-flag-checkered mr-2"></i>Canjear Premio</button>
 				</div>
   			</div>
 		</div>

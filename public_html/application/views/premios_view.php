@@ -30,7 +30,7 @@
                                 </div>
                                 <div data-toggle="tooltip" title="Agregar al carrito" class="card-footer">
                                     <a href="javascript:void(0)" class="btn btn-outline-secondary btn-lg btn-block" role="button" onClick = "showDet('.$row['codPremio'].')">
-                                        <i class="fas fa-cart-plus mr-3"></i></span><span class="badge">'.number_format($row["ValorPuntos"]).' puntos</span>
+                                        <i class="fas fa-eye mr-3"></i></span><span class="badge">'.number_format($row["ValorPuntos"]).' puntos</span>
                                     </a>
                                 </div>
                             </div>
