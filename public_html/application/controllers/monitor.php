@@ -303,6 +303,19 @@
             $this->load->view('canjeTable_monitor_view',$data);
         }
 
+        public function cancelarOrden(){
+            $infoOrden = array(
+                "codPrograma"=>$this->input->post('codPrograma'),
+                "folioCanje"=>$this->input->post('folioCanje')
+            );
+            $orden = $this->Monitor_model->cancelarOrden($infoOrden);
+            if($orden){
+                $this->output->set_output(json_encode("Todo se hizo correcto"));
+            }else{
+                $this->output->set_output(json_encode("0"));
+            }
+        }
+
         public function catalogo(){
 
             if($this->session->userdata('CodEmpresa') != 0){

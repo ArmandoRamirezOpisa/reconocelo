@@ -537,6 +537,38 @@ function fechaInicioFinSelectCanje() {
     }
 }
 
+function cancelarCanje() {
+    var codPrograma = document.getElementById('codPrograma').value;
+    var folioCanje = document.getElementById('folioCanje').value;
+
+    if (codPrograma == '' || folioCanje == '') {
+        $('#messageCancelarCanje').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Algo campo esta vacio, verifica que ningun campo este vacio.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    } else if (codPrograma != '' && folioCanje != '') {
+        $.ajax({
+            url: '/Monitor/cancelarOrden',
+            async: 'true',
+            cache: false,
+            contentType: "application/x-www-form-urlencoded",
+            global: true,
+            ifModified: false,
+            processData: true,
+            data: { "codPrograma": codPrograma, "folioCanje": folioCanje },
+            beforeSend: function() {},
+            success: function(result) {
+                if (result == "0") {
+                    $('#messageCancelarCanje').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Error!</strong> No se pudo cancelar la orden.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                } else {
+                    $('#messageCancelarCanje').html('<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Exito!</strong> Se cancelo la orden exitosamente.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    document.getElementById("btnCancelarOrden").disabled = true;
+                }
+            },
+            error: function(object, error, anotherObject) {},
+            timeout: 30000,
+            type: "POST"
+        });
+    }
+}
+
 function config(id) {
     var id = id.id;
     if (id == "changeUser") {

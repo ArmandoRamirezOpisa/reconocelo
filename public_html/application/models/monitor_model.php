@@ -494,6 +494,17 @@
                   }
             }
 
+            public function cancelarOrden($infoOrden){
+                  $query = $this->db->query("
+                        CALL spu_CancelarOrden('".$infoOrden['codPrograma']."','".$infoOrden['folioCanje']."');
+                  ");
+                  if ($query->num_rows() > 0){
+                        return $query->result_array();
+                  }else{
+                        return false;
+                  }
+            }
+
             public function getCatalogo(){
                   $query = $this->db->query("
                         SELECT pp.codPrograma, pp.codEmpresa, c.codCategoria, c.nbCategoria as Categoria,
