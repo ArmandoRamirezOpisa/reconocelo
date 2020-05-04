@@ -1,15 +1,18 @@
 <!DOCTYPE html >
-<html>
+<html lang="es">
     <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="content-language" content="es-mx" />
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="reconocelo, incentivos, premios, opisa">
-        <meta http-equiv="Expires" content="0">
-        <meta http-equiv="Last-Modified" content="0">
-        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-        <meta http-equiv="Pragma" content="no-cache">
         <title>Reconocelo</title>
+        <meta name="apple-mobile-web-app-title" content="OPISA" />
+        <meta name="description" content="Portal dedicado a programas de reconocimiento y lealtad." />
+        <meta name="keywords" content="reconocelo, incentivos, premios, opisa, lealtad, reconocimiento">
+        <link rel="canonical" href="https://reconocelo.com.mx/" />
+        <link rel="alternate" hreflang="es-mx" href="https://reconocelo.com.mx/" />
+        <meta name="author" content="Operadora de Programa de Incentivos">
+        <meta property="og:description" content="Portal dedicaco a programas de reconocimiento y leltad, dedicado a empresas distribuidoras." />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="assets/css/2018Reconocelo.css?ab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
