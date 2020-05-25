@@ -18,30 +18,30 @@
         <script>
             loadSection("Home/getAwards/1","dvSecc");
             /* Constructor */
-
             $(document).ready(function() {
-
                 document.getElementById("irHomeReconocelo").style.display = "none";
-
                 if (contOrder.length == 0) {
                     $('#numeroCarrito').html(contOrder.length);
                 } else {
                     $('#numeroCarrito').html('<strong>' + contOrder.length + '</strong>');
                 }
-
             });
-
             $(window).scroll(function(event) {
-
                 var st = $(this).scrollTop();
                 if (st == 1 || st == 0) {
                     document.getElementById("irHomeReconocelo").style.display = "none";
                 } else {
                     document.getElementById("irHomeReconocelo").style.display = "inline";
                 }
-
             });
-            
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167543925-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-167543925-1');
         </script>
     </body>
 </html>
