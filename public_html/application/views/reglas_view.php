@@ -59,13 +59,17 @@
                           <td>1800</td>
                         </tr>
                       </table>';
+                    }else{
+                      echo ''.$row['descripcionRegla'].'';
                     }
+                  }else{
+                    echo ''.$row['descripcionRegla'].'';
                   }
-                  if($this->session->userdata('empresa') == 41162){
+                  /*if($this->session->userdata('empresa') != 41162){
                     if(!$row['idReglaNombre'] == 'Mecanica'){
                       echo ''.$row['descripcionRegla'].'';
                     }
-                  }
+                  }*/
                   echo '</div>
               </div>
           </div>';
