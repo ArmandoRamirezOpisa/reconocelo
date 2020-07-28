@@ -13,7 +13,7 @@ class Reconocelo_model1 extends CI_Model {
             FROM Participante AS pp 
             INNER JOIN Empresa as Emp ON (pp.codPrograma = Emp.CodPrograma and pp.CodEmpresa= Emp.CodEmpresa)
             WHERE pp.codPrograma = 41
-            AND pp.loginWeb = '.$loginReconoceloData['usuarioReconocelo'].'
+            AND pp.loginWeb = "'.$loginReconoceloData['usuarioReconocelo'].'"
             AND pwd = md5('.$loginReconoceloData['passwordReconocelo'].')
             AND pp.Status = 1
         ');
