@@ -1,0 +1,163 @@
+Return-path: <no_reply_support@trust-provider.com>
+Envelope-to: webmaster@reconocelo.com.mx
+Delivery-date: Mon, 09 Jul 2018 13:21:55 -0500
+Received: from opsmail.colo.comodo.com ([91.209.196.133]:56501 helo=mcmail4.mcr.colo.comodo.net)
+	by m176.neubox.net with esmtps (TLSv1:DHE-RSA-AES256-SHA:256)
+	(Exim 4.87)
+	(envelope-from <no_reply_support@trust-provider.com>)
+	id 1fcanL-0007IO-8B
+	for webmaster@reconocelo.com.mx; Mon, 09 Jul 2018 13:21:55 -0500
+Received: (qmail 14927 invoked by uid 1008); 9 Jul 2018 17:54:31 -0000
+Received: from oracletwo_mcr.mcr.colo.comodo.net (HELO saspmail.colo.comodo.net) (192.168.128.22)
+    by mcmail4.mcr.colo.comodo.net (qpsmtpd/0.84) with SMTP; Mon, 09 Jul 2018 18:54:31 +0100
+Subject: ORDER #155156040 - Domain Control Validation for reconocelo.com.mx
+From: "Comodo Certificate Authority" <noreply_support@comodo.com>
+To: "webmaster@reconocelo.com.mx" <webmaster@reconocelo.com.mx>
+Date: Mon, 09 Jul 2018 17:54:24 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="(-8r6pldr9syo9je0)"
+Message-ID: <1NKRYtGv98RugmB62BUCQg@mcmail4.mcr.colo.comodo.net>
+
+--(-8r6pldr9syo9je0)
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Dear webmaster@reconocelo.com.mx,
+
+We have received a request to issue an SSL certificate for:
+Domain: reconocelo.com.mx
+Subject: 
+             OPERADORA DE PROGRAMAS DE INCENTIVOS 
+
+ and whose email address is webmaster@reconocelo.com.mx
+
+To permit the issuance of the certificate please browse to
+https://secure.comodo.com/products/EnterDCVCode?orderNumber=155156040
+and enter the following "validation code":
+
+        C*L99hqsgr5uoA2tSnSIKCeYfXCYBCfb
+
+
+
+**************PLEASE NOTE CHOOSING THE OPTION BELOW WILL REJECT THE CERTIFICATE**************
+If neither you nor a trusted colleague made this request for a certificate then
+you can reject it by browsing to:
+
+https://secure.comodo.com/products/RejectDCVCode?orderNumber=155156040&dcvCode=C*L99hqsgr5uoA2tSnSIKCeYfXCYBCfb
+
+
+Kind Regards,
+
+
+Comodo Certificate Authority on behalf of directi
+
+Support Telephone: +1.888.266.6361 / +1.703.581.6361
+Support Website: http://support.comodo.com
+Validation Docs Fax: US and Canada +1.866.831.5837 / Worldwide +1.801.303.9291
+We now operate a registration-based system for support.
+Please submit your ticket at the support website.
+Please do not reply to this email as this email address is not monitored.
+
+
+Comodo CA, Inc. - US Office
+1255 Broad Street
+Clifton, NJ 07013-3398
+United States
+
+
+Comodo CA Limited - European Office
+3rd Floor Building 26
+Office Village, Exchange Quay
+Trafford Road
+Manchester M5 3EQ
+United Kingdom
+
+
+--(-8r6pldr9syo9je0)
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+<head>
+  <style type=text/css>
+  <!--
+    body { font-family: Arial, Helvetica, sans-serif; font-size: 10pt }
+    p { font-family: Arial, Helvetica, sans-serif; font-size: 10pt }
+    pre { font-family: Arial, Helvetica, sans-serif; font-size: 10pt }
+    pre.validate { font-family: Arial, Helvetica, sans-serif; font-size:11pt; color:#007A00; font-weight: bold;}
+    pre.reject { font-family: Arial, Helvetica, sans-serif; font-size:7pt; color:#FF0000; font-weight: bold;}
+    td { font-family: Arial, Helvetica, sans-serif; font-size: 10pt }
+    .p8 { font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal }
+    .p4 { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; color: #006699; font-weight: bold }
+    A:link    { font-family: Arial; color: #000066; font-weight: bold; text-decoration: underline }
+    A:visited { font-family: Arial; color: #000066; font-weight: bold; text-decoration: underline }
+    A:active  { font-family: Arial; color: #000066; font-weight: bold; text-decoration: underline }
+    A:hover   { font-family: Arial; color: #003399; font-weight: bold; text-decoration: underline }
+    .title { font-family: Arial, Helvetica, sans-serif; font-size: 11pt; font-weight: bold; color: #003399 }
+    -->
+  </style>
+</head>
+<body bgcolor=#CCCCCC text=#000000 leftmargin=4 topmargin=5>
+<table width=780 border=0 cellspacing=0 cellpadding=1 align=left>
+  <tr><td align=left><img border="0" src="http://secure.comodo.com/images/banners/logo_comodo.png"></td></tr>
+  <tr>
+    <td bgcolor=#000000>
+      <table width=780 border=0 cellspacing=0 cellpadding=3 align=left>
+        <tr>
+          <td bgcolor=#FFFFFF>
+            <br><font size=2 class=title>Domain Control Validation for:reconocelo.com.mx</font>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor=#FFFFFF colspan=2>
+            <p><br>Dear webmaster@reconocelo.com.mx,</p>
+            <pre>
+We have received a request to issue an SSL certificate for:
+Domain: reconocelo.com.mx
+Subject: 
+             OPERADORA DE PROGRAMAS DE INCENTIVOS 
+<br> and whose email address is webmaster@reconocelo.com.mx</pre>
+            <pre class="validate">
+<b>To permit the issuance of the certificate please browse <a href="https://secure.comodo.com/products/EnterDCVCode?orderNumber=155156040"><font color=#007A00>here</font></a>
+and enter the following "validation code":</b></pre>
+            <pre class="validate" style="text-align:center;"><b>C*L99hqsgr5uoA2tSnSIKCeYfXCYBCfb</b></pre>
+            <pre class="reject"><br><br><br><br>
+**************PLEASE NOTE CHOOSING THE OPTION BELOW WILL REJECT THE CERTIFICATE**************
+            If neither you nor a trusted colleague made this request for
+            a certificate then you can reject it by browsing to <a href="https://secure.comodo.com/products/RejectDCVCode?orderNumber=155156040&dcvCode=C*L99hqsgr5uoA2tSnSIKCeYfXCYBCfb"><font color=#FF0000>Reject</font></a></pre>
+<p><br>Kind Regards,</p>
+<p><br><b>Comodo Certificate Authority</b> on behalf of <b>directi</b></p>
+<p>
+  <b>Support Telephone:</b> +1.888.266.6361 / +1.703.581.6361<br>
+  <b>Support Website:</b>
+  <a href="http://support.comodo.com" target="_blank">http://support.comodo.com</a><br>
+  <b>Validation Docs Fax:</b> US and Canada +1.866.831.5837 / Worldwide +1.801.303.9291<br>
+<br>We now operate a registration-based system for support.
+<br>Please submit your ticket at the
+<a href="http://support.comodo.com">support website</a>.
+<br>Please <u>do not reply to this email</u> as this email address is not
+monitored.<br>
+
+<br><b>Comodo CA, Inc. - US Office</b><br>
+1255 Broad Street<br>
+Clifton, NJ 07013-3398<br>
+United States<br><br>
+
+<b>Comodo CA Limited - European Office</b><br>
+3rd Floor Building 26<br>
+Office Village, Exchange Quay<br>
+Trafford Road<br>
+Manchester M5 3EQ<br>
+United Kingdom<br>
+</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+
+--(-8r6pldr9syo9je0)--
+

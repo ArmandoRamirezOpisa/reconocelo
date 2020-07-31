@@ -1,0 +1,110 @@
+Return-path: <>
+Envelope-to: no_reply@reconocelo.com.mx
+Delivery-date: Tue, 19 Dec 2017 21:35:13 -0600
+Received: from mailnull by m176.neubox.net with local (Exim 4.87)
+	id 1eRVA1-0007M6-Ek
+	for no_reply@reconocelo.com.mx; Tue, 19 Dec 2017 21:35:13 -0600
+X-Failed-Recipients: juan_gabriel_calderon@sandvik.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@m176.neubox.net>
+To: no_reply@reconocelo.com.mx
+Content-Type: multipart/report; report-type=delivery-status; boundary=1513740913-eximdsn-260255170
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1eRVA1-0007M6-Ek@m176.neubox.net>
+Date: Tue, 19 Dec 2017 21:35:13 -0600
+
+--1513740913-eximdsn-260255170
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  juan_gabriel_calderon@sandvik.com
+    host sandvik-com.mail.protection.outlook.com [213.199.154.170]
+    SMTP error from remote mail server after RCPT TO:<juan_gabriel_calderon@sandvik.com>:
+    550 5.4.1 [juan_gabriel_calderon@sandvik.com]:
+    Recipient address rejected: Access denied [DB5EUR01FT024.eop-EUR01.prod.protection.outlook.com]
+
+--1513740913-eximdsn-260255170
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; m176.neubox.net
+
+Action: failed
+Final-Recipient: rfc822;juan_gabriel_calderon@sandvik.com
+Status: 5.0.0
+Remote-MTA: dns; sandvik-com.mail.protection.outlook.com
+Diagnostic-Code: smtp; 550 5.4.1 [juan_gabriel_calderon@sandvik.com]: Recipient address rejected: Access denied [DB5EUR01FT024.eop-EUR01.prod.protection.outlook.com]
+
+--1513740913-eximdsn-260255170
+Content-type: message/rfc822
+
+Return-path: <no_reply@reconocelo.com.mx>
+Received: from reconocelocom by m176.neubox.net with local (Exim 4.87)
+	(envelope-from <no_reply@reconocelo.com.mx>)
+	id 1eRV9o-0007LO-E0; Tue, 19 Dec 2017 21:35:00 -0600
+To: operaciones@opisa.com
+Subject: =?utf-8?Q?Canje?=
+X-PHP-Script: www.reconocelo.com.mx/index.php for 200.68.135.4, 165.225.34.96
+User-Agent: CodeIgniter
+Date: Tue, 19 Dec 2017 21:35:00 -0600
+From: "reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+Cc: juan_gabriel_calderon@sandvik.com
+Reply-To: "no_reply@reconocelo.com.mx" <no_reply@reconocelo.com.mx>
+X-Sender: no_reply@reconocelo.com.mx
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: <5a39da6466470@reconocelo.com.mx>
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="B_ALT_5a39da6466c3e"
+
+This is a multi-part message in MIME format.
+Your email application may not support this format.
+
+--B_ALT_5a39da6466c3e
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+RECONOCELO
+ SE HA GENERADO EL CANJE CON FOLIO: 401
+ 
+ ID PARTICIPANTE: 98103
+ NOMBRE: Juan Calderon
+ COD. PARTICIPANTE: 203
+ COD. EMPRESA: 41160
+ 
+ Productos
+ 
+ Artículo:6130
+ Desc:Hidrolavadora
+ Cantidad:1
+ Puntos:1,725,000
+
+
+--B_ALT_5a39da6466c3e
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<h1>RECONOCELO</h1>
+ <h2>SE HA GENERADO EL CANJE CON FOLIO: 401</h2>
+ <table>
+ <tr><td>ID PARTICIPANTE: </td><td style=3D'font-weight'>98103</td></tr>
+ <tr><td>NOMBRE: </td><td style=3D'font-weight'>Juan Calderon</td></tr>
+ <tr><td>COD. PARTICIPANTE: </td><td style=3D'font-weight'>203</td></tr>
+ <tr><td>COD. EMPRESA: </td><td style=3D'font-weight'>41160</td></tr>
+ </table>
+ <h3>Productos</h3>
+ <table><tr>
+ <td>Artículo:</td><td>6130</td>
+ <td>Desc:</td><td>Hidrolavadora</td>
+ <td>Cantidad:</td><td>1</td>
+ <td>Puntos:</td><td>1,725,000</td>
+ </tr>
+ </table>
+
+--B_ALT_5a39da6466c3e--
+
+--1513740913-eximdsn-260255170--
