@@ -36,8 +36,10 @@ function loginReconocelo() {
                     $('#error').show();
                     $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
                     $('#messageIniciar').show();
-                } else {
+                } else if (result != "NoActivo") {
                     location.href = "https://" + location.hostname + "/home";
+                } else if (result == "NoActivo") {
+                    oldPwd();
                 }
             },
             error: function(object, error, anotherObject) {},
@@ -45,6 +47,10 @@ function loginReconocelo() {
             type: "POST"
         });
     }
+}
+
+function oldPwd() {
+    console.log("Cambaiala ya....");
 }
 
 function loadSection(controller, divSel) {
