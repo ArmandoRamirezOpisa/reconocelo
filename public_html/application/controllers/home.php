@@ -10,21 +10,15 @@
 
     	public function index(){
             if($this->session->userdata('logged_in')){
-				if($this->session->userdata('statusPwd') != 1){
-					$cat = $this->Reconocelo_model1->getCategory();
-					if ($cat){
-						$data["cat"] = $cat;
-					}else{
-						$data["cat"] = false;
-					}
-					$this->load->view('includes/home_view_header',$data);
-					$this->load->view('home_view');
-					$this->load->view('includes/home_view_footer');
+				$cat = $this->Reconocelo_model1->getCategory();
+				if ($cat){
+					$data["cat"] = $cat;
 				}else{
-					$this->load->view('includes/home_view_header',$data);
-					$this->load->view('changePwd_view');
-					$this->load->view('includes/home_view_footer');		
+					$data["cat"] = false;
 				}
+				$this->load->view('includes/home_view_header',$data);
+				$this->load->view('home_view');
+				$this->load->view('includes/home_view_footer');
             }else{
                 header('Location:'.base_url());
             }
@@ -38,44 +32,39 @@
 
             $login['result'] = $this->Reconocelo_model1->loginReconocelo($loginReconoceloData);
 
-            //if($login['result'][0]->statusPwd == 1){
 
-                if ($login['result'][0]){
+			if ($login['result'][0]){
 
-                    if (strlen($login['result'][0]->eMail)>0){
-                        $email_s = $login['result'][0]->eMail;
-                    }else{
-                        $email_s = "-";
-                    }
+				if (strlen($login['result'][0]->eMail)>0){
+					$email_s = $login['result'][0]->eMail;
+				}else{
+					$email_s = "-";
+				}
 
-                    $userData = array(
-                        'logged_in'      => TRUE,
-                        'nombre'      	  => $login['result'][0]->PrimerNombre,
-                        'programa'  	  => $login['result'][0]->codPrograma,
-                        'participante'	  => $login['result'][0]->codParticipante,
-                        'empresa'        => $login['result'][0]->codEmpresa,
-                        'status'         => $login['result'][0]->Status,
-                        'puntos'         => $login['result'][0]->SaldoActual,
-                        'idPart'         => $login['result'][0]->idParticipante,
-                        'calle'          => $login['result'][0]->CalleNumero,
-                        'colonia'        => $login['result'][0]->Colonia,
-                        'cp'             => $login['result'][0]->CP,
-                        'ciudad'         => $login['result'][0]->Ciudad,
-                        'estado'         => $login['result'][0]->Estado,
-                        'email'          => $email_s,
-						'pwd' => $login['result'][0]->pwd,
-						'statusPwd' => $login['result'][0]->statusPwd,
-                        'urlEmp' => $login['result'][0]->urlEmpresa
-                    );
+				$userData = array(
+					'logged_in'      => TRUE,
+					'nombre'      	  => $login['result'][0]->PrimerNombre,
+					'programa'  	  => $login['result'][0]->codPrograma,
+					'participante'	  => $login['result'][0]->codParticipante,
+					'empresa'        => $login['result'][0]->codEmpresa,
+					'status'         => $login['result'][0]->Status,
+					'puntos'         => $login['result'][0]->SaldoActual,
+					'idPart'         => $login['result'][0]->idParticipante,
+					'calle'          => $login['result'][0]->CalleNumero,
+					'colonia'        => $login['result'][0]->Colonia,
+					'cp'             => $login['result'][0]->CP,
+					'ciudad'         => $login['result'][0]->Ciudad,
+					'estado'         => $login['result'][0]->Estado,
+					'email'          => $email_s,
+					'pwd' => $login['result'][0]->pwd,
+					'urlEmp' => $login['result'][0]->urlEmpresa
+				);
 
-                    $this->session->set_userdata($userData);
-                    $this->output->set_output(json_encode($login['result'][0]));
-                }else{
-                    $this->output->set_output(json_encode(0));
-                }   
-            /*}else if($login['result'][0]->statusPwd == 0){
-                $this->output->set_output(json_encode("NoActivo"));
-            }*/
+				$this->session->set_userdata($userData);
+				$this->output->set_output(json_encode($login['result'][0]));
+			}else{
+				$this->output->set_output(json_encode(0));
+			}
         }
 
 		public function changePassword(){
