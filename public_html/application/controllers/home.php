@@ -10,15 +10,21 @@
 
     	public function index(){
             if($this->session->userdata('logged_in')){
-                $cat = $this->Reconocelo_model1->getCategory();
-                if ($cat){
-                    $data["cat"] = $cat;
-                }else{
-                    $data["cat"] = false;
-                }
-                $this->load->view('includes/home_view_header',$data);
-                $this->load->view('home_view');
-                $this->load->view('includes/home_view_footer');
+				if($this->session->userdata('statusPwd') != 1){
+					$cat = $this->Reconocelo_model1->getCategory();
+					if ($cat){
+						$data["cat"] = $cat;
+					}else{
+						$data["cat"] = false;
+					}
+					$this->load->view('includes/home_view_header',$data);
+					$this->load->view('home_view');
+					$this->load->view('includes/home_view_footer');
+				}else{
+					$this->load->view('includes/home_view_header',$data);
+					$this->load->view('changePwd_view');
+					$this->load->view('includes/home_view_footer');		
+				}
             }else{
                 header('Location:'.base_url());
             }
@@ -32,7 +38,7 @@
 
             $login['result'] = $this->Reconocelo_model1->loginReconocelo($loginReconoceloData);
 
-            if($login['result'][0]->statusPwd == 1){
+            //if($login['result'][0]->statusPwd == 1){
 
                 if ($login['result'][0]){
 
@@ -57,19 +63,26 @@
                         'ciudad'         => $login['result'][0]->Ciudad,
                         'estado'         => $login['result'][0]->Estado,
                         'email'          => $email_s,
-                        'pwd' => $login['result'][0]->pwd,
+						'pwd' => $login['result'][0]->pwd,
+						'statusPwd' => $login['result'][0]->statusPwd,
                         'urlEmp' => $login['result'][0]->urlEmpresa
                     );
 
                     $this->session->set_userdata($userData);
-                    $this->output->set_output(json_encode("Activo"));
+                    $this->output->set_output(json_encode($login['result'][0]));
                 }else{
                     $this->output->set_output(json_encode(0));
                 }   
-            }else if($login['result'][0]->statusPwd == 0){
+            /*}else if($login['result'][0]->statusPwd == 0){
                 $this->output->set_output(json_encode("NoActivo"));
-            }
+            }*/
         }
+
+		public function changePassword(){
+			$this->load->view('includes/home_view_header',$data);
+			$this->load->view('changePwd_view');
+			$this->load->view('includes/home_view_footer');
+		}
 
         public function getAwards($idCat){
     	    $aw = $this->Reconocelo_model1->getAwards($idCat);
