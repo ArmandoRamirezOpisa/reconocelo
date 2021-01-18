@@ -49,7 +49,7 @@
                         <div class="card-body pxy-4">
                             <div class="row mt-4 mb-4">
                                 <div class="col ">
-                                    <form class="form-signin" role="form">
+                                    <!-- <form class="form-signin" role="form"> -->
                                         <div class="form-group">
                                             <div class="input-group mb-2 mr-sm-2">
                                                 <div class="input-group-prepend">
@@ -66,7 +66,7 @@
                                                 <input type="password" class="form-control" placeholder="Contrase&ntilde;a" name="password" id="passwordReconocelo">
                                             </div>
                                         </div>
-                                        <a href="javascript:void(0)" class="btn btn-primary text-center btn-block" onclick="loginReconocelo()"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+                                        <button class="btn btn-primary text-center btn-block" onclick="loginReconocelo()"><i class="fas fa-sign-in-alt"></i> Entrar</button>
                                         <span id="loading" style="display:none;">
                                             <div class="fa-3x text-center">
                                                 <i class="fas fa-spinner fa-pulse"></i>
@@ -79,7 +79,7 @@
                                         <small class="form-text text-muted text-center">  
                                             <a href="<?php echo site_url('Recuperar_usuario') ?>" target="_blank"><h5>Olvidaste tu contraseña?</h5></a>
                                         </small>
-                                    </form> 
+                                    <!-- </form>  -->
                                 </div>
                             </div>
                         </div>
