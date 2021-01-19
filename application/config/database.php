@@ -78,7 +78,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'http://35.243.252.112/',
 	'username' => 'root',
 	'password' => 'opisadb',
 	'database' => 'opisa_opisa',
