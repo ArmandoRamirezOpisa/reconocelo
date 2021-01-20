@@ -20,7 +20,7 @@
 				$this->load->view('home_view');
 				$this->load->view('includes/home_view_footer');
             }else{
-                header('Location:'.base_url());
+                header('Location:'.base_url('http://35.236.41.75/reconocelo'));
             }
 		}
 
