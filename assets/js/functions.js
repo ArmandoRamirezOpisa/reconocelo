@@ -21,8 +21,9 @@ function loginReconocelo() {
         $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
         $('#messageIniciar').show();
     } else {
-        $.ajax({
-            url: 'http://35.236.41.75/reconocelo//home/loginReconocelo',
+        console.log(location.href);
+        /*$.ajax({
+            url: location.href + 'Home/loginReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -37,14 +38,15 @@ function loginReconocelo() {
                     $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
                     $('#messageIniciar').show();
                 } else {
-                    location.href = "http://35.236.41.75/reconocelo/home" /*"http://" + location.hostname + "/home"*/ ;
-                }
-            },
-            error: function(object, error, anotherObject) {},
-            timeout: 30000,
-            type: "POST"
-        });
+                    location.href = "http://35.236.41.75/reconocelo/home" /*"http://" + location.hostname + "/home"*/
+        ;
     }
+},
+error: function(object, error, anotherObject) {},
+    timeout: 30000,
+    type: "POST"
+}); * /
+}
 }
 
 function loadSection(controller, divSel) {
