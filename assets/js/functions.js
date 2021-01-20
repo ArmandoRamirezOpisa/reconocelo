@@ -22,7 +22,7 @@ function loginReconocelo() {
         $('#messageIniciar').show();
     } else {
         $.ajax({
-            url: location.href + 'Home/loginReconocelo',
+            url: 'http://35.236.41.75/reconocelo/Home/loginReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
