@@ -16,7 +16,7 @@
     </head>
     <body class="animated apareciendo">
         <nav class="navbar navbar-expand-lg animated apareciendo">
-            <a id="inicioMonitor" class="navbar-brand animated apareciendo" href="https://www.reconocelo.com.mx/monitor/">
+            <a id="inicioMonitor" class="navbar-brand animated apareciendo" href="http://35.236.41.75/reconocelo/monitor/">
                 <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
             </a>
         </nav>

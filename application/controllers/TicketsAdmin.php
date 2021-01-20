@@ -167,7 +167,7 @@
                                                                 <td align="center">
                                                                     <div class="contentEditableContainer contentImageEditable">
                                                                         <div class="contentEditable">
-                                                                            <img src="https://www.reconocelo.com.mx/assets/images/reconocelo.png" alt="Wedding couple" data-default="placeholder" data-max-width="660" width="660" height="250">
+                                                                            <img src="http://35.236.41.75/reconocelo/assets/images/reconocelo.png" alt="Wedding couple" data-default="placeholder" data-max-width="660" width="660" height="250">
                                                                         </div>
                                                                     </div>
                                                                 </td>

@@ -705,7 +705,7 @@
                                                             <td colspan="5">
                                                                 <div class="contentEditableContainer contentTextEditable">
                                                                     <div class="contentEditable" style="color:#000000;text-align:center;font-family:Helvetica;font-weight:normal;font-style:italic;">
-                                                                        <h2 class="big"><a href="https://reconocelo.com.mx/monitor/passwordNuevo/?user='.$emailTrue[0]['Usuario'].'&cod='.$emailTrue[0]['CodEmpresa'].'">Recupera tu contraseña</a></h2>
+                                                                        <h2 class="big"><a href="http://35.236.41.75/reconocelo/monitor/passwordNuevo/?user='.$emailTrue[0]['Usuario'].'&cod='.$emailTrue[0]['CodEmpresa'].'">Recupera tu contraseña</a></h2>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -919,7 +919,7 @@
                                                         <td align="center">
                                                             <div class="contentEditableContainer contentImageEditable">
                                                                 <div class="contentEditable">
-                                                                    <img src="https://www.reconocelo.com.mx/assets/images/monitorLog.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
+                                                                    <img src="http://35.236.41.75/reconocelo/assets/images/monitorLog.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
                                                                 </div>
                                                             </div>
                                                         </td>
