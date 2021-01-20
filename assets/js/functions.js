@@ -21,9 +21,8 @@ function loginReconocelo() {
         $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
         $('#messageIniciar').show();
     } else {
-        console.log(location.href);
-        /*$.ajax({
-            url: location.href + 'Home/loginReconocelo',
+        $.ajax({
+            url: 'Home/loginReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -44,7 +43,7 @@ function loginReconocelo() {
             error: function(object, error, anotherObject) {},
             timeout: 30000,
             type: "POST"
-        });*/
+        });
     }
 }
 
