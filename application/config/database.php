@@ -82,7 +82,7 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => 'opisadb',
 	'database' => 'opisa_opisa',
-	'dbdriver' => 'mysqli',
+	'dbdriver' => 'mysql',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
