@@ -22,7 +22,7 @@ function loginReconocelo() {
         $('#messageIniciar').show();
     } else {
         $.ajax({
-            url: 'Home/loginReconocelo',
+            url: 'index.php/Home/loginReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -32,13 +32,13 @@ function loginReconocelo() {
             data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
             beforeSend: function() {},
             success: function(result) {
-                // if (result == "0") {
-                //     $('#error').show();
-                //     $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
-                //     $('#messageIniciar').show();
-                // } else {
-                //     location.href = "http://35.236.41.75/reconocelo/home";
-                // }
+                if (result == "0") {
+                    $('#error').show();
+                    $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
+                    $('#messageIniciar').show();
+                } else {
+                    location.href = "http://35.236.41.75/reconocelo/home";
+                }
             },
             error: function(object, error, anotherObject) {},
             timeout: 30000,
