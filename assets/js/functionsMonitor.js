@@ -29,7 +29,7 @@ function loginMonitorReconocelo() {
             beforeSend: function() {},
             success: function(result) {
                 if (result != 0) {
-                    location.href = "http://35.236.41.75/reconocelo/Monitor/home";
+                    location.href = "http://localhost/reconocelo/Monitor/home";
                 } else {
                     $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageError').show();
@@ -48,37 +48,37 @@ function MonitorNav(id) {
     var idNavMonitor = id.id;
     switch (idNavMonitor) {
         case 'inicioMonitor':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/home";
+            location.href = "http://localhost/reconocelo/Monitor/home";
             break;
         case 'participantes':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/participantes";
+            location.href = "http://localhost/reconocelo/Monitor/participantes";
             break;
         case 'depositosPuntos':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/depositos";
+            location.href = "http://localhost/reconocelo/Monitor/depositos";
             break;
         case 'catologoActual':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/catalogo";
+            location.href = "http://localhost/reconocelo/Monitor/catalogo";
             break;
         case 'SubirCatologoActual':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/SubirCatologoActual";
+            location.href = "http://localhost/reconocelo/Monitor/SubirCatologoActual";
             break;
         case 'monitorPrograma':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/programa";
+            location.href = "http://localhost/reconocelo/Monitor/programa";
             break;
         case 'canjesPuntos':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/canjes";
+            location.href = "http://localhost/reconocelo/Monitor/canjes";
             break;
         case 'depositosPuntosInsertar':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/insertarDepositos";
+            location.href = "http://localhost/reconocelo/Monitor/insertarDepositos";
             break;
         case 'configuracionUsuarioMonitor':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/configuracion";
+            location.href = "http://localhost/reconocelo/Monitor/configuracion";
             break;
         case 'olvidoPassword':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/recuperarPassword";
+            location.href = "http://localhost/reconocelo/Monitor/recuperarPassword";
             break;
         case 'reglasMonitor':
-            location.href = "http://35.236.41.75/reconocelo/Monitor/reglasMonitor";
+            location.href = "http://localhost/reconocelo/Monitor/reglasMonitor";
             break;
     }
 }
@@ -849,7 +849,7 @@ function exit() {
         dangerMode: true,
     }).then(function(isConfirm) {
         if (isConfirm) {
-            location.href = "http://35.236.41.75/reconocelo/Monitor/salirMonitor";
+            location.href = "http://localhost/reconocelo/Monitor/salirMonitor";
         } else {}
     });
 }

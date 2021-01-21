@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="assets/css/2018Reconocelo.css?a" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="shortcut icon" href="http://35.236.41.75/reconocelo/assets/images/reconocelo.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://localhost/reconocelo/assets/images/reconocelo.ico" type="image/x-icon" />
   </head>
   <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="animated apareciendo">
     <div class="container animated apareciendo">
       <div id="MessageRecuperaReconocelo mt-5"></div>
       <div class="row justify-content-center mt-4 mb-4">
         <div class="col-12 col-md-4 mt-4">
-          <img src="http://35.236.41.75/reconocelo/assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
+          <img src="http://localhost/reconocelo/assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
         </div>
       </div>
       <div class="row justify-content-center animated apareciendo">
@@ -36,7 +36,7 @@
             Chrome, Firefox
           </small>
           <small class="form-text text-muted text-center">  
-            <a href="http://35.236.41.75/reconocelo/"><h5>Iniciar sesion</h5></a> 
+            <a href="http://localhost/reconocelo/"><h5>Iniciar sesion</h5></a> 
           </small>
         </form>
       </div>

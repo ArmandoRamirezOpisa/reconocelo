@@ -502,7 +502,7 @@ function exit() {
         dangerMode: true,
     }).then(function(isConfirm) {
         if (isConfirm) {
-            location.href = "http://35.236.41.75/reconocelo//Home/salirReconocelo";
+            location.href = "http://localhost/reconocelo//Home/salirReconocelo";
         } else {}
     });
 }
@@ -589,7 +589,7 @@ function loginTicketAdmin() {
                     $('#user').val("");
                     $('#password').val("");
                 } else {
-                    location.href = 'http://35.236.41.75/reconocelo/TicketsAdmin/home' /*"https://" + location.hostname + "/TicketsAdmin/home"*/ ;
+                    location.href = 'http://localhost/reconocelo/TicketsAdmin/home' /*"https://" + location.hostname + "/TicketsAdmin/home"*/ ;
                 }
             },
             error: function(object, error, anotherObject) {},
@@ -600,7 +600,7 @@ function loginTicketAdmin() {
 }
 
 function salirTicket() {
-    location.href = 'http://35.236.41.75/reconocelo/TicketsAdmin/TicketsAdmin/exit_ticket' /*"https://" + location.hostname + "/TicketsAdmin/exit_ticket"*/ ;
+    location.href = 'http://localhost/reconocelo/TicketsAdmin/TicketsAdmin/exit_ticket' /*"https://" + location.hostname + "/TicketsAdmin/exit_ticket"*/ ;
 }
 
 function sendRecuperaPasswordReconocelo() {

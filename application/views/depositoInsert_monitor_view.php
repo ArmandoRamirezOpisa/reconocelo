@@ -3,7 +3,7 @@
             <div class="alert alert-warning" role="alert">
                 <h4 class="alert-heading">Advertencia!</h4>
                 <p>Para subir el archivo es necesario que tenga la extensión CSV</p>
-                <p>Descargar el formato para subir los depositos <a href="http://35.236.41.75/reconocelo/assets/images/SubirDepositos.csv" class="text-info">Descargar</a></p>
+                <p>Descargar el formato para subir los depositos <a href="http://localhost/reconocelo/assets/images/SubirDepositos.csv" class="text-info">Descargar</a></p>
             </div>
             <form>
                 <div class="form-group">
