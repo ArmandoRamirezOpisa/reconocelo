@@ -37,7 +37,7 @@ function loginReconocelo() {
                     $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
                     $('#messageIniciar').show();
                 } else {
-                    location.href = "http://35.236.41.75/reconocelo/home";
+                    location.href = "reconocelo/home";
                 }
             },
             error: function(object, error, anotherObject) {},
