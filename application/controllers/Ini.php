@@ -2,8 +2,10 @@
 	class Ini extends CI_Controller {
 		public function Reconocelo(){
             $loginReconoceloData = array(
-                "usuarioReconocelo"=>$this->input->post('usuarioReconocelo'),
-                "passwordReconocelo"=>$this->input->post('passwordReconocelo')
+				"usuarioReconocelo"=>$_GET["usuarioReconocelo"],
+                "passwordReconocelo"=>$_GET["passwordReconocelo"]
+                /*"usuarioReconocelo"=>$this->input->post('usuarioReconocelo'),
+                "passwordReconocelo"=>$this->input->post('passwordReconocelo')*/
             );
 
             $login['result'] = $this->Reconocelo_model1->loginReconocelo($loginReconoceloData);
