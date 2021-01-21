@@ -5,7 +5,7 @@
 #RewriteRule ^(.*)$ index.php/$1 [L]
 
 RewriteEngine on
-RewriteBase /
+#RewriteBase /
 #RewriteCond  %{SERVER_PORT} 80
 #RewriteRule ^(.*)$ http://35.236.41.75/reconocelo/$1 [R,L]
 RewriteCond $1 !^(index\.php|assets|images|css|js|robots\.txt|favicon\.ico)
