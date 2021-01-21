@@ -22,7 +22,7 @@ function loginReconocelo() {
         $('#messageIniciar').show();
     } else {
         $.ajax({
-            url: 'ini/loginReconocelo',
+            url: 'ini/Reconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",

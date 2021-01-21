@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	class Ini extends CI_Controller {
-		public function loginReconocelo(){
+		public function Reconocelo(){
             $loginReconoceloData = array(
                 "usuarioReconocelo"=>$this->input->post('usuarioReconocelo'),
                 "passwordReconocelo"=>$this->input->post('passwordReconocelo')
