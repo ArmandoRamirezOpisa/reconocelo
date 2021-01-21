@@ -29,7 +29,7 @@ function loginReconocelo() {
             global: true,
             ifModified: false,
             processData: true,
-            data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
+            data: { /*"usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo*/ },
             beforeSend: function() {},
             success: function(result) {
                 if (result == "0") {
