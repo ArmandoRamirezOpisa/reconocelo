@@ -8,7 +8,15 @@
             $this->load->model("Reglas_model1");
         }
 
-    	public function index(){
+        public function index(){
+			if ($this->session->userdata('logged_in')){
+				header( 'Location: '.base_url().'Home');
+			}else{
+				$this->load->view('login_view');
+			}
+		}
+
+    	public function indexPrueba(){
             if($this->session->userdata('logged_in')){
 				$cat = $this->Reconocelo_model1->getCategory();
 				if ($cat){
