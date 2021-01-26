@@ -21,29 +21,30 @@ function loginReconocelo() {
         $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Algun campo se encuentra vacio');
         $('#messageIniciar').show();
     } else {
-        $.ajax({
-            url: 'Home/loginReconocelo',
-            async: 'true',
-            cache: false,
-            contentType: "application/x-www-form-urlencoded",
-            global: true,
-            ifModified: false,
-            processData: true,
-            data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
-            beforeSend: function() {},
-            success: function(result) {
-                if (result == "0") {
-                    $('#error').show();
-                    $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
-                    $('#messageIniciar').show();
-                } else {
-                    location.href = "/reconocelo/home";
-                }
-            },
-            error: function(object, error, anotherObject) {},
-            timeout: 30000,
-            type: "POST"
-        });
+        alert("seccion uno");
+        // $.ajax({
+        //     url: 'Home/loginReconocelo',
+        //     async: 'true',
+        //     cache: false,
+        //     contentType: "application/x-www-form-urlencoded",
+        //     global: true,
+        //     ifModified: false,
+        //     processData: true,
+        //     data: { "usuarioReconocelo": usuarioReconocelo, "passwordReconocelo": passwordReconocelo },
+        //     beforeSend: function() {},
+        //     success: function(result) {
+        //         if (result == "0") {
+        //             $('#error').show();
+        //             $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
+        //             $('#messageIniciar').show();
+        //         } else {
+        //             location.href = "/reconocelo/home";
+        //         }
+        //     },
+        //     error: function(object, error, anotherObject) {},
+        //     timeout: 30000,
+        //     type: "POST"
+        // });
     }
 }
 
