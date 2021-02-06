@@ -20,7 +20,7 @@ function loginReconocelo() {
                 $('#error').show();
                 $('#mensajeErrorReconocelo').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
             } else {
-                location.href = "http://localhost/reconocelo/home";
+                location.href = location.hostname + "/reconocelo/home";
             }
         },
         error: function(object, error, anotherObject) {},
@@ -475,7 +475,7 @@ function exit() {
         dangerMode: true,
     }).then(function(isConfirm) {
         if (isConfirm) {
-            location.href = "http://localhost/reconocelo/Home/salirReconocelo";
+            location.href = location.hostname + "/reconocelo/Home/salirReconocelo";
         } else {}
     });
 }
@@ -562,7 +562,7 @@ function loginTicketAdmin() {
                     $('#user').val("");
                     $('#password').val("");
                 } else {
-                    location.href = "http://localhost/reconocelo/TicketsAdmin/home";
+                    location.href = location.hostname + "/reconocelo/TicketsAdmin/home";
                 }
             },
             error: function(object, error, anotherObject) {},
@@ -573,7 +573,7 @@ function loginTicketAdmin() {
 }
 
 function salirTicket() {
-    location.href = "http://localhost/reconocelo/TicketsAdmin/exit_ticket";
+    location.href = location.hostname + "/reconocelo/TicketsAdmin/exit_ticket";
 }
 
 function sendRecuperaPasswordReconocelo() {

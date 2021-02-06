@@ -20,7 +20,7 @@
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a id="inicioMonitor" class="navbar-brand" href="https://www.reconocelo.com.mx/">
+            <a id="inicioMonitor" class="navbar-brand" href="http://35.263.41.75/reconocelo">
                 <img src="../../assets/images/reconocelo.png" width="150" height="30" alt="">
             </a>
         </nav>
@@ -52,7 +52,7 @@
                     <div class="alert alert-success" role="alert">
                         Se cambio la contraseña exitosamente.
                     </div>
-                    <a id="inicioMonitor" class="btn btn-primary btn-block" href="https://www.reconocelo.com.mx/">
+                    <a id="inicioMonitor" class="btn btn-primary btn-block" href="http://35.263.41.75/reconocelo/">
                         <span class="btn-color"><i class="fas fa-user"></i> Iniciar Sesion</span>
                     </a>
                 </div>

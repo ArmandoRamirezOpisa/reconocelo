@@ -16,7 +16,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg">
-            <a id="inicioMonitor" class="navbar-brand" href="http://localhost/reconocelo/monitor/">
+            <a id="inicioMonitor" class="navbar-brand" href="http://35.263.41.75/reconocelo/monitor/">
                 <img src="../assets/images/monitorLog.png" width="150" height="30" alt="">
             </a>
         </nav>

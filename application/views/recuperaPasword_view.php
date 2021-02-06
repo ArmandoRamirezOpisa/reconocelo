@@ -19,7 +19,7 @@
       <div id="MessageRecuperaReconocelo mt-5"></div>
       <div class="row justify-content-center mt-4 mb-4">
         <div class="col-12 col-md-4 mt-4">
-          <img src="http://localhost/reconocelo/assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
+          <img src="http://35.263.41.75/reconocelo/assets/images/reconocelo.png" class="img-fluid mt-4" alt="Responsive image">
         </div>
       </div>
       <div class="row justify-content-center animated apareciendo">
@@ -36,7 +36,7 @@
             Chrome, Firefox
           </small>
           <small class="form-text text-muted text-center">  
-            <a href="http://localhost/reconocelo/"><h5>Iniciar sesion</h5></a> 
+            <a href="http://35.263.41.75/reconocelo/"><h5>Iniciar sesion</h5></a> 
           </small>
         </form>
       </div>

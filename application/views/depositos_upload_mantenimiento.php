@@ -8,7 +8,7 @@
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Advertencia!</strong> 
                 <p>Debes de subir un archivo con la extencion csv.</p>
-                <p>Descarga el siguiente formato para que subas los depositos <a href="http://localhost/reconocelo/assets/images/SubirDepositosMantenimiento.csv" class="text-info">Descargar</a> </p>
+                <p>Descarga el siguiente formato para que subas los depositos <a href="http://35.263.41.75/reconocelo/assets/images/SubirDepositosMantenimiento.csv" class="text-info">Descargar</a> </p>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

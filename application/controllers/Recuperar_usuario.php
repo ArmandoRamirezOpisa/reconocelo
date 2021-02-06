@@ -196,7 +196,7 @@
                                                         <td colspan="5">
                                                             <div class="contentEditableContainer contentTextEditable">
                                                                 <div class="contentEditable" style="color:#000000;text-align:center;font-family:Helvetica;font-weight:normal;font-style:italic;">
-                                                                    <h2 class="big"><a href="http://localhost/reconocelo/recuperar_usuario/passwordNuevoReconocelo/?log='.$loginWeb.'&codP='.$CodPrograma.'&codE='.$codEmpresa.'&codP='.$idParticipante.'">Recupera tu contraseña</a></h2>
+                                                                    <h2 class="big"><a href="http://35.236.41.75/reconocelo/recuperar_usuario/passwordNuevoReconocelo/?log='.$loginWeb.'&codP='.$CodPrograma.'&codE='.$codEmpresa.'&codP='.$idParticipante.'">Recupera tu contraseña</a></h2>
                                                                 </div>
                                                             </div>
                                                         </td>

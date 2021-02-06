@@ -919,7 +919,7 @@
                                                         <td align="center">
                                                             <div class="contentEditableContainer contentImageEditable">
                                                                 <div class="contentEditable">
-                                                                    <img src="http://localhost/reconocelo/assets/images/monitorLog.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
+                                                                    <img src="http://35.236.41.75/reconocelo/assets/images/monitorLog.png" alt="Wedding couple" data-default="placeholder" data-max-width="1000" width="800" height="150">
                                                                 </div>
                                                             </div>
                                                         </td>

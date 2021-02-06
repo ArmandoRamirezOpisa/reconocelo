@@ -20,7 +20,7 @@
     </head>
     <body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
         <nav class="navbar navbar-expand-lg">
-            <a id="inicioMonitor" class="navbar-brand" href="https://www.reconocelo.com.mx/monitor/">
+            <a id="inicioMonitor" class="navbar-brand" href="https://35.263.41.75/reconocelo/monitor/">
                 <img src="../../assets/images/monitorLog.png" width="150" height="30" alt="">
             </a>
         </nav>
@@ -49,7 +49,7 @@
             <div class="alert alert-info" role="alert">
                 La contraseña se cambio exitosamente, ahora ya podras iniciar sesion tu con tu nueva contraseña.
             </div>
-            <a id="InicioSesionMonitor" class="btn btn-primary btn-block" href="https://www.reconocelo.com.mx/monitor/">
+            <a id="InicioSesionMonitor" class="btn btn-primary btn-block" href="https:/35.263.41.75/reconocelo/monitor/">
                 <span class="color-sesionMonitor"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</span>
             </a>
         </div>

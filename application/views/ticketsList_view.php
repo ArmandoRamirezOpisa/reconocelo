@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="https://reconocelo.com.mx/TicketsAdmin/home">Tickets <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="http://35.263.41.75/reconocelo/TicketsAdmin/home">Tickets <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

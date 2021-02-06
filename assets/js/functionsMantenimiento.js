@@ -31,7 +31,7 @@ function loginMantenimiento() {
             beforeSend: function() {},
             success: function(result) {
                 if (result) {
-                    location.href = "http://localhost/reconocelo/Mantenimiento/home";
+                    location.href = location.hostname + "/reconocelo/Mantenimiento/home";
                 } else {
                     $('#MessageError').html('<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Advertencia!</strong> Usuario o contraseña incorrectos.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $('#MessageError').show();
@@ -460,5 +460,5 @@ function uploadPuntosDepoMantenimiento() {
 }
 
 function salirMantenimiento() {
-    location.href = "http://localhost/reconocelo/Mantenimiento/exit_mantenimiento";
+    location.href = location.hostname + "/reconocelo/Mantenimiento/exit_mantenimiento";
 }
