@@ -68,7 +68,7 @@
         }
 
 		public function changePassword(){
-			$this->load->view('includes/home_view_header',$data);
+			$this->load->view('includes/home_view_header');
 			$this->load->view('changePwd_view');
 			$this->load->view('includes/home_view_footer');
 		}
