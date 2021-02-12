@@ -22,7 +22,7 @@ function loginReconocelo() {
         $('#messageIniciar').show();
     } else {
         $.ajax({
-            url: location.href + 'Home/loginReconocelo',
+            url: 'http://35.231.123.181/reconocelo/Home/loginReconocelo',
             async: 'true',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
@@ -37,7 +37,7 @@ function loginReconocelo() {
                     $('#messageIniciar').html('<i class="fas fa-exclamation-circle fa-lg mr-2"></i> Usuario o contraseña incorrecto');
                     $('#messageIniciar').show();
                 } else {
-                    location.href = "https://" + location.hostname + "reconocelo/Home";
+                    location.href = "http://35.231.123.181/reconocelo/Home";
                 }
             },
             error: function(object, error, anotherObject) {},
