@@ -24,16 +24,6 @@
             }
 		}
 
-        public function pruebaLoca(){
-            $data = array(
-                'NombreP' => 'Alfonso',
-                'NombreA' => 'ARmando'
-            );
-
-            print_r($data);
-            die;
-        }
-
         public function loginReconocelo(){
             $loginReconoceloData = array(
                 "usuarioReconocelo"=>$this->input->post('usuarioReconocelo'),
