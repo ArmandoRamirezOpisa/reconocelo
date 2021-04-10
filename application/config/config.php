@@ -21,10 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | If you need to allow multiple domains, remember that this file is still
 | a PHP script and you can easily do that on your own.
-|10.142.0.2
+|
 */
-$config['base_url'] = 'http://35.231.123.181/reconocelo/';
-// $config['base_url'] = 'http://'. $_SERVER['HTTP_HOST'] .'/reconocelo/'; 
+$config['base_url'] = 'https://www.reconocelo.com.mx/';
 
 /*
 |--------------------------------------------------------------------------
@@ -53,8 +52,7 @@ $config['index_page'] = '';
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-// $config['uri_protocol']	= 'REQUEST_URI';
-$config['uri_protocol'] = "REQUEST_URI";
+$config['uri_protocol']	= 'REQUEST_URI';
 
 /*
 |--------------------------------------------------------------------------
@@ -326,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '4P3s12014HeinZp5nt4s';
 
 /*
 |--------------------------------------------------------------------------
