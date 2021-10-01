@@ -86,7 +86,7 @@ class Reconocelo_model1 extends CI_Model {
             d.NumeroGuia,d.Cantidad*d.PuntosXUnidad *-1 as puntos
             FROM Canje p
             INNER JOIN CanjeDetalle d on d.idCanje = p.idCanje
-            INNER join Premio pr ON pr.codPremio = d.CodPremio 
+            LEFT join Premio pr ON pr.codPremio = d.CodPremio 
             WHERE
             p.codPrograma = ".$this->session->userdata('programa')."
             AND p.idParticipante = ".$this->session->userdata('idPart')."

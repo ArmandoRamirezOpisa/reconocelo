@@ -44,21 +44,21 @@
                                 </div>
                             </div>
                         </form>
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5">
-                            <li class="nav-item nav-item-menuReconocelo">
-                                <button data-toggle="tooltip" title="Reglas" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('Home/reglas','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
-                            </li>
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5">                           
                             <li class="nav-item nav-item-menuReconocelo">
                                 <button data-toggle="tooltip" title="Premios" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('Home/getAwards/1','dvSecc')"><i class="fa fa-gift mr-1" aria-hidden="true"  ></i>Premios</button>
                             </li>
                             <li class="nav-item nav-item-menuReconocelo">
-                                <button data-toggle="tooltip" title="Canjes" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('Home/getCanjes','dvSecc')"><i class=" fas fa-archive  mr-1" aria-hidden="true"></i>Canjes</button>
+                                <button data-toggle="tooltip" title="Canjes" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('Home/getCanjes','dvSecc')"><i class=" fas fa-archive  mr-1" aria-hidden="true"></i>Movimientos</button>
+                            </li>
+                            <li class="nav-item nav-item-menuReconocelo">
+                                <button data-toggle="tooltip" title="Reglas" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('Home/reglas','dvSecc')"><i class="fa fa-list-alt mr-1" aria-hidden="true"></i>Reglas</button>
+                            </li>                            
+                            <li class="nav-item nav-item-menuReconocelo">
+                                <button data-toggle="tooltip" title="Ayuda" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('Home/ayuda','dvSecc')"><i class="fas fa-question-circle  mr-1" aria-hidden="true"></i>Ayuda</button>
                             </li>
                             <li class="nav-item nav-item-menuReconocelo">
                                 <button data-toggle="tooltip" title="Carritos" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('Home/showContentCart','dvSecc')"><i class="fa fa-shopping-cart  mr-1" aria-hidden="true"></i>Carrito <span id="numeroCarrito" class="badge badge-light"></span></button>
-                            </li>
-                            <li class="nav-item nav-item-menuReconocelo">
-                                <button data-toggle="tooltip" title="Ayuda" class="btn btn-outline-secondary mr-lg-3" onclick="loadSection('Home/ayuda','dvSecc')"><i class="fas fa-question-circle  mr-1" aria-hidden="true"></i>Ayuda</button>
                             </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0 animated apareciendo">
